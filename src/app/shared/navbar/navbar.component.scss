@@ -1,0 +1,217 @@
+ @import "../../variables.scss";
+ // navbar
+ .navbar {
+    font-weight: 600;
+    position: relative;  
+    ul {
+      display: flex;
+  
+      li {
+        margin: 0 15px;
+         
+        &:last-of-type {
+          margin-right: 0;
+        }
+  
+        &:first-of-type {
+          margin-left: 0;
+        }
+        a {
+            color: #000;
+        }
+        i {
+            font-size: 12px;
+            margin-left: 6px;
+        }
+  
+        &:hover {
+          > div {
+            opacity: 1;
+            visibility: visible;
+            top: 53px
+          }
+        }
+      }
+    }
+  }
+   // mega menu
+   .megamenu_one {
+    position: absolute;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.17);
+    z-index: 2;
+    background-color: $white;
+    top: 84px;
+    width: 100%;
+    right: 0;
+    left: 0;
+    border-top: 1px solid $main-color;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    max-height: 400px;
+    overflow: auto;
+  
+    .category_container {
+      display: flex;
+  
+      .category_img {
+        display: flex;
+        align-items: center;
+  
+        img {
+          max-height: 120px;
+          max-width: 100%;
+        }
+      }
+  
+      .category_details {
+        .sub_categories-content {
+          ul {
+            display: block;
+  
+            li {
+              margin: 0;
+            }
+          }
+        }
+  
+        .sub_categories {
+          .sub_categories-title {
+            font-size: 18px;
+            color: $main-color;
+          }
+  
+          ul {
+            font-size: 14px;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+  
+    .row {
+      margin-bottom: 30px;
+  
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  
+    @media (min-width: 768px) and (max-width : 991.99px) {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+  
+    @media (min-width: 992px) and (max-width:1199.99px) {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+  
+    @media (min-width: 1200px) {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+  }
+  .absolute_megamenu {
+    min-height: 320px;
+    .absolute_img {
+      position: absolute;
+      right: 0;
+      img {
+        max-height: 299px;
+        max-width: 100%;
+      }
+    }
+  }
+  
+  // dropdown
+  .dropdown_one-link {
+    position: relative;
+    &:hover {
+      > div {
+        top : 39px;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  
+  .dropdown_one-content {
+    position: absolute;
+    z-index: 2;
+    background-color: $white;
+    min-width: 150px;
+    padding: 20px;
+    border-top: 1px solid $main-color;
+    top: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.17);
+    ul {
+      display: block;
+  
+      li {
+        cursor: pointer;
+        margin: 0;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        transition: all .3s ease-in-out;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      &:hover {
+        // color: $main-color;
+        margin-left: 5px;
+      }
+      }
+    }
+  .dropdown_one-children {
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    padding: 0;
+    box-shadow: 0 1px 2px 1px #999;
+    list-style-type: none;
+    background: $white;
+    z-index: 999;
+    top: 30px;
+    margin-left: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    ul {
+      li {
+      margin-left: 15px;
+      margin-top: 15px;
+      &:last-of-type {
+        margin-bottom: 15px;
+      }
+      }
+    }
+  }
+  .link_children {
+   &:hover {
+     .dropdown_one-children {
+       top: 0;
+       opacity: 1;
+       visibility: visible;
+     }
+   }
+  }
+  }
+  
+  .traingle_overflow-dropdwon {
+    border-color: $main-color transparent;
+    border-style: solid;
+    border-width: 0 12px 12px;
+    height: 0;
+    width: 0;
+    top: -13px;
+    right: 18px;
+    position: absolute;
+  }
