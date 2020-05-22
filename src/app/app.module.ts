@@ -8,6 +8,7 @@ import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductModule } from './product/product.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     HomeModule,
     AppRoutingModule,
     ProductModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

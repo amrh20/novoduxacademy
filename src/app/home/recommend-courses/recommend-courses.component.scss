@@ -1,6 +1,9 @@
 @import "../../variables.scss";
 
 :host {
+.recommend_slider {
+        margin: 50px 0;
+    }
 .cart_two {
     position: relative;
     cursor: pointer;

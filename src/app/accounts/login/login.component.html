@@ -1,0 +1,74 @@
+
+<!-- section start -->
+<section class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="login__wrapper">
+                <h3>login</h3>
+            <form class="login__content-form">
+                        <div class="form-group">
+                            <input type="text" id="email" placeholder="Phone*"
+                                formControlName="email">
+                        </div>
+                        <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">
+                            email is required
+                        </div>
+                        <div *ngIf="email.touched && email.errors?.email" class="alert alert-danger">
+                            please enter valid email
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="Password*"
+                                formControlName="password">
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                            please enter Password
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
+                            password must be a latest 6 charector
+                        </div>
+                        <div class="login__saved">
+                            <p>remembe me</p>
+                            <a>
+                                forgetpassword
+                                <span>?</span>
+                            </a>    
+                        </div>
+                        <div class="login__btn">
+                            <button class="" [disabled]="!form.valid">log in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="new__account">
+                    <h3>new at  <a>novodux</a>?</h3>
+                    <p> Create Account Now</p>
+                    <div class="create-account">                        
+                        <button class="" type="submit" (click)="CreateAccount()">
+                          register
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="socail_login">
+           <p>
+            OR sign in to your account
+           </p>
+           <div class="buttons">
+               <button class="facebook">
+                facebook
+                   <i class="fa fa-facebook"></i>
+                </button>
+               <button class="google">
+                google
+                   <img src="../../../assets/images/google.png" alt="google">
+                </button>
+           </div>
+          
+        </div>
+    </div>
+</section>
+<!--Section ends-->

@@ -1,0 +1,71 @@
+<!-- section start -->
+<section class="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="register__wrapper">
+                    <h3>register</h3>
+                    <form class="register__content-form">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="name*" formControlName="name">
+                            </div>
+                            <input type="text" id="email" placeholder="email*" formControlName="email">
+                        </div>
+                        <!-- <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">
+                            email is required
+                        </div>
+                        <div *ngIf="email.touched && email.errors?.email" class="alert alert-danger">
+                            please enter valid email
+                        </div> -->
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="Password*" formControlName="password">
+                        </div>
+                        <!-- <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                            please enter Password
+                        </div>
+                        <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
+                            password must be a latest 6 charector
+                        </div> -->
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="ConfirmPassword*"
+                                formControlName="password">
+                        </div>
+
+                        <div class="register__btn">
+                            <button class="">register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="new__account">
+                    <p> Already have an Account</p>
+                    <div class="create-account">
+                        <button class="" (click)="loginNav()">
+                            login
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="socail_login">
+            <p>
+                OR sign up with
+            </p>
+            <div class="buttons">
+                <button class="facebook">
+                    facebook
+                    <i class="fa fa-facebook"></i>
+                </button>
+                <button class="google">
+                    google
+                    <img src="../../../assets/images/google.png" alt="google">
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Section ends-->
