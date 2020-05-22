@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "app/variables.scss";
 ul {
     margin: 0;
     padding: 0;
@@ -13,6 +13,134 @@ input:focus,input:active {
     box-shadow: none;
     outline: none;
 }
+.tittle_innerpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $main-color;
+    text-transform: capitalize;
+}
+button {
+    border: 0;
+    background: $second-color;
+    padding: 7px 15px;
+    color: #fff;
+    text-transform: capitalize;
+    border-radius: 10px;
+}
+
+.hr-text {
+    font-size: 20px;
+    position: relative;
+    border: 0;
+    height: 1.5em;
+    max-width: 50%;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+.view_more {
+    letter-spacing: 1px;
+    background: none;
+    color: #000;
+    position: relative;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 190px;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 600;
+    z-index: 2;
+    -webkit-transition: all 0.01s ease-out 0.23s;
+    -o-transition: 0.01s 0.23s ease-out all;
+    transition: all 0.01s ease-out 0.23s;
+    overflow: hidden;
+}
+.view_more:before {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 55%;
+    background: $main-color;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: 0.3s ease-in all;
+    transition: all 0.3s ease-in;
+}
+.view_more:after,
+.view_more:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+.view_more:after {
+    left: -5%;
+    top: 5%;
+    height: 90%;
+    width: 5%;
+    background: #fff;
+    -webkit-transition: all 0.4s ease-in 0.02s;
+    -o-transition: 0.4s 0.02s ease-in all;
+    transition: all 0.4s ease-in 0.02s;
+}
+.view_more:hover {
+    cursor: pointer;
+    color: $main-color;
+}
+.view_more:hover:before {
+    left: 100%;
+    width: 25%;
+}
+.view_more:hover:after {
+    left: 100%;
+    width: 70%;
+}
+.view_more:hover .icon-right.after:after {
+    left: -80px;
+    color: transparent;
+    -webkit-transition: all 0.2s ease 0.2s;
+    -o-transition: 0.2s 0.2s ease all;
+    transition: all 0.2s ease 0.2s;
+}
+.view_more:hover .icon-right.after:before {
+    left: -104px;
+    top: 14px;
+    opacity: 0.2;
+    color: #fff;
+}
+.icon-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.icon-right:after {
+    font-family: FontAwesome;
+    content: "\2192";
+    font-size: 24px;
+    display: inline-block;
+    position: relative;
+    top: 26px;
+    -webkit-transform: translate3D(0, -50%, 0);
+    -ms-transform: translate3D(0, -50%, 0);
+    transform: translate3D(0, -50%, 0);
+}
+.icon-right.after:after {
+    left: -250px;
+    color: #000;
+    -webkit-transition: left 0.15s ease 0.25s, color 0.5s ease 0.05s;
+    -o-transition: 0.15s 0.25s ease left, 0.5s 0.05s ease color;
+    transition: left 0.15s ease 0.25s, color 0.5s ease 0.05s;
+}
+.icon-right.after:before {
+    content: "Explore";
+    position: absolute;
+    left: -230px;
+    top: 14px;
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: 0.2s ease-in all;
+    transition: all 0.2s ease-in;
+}
+
 body {
     font-family: 'Balsamiq Sans', cursive;
     font-size: 16px;

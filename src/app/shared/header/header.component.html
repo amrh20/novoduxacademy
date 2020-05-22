@@ -2,15 +2,21 @@
         <div class="container">
             <div class="header__wrapper">
                 <div class="header__logo">
+                  <a routerLink="/home">
                     <img src="https://static.wixstatic.com/media/9dc788_d3a34bea2ea84b45b6645d56c9769a49~mv2.png/v1/fill/w_193,h_60,al_c,q_85,usm_0.66_1.00_0.01/Novologo.webp" alt="">
-                </div>
+                  </a>
+                  </div>
               <div class="header__navbar">
                 <app-navbar></app-navbar>
               </div>
               <div class="icons_search">
                 <div class="header__icons">
+                  <a routerLink="product/cart">
                     <img src="../../../assets/images/Cart.png" alt="">
+                  </a>
+                  <a routerLink="product/wishlist">
                     <img src="../../../assets/images/wishlist.png" alt="">
+                  </a>
                     <img src="../../../assets/images/Profile.png" alt="">
                 </div>
                 <div class="header__search">
@@ -24,64 +30,4 @@
         </div>
     </div>
 
-  <div class="main__slider">
-    <ngx-slick-carousel class="carousel" 
-    #slickModal="slick-carousel" 
-    [config]="sliderConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-    <img src="{{ slide.img }}" alt="">
-    </div>
-    </ngx-slick-carousel>
-  </div>
-
-    <!-- start feature categories -->
-    <div class="feature_products">
-        <div class="collection_block">
-          <div class="block">
-            <img src="../../../assets/images/insta3.jpg" alt="" id="img1">
-            <div class="blocklayer"></div>
-            <div class="txt">
-              women fashion
-            </div>
-            <div class="overlay_btn">
-              <button>
-                <a href="shop.html">shop now</a>
-                <i class="fa fa-shopping-cart"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="collection_block">
-          <div class="block">
-            <img src="../../../assets/images/slider3.png" alt="" id="img1">
-            <div class="txt">
-              women fashion
-            </div>
-            <div class="overlay_btn">
-              <button>
-                <a href="shop.html">shop now</a>
-                <i class="fa fa-shopping-cart"></i>
-              </button>
-            </div>
-            <div class="blocklayer"></div>
-          </div>
-        </div>
-        <div class="collection_block">
-          <div class="block">
-            <img src="../../../assets/images/insta1.jpg" alt="" id="img1">
-            <div class="txt">
-              men fashion
-            </div>
-            <div class="overlay_btn">
-              <button>
-                <a href="shop.html">shop now</a>
-                <i class="fa fa-shopping-cart"></i>
-              </button>
-            </div>
-            <div class="blocklayer"></div>
-          </div>
-        </div>
-
-
-   
-      </div>
+  

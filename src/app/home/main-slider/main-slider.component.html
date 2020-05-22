@@ -1,1 +1,9 @@
-<p>main-slider works!</p>
+<div class="main__slider">
+    <ngx-slick-carousel class="carousel" 
+    #slickModal="slick-carousel" 
+    [config]="sliderConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <img src="{{ slide.img }}" alt="">
+    </div>
+    </ngx-slick-carousel>
+  </div>
