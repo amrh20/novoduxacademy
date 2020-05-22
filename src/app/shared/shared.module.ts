@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -10,7 +11,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   declarations: [HeaderComponent, NavbarComponent],
   imports: [
     CommonModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    RouterModule
   ],
   exports:[HeaderComponent,SlickCarouselModule]
 })
