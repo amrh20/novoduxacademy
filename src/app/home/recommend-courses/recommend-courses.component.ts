@@ -19,4 +19,7 @@ export class RecommendCoursesComponent implements OnInit {
     slidesToShow: 4,
     slidesToScroll: 1
   };
+
+
+  
 }
