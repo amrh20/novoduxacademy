@@ -1,3 +1,89 @@
+
+@import "../../variables.scss";
+
+:host {
+  .courses {
+    margin: 100px 0;
+    &__wrapper {
+      display: flex;
+      .left_side {
+        max-width: 35%;
+        flex-basis: 35%;
+        .title {
+          position: relative;
+          h3 {
+            font-size: 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+          }
+          span {
+            width: 60px;
+            height: 4px;
+            position: absolute;
+            left: 0px;
+            bottom: -11px;
+            background-color: $main-color;
+          }
+        }
+        .content {
+          margin-top: 40px;
+          span {
+            text-transform: capitalize;
+            font-size: 22px;
+          }
+          p {
+            margin-top: 20px;
+            width: 90%;
+          }
+        }
+        .btns {
+          margin-top: 30px;
+          button {
+            padding: 12px 25px;
+          }
+        }
+      }
+      .right_side {
+        max-width: 65%;
+        flex-basis: 65%;
+        img {
+          max-height: 300px;
+          margin: 0 auto;
+        }
+      }
+    }
+   
+  }
+  ::ng-deep {
+    .fa-angle-left,
+    .fa-angle-right {
+      height: 35px;
+      width: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      border: 1.5px solid $main-color;
+    }
+    .fa-angle-left {
+      position: absolute;
+      top: -50px;
+      right: 70px;
+    }
+    .fa-angle-right {
+      position: absolute;
+      top: -50px;
+      right: 13px;
+    }
+    .fa-angle-left:before,.fa-angle-right:before {
+      color: $main-color;
+    }
+}
+
+}
+
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -29,23 +115,23 @@
     flex-wrap: wrap;
   }
   .feature_products .collection_block {
-    width: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
+    // width: 100%;
+    // -ms-flex-preferred-size: 100%;
+    // flex-basis: 100%;
     padding: 20px 10px;
   }
   @media (min-width: 560px) and (max-width: 992px) {
     .feature_products .collection_block {
-        width: 50%;
-        -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
+        // width: 50%;
+        // -ms-flex-preferred-size: 50%;
+        // flex-basis: 50%;
     }
   }
   @media (min-width: 992.1px) {
     .feature_products .collection_block {
-        width: 33.333%;
-        -ms-flex-preferred-size: 33.333%;
-        flex-basis: 33.333%;
+        // width: 33.333%;
+        // -ms-flex-preferred-size: 33.333%;
+        // flex-basis: 33.333%;
     }
   }
   .feature_products img {

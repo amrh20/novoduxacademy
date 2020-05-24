@@ -1,6 +1,16 @@
 @import "../../variables.scss";
 
 :host {
+    ::ng-deep {
+        .slick-prev:before, 
+        .slick-next:before {
+         color: $main-color;
+         font-size: 35px;
+        }
+        .slick-prev {
+            left: -35px;
+        }
+    }
 .recommend_slider {
         margin: 50px 0;
     }
@@ -130,14 +140,4 @@
     text-align: center;
     width: 100%;
     margin: 40px 0;
-}
-::ng-deep {
-    .slick-prev:before, 
-    .slick-next:before {
-     color: $main-color;
-     font-size: 35px;
-    }
-    .slick-prev {
-        left: -35px;
-    }
 }

@@ -17,6 +17,6 @@ export class RecommendCoursesComponent implements OnInit {
     arrows: true,
     dots: false,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 1
   };
 }
