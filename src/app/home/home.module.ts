@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { homeRoutingModule } from './home-routing.module';
 import { RecommendCoursesComponent } from './recommend-courses/recommend-courses.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ProductModule } from '../product/product.module';
 
 @NgModule({
   declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent],
@@ -14,6 +15,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CommonModule,
     SharedModule,
     homeRoutingModule,
+    ProductModule,
     SlickCarouselModule
   ],
   exports: []

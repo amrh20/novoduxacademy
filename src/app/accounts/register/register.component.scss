@@ -41,7 +41,7 @@
            opacity: 1;
            padding: 10px;
            font-size: 18px;
-           margin: 30px 0 60px 0;
+           margin: 30px 0;
            text-transform: capitalize;
          }
        }
@@ -53,6 +53,7 @@
         letter-spacing: 0.04em;
         font-family: "Lalezar", cursive;
       }
+     
       .new__account {
         margin-left: 20%;
         [dir= rtl] & {
@@ -70,6 +71,9 @@
           letter-spacing: 0.04em;
           font-family: "Lalezar", cursive;
           margin-bottom: 40px;
+          &:nth-of-type(2) {
+            font-size: 16px;
+          }
         }
         ul {
           li {

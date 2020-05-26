@@ -66,10 +66,12 @@
           text-transform: capitalize;
           font-weight: 500;
           color: #000;
-          font-size: 35px;
           letter-spacing: 0.04em;
           font-family: "Lalezar", cursive;
           margin-bottom: 40px;
+          &:first-of-type {
+            font-size: 35px;
+          }
         }
         ul {
           li {

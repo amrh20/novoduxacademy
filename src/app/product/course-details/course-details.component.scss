@@ -1,0 +1,190 @@
+@import "../../variables.scss";
+:host {
+    .course {
+        &__wrapper {
+            padding: 50px 0 30px 0;
+            display: flex;
+            &--details {
+                max-width: 72%;
+                margin-right: 3%;
+                &-txt {
+                    margin: 30px 0;
+                    span {
+                        color:$main-color;
+                        border-bottom: 2px solid #000;
+                        text-transform: capitalize;
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                    p {
+                        margin-top: 20px;
+                    }
+                }
+            }
+            &--order {
+                max-width: 25%;
+                background: #fff;
+                box-shadow: 0 0 20px rgba(51,51,51,.1);
+                padding: 0 15px 20px 15px;
+                height: fit-content;
+                width: 100%;
+                min-height: 200px;
+                .detail {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px;
+                    border-bottom: 1px solid #eee;
+                    p {
+                        text-transform: capitalize;
+                        &:first-of-type {
+                            color: $main-color;
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                    }
+                    &:last-of-type {
+                        border-bottom: 0;
+                    }
+                }
+                .enroll {
+                    text-align: center;
+                    margin-top: 20px;
+                    button {
+                        padding: 10px 50px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        &__reviews {
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid #eee;
+            h2 {
+                text-align: center;
+                font-size: 25px;
+                font-weight: 600;
+                text-transform: capitalize;
+                border-bottom: 1px solid #d0c9c9;
+                width: fit-content;
+                margin: 0 auto;
+                padding-bottom: 5px;
+                color: $main-color;
+                margin-bottom: 25px;
+            }
+          .addReview {
+                        margin-top: 40px;
+                        border-top: 1px solid #d0c9c9;
+                        padding-top: 20px;
+                        .addReview-content {
+                            width: 60%;
+                            margin: 0 auto;
+                            
+                            .add_rating {
+                                i {
+                                    cursor: pointer;
+                                    &:hover {
+                                        color: #ffa200;
+                                    }
+                                }
+                            }
+                            .cs-row {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-align: center;
+                                -ms-flex-align: center;
+                                align-items: center;
+                                margin-top: 15px;
+                                -webkit-box-pack: justify;
+                                -ms-flex-pack: justify;
+                                justify-content: space-between;
+                                .add_rating {
+                                    margin-left: 15px;
+                                }
+                                textarea {
+                                    min-height: 200px;
+                                    -webkit-box-shadow: none;
+                                    box-shadow: none;
+                                    background: none;
+                                    overflow: hidden;
+                                    border-radius: 20px;
+                                    border: 1px solid #d1d1d1;
+                                }
+                            }
+                            input {
+                                min-width: 400px;
+                                -webkit-box-shadow: none;
+                                box-shadow: none;
+                                background: none;
+                                overflow: hidden;
+                                border-radius: 20px;
+                                border: 1px solid #d1d1d1;
+                                font-size: 14px;
+                                max-height: 44px;
+                            }
+                        }   
+                 }  
+          .product_rating {
+                    margin-bottom: 10px;
+                }
+           .review_comment {
+                    p {
+                        margin-top: 10px;
+                    }
+                }           
+            @media (max-width: 768px) {
+                
+                        .addReview {
+                            .addReview-content {
+                                .add_rating {
+                                    margin-top: 15px;
+                                    text-align: center;
+                                }
+                                .cs-row {
+                                    textarea {
+                                        min-width: 280px;
+                                    }
+                                    display: block;
+                                }
+                                input {
+                                    min-width: 280px;
+                                    max-height: 38px;
+                                }
+                                width: 100%;
+                                margin: unset;
+                            }
+                        }
+                    } 
+            @media (max-width: 768x) {
+                    .productdeatils_tabs {
+                        .addReview {
+                            .addReview-content {
+                                .cs-row {
+                                    .add_rating {
+                                        margin: 15px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+              }
+           
+        }
+        .recommend_slider {
+            margin-bottom: 50px;
+        }
+    }
+    ::ng-deep {
+        .slick-prev:before, 
+        .slick-next:before {
+         color: $main-color;
+         font-size: 35px;
+        }
+        .slick-prev {
+            left: -35px;
+        }
+    }
+}
+
