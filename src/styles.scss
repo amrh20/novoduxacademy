@@ -144,7 +144,6 @@ button:focus {
 		justify-content: center;
 		img {
 			max-height: 250px;
-			padding: 20px;
 		}
 	}
 	.image {
@@ -488,5 +487,6 @@ button:focus {
 
 body {
     font-family: 'Balsamiq Sans', cursive;
-    font-size: 16px;
+	font-size: 16px;
+	overflow: hidden;
 }

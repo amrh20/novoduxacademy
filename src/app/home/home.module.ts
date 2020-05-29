@@ -8,9 +8,11 @@ import { homeRoutingModule } from './home-routing.module';
 import { RecommendCoursesComponent } from './recommend-courses/recommend-courses.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductModule } from '../product/product.module';
+import { TimelineComponent } from './timeline/timeline.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
-  declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent],
+  declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent, TimelineComponent, AboutUsComponent],
   imports: [
     CommonModule,
     SharedModule,

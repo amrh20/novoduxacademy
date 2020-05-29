@@ -1,0 +1,43 @@
+@import "../../variables.scss";
+.about__us {
+  margin: 100px;
+  .txt {
+    background: #faf8f6;
+    padding: 50px;
+    line-height: 1.8;
+  }
+  img {
+    background: #f1cbcb;
+    position: relative;
+    top: 30px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+}
+.goals {
+    background-color: $main-color;
+    padding: 30px 0;
+    color: #fff;
+    h3{
+        border-bottom: 1.5px solid #fff;
+        width: fit-content;
+        margin: 0 auto;
+        padding-bottom: 4px;
+        margin-bottom: 40px;
+    }
+    h4 {
+        font-size: 18px;
+        margin-top: 15px;
+        text-align: center;
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+            max-height: 120px;
+        }
+    }
+}
