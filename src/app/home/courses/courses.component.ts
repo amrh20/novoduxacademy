@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/shared/services/home.service';
 
 @Component({
   selector: 'app-courses',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-
-  constructor() { }
+  categories: any;
+  imagePath = "http://novoduxapi.native-tech.co/Images/CategoryImages/"
+  constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
+    this.homeService.getHomeDate().subscribe((res: any) => {
+      console.log(res)
+      // console.log(res.model.Categories)
+      this.categories= res.model.Categories
+      console.log(this.categories)
+    })
+    console.log(this.imagePath)
   }
   public sliderConfig: any = {
     autoplay: false,

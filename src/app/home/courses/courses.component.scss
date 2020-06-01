@@ -52,6 +52,8 @@
         }
         .slide_img {
           position: relative;
+          padding: 10px;
+          margin-bottom: 10px;
           .view_course {
             position: absolute;
             top: 80%;
@@ -94,6 +96,9 @@
               opacity: .6;
               visibility: visible;
             }
+          }
+          img {
+            max-width: 100%;
           }
         }
  
@@ -141,8 +146,10 @@
   }
   .course__detials-name {
     padding-bottom: 15px;
-    border-bottom: 2px solid #000;
+    // border-bottom: 2px solid #000;
     text-align: center;
+    color: $main-color;
+    font-weight: 800;
    h3 {
      font-size: 20px;
    }
