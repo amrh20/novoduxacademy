@@ -5,47 +5,75 @@
             <div class="col-6">
                 <div class="register__wrapper">
                     <h3>register</h3>
-                    <form class="register__content-form">
+                    <form class="register__content-form" [formGroup]="regform" (ngSubmit)="register()">
                         <div class="form-group">
-                            <div class="form-group">
-                                <input type="text" id="name" placeholder="Name*" formControlName="name">
+                            <input type="text" id="name" placeholder="Name*" formControlName="name">
+                        </div>
+                        <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">
+                            name is required
+                        </div>
+                        <div class="phone_content">
+                            <div class="form-group" class="left_side">
+                                <select name="" id="">
+                                    <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
+                                </select>
                             </div>
-                            <input type="text" id="email" placeholder="Email*" formControlName="email">
+                            <div class="form-group" class="right_side">
+                                <input type="number" id="phone" placeholder="Phone Number*" formControlName="Phone">
+                            </div>
                         </div>
-                        <!-- <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">
-                            email is required
+                        <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
+                            phone number is required
                         </div>
-                        <div *ngIf="email.touched && email.errors?.email" class="alert alert-danger">
-                            please enter valid email
-                        </div> -->
+                        <div class="form-group">
+                            <input type="text" id="email" placeholder="Email" formControlName="email">
+                        </div>
                         <div class="form-group">
                             <input type="password" id="password" placeholder="Password*" formControlName="password">
                         </div>
-                        <!-- <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
-                            please enter Password
+                        <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
+                            Password is required
                         </div>
                         <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
                             password must be a latest 6 charector
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="ConfirmPassword" placeholder="Confirm Password*"
+                                formControlName="ConfirmPassword">
+                        </div>
+                        <div *ngIf="ConfirmPassword.touched && ConfirmPassword.value !== password.value"
+                            class="alert alert-danger">
+                            passwords not match
+                        </div>
+                        <!-- <div *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.minlength" 
+                        class="alert alert-danger">
+                            Confirm Password is required
                         </div> -->
                         <div class="form-group">
-                            <input type="password" id="password" placeholder="ConfirmPassword*"
-                                formControlName="password">
+                            <select name="category" id="category" (change)="selectOption($event.target.value)"
+                                class="category-select">
+                                <option value="">select your category*</option>
+                                <option value="{{category.Id}}" *ngFor="let category of categories">
+                                    {{category.Name}}
+                                </option>
+                            </select>
                         </div>
-
                         <div class="register__btn">
-                            <button class="">register</button>
+                            <button class="" type="submit" [disabled]="!regform.valid">register</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-6">
                 <div class="new__account">
+                    <img src="../../../assets/images/register.jpeg" alt="">
                     <p> Already have an Account</p>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatem doloremque ab in dignissimos, quis, eius sed minima non nobis officiis.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatem doloremque ab in
+                        dignissimos, quis, eius sed minima non nobis officiis.
                     </p>
                     <div class="create-account">
-                        <button class="" (click)="loginNav()">
+                        <button class="w-100" (click)="loginNav()" >
                             login
                         </button>
                     </div>
@@ -53,7 +81,7 @@
 
             </div>
         </div>
-        <div class="socail_login">
+        <!-- <div class="socail_login">
             <p>
                 OR sign up with
             </p>
@@ -68,7 +96,7 @@
                 </button>
             </div>
 
-        </div>
+        </div> -->
     </div>
 </section>
 <!--Section ends-->

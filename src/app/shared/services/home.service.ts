@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomeService {
 
   apiBaseURL= `${environment.baseUrl}`
+  
   constructor(private http:HttpClient) { 
     
   }

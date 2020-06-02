@@ -25,7 +25,7 @@ input:focus,input:active {
 }
 button {
     border: 0;
-    background: $second-color;
+    background: $main-color;
     padding: 7px 15px;
     color: #fff;
     text-transform: capitalize;
@@ -483,6 +483,23 @@ button:focus {
 		color: #ffa200;
 		font-size: 12px;
 	}
+}
+// input 
+button:disabled,
+button[disabled]{
+  opacity: .5 !important;
+  cursor: not-allowed;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 body {
     font-family: 'Balsamiq Sans', cursive;

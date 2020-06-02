@@ -1,25 +1,19 @@
-
 <!-- section start -->
 <section class="login">
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <div class="login__wrapper">
-                <h3>login</h3>
-            <form class="login__content-form">
+                    <h3>login</h3>
+                    <form class="login__content-form" [formGroup]="loginForm">
                         <div class="form-group">
-                            <input type="text" id="email" placeholder="Phone*"
-                                formControlName="email">
+                            <input type="number" id="Phone" placeholder="Phone Number*" formControlName="Phone">
                         </div>
-                        <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">
-                            email is required
-                        </div>
-                        <div *ngIf="email.touched && email.errors?.email" class="alert alert-danger">
-                            please enter valid email
+                        <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
+                            Phone number is required
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" placeholder="Password*"
-                                formControlName="password">
+                            <input type="password" id="password" placeholder="Password*" formControlName="password">
                         </div>
                         <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
                             please enter Password
@@ -32,31 +26,27 @@
                             <a>
                                 forgetpassword
                                 <span>?</span>
-                            </a>    
+                            </a>
                         </div>
                         <div class="login__btn">
-                            <button class="" [disabled]="!form.valid">log in</button>
+                            <button [disabled]="!loginForm.valid">log in</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-6">
                 <div class="new__account">
-                    <h3>new at  <a>novodux</a>?</h3>
-                    <p> Create Account Now</p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae et sunt reprehenderit doloremque quia autem commodi dolorem hic placeat.
-                    </p>
-                    <div class="create-account">                        
-                        <button class="" type="submit" (click)="CreateAccount()">
-                          register
+                    <img src="../../../assets/images/login.jpeg" alt="" style="max-width: 100%;">
+                    <h3 class="text-center">new at <a>novodux</a>?</h3>
+                    <div class="create-account">
+                        <button class="" type="submit" (click)="CreateAccount()" style="width: 100%;">
+                            create new account
                         </button>
                     </div>
                 </div>
-                
             </div>
         </div>
-        <div class="socail_login">
+        <!-- <div class="socail_login">
            <p>
             OR sign in to your account
            </p>
@@ -71,7 +61,7 @@
                 </button>
            </div>
           
-        </div>
+        </div> -->
     </div>
 </section>
 <!--Section ends-->

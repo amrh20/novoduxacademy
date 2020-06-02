@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  form= new FormGroup({
-    email: new FormControl('', [Validators.required,Validators.email]),
+  loginForm= new FormGroup({
+    Phone: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required,Validators.minLength(6)])
   });
-  get email() {
-    return this.form.get('email');
+  get Phone() {
+    return this.loginForm.get('Phone');
   }
   get password() {
-    return this.form.get('password');
+    return this.loginForm.get('password');
   }
   constructor(private router:Router) { }
 
