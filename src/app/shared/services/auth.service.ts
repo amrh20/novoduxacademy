@@ -9,14 +9,15 @@ export class AuthService {
   apiBaseURL= `${environment.baseUrl}`
 
   constructor(private http:HttpClient) { }
-  register(Name,PhoneKey,phoneNumber,CategoryId,Password,ConfirmPassword) {
+  register(Name :string,PhoneKey:string,PhoneNumber,CategoryId:string,Password:string,ConfirmPassword:string) {
     return this.http.post(`${this.apiBaseURL}/Register`,{
       Name,
       PhoneKey,
-      phoneNumber,
+      PhoneNumber,
       CategoryId,
       Password,
       ConfirmPassword
     })
   }
+
 }

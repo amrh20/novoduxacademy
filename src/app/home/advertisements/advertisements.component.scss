@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+.ads {
+    margin-top: 60px;
+    position: relative;
+    img {
+        max-height: 300px;
+        width: 100%;
+    }
+    .overlay_txt {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+       h3 {
+        text-align: center;
+        background: #ff5b5b;
+        padding: 15px;
+        color: #fff;
+       }
+       p {
+        background-color: #5E2266;
+        color: #fff;
+        padding: 20px;
+        margin-top: -11px;
+       }
+    }
+}

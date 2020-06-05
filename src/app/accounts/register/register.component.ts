@@ -55,12 +55,13 @@ export class RegisterComponent implements OnInit {
    }
  register() {
   const Name = this.regform.value.name
-  const PhoneKey= +20
-  const phoneNumber = this.regform.value.Phone
-  const CategoryId= 1
+  const PhoneKey= "+20"
+  const PhoneNumber = this.regform.value.Phone
+  const CategoryId= "2"
   const Password= this.regform.value.password
   const ConfirmPassword= this.regform.value.ConfirmPassword
-   this.authService.register(Name,PhoneKey,phoneNumber,CategoryId,Password,ConfirmPassword).subscribe(res=> {  
+  console.log(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword)
+   this.authService.register(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword).subscribe(res=> {  
      this.regform.reset()
    },err => {
     this.regform.reset()

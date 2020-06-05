@@ -10,9 +10,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductModule } from '../product/product.module';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AdvertisementsComponent } from './advertisements/advertisements.component';
 
 @NgModule({
-  declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent, TimelineComponent, AboutUsComponent],
+  declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent, TimelineComponent, AboutUsComponent, AdvertisementsComponent],
   imports: [
     CommonModule,
     SharedModule,

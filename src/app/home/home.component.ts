@@ -10,6 +10,7 @@ import { HomeService } from '../shared/services/home.service';
 })
 export class HomeComponent implements OnInit {
   apiBaseURL=`${environment.baseUrl}`;
+  
   constructor(private http:HttpClient,private homeService:HomeService) { 
   }
 

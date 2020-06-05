@@ -1,0 +1,7 @@
+<div class="ads"  *ngFor= "let ad of advertisements">
+    <img [src]="imagePath + ad.Image" alt="">
+    <div class="overlay_txt">
+        <h3>{{ad.Title}}</h3>
+        <p>{{ad.Description}}</p>
+    </div>
+</div>

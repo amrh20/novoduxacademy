@@ -13,10 +13,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.getHomeDate().subscribe((res: any) => {
-      console.log(res)
-      // console.log(res.model.Categories)
       this.categories= res.model.Categories
-      console.log(this.categories)
     })
     console.log(this.imagePath)
   }
