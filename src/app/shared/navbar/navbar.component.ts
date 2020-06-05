@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  listOfCategory;
+  constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
+    this.homeService.getcategoryandSub().subscribe((res:any) => {
+      this.listOfCategory= res.model
+      // console.log(this.listOfCategory)
+    })
   }
 
 }

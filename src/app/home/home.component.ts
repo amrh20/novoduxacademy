@@ -10,13 +10,13 @@ import { HomeService } from '../shared/services/home.service';
 })
 export class HomeComponent implements OnInit {
   apiBaseURL=`${environment.baseUrl}`;
-  
+  listOfCategory;
   constructor(private http:HttpClient,private homeService:HomeService) { 
   }
 
 
   ngOnInit(): void {
-   
+  
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  constructor(private homeService:HomeService) { }
 
 public featureConfig: any= {
   autoplay: true,
@@ -21,6 +21,7 @@ onclick() {
   console.log("tets")
 }
   ngOnInit(): void {
+   
   }
 
 }

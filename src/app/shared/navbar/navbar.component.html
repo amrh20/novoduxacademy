@@ -2,56 +2,22 @@
     <div class="navbar">
         <div class="container">
           <ul>
-        
-            <li>
-              <a routerLink="/courses">Courses</a>
-              <i class="fa fa-chevron-down"></i>
-              <div class="dropdown_one-content">
-                <ul>
-                  <li>
-                    <a>shop page</a>
-                  </li>
-                  <li>
-                    <a>wishlist Page</a>
-                  </li>
-                  <li>
-                    <a>product details</a>
-                  </li>
-                  <li class="link_children">
-                    drop down
-                    <i class="fa fa-chevron-right"></i>
-                    <div class="dropdown_one-children">
-                      <ul>
-                        <li>child one</li>
-                        <li>child two</li>
-                        <li>child three</li>
-                        <li>child four</li>
-                      </ul>
-                    </div>
-
-                  </li>
-                  <li>
-                    <a>faq page</a>
-                  </li>
-                  <li>
-                    <a>contact us page</a>
-                  </li>
-                  <li>
-                    <a>compare page</a>
-                  </li>
-                  <li>
-                    <a>checkout page</a>
-                  </li>
-                  <li>
-                    <a>cart page</a>
-                  </li>
-                  <li>
-                    <a>about us page</a>
-                  </li>
-                </ul>
-                <!-- <div class="traingle_overflow-dropdwon">    
-                  </div> -->
-              </div>
+            <li *ngFor="let taxon of listOfCategory">
+              <a routerLink="/courses/{{taxon.Id}}"
+              >
+               {{taxon.Name}}
+              </a>
+                <i class="fa fa-chevron-down" *ngIf="taxon.SubCategories"></i>
+                <ng-container *ngIf="taxon.SubCategories">
+                  <div class="dropdown_one-content">
+                    <ul>
+                      <li *ngFor="let subtaxon of taxon.SubCategories">
+                        {{subtaxon.Name}}
+                      </li>
+                    </ul>
+                  </div>
+                </ng-container>
+               
             </li>           
             <li>
               <a>Contact us</a>

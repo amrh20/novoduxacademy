@@ -16,7 +16,7 @@ const routes: Routes = [
     component: WishlistComponent
   },
   {
-    path: 'courses',
+    path: 'courses/:id',
     component: CoursesComponent
   },
   {

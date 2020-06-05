@@ -6,26 +6,24 @@
     <img src="{{ slide.img }}" alt="">
     </div>
     </ngx-slick-carousel>
-
     <div class="steps">
       <div class="steps__wrapper">
         <h3>
           search your course
         </h3>
-
         <div class="last">
           <div>
-            <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type">
+            <select name="sources" id="sources" class="custom-select sources" 
+                    (change)="onChangeTaxons($event.target.value)">
               <option value="profile">Select category</option>
-              <option value="word">Word</option>
-              <option value="hashtag">Hashtag</option>
+              <option value="{{taxon.Id}}" *ngFor= "let taxon of taxons">{{taxon.Name}}</option>
             </select>
           </div>
           <div>
-            <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type">
+            <select name="sources" id="sources" 
+            class="custom-select sources">
               <option value="profile">Select sub category</option>
-              <option value="word">Word</option>
-              <option value="hashtag">Hashtag</option>
+              <option value="{{subtaxon.Id}}" *ngFor= "let subtaxon of subTaxons">{{subtaxon.Name}}</option>
             </select>
           </div>
   

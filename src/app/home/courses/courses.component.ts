@@ -15,7 +15,6 @@ export class CoursesComponent implements OnInit {
     this.homeService.getHomeDate().subscribe((res: any) => {
       this.categories= res.model.Categories
     })
-    console.log(this.imagePath)
   }
   public sliderConfig: any = {
     autoplay: false,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/shared/services/home.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 declare var $: any;
 
 @Component({
@@ -7,10 +9,21 @@ declare var $: any;
   styleUrls: ['./main-slider.component.scss']
 })
 export class MainSliderComponent implements OnInit {
-
-  constructor() { }
+  taxons;
+  subTaxons;
+  constructor(private homeService:HomeService, private productService: ProductService) { }
   ngOnInit(): void {
     $.getScript('mainscript.js');
+    this.productService.GetTaxons().subscribe((res: any) => {
+      this.taxons= res.model
+    })
+  
+  }
+  onChangeTaxons(e) {
+    let id=e;
+    this.productService.GetSubTaxons(id).subscribe((res: any)=> {
+      this.subTaxons= res.model
+    }) 
   }
   slides = [
     {img: "https://www.youstudy.com/gallery/blog/post/studying-medicine-in-the-uk.jpg"},

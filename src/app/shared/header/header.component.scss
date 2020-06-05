@@ -11,16 +11,16 @@
         &__logo {
             display: flex;
             align-items: center;
-            max-width: 25%;
-            flex-basis: 25%;
+            max-width: 20%;
+            flex-basis: 20%;
             cursor: pointer;
             img {
                 max-height: 50px;
             }
         }
         &__navbar {
-            max-width: 50%;
-            flex-basis: 50%;
+            max-width: 55%;
+            flex-basis: 55%;
         }
         .icons_search {
             max-width: 25%;
