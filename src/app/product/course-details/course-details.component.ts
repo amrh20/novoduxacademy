@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class CourseDetailsComponent implements OnInit {
   coursdetails: any;
-
+  reviews: any;
   constructor(private activeRoute:ActivatedRoute,
               private productService : ProductService) { }
 
@@ -19,6 +19,9 @@ export class CourseDetailsComponent implements OnInit {
       this.productService.getCourseDetails(id).subscribe((res: any) => {
         this.coursdetails= res.model
         console.log("courseDetails", this.coursdetails)
+      })
+      this.productService.getReviews(id).subscribe((res: any) => {
+        this.reviews= res.model;
       })
     })
   }

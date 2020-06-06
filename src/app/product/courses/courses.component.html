@@ -131,11 +131,7 @@
                             </div>
                             <div class="cart_deatils">
                               <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <bar-rating [rate]="course.CourseRateValue"></bar-rating>
                               </div>
                               <div class="product_name">
                                   <a routerLink="/course/{{course.Id}}">

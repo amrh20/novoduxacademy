@@ -8,7 +8,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { SharedModule } from '../shared/shared.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
+import { BarRatingModule } from "ngx-bar-rating";
 
 @NgModule({
   declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent],
@@ -16,7 +16,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CommonModule,
     productRoutingModule,
     SharedModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    BarRatingModule
   ]
 })
 export class ProductModule { }

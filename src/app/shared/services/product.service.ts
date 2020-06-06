@@ -41,4 +41,13 @@ export class ProductService {
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetCourseDetails`, { params: params })
   }
+
+  getReviews(id) {
+    let params = new HttpParams();
+    // Begin assigning parameters
+    params = params.append('CourseId', id);
+    params = params.append('Page', '0');
+    // Make the API call using the new parameters.
+    return this.http.get(`${this.apiBaseURL}/GetCourseReviews`, { params: params })
+  }
 }

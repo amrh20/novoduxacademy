@@ -187,7 +187,8 @@ button:focus {
 	.cart_deatils {
 		text-align: center;
 		margin: 15px 0;
-		.product_name { margin: 5px 0;
+		.product_name { 
+			margin: 5px 0;
 		.product_price {
 			color: #b33939;
 			font-weight: 700;
@@ -225,6 +226,9 @@ button:focus {
 					text-transform: capitalize;
 					font-size: 18px;
 					margin: 15px 0;
+					width: 90%;
+					margin: 10px auto;
+					line-height: 1.4;
 				}
 			}
 		}

@@ -73925,6 +73925,354 @@ const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('9.1.7
 
 /***/ }),
 
+/***/ "./node_modules/ngx-bar-rating/__ivy_ngcc__/component/bar-rating.component.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/ngx-bar-rating/__ivy_ngcc__/component/bar-rating.component.js ***!
+  \************************************************************************************/
+/*! exports provided: BarRatingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BarRatingComponent", function() { return BarRatingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _pipe_bar_rating_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pipe/bar-rating.pipe */ "./node_modules/ngx-bar-rating/__ivy_ngcc__/pipe/bar-rating.pipe.js");
+
+
+/** This allows support [(ngModel)] and ngControl. */
+
+
+
+
+function BarRatingComponent_div_2_Template(rf, ctx) { if (rf & 1) {
+    var _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BarRatingComponent_div_2_Template_div_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); var unit_r2 = ctx.$implicit; return unit_r2.click($event); })("mouseenter", function BarRatingComponent_div_2_Template_div_mouseenter_0_listener() { var unit_r2 = ctx.$implicit; return unit_r2.enter(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var unit_r2 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("br-fraction", unit_r2.fraction)("br-selected", unit_r2.selected)("br-active", unit_r2.active);
+} }
+function BarRatingComponent_div_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "rateTitle");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, ctx_r1.nextRate, ctx_r1.titles));
+} }
+var RATING_VALUE_ACCESSOR = {
+    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
+    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return BarRatingComponent; }),
+    multi: true
+};
+/** This allows control required validation. */
+var RATING_VALUE_VALIDATOR = {
+    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALIDATORS"],
+    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return BarRatingComponent; }),
+    multi: true,
+};
+var BarRatingComponent = (function () {
+    function BarRatingComponent(changeDetectorRef) {
+        this.changeDetectorRef = changeDetectorRef;
+        this.contexts = [];
+        /** Maximal rating that can be given using this widget. */
+        this.max = 5;
+        /** A flag indicating if rating can be updated. */
+        this.readOnly = false;
+        /** Set the theme */
+        this.theme = 'default';
+        /** Show rating title */
+        this.showText = false;
+        /** Replace rate value with a title */
+        this.titles = [];
+        /** A flag indicating if rating is required for form validation. */
+        this.required = false;
+        /** An event fired when a user is hovering over a given rating.
+         * Event's payload equals to the rating being hovered over. */
+        this.hover = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /** An event fired when a user stops hovering over a given rating.
+         * Event's payload equals to the rating of the last item being hovered over. */
+        this.leave = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /** An event fired when a user selects a new rating.
+         * Event's payload equals to the newly selected rating. */
+        this.rateChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"](true);
+        this.onChange = function (_) { };
+        this.onTouched = function () { };
+    }
+    BarRatingComponent.prototype.ngOnChanges = function (changes) {
+        if (changes['rate']) {
+            this.update(this.rate);
+        }
+    };
+    BarRatingComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.contexts = Array.from({ length: this.max }, function (context, i) { return ({
+            selected: false,
+            fraction: false,
+            click: function (e) { return _this.handleClick(e, i + 1); },
+            enter: function () { return _this.handleEnter(i + 1); }
+        }); });
+        this.updateState(this.rate);
+    };
+    BarRatingComponent.prototype.update = function (newRate, internalChange) {
+        if (internalChange === void 0) { internalChange = true; }
+        if (!this.readOnly && !this.disabled && this.rate !== newRate) {
+            this.rate = newRate;
+            this.rateChange.emit(this.rate);
+        }
+        if (internalChange) {
+            this.onChange(this.rate);
+            this.onTouched();
+        }
+        this.updateState(this.rate);
+    };
+    /** Reset rate value */
+    BarRatingComponent.prototype.reset = function () {
+        this.leave.emit(this.nextRate);
+        this.updateState(this.rate);
+    };
+    BarRatingComponent.prototype.updateState = function (nextValue) {
+        var _this = this;
+        /** Set rate value as text */
+        this.nextRate = nextValue - 1;
+        /** Set the rating */
+        this.contexts = Array.from({ length: this.max }, function (context, index) { return ({
+            selected: index + 1 <= nextValue,
+            fraction: (index + 1 === Math.round(nextValue) && nextValue % 1) >= 0.5,
+            click: function (e) { return _this.handleClick(e, index); },
+            enter: function () { return _this.handleEnter(index); }
+        }); });
+    };
+    BarRatingComponent.prototype.handleClick = function (e, value) {
+        /** (NOT TESTED) Remove 300ms click delay on touch devices */
+        e.preventDefault();
+        e.stopPropagation();
+        this.update(value + 1);
+    };
+    BarRatingComponent.prototype.handleEnter = function (index) {
+        if (!this.disabled && !this.readOnly) {
+            /** Add selected class for rating hover */
+            this.contexts.map(function (context, i) {
+                context.active = i <= index;
+                context.fraction = false;
+                context.selected = false;
+            });
+            this.nextRate = index;
+            this.hover.emit(index);
+        }
+    };
+    /** This is the initial value set to the component */
+    BarRatingComponent.prototype.writeValue = function (value) {
+        this.update(value, false);
+        this.changeDetectorRef.markForCheck();
+    };
+    BarRatingComponent.prototype.validate = function (c) {
+        return (this.required && !c.value) ? { required: true } : null;
+    };
+    BarRatingComponent.prototype.registerOnChange = function (fn) {
+        this.onChange = fn;
+    };
+    BarRatingComponent.prototype.registerOnTouched = function (fn) {
+        this.onTouched = fn;
+    };
+    BarRatingComponent.prototype.setDisabledState = function (isDisabled) {
+        this.disabled = isDisabled;
+    };
+BarRatingComponent.ɵfac = function BarRatingComponent_Factory(t) { return new (t || BarRatingComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"])); };
+BarRatingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: BarRatingComponent, selectors: [["bar-rating"]], inputs: { max: "max", readOnly: "readOnly", theme: "theme", showText: "showText", titles: "titles", required: "required", rate: "rate" }, outputs: { hover: "hover", leave: "leave", rateChange: "rateChange" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([RATING_VALUE_ACCESSOR, RATING_VALUE_VALIDATOR]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 4, vars: 8, consts: [[1, "br-units", 3, "mouseleave"], ["class", "br-unit", 3, "br-fraction", "br-selected", "br-active", "click", "mouseenter", 4, "ngFor", "ngForOf"], ["class", "br-text", 4, "ngIf"], [1, "br-unit", 3, "click", "mouseenter"], [1, "br-text"]], template: function BarRatingComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseleave", function BarRatingComponent_Template_div_mouseleave_1_listener() { return ctx.reset(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, BarRatingComponent_div_2_Template, 1, 6, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, BarRatingComponent_div_3_Template, 3, 4, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"]("br br-" + ctx.theme);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("br-readonly", ctx.readOnly)("br-disabled", ctx.disabled);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.contexts);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showText);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"]], pipes: [_pipe_bar_rating_pipe__WEBPACK_IMPORTED_MODULE_3__["BarRatingPipe"]], styles: ["*[_ngcontent-%COMP%]{box-sizing:border-box}.br[_ngcontent-%COMP%]{position:relative;margin:15px 0}.br-units[_ngcontent-%COMP%]{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap}.br-unit[_ngcontent-%COMP%]{cursor:pointer;-webkit-font-smoothing:antialiased;text-rendering:auto}.br-disabled[_ngcontent-%COMP%]   .br-unit[_ngcontent-%COMP%], .br-readonly[_ngcontent-%COMP%]   .br-unit[_ngcontent-%COMP%]{cursor:default}"], changeDetection: 0 });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BarRatingComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'bar-rating',
+                template: "\n    <div [class]=\"'br br-' + theme\" [class.br-readonly]=\"readOnly\" [class.br-disabled]=\"disabled\">\n\n      <div class=\"br-units\" (mouseleave)=\"reset()\">\n\n        <div class=\"br-unit\" *ngFor=\"let unit of contexts\" [class.br-fraction]=\"unit.fraction\"\n            [class.br-selected]=\"unit.selected\" [class.br-active]=\"unit.active\"\n            (click)=\"unit.click($event)\" (mouseenter)=\"unit.enter()\"></div>\n\n      </div>\n\n      <div *ngIf=\"showText\" class=\"br-text\">{{ nextRate | rateTitle: titles}}</div>\n    </div>\n  ",
+                styles: ["\n    *{box-sizing:border-box}.br{position:relative;margin:15px 0}.br-units{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap}.br-unit{cursor:pointer;-webkit-font-smoothing:antialiased;text-rendering:auto}.br-disabled .br-unit,.br-readonly .br-unit{cursor:default}\n  "],
+                providers: [RATING_VALUE_ACCESSOR, RATING_VALUE_VALIDATOR],
+                changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] }]; }, { max: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], readOnly: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], theme: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], showText: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], titles: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], required: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], hover: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], leave: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rateChange: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], rate: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }] }); })();
+    return BarRatingComponent;
+}());
+
+/** @nocollapse */
+BarRatingComponent.ctorParameters = function () { return [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"], },
+]; };
+BarRatingComponent.propDecorators = {
+    'rate': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'max': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'readOnly': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'theme': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'showText': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'titles': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'required': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'hover': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'leave': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'rateChange': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+};
+
+//# sourceMappingURL=bar-rating.component.js.map
+
+/***/ }),
+
+/***/ "./node_modules/ngx-bar-rating/__ivy_ngcc__/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/ngx-bar-rating/__ivy_ngcc__/index.js ***!
+  \***********************************************************/
+/*! exports provided: BarRatingModule, BarRatingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _rating_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rating.module */ "./node_modules/ngx-bar-rating/__ivy_ngcc__/rating.module.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarRatingModule", function() { return _rating_module__WEBPACK_IMPORTED_MODULE_0__["BarRatingModule"]; });
+
+/* harmony import */ var _component_bar_rating_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/bar-rating.component */ "./node_modules/ngx-bar-rating/__ivy_ngcc__/component/bar-rating.component.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BarRatingComponent", function() { return _component_bar_rating_component__WEBPACK_IMPORTED_MODULE_1__["BarRatingComponent"]; });
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/ngx-bar-rating/__ivy_ngcc__/pipe/bar-rating.pipe.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/ngx-bar-rating/__ivy_ngcc__/pipe/bar-rating.pipe.js ***!
+  \**************************************************************************/
+/*! exports provided: BarRatingPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BarRatingPipe", function() { return BarRatingPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+var BarRatingPipe = (function () {
+    function BarRatingPipe() {
+    }
+    BarRatingPipe.prototype.transform = function (value, titles) {
+        if (value === void 0) { value = 0; }
+        /** Initialize value with 0 in case of undefined */
+        return titles[value] || value + 1;
+    };
+BarRatingPipe.ɵfac = function BarRatingPipe_Factory(t) { return new (t || BarRatingPipe)(); };
+BarRatingPipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "rateTitle", type: BarRatingPipe, pure: true });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BarRatingPipe, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"],
+        args: [{
+                name: 'rateTitle'
+            }]
+    }], function () { return []; }, null); })();
+    return BarRatingPipe;
+}());
+
+/** @nocollapse */
+BarRatingPipe.ctorParameters = function () { return []; };
+
+//# sourceMappingURL=bar-rating.pipe.js.map
+
+/***/ }),
+
+/***/ "./node_modules/ngx-bar-rating/__ivy_ngcc__/rating.module.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/ngx-bar-rating/__ivy_ngcc__/rating.module.js ***!
+  \*******************************************************************/
+/*! exports provided: BarRatingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BarRatingModule", function() { return BarRatingModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _component_bar_rating_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component/bar-rating.component */ "./node_modules/ngx-bar-rating/__ivy_ngcc__/component/bar-rating.component.js");
+/* harmony import */ var _pipe_bar_rating_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pipe/bar-rating.pipe */ "./node_modules/ngx-bar-rating/__ivy_ngcc__/pipe/bar-rating.pipe.js");
+
+
+
+
+
+
+var BarRatingModule = (function () {
+    function BarRatingModule() {
+    }
+BarRatingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: BarRatingModule });
+BarRatingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function BarRatingModule_Factory(t) { return new (t || BarRatingModule)(); }, imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](BarRatingModule, { declarations: function () { return [_component_bar_rating_component__WEBPACK_IMPORTED_MODULE_3__["BarRatingComponent"],
+        _pipe_bar_rating_pipe__WEBPACK_IMPORTED_MODULE_4__["BarRatingPipe"]]; }, imports: function () { return [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]]; }, exports: function () { return [_component_bar_rating_component__WEBPACK_IMPORTED_MODULE_3__["BarRatingComponent"]]; } }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BarRatingModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                declarations: [
+                    _component_bar_rating_component__WEBPACK_IMPORTED_MODULE_3__["BarRatingComponent"],
+                    _pipe_bar_rating_pipe__WEBPACK_IMPORTED_MODULE_4__["BarRatingPipe"]
+                ],
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+                ],
+                exports: [
+                    _component_bar_rating_component__WEBPACK_IMPORTED_MODULE_3__["BarRatingComponent"]
+                ]
+            }]
+    }], function () { return []; }, null); })();
+    return BarRatingModule;
+}());
+
+/** @nocollapse */
+BarRatingModule.ctorParameters = function () { return []; };
+
+//# sourceMappingURL=rating.module.js.map
+
+/***/ }),
+
 /***/ "./node_modules/ngx-slick-carousel/__ivy_ngcc__/fesm2015/ngx-slick-carousel.js":
 /*!*************************************************************************************!*\
   !*** ./node_modules/ngx-slick-carousel/__ivy_ngcc__/fesm2015/ngx-slick-carousel.js ***!
