@@ -10,6 +10,8 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class CoursesComponent implements OnInit {
   widget3: boolean= true
   widget4: boolean= false
+  courses;
+  imagePath= "http://novoduxapi.native-tech.co/Images/CategoryImages/";
   constructor(private activeRoute:ActivatedRoute,private productService:ProductService) { 
   
   }
@@ -17,8 +19,9 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params.subscribe(parm => {
       let id =parm.id
-      this.productService.getTaxonsCourses(id).subscribe(res => {
-        console.log(res)
+      this.productService.getTaxonsCourses(id).subscribe((res: any) => {
+        // console.log(res.model)
+        this.courses= res.model
       })
     })
   }

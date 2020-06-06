@@ -82,14 +82,13 @@
             </div>
             <div class="products_col">
                 <div class="collection_box">
-                    <!-- collection image -->
-                    <div class="collection_img">
+                    <!-- <div class="collection_img">
                         <img src="../../../assets/images/model.png" alt="collection">
                         <div class="collection_img-overlay"></div>
                         <div class="collection_img-overlay-text">
                             collection title
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="collection_view">
                         <div class="sort">
@@ -124,10 +123,12 @@
                     </div>
                 </div>
                 <div class="products_widget">
-                    <div  [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
+                    <div  
+                    *ngFor="let course of courses"
+                    [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
                         <div class="cart">
                             <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
+                              <img [src]="imagePath + course.Image" alt="">
                             </div>
                             <div class="cart_deatils">
                               <div class="product_rating">
@@ -138,11 +139,11 @@
                                 <i class="fa fa-star"></i>
                               </div>
                               <div class="product_name">
-                                <h3>dress</h3>
+                                <h3>{{course.Name}}</h3>
                               </div>
                               <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
+                                  <span class="new_price">{{course.PreviousCost}}</span>
+                                  <span class="original_price">{{course.CurrentCost}}</span>
                                 </div>
                             </div>
                             <div class="product-icons">
@@ -159,323 +160,16 @@
                                 </a>
                               </div>
                             </div>
-                            <div class="product-labels">
+                            <!-- <div class="product-labels">
                               <div class="new">
                                 new
                               </div>
-                            </div>
+                            </div> -->
                     
                           </div>
 
                     </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
-                    <div [ngClass]="{'cart_widget3': widget3, 'cart_widget4': widget4}">
-                        <div class="cart">
-                            <div class="cart_img">
-                              <img src="../../../assets/images/dress.png" alt="">
-                            </div>
-                            <div class="cart_deatils">
-                              <div class="product_rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div>
-                              <div class="product_name">
-                                <h3>dress</h3>
-                              </div>
-                              <div  class="product_price">
-                                  <span class="new_price">500.00 $ </span>
-                                  <span class="original_price">1000.00 $</span>
-                                </div>
-                            </div>
-                            <div class="product-icons">
-                              <div class="tooltipe" data-tooltip="add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                              </div>
-                              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                                <i class="fa fa-heart"></i>
-                              </div>
-                          
-                              <div class="view_product-icon">
-                                <a href="productdetails.html">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div>
-                    
-                          </div>
-
-                    </div>
+                  
                
                 </div>
 

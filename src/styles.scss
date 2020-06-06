@@ -110,12 +110,13 @@ button:focus {
 }
 .new_price {
     color: #5E2266;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 .original_price {
     text-decoration: line-through;
-    font-size: 14px;
+	font-size: 16px;
+	margin-left: 15px;
 }
 // cart view
 
@@ -222,7 +223,8 @@ button:focus {
 				h3 {
 					font-weight: 600;
 					text-transform: capitalize;
-					font-size: 22px;
+					font-size: 18px;
+					margin: 15px 0;
 				}
 			}
 		}
@@ -389,11 +391,12 @@ button:focus {
 	}
 	.original_price {
 		text-decoration: line-through;
-		font-size: 14px;
+		font-size: 16px;
+		margin-left: 15px;
 	}
 	.new_price {
 		color: $main-color;
-		font-size: 18px;
+		font-size: 20px;
 		font-weight: 600;
 	}
 	.product-labels {

@@ -11,9 +11,10 @@ import { ProductModule } from '../product/product.module';
 import { TimelineComponent } from './timeline/timeline.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
-  declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent, TimelineComponent, AboutUsComponent, AdvertisementsComponent],
+  declarations: [MainSliderComponent, CoursesComponent, HomeComponent, RecommendCoursesComponent, TimelineComponent, AboutUsComponent, AdvertisementsComponent, OffersComponent],
   imports: [
     CommonModule,
     SharedModule,
