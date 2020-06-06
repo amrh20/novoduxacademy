@@ -39,7 +39,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="filter_box">
+                        <!-- <div class="filter_box">
                             <div class="filter_box-title">
                                 <h3>price</h3>
                                 <i class="fa fa-chevron-down"></i>
@@ -72,9 +72,8 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
-                    
                 </div>
                 <div class="close_filter">
                     <button> <i class="fa fa-times"></i> </button>
@@ -139,7 +138,9 @@
                                 <i class="fa fa-star"></i>
                               </div>
                               <div class="product_name">
-                                <h3>{{course.Name}}</h3>
+                                  <a routerLink="/course/{{course.Id}}">
+                                    <h3>{{course.Name}}</h3>
+                                  </a>
                               </div>
                               <div  class="product_price">
                                   <span class="new_price">{{course.PreviousCost}}</span>
@@ -152,29 +153,17 @@
                               </div>
                               <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
                                 <i class="fa fa-heart"></i>
-                              </div>
-                          
+                              </div>    
                               <div class="view_product-icon">
                                 <a href="productdetails.html">
                                   <i class="fa fa-plus"></i>
                                 </a>
                               </div>
                             </div>
-                            <!-- <div class="product-labels">
-                              <div class="new">
-                                new
-                              </div>
-                            </div> -->
-                    
-                          </div>
-
+                        </div>
                     </div>
-                  
-               
                 </div>
-
             </div>
         </div>
     </div>
-
 </div>

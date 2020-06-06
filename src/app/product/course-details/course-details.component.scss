@@ -5,8 +5,9 @@
             padding: 50px 0 30px 0;
             display: flex;
             &--details {
-                max-width: 72%;
+                max-width: 67%;
                 margin-right: 3%;
+                flex-basis: 67%;
                 &-txt {
                     margin: 30px 0;
                     span {
@@ -22,7 +23,8 @@
                 }
             }
             &--order {
-                max-width: 25%;
+                max-width: 30%;
+                flex-basis: 30%;
                 background: #fff;
                 box-shadow: 0 0 20px rgba(51,51,51,.1);
                 padding: 0 15px 20px 15px;

@@ -20,8 +20,8 @@ export class CoursesComponent implements OnInit {
     this.activeRoute.params.subscribe(parm => {
       let id =parm.id
       this.productService.getTaxonsCourses(id).subscribe((res: any) => {
-        // console.log(res.model)
         this.courses= res.model
+        console.log(this.courses)
       })
     })
   }

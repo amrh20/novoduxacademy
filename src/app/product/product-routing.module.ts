@@ -16,11 +16,11 @@ const routes: Routes = [
     component: WishlistComponent
   },
   {
-    path: 'home/courses/:id',
+    path: 'courses/:id',
     component: CoursesComponent
   },
   {
-    path: 'home/course',
+    path: 'course/:id',
     component: CourseDetailsComponent
   }
 ];

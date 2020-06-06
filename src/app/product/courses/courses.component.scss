@@ -18,6 +18,7 @@
         }
         .filter_col {
             width: 25%;
+            flex-basis: 25%;
             padding-right: 20px;
             .close_filter {
                 position: absolute;
@@ -499,5 +500,7 @@
         height: 40px;
         cursor: pointer;
     }
-    
+}
+a {
+    color: #000;
 }

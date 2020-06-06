@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-course-details',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-details.component.scss']
 })
 export class CourseDetailsComponent implements OnInit {
+  coursdetails: any;
 
-  constructor() { }
+  constructor(private activeRoute:ActivatedRoute,
+              private productService : ProductService) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe(parm => {
+      let id =parm.id
+      this.productService.getCourseDetails(id).subscribe((res: any) => {
+        this.coursdetails= res.model
+        console.log("courseDetails", this.coursdetails)
+      })
+    })
   }
   public sliderConfig: any = {
     autoplay: true,

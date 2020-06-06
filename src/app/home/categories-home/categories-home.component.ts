@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/shared/services/home.service';
 
 @Component({
-  selector: 'app-courses',
-  templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
+  selector: 'app-categories-home',
+  templateUrl: './categories-home.component.html',
+  styleUrls: ['./categories-home.component.scss']
 })
-export class CoursesComponent implements OnInit {
+export class CategoriesHomeComponent implements OnInit {
+
   categories: any;
   imagePath = "http://novoduxapi.native-tech.co/Images/CategoryImages/"
   constructor(private homeService:HomeService) { }
@@ -26,4 +27,5 @@ export class CoursesComponent implements OnInit {
     prevArrow:"<i class='fa fa-angle-left' aria-hidden='true'></i>",
     nextArrow:"<i class='fa fa-angle-right' aria-hidden='true'></i>"
   };
+
 }
