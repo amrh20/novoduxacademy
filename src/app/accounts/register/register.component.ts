@@ -16,7 +16,9 @@ export class RegisterComponent implements OnInit {
     Phone: new FormControl('', Validators.required),
     email: new FormControl(),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
+    ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    category: new FormControl('', Validators.required),
+    phoneKey: new FormControl('', Validators.required)
   });
 
   phoneKeys = [
@@ -29,7 +31,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
       this.metaDataService.getmetaData().subscribe((res: any)=> {
         this.categories= res.model.Categories
-        console.log(this.categories)
       })
       
   }
@@ -50,19 +51,27 @@ export class RegisterComponent implements OnInit {
   get ConfirmPassword() {
     return this.regform.get('ConfirmPassword')
   }
+  get category() {
+    return this.regform.get('category')
+  }
+  get phoneKey() {
+    return this.regform.get('category')
+  }
+  
   selectOption(id: number) {
     console.log(id)
    }
  register() {
   const Name = this.regform.value.name
-  const PhoneKey= "+20"
+  const PhoneKey= this.regform.value.phoneKey
   const PhoneNumber = this.regform.value.Phone
-  const CategoryId= "2"
+  const CategoryId= this.regform.value.category
   const Password= this.regform.value.password
   const ConfirmPassword= this.regform.value.ConfirmPassword
   console.log(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword)
    this.authService.register(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword).subscribe(res=> {  
      this.regform.reset()
+     this.router.navigate(['/verfiy'])
    },err => {
     this.regform.reset()
    }) 

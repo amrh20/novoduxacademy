@@ -47,12 +47,12 @@
         </div>
         <div class="course__reviews">
             <h2>reviews</h2>
-            <div class="row">
+            <div class="row" *ngIf="reviews.length">
                 <div class="col-12 col-md-6" *ngFor="let review of reviews">
                   <div class="review_comment">
                     <div class="review_comment-title">
                       <div class="product_rating">
-                        <bar-rating [rate]="review?.CourseRateValue"></bar-rating>
+                        <bar-rating [rate]="review?.CourseRateValue"  [readOnly]="true"></bar-rating>
                       </div>
                       <span>{{review?.StudentName}} at  </span>
                       <time>{{review?.CreationDate}}</time>
