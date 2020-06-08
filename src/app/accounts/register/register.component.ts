@@ -25,6 +25,8 @@ export class RegisterComponent implements OnInit {
     { num :"+20"},
     { num :"+966" }
   ]
+  
+  
   constructor(private router:Router,
     private authService:AuthService, private metaDataService:MetaDataService) { }
 
@@ -32,10 +34,10 @@ export class RegisterComponent implements OnInit {
       this.metaDataService.getmetaData().subscribe((res: any)=> {
         this.categories= res.model.Categories
       })
-      
+ 
   }
  
-  
+ 
   loginNav() {
   this.router.navigate(['/login'])
   }
@@ -76,4 +78,10 @@ export class RegisterComponent implements OnInit {
     this.regform.reset()
    }) 
  }
+ saveData() {
+  const PhoneKey= this.regform.value.phoneKey
+  const PhoneNumber = this.regform.value.Phone
+  localStorage.setItem('phoneNumber',PhoneNumber)
+  localStorage.setItem('PhoneKey',PhoneKey)
+}
 }

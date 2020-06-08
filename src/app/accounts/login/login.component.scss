@@ -4,6 +4,16 @@
       [dir= rtl] & {
         text-align: right;
       }
+      .login-phone {
+        display: flex;
+        align-items: center;
+        select {
+          border: 1.5px solid #8e8e8e;
+          padding: 10px;
+          margin-right: 20px;
+        }
+      }
+     
       &__wrapper {
         border-right: 1px solid #cac9c9;
         [dir= rtl] & {

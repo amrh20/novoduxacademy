@@ -20,7 +20,9 @@
                                 </select>
                             </div>
                             <div class="form-group" class="right_side">
-                                <input type="number" id="phone" placeholder="Phone Number*" formControlName="Phone">
+                                <input type="text" id="phone" 
+                                placeholder="Phone Number*" 
+                                formControlName="Phone">
                             </div>
                         </div>
                         <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
@@ -60,7 +62,9 @@
                             </select>
                         </div>
                         <div class="register__btn">
-                            <button class="" type="submit" [disabled]="!regform.valid">register</button>
+                            <button class="" type="submit" 
+                            [disabled]="!regform.valid" (click)="saveData()">
+                            register</button>
                         </div>
                     </form>
                 </div>

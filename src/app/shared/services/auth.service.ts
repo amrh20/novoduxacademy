@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,5 +19,24 @@ export class AuthService {
       ConfirmPassword
     })
   }
-
+ 
+  verifyAccount(PhoneKey,Phone,vcode) {
+    // Initialize Params Object
+    let params = new HttpParams();
+    // Begin assigning parameters
+    params = params.append('PhoneKey', PhoneKey);
+    params = params.append('Phone', Phone);
+    params = params.append('vcode', vcode);
+    // Make the API call using the new parameters.
+    return this.http.get(`${this.apiBaseURL}/Verify`, { params: params })
+  }
+  login(PhoneNumberWithKey,Password) {
+    // Initialize Params Object
+    let params = new HttpParams();
+    // Begin assigning parameters
+    params = params.append('PhoneNumberWithKey', PhoneNumberWithKey);
+    params = params.append('Password', Password);
+    // Make the API call using the new parameters.
+    return this.http.get(`${this.apiBaseURL}/StudentLogin`, { params: params })
+  }
 }

@@ -45,24 +45,24 @@
             </div>
             </div>
         </div>
-        <div class="course__reviews">
-            <h2>reviews</h2>
-            <div class="row" *ngIf="reviews.length">
+        <div class="course__reviews content">
+            <h2 *ngIf="reviews?.length">reviews</h2>
+            <div class="row reviews__content" *ngIf="reviews?.length">
                 <div class="col-12 col-md-6" *ngFor="let review of reviews">
                   <div class="review_comment">
                     <div class="review_comment-title">
-                      <div class="product_rating">
-                        <bar-rating [rate]="review?.CourseRateValue"  [readOnly]="true"></bar-rating>
-                      </div>
-                      <span>{{review?.StudentName}} at  </span>
-                      <time>{{review?.CreationDate}}</time>
+                     
+                      <p>{{review?.StudentName}}</p>
+                      <p>{{review?.CreationDate}}<p>
                     </div>
                     <p>
                       {{review?.Comment}}
                     </p>
+                    <div class="product_rating">
+                      <bar-rating [rate]="review?.CourseRateValue" [readOnly]="true"></bar-rating>
+                    </div>
                   </div>
-                </div>
-                
+                </div>               
               </div>
               <div class="addReview">
                 <div class="addReview-content">
@@ -96,6 +96,33 @@
                 </div>
 
               </div>
+        </div>
+        <div class="course__comments content">
+          <h2 *ngIf="comments?.length">comments</h2>
+          <div class="row" *ngIf="comments?.length">
+            <div class="col-12 text-center" *ngFor="let comment of comments">
+              <div class="review_comment">
+                <div class="review_comment-title">
+                  <p class="comment">{{comment?.Comment}} ({{comment?.CreationDate}})</p>
+                </div>
+                 <div class="replys" *ngFor= "let reply of comment.Replies">
+                  <p class="Replys"><span>- {{reply.ReplyText}}</span></p>
+                 </div>
+                 <div class="add_comment">
+                   <form [formGroup]="form" (ngSubmit)="addcomment()">
+                   <textarea  placeholder="write your comment.." formControlName="comment"></textarea>
+                   <button class="temp_button" type="submit">add comment</button>
+                  </form>
+                 </div>
+                 <div class="add_reply">
+                  <form [formGroup]="replyform" (ngSubmit)="addreply()">
+                    <textarea  placeholder="write your reply.." formControlName="reply"></textarea>
+                    <button class="temp_button" type="submit">add reply</button>
+                   </form>
+                 </div>
+              </div>
+            </div>               
+          </div>
         </div>
         <div class="recommend_slider">
             <hr class="hr-text" data-content="related courses">

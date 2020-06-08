@@ -2,7 +2,7 @@
   <hr class="hr-text" data-content="top selling courses">
   <div class="container">
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
-      <div ngxSlickItem class="slide">
+      <div ngxSlickItem class="slide" *ngFor="let topselling of topSellingCourese">
         <div class="cart_view2">
           <a class="prevent_click_mobile">
           </a>
@@ -12,18 +12,14 @@
               </div>
               <div class="product_details">
                 <div class="product_name">
-                  <p>children fashion</p>
+                  <p>{{topselling.Name}}</p>
                 </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+                <div class="product_rating text-center">
+                  <bar-rating [rate]="topselling?.CourseRateValue" [readOnly]="true"></bar-rating>
                 </div>
                 <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
+                  <span class="new_price">{{topselling.CurrentCost}}</span>
+                  <span class="original_price">{{topselling.PreviousCost}}</span>
                 </div>
 
               </div>
@@ -39,228 +35,7 @@
           </div>
         </div>
       </div>
-      <div ngxSlickItem class="slide">
-        <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
-              <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
-              </div>
-              <div class="product_details">
-                <div class="product_name">
-                  <p>children fashion</p>
-                </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-                <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
-                </div>
-
-              </div>
-            </a>
-            <div class="product-action">
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
-              <a>
-                <i class="fa fa-eye d-block d-md-none"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="slide">
-        <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
-              <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
-              </div>
-              <div class="product_details">
-                <div class="product_name">
-                  <p>children fashion</p>
-                </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-                <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
-                </div>
-
-              </div>
-            </a>
-            <div class="product-action">
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
-              <a>
-                <i class="fa fa-eye d-block d-md-none"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="slide">
-        <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
-              <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
-              </div>
-              <div class="product_details">
-                <div class="product_name">
-                  <p>children fashion</p>
-                </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-                <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
-                </div>
-
-              </div>
-            </a>
-            <div class="product-action">
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
-              <a>
-                <i class="fa fa-eye d-block d-md-none"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="slide">
-        <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
-              <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
-              </div>
-              <div class="product_details">
-                <div class="product_name">
-                  <p>children fashion</p>
-                </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-                <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
-                </div>
-
-              </div>
-            </a>
-            <div class="product-action">
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
-              <a>
-                <i class="fa fa-eye d-block d-md-none"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="slide">
-        <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
-              <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
-              </div>
-              <div class="product_details">
-                <div class="product_name">
-                  <p>children fashion</p>
-                </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-                <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
-                </div>
-
-              </div>
-            </a>
-            <div class="product-action">
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
-              <a>
-                <i class="fa fa-eye d-block d-md-none"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="slide">
-        <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
-              <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
-              </div>
-              <div class="product_details">
-                <div class="product_name">
-                  <p>children fashion</p>
-                </div>
-                <div class="product_rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-                <div class="product_price">
-                  <span class="new_price">500.00 $ </span>
-                  <span class="original_price">1000.00 $</span>
-                </div>
-
-              </div>
-            </a>
-            <div class="product-action">
-              <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
-              <a>
-                <i class="fa fa-eye d-block d-md-none"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
+   
     </ngx-slick-carousel>
 
     <div class="slider_button">

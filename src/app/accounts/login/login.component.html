@@ -5,8 +5,14 @@
             <div class="col-6">
                 <div class="login__wrapper">
                     <h3>login</h3>
-                    <form class="login__content-form" [formGroup]="loginForm">
-                        <div class="form-group">
+                    <p *ngIf="loginError" class="alert alert-danger" style="width: 80%;">{{loginError}}</p>
+                    <form class="login__content-form" [formGroup]="loginForm"
+                    (ngSubmit)="login()">
+                        <div class="form-group login-phone">
+                            <select name="phoneKey" id="" formControlName="phoneKey">
+                                <option value="">code</option>
+                                <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
+                            </select>
                             <input type="number" id="Phone" placeholder="Phone Number*" formControlName="Phone">
                         </div>
                         <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
@@ -21,13 +27,13 @@
                         <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
                             password must be a latest 6 charector
                         </div>
-                        <div class="login__saved">
+                        <!-- <div class="login__saved">
                             <p>remembe me</p>
                             <a>
                                 forgetpassword
                                 <span>?</span>
                             </a>
-                        </div>
+                        </div> -->
                         <div class="login__btn">
                             <button [disabled]="!loginForm.valid">log in</button>
                         </div>

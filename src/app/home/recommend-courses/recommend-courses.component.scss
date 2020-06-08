@@ -11,6 +11,25 @@
             left: -35px;
         }
     }
+    ::ng-deep {
+        .br-unit {
+            font-size: 23px !important;
+        }
+        .br-unit:after {
+            content: "\2605" !important;
+            color: #231F20 !important;
+        }
+        .br {
+            margin: 0 !important;
+        }
+        .br-default .br-selected:after {
+            color: #EDB867 !important;
+        }
+    }
+    .product_rating  {
+        display: flex;
+        justify-content: center;
+    }
 .recommend_slider {
         margin: 80px 0;
     }

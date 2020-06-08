@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,16 @@ export class ProductService {
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesByCategoryId`, { params: params })
   }
+  getSubTaxonsCourses(parameters) {
+    // Initialize Params Object
+    let params = new HttpParams();
+    // Begin assigning parameters
+    params = params.append('SubCategoryId', parameters);
+    params = params.append('Page', '0');
+    // Make the API call using the new parameters.
+    return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`, { params: params })
+  }
+  
    
   GetTaxons() {
     return this.http.get(`${this.apiBaseURL}/GetCategories`)
@@ -49,5 +59,32 @@ export class ProductService {
     params = params.append('Page', '0');
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetCourseReviews`, { params: params })
+  }
+
+  addComment(CourseId,Comment) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    return this.http.post(`${this.apiBaseURL}/AddComment`,{
+      CourseId,
+      Comment
+    }, { headers: reqHeader })
+  }
+
+  addreply(CourseCommentId,ReplyText) {
+    return this.http.post(`${this.apiBaseURL}/AddReply`,{
+      CourseCommentId,
+      ReplyText
+    })
+  }
+  getComments(id) {
+    let params = new HttpParams();
+    // Begin assigning parameters
+    params = params.append('CourseId', id);
+    params = params.append('Page', '0');
+    // Make the API call using the new parameters.
+    return this.http.get(`${this.apiBaseURL}/GetCourseCommentsWithReplies`, { params: params })
   }
 }

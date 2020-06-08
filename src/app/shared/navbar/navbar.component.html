@@ -3,8 +3,7 @@
         <div class="container">
           <ul>
             <li *ngFor="let taxon of listOfCategory">
-              <a routerLink="/courses/{{taxon.Id}}"
-              >
+              <a routerLink="/courses/{{taxon.Id}}">
                {{taxon.Name}}
               </a>
                 <i class="fa fa-chevron-down" *ngIf="taxon.SubCategories"></i>
@@ -12,7 +11,9 @@
                   <div class="dropdown_one-content">
                     <ul>
                       <li *ngFor="let subtaxon of taxon.SubCategories">
+                        <a routerLink="/subcourses/{{subtaxon.Id}}">
                         {{subtaxon.Name}}
+                        </a>
                       </li>
                     </ul>
                   </div>

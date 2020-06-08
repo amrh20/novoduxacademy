@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/shared/services/home.service';
 
 @Component({
   selector: 'app-recommend-courses',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recommend-courses.component.scss']
 })
 export class RecommendCoursesComponent implements OnInit {
-
-  constructor() { }
+   topSellingCourese;
+  constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
+    this.homeService.getHomeDate().subscribe((res: any)=> {
+      this.topSellingCourese= res.model.TopSellingCourses
+      console.log(this.topSellingCourese)
+    })
   }
   public sliderConfig: any = {
     autoplay: false,
@@ -19,6 +24,7 @@ export class RecommendCoursesComponent implements OnInit {
     slidesToShow: 4,
     slidesToScroll: 1
   };
+
 
 
   
