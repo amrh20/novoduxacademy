@@ -88,10 +88,15 @@ export class ProductService {
   }
 
   addreply(CourseCommentId,ReplyText) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
     return this.http.post(`${this.apiBaseURL}/AddReply`,{
       CourseCommentId,
       ReplyText
-    })
+    }, { headers: reqHeader })
   }
   getComments(id) {
     let params = new HttpParams();

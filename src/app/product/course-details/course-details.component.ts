@@ -15,6 +15,7 @@ export class CourseDetailsComponent implements OnInit {
   comments:any;
   errorComment: string
   errorReview: string
+  errorReply: string
   form = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
@@ -52,9 +53,10 @@ export class CourseDetailsComponent implements OnInit {
   addcomment() {
    let  CourseId= Number(localStorage.getItem('courseId'))
    let  Comment = this.form.value.comment;
-   this.productService.addComment(CourseId,Comment).subscribe(res => {
+   this.productService.addComment(CourseId,Comment).subscribe((res: any) => {
     this.form.value.comment= " "
      this.toastr.success('your comment added successfully');
+     window.location.reload();
    },err => {
     this.toastr.error("something error")
    if (err.error.Message =="Authorization has been denied for this request.") {
@@ -68,10 +70,16 @@ export class CourseDetailsComponent implements OnInit {
   return this.replyform.get('reply')
  }
  addreply() {
-  let  CourseCommentId= localStorage.getItem('courseId')
-  let  ReplyText = this.form.value.reply;
+  let  CourseCommentId= Number(localStorage.getItem('CourseCommentId'))
+  let  ReplyText = this.replyform.value.reply;
   this.productService.addreply(CourseCommentId,ReplyText).subscribe(res => {
-    // console.log("doneeeeeeeeeeeeeee", res)
+     this.toastr.success('your comment added successfully');
+     window.location.reload();
+  },err => {
+    this.toastr.error("something error")
+    if (err.error.errors.message == "Invalid Parametrs") {
+     this.errorReply= "please select the comment first that you want to reply for"
+    }
   })
  }
  //  reviews
@@ -88,7 +96,7 @@ get rating() {
   this.productService.addReviews(CourseRateValue,Comment,CourseId).subscribe(res => {
     this.toastr.success('your review added successfully')
     this.reviewform.reset()
-    console.log(res)
+    window.location.reload();
   },err => {
     this.toastr.error("something error")
     console.log(err)
@@ -97,6 +105,9 @@ get rating() {
        this.reviewform.reset()
      }
   })
+ }
+ selectOption(e) {
+  localStorage.setItem('CourseCommentId',e)
  }
   public sliderConfig: any = {
     autoplay: true,
