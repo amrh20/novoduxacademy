@@ -61,6 +61,20 @@ export class ProductService {
     return this.http.get(`${this.apiBaseURL}/GetCourseReviews`, { params: params })
   }
 
+ addReviews(CourseRateValue,Comment,CourseId) {
+  let authToken = localStorage.getItem("authToken")
+  const reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${authToken}`
+  })
+  return this.http.post(`${this.apiBaseURL}/AddReview`,{
+    CourseId,
+    CourseRateValue,
+    Comment
+  },{ headers: reqHeader })
+ }
+
+
   addComment(CourseId,Comment) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({

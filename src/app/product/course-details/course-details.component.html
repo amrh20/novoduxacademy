@@ -66,32 +66,27 @@
               </div>
               <div class="addReview">
                 <div class="addReview-content">
-                  <form action="#" class="">
-                    <fieldset>
+                <div *ngIf="errorReview" style="width: 600px; margin: 0 auto"
+                 class="alert alert-danger mb-3">{{errorReview}}</div>
+                  <form  [formGroup]="reviewform" (ngSubmit)="addReview()">
                       <h2>add review</h2>
                       <div class="cs-row">
                         <div class="">
                           <input type="text" class="form-control" placeholder="Review title">
                         </div>
                         <div class="add_rating">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
+                          <bar-rating [readOnly]="false" formControlName="rating" [max]="5">
+                          </bar-rating>
                         </div>
                       </div>
                       <div class="cs-row">
-                        <input type="text" class="form-control" placeholder="write your e-mail">
-                      </div>
-                      <div class="cs-row">
-                        <textarea class="form-control" placeholder="write your comment" spellcheck="false"></textarea>
+                        <textarea class="form-control" formControlName="reviewComment" 
+                        placeholder="write your comment.." spellcheck="false"></textarea>
                       </div>
                       <div class="text-center mt-4">
-                        <button type="submit" class="temp_button">add review</button>
-
+                        <button type="submit" class="temp_button"
+                        [disabled]="!reviewform.valid">add review</button>
                       </div>
-                    </fieldset>
                   </form>
                 </div>
 
@@ -109,9 +104,12 @@
                   <p class="Replys"><span>- {{reply.ReplyText}}</span></p>
                  </div>
                  <div class="add_comment">
+                   <div class="alert alert-danger mb-3" 
+                   *ngIf="errorComment" style="width: 600px; margin: 0 auto">{{errorComment}}</div>
                    <form [formGroup]="form" (ngSubmit)="addcomment()">
                    <textarea  placeholder="write your comment.." formControlName="comment"></textarea>
-                   <button class="temp_button" type="submit">add comment</button>
+                   <button class="temp_button" 
+                   type="submit" [disabled]="!form.valid">add comment</button>
                   </form>
                  </div>
                  <div class="add_reply">
