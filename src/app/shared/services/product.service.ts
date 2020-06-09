@@ -106,4 +106,29 @@ export class ProductService {
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetCourseCommentsWithReplies`, { params: params })
   }
+
+
+  // add to Favourite
+  addFavourite(CourseId) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('CourseId', CourseId);
+    return this.http.get(`${this.apiBaseURL}/AddCourseToFavourite`,{params: params, headers: reqHeader })
+  }
+
+  // get Favourite 
+  getMyFavorites() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    return this.http.get(`${this.apiBaseURL}/GetMyFavorites`,{params: params, headers: reqHeader })
+  }
 }

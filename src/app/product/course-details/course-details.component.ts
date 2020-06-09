@@ -56,7 +56,6 @@ export class CourseDetailsComponent implements OnInit {
    this.productService.addComment(CourseId,Comment).subscribe((res: any) => {
     this.form.value.comment= " "
      this.toastr.success('your comment added successfully');
-     window.location.reload();
    },err => {
     this.toastr.error("something error")
    if (err.error.Message =="Authorization has been denied for this request.") {
@@ -74,7 +73,6 @@ export class CourseDetailsComponent implements OnInit {
   let  ReplyText = this.replyform.value.reply;
   this.productService.addreply(CourseCommentId,ReplyText).subscribe(res => {
      this.toastr.success('your comment added successfully');
-     window.location.reload();
   },err => {
     this.toastr.error("something error")
     if (err.error.errors.message == "Invalid Parametrs") {
@@ -109,6 +107,17 @@ get rating() {
  selectOption(e) {
   localStorage.setItem('CourseCommentId',e)
  }
+// add to fav 
+addToFav() {
+  let courseId= Number(localStorage.getItem('courseId')) 
+  this.productService.addFavourite(courseId).subscribe(res => {
+    this.toastr.success('your course added successfully')
+  },err => {
+    this.toastr.error('something errorr')
+  })
+}
+
+
   public sliderConfig: any = {
     autoplay: true,
     autoplaySpeed: 2000,

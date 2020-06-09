@@ -11,6 +11,7 @@ import { MetaDataService } from 'src/app/shared/services/meta-data.service';
 })
 export class RegisterComponent implements OnInit {
   categories: any
+  overlay: boolean
   regform = new FormGroup({
     name: new FormControl('', Validators.required),
     Phone: new FormControl('', Validators.required),
@@ -60,10 +61,11 @@ export class RegisterComponent implements OnInit {
     return this.regform.get('category')
   }
   
-  selectOption(id: number) {
-    console.log(id)
-   }
+  // selectOption(id: number) {
+  //   console.log(id)
+  //  }
  register() {
+  this.overlay= true
   const Name = this.regform.value.name
   const PhoneKey= this.regform.value.phoneKey
   const PhoneNumber = this.regform.value.Phone
@@ -74,8 +76,10 @@ export class RegisterComponent implements OnInit {
    this.authService.register(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword).subscribe(res=> {  
      this.regform.reset()
      this.router.navigate(['/verfiy'])
+     this.overlay= false
    },err => {
     this.regform.reset()
+    this.overlay= false
    }) 
  }
  saveData() {

@@ -58,9 +58,19 @@
                 .enroll {
                     text-align: center;
                     margin-top: 20px;
+                    align-items: center;
+                    display: flex;
                     button {
                         padding: 10px 50px;
                         width: 100%;
+                    }
+                    i {
+                        border: 1px solid;
+                        padding: 10px;
+                        margin-left: 20px;
+                        border-radius: 10px;
+                        color: $main-color;
+                        cursor: pointer;
                     }
                 }
             }
@@ -118,7 +128,6 @@
                                 }
                                 textarea {
                                     min-height: 200px;
-                                    -webkit-box-shadow: none;
                                     box-shadow: none;
                                     background: none;
                                     overflow: hidden;
@@ -235,7 +244,6 @@
         text-align: center;
         width: 100%;
         textarea {
-            width: 600px;
             height: 150px;
         }
         button {
@@ -246,13 +254,13 @@
         width: 100%;
         text-align: center;
         textarea {
-            width: 600px;
             height: 100px;
             margin-top: 30px;
             margin-bottom: 30px;
         }
     }
     textarea {
+        width: 100%;
         display: block;
         margin-top: 10px;
         margin-left: 50px;
@@ -302,6 +310,20 @@
         }
         p {
             margin-top: 0 !important;
+        }
+    }
+    .comment__reply {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .add_comment {
+            max-width: 50%;
+            flex-basis: 50%;
+        }
+        .add_reply {
+            margin-left: 5%;
+            max-width: 45%;
+            flex-basis: 45%;
         }
     }
 }

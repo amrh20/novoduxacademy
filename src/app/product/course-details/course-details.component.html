@@ -42,6 +42,7 @@
               </div> -->
               <div class="enroll">
                 <button>enroll</button>
+                <i class="fa fa-heart" (click)="addToFav()"></i>
             </div>
             </div>
         </div>
@@ -50,7 +51,7 @@
             <div class="row reviews__content" *ngIf="reviews?.length">
                 <div class="col-12 col-md-4" *ngFor="let review of reviews">
                   <div class="review_comment">
-                    <div class="review_comment-title">
+                    <div>
                       <p>{{review?.StudentName}}</p>
                       <p>{{review?.CreationDate}}<p>
                     </div>
@@ -109,23 +110,26 @@
                   <p class="Replys"><span>- {{reply.ReplyText}}</span></p>
                  </div>     
               </div>
-            </div>  
-            <div class="add_comment">
-              <div class="alert alert-danger mb-3" 
-              *ngIf="errorComment" style="width: 600px; margin: 0 auto">{{errorComment}}</div>
-              <form [formGroup]="form" (ngSubmit)="addcomment()">
-              <textarea  placeholder="write your comment.." formControlName="comment"></textarea>
-              <button class="temp_button" 
-              type="submit" [disabled]="!form.valid">add comment</button>
-             </form>
-            </div>
-            <div class="add_reply">
-              <div class="alert alert-danger mb-2 mt-3" *ngIf="errorReply" style="width: 600px; margin: 0 auto">{{errorReply}}</div>
-             <form [formGroup]="replyform" (ngSubmit)="addreply()">
-               <textarea  placeholder="write your reply.." formControlName="reply"></textarea>
-               <button class="temp_button" type="submit" [disabled]="!replyform.valid">add reply</button>
-              </form>
-            </div>             
+            </div> 
+            <div class="comment__reply">
+              <div class="add_comment">
+                <div class="alert alert-danger mb-3" 
+                *ngIf="errorComment" style="width: 600px; margin: 0 auto">{{errorComment}}</div>
+                <form [formGroup]="form" (ngSubmit)="addcomment()">
+                <textarea  placeholder="write your comment.." formControlName="comment"></textarea>
+                <button class="temp_button" 
+                type="submit" [disabled]="!form.valid">add comment</button>
+               </form>
+              </div>
+              <div class="add_reply">
+                <div class="alert alert-danger mb-2 mt-3" *ngIf="errorReply" style="width: 600px; margin: 0 auto">{{errorReply}}</div>
+               <form [formGroup]="replyform" (ngSubmit)="addreply()">
+                 <textarea  placeholder="write your reply.." formControlName="reply"></textarea>
+                 <button class="temp_button" type="submit" [disabled]="!replyform.valid">add reply</button>
+                </form>
+              </div> 
+            </div> 
+                        
           </div>
         </div>
         <div class="recommend_slider">

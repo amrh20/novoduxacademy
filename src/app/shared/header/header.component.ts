@@ -7,6 +7,7 @@ import { HomeService } from '../services/home.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  logged: boolean
   constructor(private homeService:HomeService) { }
 
 public featureConfig: any= {
@@ -21,7 +22,14 @@ onclick() {
   console.log("tets")
 }
   ngOnInit(): void {
-   
+    
   }
-
+ loggedIn() {
+   if(localStorage.getItem('authToken')) {
+     return true
+   }
+ }
+ logout() {
+   localStorage.removeItem('authToken')
+ }
 }

@@ -1,6 +1,7 @@
 :host {
     .register {
       margin: 50px 0;
+      position: relative;
       [dir= rtl] & {
         text-align: right;
       }

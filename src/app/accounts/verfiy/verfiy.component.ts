@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./verfiy.component.scss']
 })
 export class VerfiyComponent implements OnInit {
+  overlay: boolean
   verifyform = new FormGroup({
     code: new FormControl('', Validators.required),
   });
@@ -20,6 +21,7 @@ export class VerfiyComponent implements OnInit {
     return this.verifyform.get('code')
   }
   verify() {
+    this.overlay= true
     let Phone= localStorage.getItem('phoneNumber')
     let PhoneKey= localStorage.getItem('PhoneKey')
     let vcode= this.verifyform.value.code
@@ -27,7 +29,9 @@ export class VerfiyComponent implements OnInit {
     this.authService.verifyAccount(PhoneKey,Phone,vcode).subscribe(res => {
       this.router.navigate(['/login'])
       localStorage.clear()
+      this.overlay= false
     },error => {
+      this.overlay= false
       // localStorage.clear()
     })
 

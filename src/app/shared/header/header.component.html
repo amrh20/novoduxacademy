@@ -20,11 +20,14 @@
                   <a routerLink="login">
                     <img src="../../../assets/images/Profile.png" alt="">
                   </a>
+                  <a *ngIf="loggedIn()" (click)="logout()">
+                    log out
+                  </a>
                 </div>
-                <div class="header__search">
+                <!-- <div class="header__search">
                     <input type="text" name="" id="" placeholder="search..">
                     <i class="fa fa-search"></i>
-                </div> 
+                </div>  -->
               </div>
               
             </div>

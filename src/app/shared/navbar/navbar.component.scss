@@ -5,7 +5,8 @@
     position: relative;  
     ul {
       display: flex;
-  
+      width: 100%;
+      justify-content: center;
       li {
         margin: 0 10px;
          
