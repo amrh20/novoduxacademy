@@ -131,4 +131,15 @@ export class ProductService {
     params = params.append('Page', '0');
     return this.http.get(`${this.apiBaseURL}/GetMyFavorites`,{params: params, headers: reqHeader })
   }
+
+  deleteCourseFromFavourite (CourseId) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('CourseId', CourseId);
+    return this.http.get(`${this.apiBaseURL}/DeleteCourseFromFavourite`,{params: params, headers: reqHeader })
+  }
 }

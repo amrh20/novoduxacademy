@@ -12,7 +12,6 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [HeaderComponent, NavbarComponent, FooterComponent],
   imports: [
     CommonModule,
-    SlickCarouselModule,
     RouterModule
   ],
   exports:[HeaderComponent,SlickCarouselModule,FooterComponent]

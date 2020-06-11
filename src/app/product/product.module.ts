@@ -11,10 +11,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { BarRatingModule } from "ngx-bar-rating";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
-  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent],
+  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent],
   imports: [
     CommonModule,
     productRoutingModule,
@@ -23,8 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BarRatingModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    ToastrModule.forRoot()
   ]
 })
 export class ProductModule { }

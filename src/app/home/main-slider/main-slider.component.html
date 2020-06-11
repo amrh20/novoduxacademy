@@ -21,7 +21,8 @@
           </div>
           <div>
             <select name="sources" id="sources" 
-            class="custom-select sources">
+            class="custom-select sources"
+            (change)="subCategories($event.target.value)">
               <option value="profile">Select sub category</option>
               <option value="{{subtaxon.Id}}" *ngFor= "let subtaxon of subTaxons">{{subtaxon.Name}}</option>
             </select>
@@ -29,8 +30,10 @@
   
           <div>
             <button>
-              <i class="fa fa-search"></i>
+              <a routerLink= '/product/search'>
+                <i class="fa fa-search"></i>
               <span>search</span>
+              </a>
             </button>
           </div>
         </div>

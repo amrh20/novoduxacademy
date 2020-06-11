@@ -25,6 +25,9 @@ export class MainSliderComponent implements OnInit {
       this.subTaxons= res.model
     }) 
   }
+  subCategories(e) {
+    localStorage.setItem('SubCategoryId',e)
+  }
   slides = [
     {img: "https://www.youstudy.com/gallery/blog/post/studying-medicine-in-the-uk.jpg"},
     {img: "https://static.arageek.com/wp-content/uploads/3-167.jpg"},

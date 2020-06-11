@@ -1,11 +1,11 @@
-<div class="wishlist_wrapper">
-  
-    <div class="wishlist_widget">
 
+<ng-container *ngIf="myFavorites?.length; else empty">
+  <div class="wishlist_wrapper">
+    <div class="wishlist_widget">
       <div class="container">
         <div class="tittle_innerpage">
           <h2>wishlist</h2>
-          <p>( {{myFavorites.length}} ) product/s</p>
+          <p>( {{myFavorites?.length}} ) product/s</p>
         </div>
         <div class="wishList">
           <!-- start wishlist container -->
@@ -22,7 +22,7 @@
                 </tr>
               </thead>
               <!--  content -->
-              <tbody class="wishList-content" *ngFor="let fav of myFavorites">
+              <tbody class="wishList-content" *ngFor="let fav of myFavorites; let i =index">
                 <tr>
                   <!-- product image -->
                   <td>
@@ -33,31 +33,29 @@
                   <!-- product name -->
                   <td class="td_desc">
                     <div class="product_description">
-                      <a  class="product_name">
+                      <a class="product_name">
                         {{fav.Name}}
                       </a>
-                     <p>
-                       {{fav.Description}}
-                     </p>
-
+                      <p>
+                        {{fav.Description}}
+                      </p>
+  
                     </div>
                   </td>
                   <td>
                     <!-- product price -->
                     <div class="product_price">
-                        <span class="current-price">
-                          {{fav.CurrentCost}}
-                        </span>
-                        <span class="original-price">
-                          {{fav.PreviousCost}}
-                        </span>
-                      </div>
+                      <span class="current-price">
+                        {{fav.CurrentCost}}
+                      </span>
+                      <span class="original-price">
+                        {{fav.PreviousCost}}
+                      </span>
+                    </div>
                   </td>
-               
                   <td>
                     <!-- product action -->
                     <div class="product-actions">
-
                       <button class="">
                         move to cart
                         <i class="fa fa-shopping-cart"></i>
@@ -67,30 +65,35 @@
                   <td>
                     <!-- remove product -->
                     <div class="product-remove">
-                      <button class="btn-remove">
+                      <button class="btn-remove" (click)="deleteitem(fav.Id,i)">
                         <img src="../../../assets/images/trash.png" alt="">
                       </button>
                     </div>
                   </td>
                 </tr>
               </tbody>
-                  
-
             </table>
-
           </div>
           <div class="wishlist_btns">
-            <div class="continue_shipping">
+            <!-- <div class="continue_shipping">
               <button class="temp_button">continue shopping</button>
-            </div>
-            <!-- <div class="clear">
-              <button class="temp_button">clear wishlist</button>
             </div> -->
+            <!-- <div class="clear">
+                <button class="temp_button">clear wishlist</button>
+              </div> -->
           </div>
         </div>
-      </div>
-
+      </div>  
     </div>
-
-    
   </div>
+</ng-container>
+
+
+
+<ng-template #empty>
+  <div class="empty_whishlist">
+    <div class="content">
+      <p>your whishList is empty</p>
+    </div>
+  </div>
+</ng-template>

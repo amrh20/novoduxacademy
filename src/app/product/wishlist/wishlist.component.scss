@@ -1,4 +1,16 @@
 @import "../../variables.scss";
+.empty_whishlist {
+    min-height: 400px;
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-transform: capitalize;
+        font-size: 20px;
+        color: $main-color;
+    }
+}
 .wishlist_wrapper {
     overflow: hidden;
     position: relative;

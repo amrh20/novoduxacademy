@@ -4,28 +4,33 @@ import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CoursesComponent } from '../product/courses/courses.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
   
   {
-    path: 'cart',
+    path: 'product/cart',
     component: CartComponent
   },
   {
-    path: 'wishlist',
+    path: 'product/wishlist',
     component: WishlistComponent
   },
   {
-    path: 'courses/:id',
+    path: 'product/courses/:id',
     component: CoursesComponent
   },
   {
-    path: 'course/:id',
+    path: 'product/course/:id',
     component: CourseDetailsComponent
   }, 
   {
-    path: 'subcourses/:id',
+    path: 'product/subcourses/:id',
     component: CoursesComponent
+  },
+  {
+    path: 'product/search',
+    component: SearchResultComponent
   }
 ];
 @NgModule({
