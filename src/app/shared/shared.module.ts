@@ -5,16 +5,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { CourseItemComponent } from './course-item/course-item.component';
+import { BarRatingModule } from 'ngx-bar-rating';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, NavbarComponent, FooterComponent],
+  declarations: [HeaderComponent, NavbarComponent, FooterComponent, CourseItemComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BarRatingModule
   ],
-  exports:[HeaderComponent,SlickCarouselModule,FooterComponent]
+  exports:[HeaderComponent,SlickCarouselModule,FooterComponent,CourseItemComponent]
 })
 export class SharedModule { 
 

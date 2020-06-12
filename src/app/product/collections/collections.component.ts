@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-collections',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collections.component.scss']
 })
 export class CollectionsComponent implements OnInit {
-
-  constructor() { }
-
+  courses: any
+  widget3: boolean= true
+  widget4: boolean= false
+  constructor(private productService:ProductService) { }
   ngOnInit(): void {
+   this.productService.getAllCourses().subscribe((res: any) => {
+    console.log(res.model)
+    this.courses= res.model
+   })
   }
-
+  widget() {
+    this.widget4= !this.widget4
+    this.widget3= !this.widget3
+  }
 }

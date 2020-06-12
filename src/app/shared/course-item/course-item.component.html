@@ -1,0 +1,33 @@
+    <div class="cart">
+        <a routerLink="/product/course/{{course.Id}}">
+        <div class="cart_img">
+          <img [src]="imagePath + course.Image" alt="">
+        </div>
+        <div class="cart_deatils">
+          <div class="product_rating">
+            <bar-rating [rate]="course.CourseRateValue" [readOnly]="true"></bar-rating>
+          </div>
+          <div class="product_name">
+                <h3>{{course.Name}}</h3>
+          </div>
+          <div  class="product_price">
+              <span class="new_price">{{course.PreviousCost}}</span>
+              <span class="original_price">{{course.CurrentCost}}</span>
+            </div>
+        </div>
+       </a>
+        <div class="product-icons">
+          <div class="tooltipe" data-tooltip="add to cart">
+            <i class="fa fa-shopping-cart"></i>
+          </div>
+          <div class="wishlist_icon tooltipe" 
+          data-tooltip="add to wishlist" (click)="addToFav(course.Id)">
+            <i class="fa fa-heart"></i>
+          </div>    
+          <div class="view_product-icon">
+            <a href="productdetails.html">
+              <i class="fa fa-plus"></i>
+            </a>
+          </div>
+        </div>
+    </div>

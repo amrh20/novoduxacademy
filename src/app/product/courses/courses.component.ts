@@ -13,11 +13,9 @@ export class CoursesComponent implements OnInit {
   widget4: boolean= false
   courses;
   subcourses;
-  imagePath= "http://novoduxapi.native-tech.co/Images/CategoryImages/";
   constructor(private activeRoute:ActivatedRoute,
     private productService:ProductService,
     private toastr: ToastrService) { 
-  
   }
 
   ngOnInit(): void {
@@ -34,11 +32,7 @@ export class CoursesComponent implements OnInit {
       })
     })
   }
-  addToFav(CourseId) {
-   this.productService.addFavourite(CourseId).subscribe( res => {
-     this.toastr.success('your course added successfully')
-   })
-  }
+
   widget() {
     this.widget4= !this.widget4
     this.widget3= !this.widget3

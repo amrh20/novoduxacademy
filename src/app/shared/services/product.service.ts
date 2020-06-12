@@ -20,6 +20,11 @@ export class ProductService {
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesByCategoryId`, { params: params })
   }
+  getAllCourses() {
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    return this.http.get(`${this.apiBaseURL}/GetAllCourses`, { params: params })
+  }
   getSubTaxonsCourses(parameters) {
     // Initialize Params Object
     let params = new HttpParams();
@@ -29,8 +34,7 @@ export class ProductService {
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`, { params: params })
   }
-  
-   
+    
   GetTaxons() {
     return this.http.get(`${this.apiBaseURL}/GetCategories`)
   }
@@ -73,8 +77,6 @@ export class ProductService {
     Comment
   },{ headers: reqHeader })
  }
-
-
   addComment(CourseId,Comment) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({
@@ -106,7 +108,6 @@ export class ProductService {
     // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetCourseCommentsWithReplies`, { params: params })
   }
-
 
   // add to Favourite
   addFavourite(CourseId) {
