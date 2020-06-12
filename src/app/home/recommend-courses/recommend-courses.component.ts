@@ -13,7 +13,6 @@ export class RecommendCoursesComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getHomeDate().subscribe((res: any)=> {
       this.topSellingCourese= res.model.TopSellingCourses
-      console.log(this.topSellingCourese)
     })
   }
   public sliderConfig: any = {

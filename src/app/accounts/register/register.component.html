@@ -1,5 +1,8 @@
 <!-- section start -->
 <section class="register">
+    <ng-container *ngIf="loading">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </ng-container>
     <div class="container">
         <div class="row">
             <div class="col-6">

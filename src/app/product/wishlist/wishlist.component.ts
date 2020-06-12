@@ -8,20 +8,26 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-  myFavorites;
+  myFavorites: any;
+  loaded: boolean
+  overlayDelete: boolean
   constructor(private productService:ProductService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.productService.getMyFavorites().subscribe((res: any) => {
       this.myFavorites =res.model
+      this.loaded =false
     })
   }
   deleteitem(CourseId,index) {
+   this.overlayDelete= true
    this.productService.deleteCourseFromFavourite(CourseId).subscribe(res => {
      this.myFavorites.splice(index,1)
     this.toastr.success('your item deleted succssfully')
+    this.overlayDelete= false
    }, err => {
      this.toastr.error('something error')
+     this.overlayDelete= false
    })
   }
 }

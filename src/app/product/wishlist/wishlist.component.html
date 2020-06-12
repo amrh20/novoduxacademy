@@ -12,6 +12,7 @@
           <div class="wishList__container">
             <!-- start wish list head -->
             <table>
+              <div class="overlay-delete" *ngIf="overlayDelete"></div>
               <thead>
                 <tr>
                   <th>image</th>
@@ -85,10 +86,16 @@
         </div>
       </div>  
     </div>
+      <div class="gooey" *ngIf="loaded">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
   </div>
 </ng-container>
-
-
 
 <ng-template #empty>
   <div class="empty_whishlist">

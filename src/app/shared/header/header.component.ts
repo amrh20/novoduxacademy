@@ -19,7 +19,6 @@ public featureConfig: any= {
   slidesToScroll: 1,
 }
 onclick() {
-  console.log("tets")
 }
   ngOnInit(): void {
     

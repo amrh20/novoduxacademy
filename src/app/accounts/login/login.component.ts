@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginError:string;
+  loading: boolean
+  overlay: boolean
   loginForm= new FormGroup({
     Phone: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required,Validators.minLength(6)]),
@@ -36,16 +38,21 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register'])
   }
   login() {
+    this.loading= true
+    this.overlay =true
     let PhoneNumberWithKey= this.loginForm.value.phoneKey + this.loginForm.value.Phone
     let Password = this.loginForm.value.password
-    console.log(PhoneNumberWithKey,Password)
     this.authService.login(PhoneNumberWithKey,Password).subscribe((res: any) => {
     localStorage.setItem('authToken',res.model.Token[0].access_token)
     this.loginForm.reset()
     this.router.navigate(['/home'])
     this.loginForm.value.password= " "
     this.loginForm.value.Phone= " "
+    this.loading= false
+    this.overlay= false
     },err => {
+      this.loading= false
+      this.overlay =false
       if(err.error.errors.message == 'Student Not Register Yet') {
         this.loginError= "please register first"
       }

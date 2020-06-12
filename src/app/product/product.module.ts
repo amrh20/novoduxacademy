@@ -12,9 +12,11 @@ import { BarRatingModule } from "ngx-bar-rating";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { SearchResultComponent } from './search-result/search-result.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { CollectionsComponent } from './collections/collections.component';
 
 @NgModule({
-  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent],
+  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent],
   imports: [
     CommonModule,
     productRoutingModule,
@@ -23,7 +25,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     BarRatingModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
-  ]
+    ToastrModule.forRoot(),
+    MatTabsModule
+    ]
 })
 export class ProductModule { }

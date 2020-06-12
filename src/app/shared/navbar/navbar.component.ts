@@ -13,7 +13,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getcategoryandSub().subscribe((res:any) => {
       this.listOfCategory= res.model
-      // console.log(this.listOfCategory)
     })
   }
 

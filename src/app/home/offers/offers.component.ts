@@ -13,7 +13,6 @@ export class OffersComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getHomeDate().subscribe((res: any)=> {
       this.offers= res.model.Offers
-      console.log(this.offers)
     })
   }
 

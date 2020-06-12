@@ -1,7 +1,9 @@
+@import "../../variables.scss";
 :host {
     .register {
-      margin: 50px 0;
       position: relative;
+      top: 120px;
+      margin-bottom: 150px;
       [dir= rtl] & {
         text-align: right;
       }
@@ -37,7 +39,7 @@
        &__btn {
          button {
            width: 100%;
-           background: #000;
+           background: $main-color;
            color: #fff;
            opacity: 1;
            padding: 10px;

@@ -104,7 +104,9 @@
  
       }
     }
-   
+   .content {
+     height: fit-content;
+   }
   }
   ::ng-deep {
     .fa-angle-left,

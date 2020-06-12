@@ -16,6 +16,10 @@ export class CourseDetailsComponent implements OnInit {
   errorComment: string
   errorReview: string
   errorReply: string
+  errorMsg: string
+  replyLoading: boolean
+  commentLoading: boolean
+  reviewLoading: boolean
   form = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
@@ -34,14 +38,12 @@ export class CourseDetailsComponent implements OnInit {
       let id =parm.id
       this.productService.getCourseDetails(id).subscribe((res: any) => {
         this.coursdetails= res.model
-        console.log("courseDetails", this.coursdetails)
       })
       this.productService.getReviews(id).subscribe((res: any) => {
         this.reviews= res.model;
       })
       this.productService.getComments(id).subscribe((res:any) => {
         this.comments= res.model
-        console.log(this.comments)
       })
       localStorage.setItem('courseId',parm.id)
     })
@@ -51,16 +53,19 @@ export class CourseDetailsComponent implements OnInit {
     return this.form.get('comment')
   }
   addcomment() {
+   this.commentLoading =true
    let  CourseId= Number(localStorage.getItem('courseId'))
    let  Comment = this.form.value.comment;
    this.productService.addComment(CourseId,Comment).subscribe((res: any) => {
-    this.form.value.comment= " "
+     this.form.reset()
      this.toastr.success('your comment added successfully');
+     this.commentLoading= false
    },err => {
     this.toastr.error("something error")
+    this.commentLoading= false
    if (err.error.Message =="Authorization has been denied for this request.") {
     this.errorComment= "please log in first"
-    this.form.value.comment= " "
+    this.form.reset()
    }
    })
   }
@@ -69,15 +74,23 @@ export class CourseDetailsComponent implements OnInit {
   return this.replyform.get('reply')
  }
  addreply() {
+  this.replyLoading= true
   let  CourseCommentId= Number(localStorage.getItem('CourseCommentId'))
   let  ReplyText = this.replyform.value.reply;
   this.productService.addreply(CourseCommentId,ReplyText).subscribe(res => {
      this.toastr.success('your comment added successfully');
+     this.replyform.reset()
+     this.replyLoading =false
   },err => {
     this.toastr.error("something error")
-    if (err.error.errors.message == "Invalid Parametrs") {
+    this.replyLoading =false
+    if (err?.error?.errors?.message == "Invalid Parametrs") {
      this.errorReply= "please select the comment first that you want to reply for"
     }
+    if (err?.error?.Message=="Authorization has been denied for this request.") {
+      this.errorReply= "please login first"
+    }
+    this.replyform.reset()
   })
  }
  //  reviews
@@ -88,6 +101,7 @@ get rating() {
   return this.form.get('rating')
 }
  addReview() {
+  this.reviewLoading= true
   const CourseRateValue = this.reviewform.value.rating
   const Comment = this.reviewform.value.reviewComment
   const CourseId= Number(localStorage.getItem('courseId'))
@@ -95,9 +109,10 @@ get rating() {
     this.toastr.success('your review added successfully')
     this.reviewform.reset()
     window.location.reload();
+    this.reviewLoading= false
   },err => {
     this.toastr.error("something error")
-    console.log(err)
+    this.reviewLoading= false
     if (err.error.Message =="Authorization has been denied for this request.") {
       this.errorReview= "please log in first"
        this.reviewform.reset()
@@ -114,10 +129,11 @@ addToFav() {
     this.toastr.success('your course added successfully')
   },err => {
     this.toastr.error('something errorr')
+    if (err.error.Message == "Authorization has been denied for this request.") {
+      this.errorMsg = "please login first"
+    }
   })
 }
-
-
   public sliderConfig: any = {
     autoplay: true,
     autoplaySpeed: 2000,

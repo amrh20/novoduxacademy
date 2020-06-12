@@ -1,27 +1,36 @@
 @import "../../variables.scss";
 .ads {
-    margin-top: 60px;
     position: relative;
     img {
-        max-height: 300px;
-        width: 100%;
+        max-width: 100%;
     }
     .overlay_txt {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-       h3 {
-        text-align: center;
         background: #ff5b5b;
-        padding: 15px;
-        color: #fff;
+        width: 92%;
+        padding: 10px;
+        bottom: -30px;
+       h3 {    
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-weight: bold;
        }
        p {
-        background-color: #5E2266;
+        font-size: 15px;
         color: #fff;
-        padding: 20px;
-        margin-top: -11px;
+        text-align: center;
        }
     }
+}
+.advertisements {
+    background-color: #f5f5f5;
+    margin: 60px 0;
+    padding: 40px 0;
+    padding-bottom: 65px;
 }

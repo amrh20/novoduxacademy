@@ -1,11 +1,14 @@
 <!-- section start -->
 <section class="login">
+    <ng-container *ngIf="loading">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </ng-container>
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <div class="login__wrapper">
                     <h3>login</h3>
-                    <p *ngIf="loginError" class="alert alert-danger" style="width: 80%;">{{loginError}}</p>
+                    <p *ngIf="loginError" class="alert alert-danger" style="width: 70%;">{{loginError}}</p>
                     <form class="login__content-form" [formGroup]="loginForm"
                     (ngSubmit)="login()">
                         <div class="form-group login-phone">
@@ -69,5 +72,7 @@
           
         </div> -->
     </div>
+    <div class="overlay" *ngIf="overlay"></div>
+
 </section>
 <!--Section ends-->

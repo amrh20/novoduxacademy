@@ -2,12 +2,25 @@
     <div class="navbar">
         <div class="container">
           <ul>
-            <li *ngFor="let taxon of listOfCategory">
-              <a routerLink="product/courses/{{taxon.Id}}">
-               {{taxon.Name}}
-              </a>
-                <i class="fa fa-chevron-down" *ngIf="taxon.SubCategories"></i>
-                <ng-container *ngIf="taxon.SubCategories">
+            <li>
+             <a routerLink="/home">Home</a>
+            </li>
+            <li>
+              <a routerLink="/product/collections">Courses</a>
+              <i class="fa fa-chevron-down"></i>
+               <ng-container>
+                  <div class="dropdown_one-content">
+                    <ul>
+                      <li *ngFor="let taxon of listOfCategory">
+                        <a routerLink="product/courses/{{taxon.Id}}">
+                          {{taxon.Name}}
+                         </a>
+                      </li>
+                    </ul>
+                  </div>
+                </ng-container>     
+              <!-- <i class="fa fa-chevron-down" *ngIf="taxon.SubCategories"></i> -->
+                <!-- <ng-container *ngIf="taxon.SubCategories">
                   <div class="dropdown_one-content">
                     <ul>
                       <li *ngFor="let subtaxon of taxon.SubCategories">
@@ -17,7 +30,7 @@
                       </li>
                     </ul>
                   </div>
-                </ng-container>
+                </ng-container> -->
                
             </li>           
             <li>

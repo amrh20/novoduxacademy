@@ -15,7 +15,6 @@ export class SearchResultComponent implements OnInit {
    let SubCategoryId = Number(localStorage.getItem('SubCategoryId'))
    this.productService.getSubTaxonsCourses(SubCategoryId).subscribe((res: any) => {
     this.courses= res.model
-    console.log(this.courses)
    })
   }
  
