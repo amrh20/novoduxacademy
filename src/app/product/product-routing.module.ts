@@ -34,7 +34,7 @@ const routes: Routes = [
     component: SearchResultComponent
   },
    {
-    path : 'product/collections',
+    path : 'product/courses',
     component: CollectionsComponent
    }
 ];

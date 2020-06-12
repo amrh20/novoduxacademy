@@ -1,9 +1,11 @@
 
 :host {
     .search_content {
-        margin: 100px;
         display: flex;
         justify-self: center;
+        position: relative;
+        top: 120px;
+        margin-bottom: 170px;
         .products_widget {
             max-width: 25%;
             flex-basis: 25%;
