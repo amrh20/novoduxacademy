@@ -15,5 +15,9 @@ export class NavbarComponent implements OnInit {
       this.listOfCategory= res.model
     })
   }
-
+  loggedIn() {
+    if(localStorage.getItem('authToken')) {
+      return true
+    }
+  }
 }

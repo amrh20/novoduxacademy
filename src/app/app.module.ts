@@ -12,10 +12,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { BarRatingModule } from "ngx-bar-rating";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AddComplaintComponent } from './add-complaint/add-complaint.component';
+import { AdvertisementsDetailsComponent } from './advertisements-details/advertisements-details.component';
+import { AdvertisementOrderComponent } from './advertisement-order/advertisement-order.component';
+import { FAQComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddComplaintComponent,
+    AdvertisementsDetailsComponent,
+    AdvertisementOrderComponent,
+    FAQComponent
   ],
   imports: [
     SharedModule,

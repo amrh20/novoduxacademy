@@ -13,6 +13,7 @@ export class AdvertisementsComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getHomeDate().subscribe((res: any) => {
      this.advertisements= res.model.Advertisements
+     console.log(this.advertisements)
     })
   }
 

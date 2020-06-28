@@ -6,6 +6,8 @@ import { CoursesComponent } from '../product/courses/courses.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { CollectionsComponent } from './collections/collections.component';
+import { SubCoursesComponent } from './sub-courses/sub-courses.component';
+import { AboutCompanyComponent } from './about-company/about-company.component';
 
 const routes: Routes = [
   
@@ -27,7 +29,7 @@ const routes: Routes = [
   }, 
   {
     path: 'product/subcourses/:id',
-    component: CoursesComponent
+    component: SubCoursesComponent
   },
   {
     path: 'product/search',
@@ -36,6 +38,10 @@ const routes: Routes = [
    {
     path : 'product/courses',
     component: CollectionsComponent
+   },
+   {
+     path : 'about-us',
+     component: AboutCompanyComponent
    }
 ];
 @NgModule({

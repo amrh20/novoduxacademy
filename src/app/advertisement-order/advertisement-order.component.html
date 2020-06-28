@@ -1,0 +1,19 @@
+<ng-container *ngIf="orders.length; else noOredrs">
+    <div class="ad-order">
+        <div class="container">
+            <div class="ad-order-content" *ngFor="let order of orders; let i= index">
+                <span>{{i+1}}- </span>
+                <p class="order-status">{{order?.AdvertisementOrderStatusName}}</p>
+                <p>{{order?.Message}}</p>
+                <p>{{order?.CreationDate}}</p>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-template #noOredrs>
+
+    <div class="ad-order-empty">
+        <p>There are not advertisement order yet</p>
+    </div>
+ 
+</ng-template>

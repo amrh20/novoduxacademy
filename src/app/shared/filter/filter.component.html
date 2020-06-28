@@ -1,0 +1,28 @@
+<div class="filter">
+    <div class="collect_filter">
+        <div class="filter_box">
+            <ul class="filter_box-title">
+                <li *ngFor="let taxon of listOfCategory">
+                    <div class="taxons-title">
+                        <a>
+                            {{taxon.Name}}
+                        </a>
+                        <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories"></i>
+                    </div>
+                    <ng-container *ngIf="taxon?.SubCategories">
+                        <div  *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
+                            <!-- <input type="checkbox" class="bg_checkbox"
+                            [value]="subtaxon.Id" 
+                            id="{{subtaxon.Id}}" (change)="attributeChange($event.target.value)"> -->
+                            <!-- <label class="checkbox" for="{{subtaxon.Id}}"> -->
+                                <a routerLink="/product/subcourses/{{subtaxon.Id}}">- {{subtaxon.Name}}</a>
+                            <!-- </label> -->
+                          </div>
+                    </ng-container>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>

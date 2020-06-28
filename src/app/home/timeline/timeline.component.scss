@@ -19,11 +19,9 @@
 		width: 12px;
 		height: 100%;
 		margin-left: -3px;
-		background: rgb(80,80,80);
 		// background: linear-gradient(to bottom, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
         z-index: 5;
-        background-color: $main-color;
-        opacity: .7;
+        background-color: #262161;
 	}
 	li {
 		padding: 1em 0;
@@ -66,7 +64,7 @@
 			width: 0;
 			margin-top: -8px;
 			border: solid transparent;
-			border-left-color: rgb(248,248,248);
+			border-left-color: #262161;
 			border-width: 8px;
 			pointer-events: none;
 		}
@@ -81,6 +79,8 @@
 	float: right;
 	.flag {
 		box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+		background-color: #262161;
+		color: #fff;
 		&:before {
             position: absolute;
             top: 50%;
@@ -104,7 +104,7 @@
 			width: 0;
 			margin-top: -8px;
 			border: solid transparent;
-			border-right-color: rgb(248,248,248);
+			border-right-color: #262161;
 			border-width: 8px;
 			pointer-events: none;
 		}
@@ -120,15 +120,17 @@
 	position: relative;
 	display: inline-block;
 	text-align: center;
+	
 }
 .flag {
 	position: relative;
 	display: inline;
-	background: rgb(248,248,248);
+	background: #262161;
 	padding: 10px;
 	border-radius: 5px;
 	font-weight: 600;
 	text-align: left;
+	color: #fff;
 }
 .time-wrapper {
 	display: inline;
@@ -140,6 +142,8 @@
 	display: inline-block;
 	padding: 6px;
 	background: rgb(248,248,248);
+	text-transform: capitalize;
+    font-weight: 600;
 }
 .desc {
 	margin: 1em 0.75em 0 0;
@@ -202,6 +206,22 @@
 		float: none;
 		width: 100%;
 		text-align: center;
+		position: relative;
+		&:before {
+			position: absolute;
+			content: "";
+			height: 2px;
+			width: 20px;
+			background-color: #262161;
+			left: 0;
+			top: 0;
+			width: 0; 
+	  height: 0; 
+	  border-top: 10px solid transparent;
+	  border-bottom: 10px solid transparent; 
+	  
+	  border-right:10px solid blue;
+		}
 		.flag {
 			&:before {
 				position: absolute;

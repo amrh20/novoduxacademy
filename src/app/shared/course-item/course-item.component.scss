@@ -29,3 +29,17 @@ a {
         padding: 15px 0;
     }
 }
+.error-overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 42px;
+    width: 200px;
+    background: red;
+    transform: translate(-50%, -50%);
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}

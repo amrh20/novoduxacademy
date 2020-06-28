@@ -14,9 +14,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { SearchResultComponent } from './search-result/search-result.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CollectionsComponent } from './collections/collections.component';
+import { SubCoursesComponent } from './sub-courses/sub-courses.component';
+import { AboutCompanyComponent } from './about-company/about-company.component';
 
 @NgModule({
-  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent],
+  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent],
   imports: [
     CommonModule,
     productRoutingModule,

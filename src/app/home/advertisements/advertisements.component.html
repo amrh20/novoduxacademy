@@ -1,12 +1,15 @@
 <div class="advertisements" *ngIf="advertisements?.length">
     <div class="container">
         <div class="row">
+            
             <div class="col-4 ads"  *ngFor= "let ad of advertisements">
+                <a routerLink="/ad">
                 <img [src]="imagePath + ad.Image" alt="">
                 <div class="overlay_txt">
-                    <h3>{{ad.Title}}</h3>
-                    <p>{{ad.Description}}</p>
+                    <h3>{{ad?.Title}}</h3>
+                    <p>{{ad?.Description}}</p>
                 </div>
+            </a>
             </div>
             </div>
     </div>

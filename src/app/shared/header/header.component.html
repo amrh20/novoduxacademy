@@ -11,6 +11,19 @@
               </div>
               <div class="icons_search">
                 <div class="header__icons">
+                  <a *ngIf="loggedIn()" class="drop">
+                    <i class="fa fa-cogs"></i>
+                    <div class="dropdown_one-content">
+                      <ul>
+                        <li>
+                        <a routerLink="/contact-us">Complaint or Suggestion</a>
+                        </li>
+                        <li>
+                          <a  routerLink="/ad-order">Advertisements orders</a>
+                          </li>
+                      </ul>
+                    </div>
+                  </a>
                   <a [routerLink]="['/product/cart']" >
                     <img src="../../../assets/images/Cart.png" alt="">
                   </a>
@@ -23,6 +36,7 @@
                   <a *ngIf="loggedIn()" (click)="logout()" class="logout">
                     log out
                   </a>
+                  
                 </div>
                 <!-- <div class="header__search">
                     <input type="text" name="" id="" placeholder="search..">

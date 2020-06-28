@@ -33,13 +33,17 @@
                 </ng-container> -->
                
             </li>           
-            <li>
-              <a>Contact us</a>
+            <li *ngIf="loggedIn()">
+              <a >Contact us</a>
             </li>
             <li>
-              <a>About us</a>
+              <a routerLink="/about-us">About us</a>
             </li>
-          
+            <li>
+              <a routerLink="/FAQ">
+                Faq
+              </a>
+            </li>
           </ul>
         </div>
 

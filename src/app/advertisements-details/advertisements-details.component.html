@@ -1,0 +1,15 @@
+<div class="details">
+    <div class="container">
+        <div class="details_content">
+            <img [src]="imagePath + details?.Image" alt="">
+            <p>{{details?.Description}}</p>
+            <span>{{details?.Title}}</span>
+        </div>
+        <div class="alert alert-danger error" *ngIf="errorMsg">{{errorMsg}}</div>
+        <form [formGroup]="reserveform" (ngSubmit)="reserve()">
+            <textarea name="" id="" cols="30" rows="10" 
+            formControlName="comment"  name="comment" placeholder="Write your message.. "></textarea>
+            <button [disabled]="!reserveform.valid">reserve</button>
+        </form>  
+    </div>
+</div>

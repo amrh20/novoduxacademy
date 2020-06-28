@@ -2,103 +2,23 @@
     <div class="container">
         <div class="row">
             <div class="filter_col">
-                <div class="filter">
-                    <div class="collect_filter">
-                        <div class="filter_box">
-                            <div class="filter_box-title">
-                                <h3>categories</h3>
-                                <i class="fa fa-chevron-down"></i>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="row_head">
-                                        <label class="checkbox">
-                                            <input type="checkbox" class="bg_checkbox" />
-                                            <span class="ml-2">category1</span>
-                                        </label>
-                                        <p>(5)</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row_head">
-                                        <label class="checkbox">
-                                            <input type="checkbox" class="bg_checkbox" />
-                                            <span class="ml-2">category2</span>
-                                        </label>
-                                        <p>(4)</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row_head">
-                                        <label class="checkbox">
-                                            <input type="checkbox" class="bg_checkbox" />
-                                            <span class="ml-2">category3</span>
-                                        </label>
-                                        <p>(7)</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- <div class="filter_box">
-                            <div class="filter_box-title">
-                                <h3>price</h3>
-                                <i class="fa fa-chevron-down"></i>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="row_head">
-                                        <label class="checkbox">
-                                            <input type="checkbox" class="bg_checkbox" />
-                                            <span class="ml-2">100$ - 200$</span>
-                                        </label>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row_head">
-                                        <label class="checkbox">
-                                            <input type="checkbox" class="bg_checkbox" />
-                                            <span class="ml-2">200$ - 500$</span>
-                                        </label>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row_head">
-                                        <label class="checkbox">
-                                            <input type="checkbox" class="bg_checkbox" />
-                                            <span class="ml-2">300$ - 600$</span>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> -->
-                    </div>
-                </div>
+                <app-filter></app-filter>
                 <div class="close_filter">
                     <button> <i class="fa fa-times"></i> </button>
                 </div>
             </div>
             <div class="products_col">
                 <div class="collection_box">
-                    <!-- <div class="collection_img">
-                        <img src="../../../assets/images/model.png" alt="collection">
-                        <div class="collection_img-overlay"></div>
-                        <div class="collection_img-overlay-text">
-                            collection title
-                        </div>
-                    </div> -->
-
                     <div class="collection_view">
                         <div class="sort">
                             <span>sort by: </span>
-                            <select name="" id="">
+                            <select name="" id="" class="sortby-select">
                                 <option value="select size">default</option>
                                 <option value="small">high to low</option>
                                 <option value="large">low to high</option>
                             </select>
                         </div>
-                        <div class="columns">
+                       <!-- <div class="columns">
                             <p>view :</p>
                             <div class="three_column" (click)="widget()">
                                 <span></span>
@@ -111,7 +31,7 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                        </div>
+                        </div>  -->
                       
                         <div class="view_filter-mobile">
                             <button>
