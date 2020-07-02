@@ -7,8 +7,8 @@
     </div>
     <div class="details">
         <form [formGroup]="verifyform" (ngSubmit)="verify()">
-        <input type="text" placeholder="Enter Code"  formControlName="code">
-        <button type="submit" [disabled]="!verifyform.valid">verify</button>
+        <input type="text" placeholder="{{'enter-code' | translate}}"  formControlName="code">
+        <button type="submit" [disabled]="!verifyform.valid">{{'verify' | translate}}</button>
     </form>
     </div>
     </div>

@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductModule } from './product/product.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BarRatingModule } from "ngx-bar-rating";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -16,7 +16,8 @@ import { AddComplaintComponent } from './add-complaint/add-complaint.component';
 import { AdvertisementsDetailsComponent } from './advertisements-details/advertisements-details.component';
 import { AdvertisementOrderComponent } from './advertisement-order/advertisement-order.component';
 import { FAQComponent } from './faq/faq.component';
-
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +37,21 @@ import { FAQComponent } from './faq/faq.component';
     FormsModule,
     ReactiveFormsModule,
     BarRatingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    }
+    })
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+}

@@ -23,6 +23,10 @@
             left: 0px;
             bottom: -11px;
             background-color: $main-color;
+            [dir= rtl] & {
+              left: auto;
+              right: 0;
+            }
           }
         }
         .content {
@@ -41,6 +45,9 @@
           button {
             padding: 12px 25px;
           }
+        }
+        [dir= rtl] & {
+          text-align: right;
         }
       }
       .right_side {

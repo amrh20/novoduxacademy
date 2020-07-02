@@ -9,28 +9,34 @@
     <div class="steps">
       <div class="steps__wrapper">
         <h3>
-          search your course
+          {{'search-your-course' | translate}}
         </h3>
         <div class="last">
           <div>
             <select name="sources" id="sources" class="custom-select sources" 
                     (change)="onChangeTaxons($event.target.value)">
-              <option value="profile">Select category</option>
-              <option value="{{taxon.Id}}" *ngFor= "let taxon of taxons">{{taxon.Name}}</option>
+              <option value="profile" >{{'select-category' | translate}}</option>
+              <option value="{{taxon.Id}}" *ngFor= "let taxon of taxons">
+                <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
+                <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
+              </option>
             </select>
           </div>
           <div>
             <select name="sources" id="sources" 
             class="custom-select sources"
             (change)="subCategories($event.target.value)">
-              <option value="profile">Select sub category</option>
-              <option value="{{subtaxon.Id}}" *ngFor= "let subtaxon of subTaxons">{{subtaxon.Name}}</option>
+              <option value="1" >{{'select-sub-category' | translate}}</option>
+              <option value="{{subtaxon.Id}}" *ngFor= "let subtaxon of subTaxons">
+                <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
+                <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+              </option>
             </select>
           </div>  
             <div>
               <a routerLink= '/product/search'>
                 <i class="fa fa-search"></i>
-              <span>search</span>
+              <span>{{'search' | translate}}</span>
               </a>
             </div>
         </div>

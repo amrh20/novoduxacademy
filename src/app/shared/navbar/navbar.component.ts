@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,13 @@ import { HomeService } from '../services/home.service';
 })
 export class NavbarComponent implements OnInit {
   listOfCategory;
-  constructor(private homeService:HomeService) { }
+  checkLang: string
+  constructor(private homeService:HomeService,public translate:TranslateService) { }
 
   ngOnInit(): void {
     this.homeService.getcategoryandSub().subscribe((res:any) => {
       this.listOfCategory= res.model
+      this.checkLang= localStorage.getItem('currentLanguage')
     })
   }
   loggedIn() {

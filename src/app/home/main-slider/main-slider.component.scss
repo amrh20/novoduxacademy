@@ -1,75 +1,90 @@
 @import "../../variables.scss";
-.main__slider {
-    height: calc(100vh - 50px);
-    position: relative;
-    top: 70px;
-     img {
+:host {
+    .main__slider {
         height: calc(100vh - 50px);
-        width: 100%;
-     }
-     .steps {
-         &__wrapper {
-            position: absolute;
-            bottom: 100px;
-            box-shadow: rgba(0, 0, 0, 0.29) 0px 6px 18px 0px;
-            background-color: #fff;
-            width: 60%;
-            padding: 20px;
-            border-radius: 20px;
-            margin-left: 20%;
-            h3 {
-             text-align: center;
-             width: 100%;
-             border-bottom: 1px solid $second-color;
-             padding-bottom: 10px;
-             margin-bottom: 20px;
-             text-transform: capitalize;
-             color: $main-color;
-            }
+        position: relative;
+        top: 70px;
+         img {
+            height: calc(100vh - 50px);
+            width: 100%;
          }
-               
+         .steps {
+             &__wrapper {
+                position: absolute;
+                bottom: 100px;
+                box-shadow: rgba(0, 0, 0, 0.29) 0px 6px 18px 0px;
+                background-color: #fff;
+                width: 60%;
+                padding: 20px;
+                border-radius: 20px;
+                margin-left: 20%;
+                [dir= rtl] & {
+                    margin-left: 0;
+                    margin-right: 20%;
+                }
+                h3 {
+                 text-align: center;
+                 width: 100%;
+                 border-bottom: 1px solid $second-color;
+                 padding-bottom: 10px;
+                 margin-bottom: 20px;
+                 text-transform: capitalize;
+                 color: $main-color;
+                }
+             }
+                   
+         }
      }
- }
-.custom-select {
-    background: url('../../../assets/images/arrow.png') no-repeat right 0.30rem center/20px 20px;
-    position: relative;
-    padding: 15px;
-    border-right: 0;
-    height: auto;
-    cursor: pointer;
-    border-radius: 0;
-    &:focus,&:active {
-        border-color: #ced4da;
-        box-shadow: none
-    }
-    &::before {
-     position: absolute;
-     content: "test";
-     left: 0;
-     right: 0;
-     bottom: 0;
-     top: 0;
-
-    }
-}
-.last {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    > div {
-        width: 33.33%;
-    }
-    a {
+    .custom-select {
+        background: url('../../../assets/images/arrow.png') no-repeat right 0.30rem center/20px 20px;
+        position: relative;
         padding: 15px;
-        font-size: 18px;
-        color: #fff;
-        background-color: $main-color;
-        width: 100%;
-        display: inline-block;
-        text-align: center;
-        i {
-            margin-right: 15px;
+        border-right: 0;
+        height: auto;
+        cursor: pointer;
+        border-radius: 0;
+        [dir= rtl] & {
+            border-right: 1px solid #ced4da;
+            border-left: 0;
+            background: url('../../../assets/images/arrow.png') no-repeat left 0.30rem center/20px 20px;
+        }
+        &:focus,&:active {
+            border-color: #ced4da;
+            box-shadow: none
+        }
+        &::before {
+         position: absolute;
+         content: "test";
+         left: 0;
+         right: 0;
+         bottom: 0;
+         top: 0;
+    
+        }
+    }
+    .last {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > div {
+            width: 33.33%;
+        }
+        a {
+            padding: 15px;
             font-size: 18px;
+            color: #fff;
+            background-color: $main-color;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            i {
+                margin-right: 15px;
+                font-size: 18px;
+                [dir= rtl] & {
+                    margin-right: 0;
+                    margin-left: 15px;
+                }
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ export class AdvertisementOrderComponent implements OnInit {
   ngOnInit(): void {
     this.homeSerive.getAdvertisementOrder().subscribe((res: any) => {
       this.orders = res.model
-      console.log(this.orders)
     })
   }
 

@@ -11,13 +11,14 @@ declare var $: any;
 export class MainSliderComponent implements OnInit {
   taxons;
   subTaxons;
+  checkLang;
   constructor(private homeService:HomeService, private productService: ProductService) { }
   ngOnInit(): void {
     $.getScript('mainscript.js');
     this.productService.GetTaxons().subscribe((res: any) => {
       this.taxons= res.model
     })
-  
+    this.checkLang= localStorage.getItem('currentLanguage')
   }
   onChangeTaxons(e) {
     let id=e;
@@ -39,6 +40,7 @@ export class MainSliderComponent implements OnInit {
   autoplaySpeed: 2000,
   arrows: false,
   dots: true,
+  rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,
 };
 
 }

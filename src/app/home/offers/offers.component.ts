@@ -8,12 +8,16 @@ import { HomeService } from 'src/app/shared/services/home.service';
 })
 export class OffersComponent implements OnInit {
   offers
+  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
+  checkLang
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
     this.homeService.getHomeDate().subscribe((res: any)=> {
       this.offers= res.model.Offers
     })
+    this.checkLang= localStorage.getItem('currentLanguage')
+
   }
 
 

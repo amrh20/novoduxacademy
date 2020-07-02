@@ -7,28 +7,28 @@
         <div class="row">
             <div class="col-6">
                 <div class="login__wrapper">
-                    <h3>login</h3>
+                    <h3>{{'login' | translate}}</h3>
                     <p *ngIf="loginError" class="alert alert-danger" style="width: 70%;">{{loginError}}</p>
                     <form class="login__content-form" [formGroup]="loginForm"
                     (ngSubmit)="login()">
                         <div class="form-group login-phone">
                             <select name="phoneKey" id="" formControlName="phoneKey">
-                                <option value="">code</option>
+                                <option value="">{{'code' | translate}}</option>
                                 <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
                             </select>
-                            <input type="number" id="Phone" placeholder="Phone Number*" formControlName="Phone">
+                            <input type="number" id="Phone" placeholder="{{'Phone-Number' | translate}}*" formControlName="Phone">
                         </div>
                         <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
-                            Phone number is required
+                            {{'Phone-required' | translate}}
                         </div>
                         <div class="form-group">
                             <input type="password" id="password" placeholder="Password*" formControlName="password">
                         </div>
                         <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
-                            please enter Password
+                            {{'please-password' | translate}}
                         </div>
                         <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
-                            password must be a latest 6 charector
+                            {{'password-charector' | translate}}
                         </div>
                         <!-- <div class="login__saved">
                             <p>remembe me</p>
@@ -38,7 +38,7 @@
                             </a>
                         </div> -->
                         <div class="login__btn">
-                            <button [disabled]="!loginForm.valid">log in</button>
+                            <button [disabled]="!loginForm.valid">{{'login' | translate}}</button>
                         </div>
                     </form>
                 </div>
@@ -46,10 +46,10 @@
             <div class="col-6">
                 <div class="new__account">
                     <img src="../../../assets/images/login.jpeg" alt="" style="max-width: 100%;">
-                    <h3 class="text-center">new at <a>novodux</a>?</h3>
+                    <h3 class="text-center">{{'new-at-novodux' | translate}} ?</h3>
                     <div class="create-account">
                         <button class="" type="submit" (click)="CreateAccount()" style="width: 100%;">
-                            create new account
+                            {{'create-new-account' | translate}}
                         </button>
                     </div>
                 </div>

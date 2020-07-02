@@ -1,18 +1,22 @@
 <div class="recommend_slider">
-  <hr class="hr-text" data-content="top selling courses">
+  <h2>{{'top-selling-courses' | translate}}</h2>
   <div class="container">
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
+      <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
       <div ngxSlickItem class="slide" *ngFor="let topselling of topSellingCourese">
         <div class="cart_view2">
-          <a class="prevent_click_mobile">
-          </a>
-          <div class="cart_two"><a class="prevent_click_mobile">
+          <div class="cart_two">
               <div class="product_img">
-                <img src="../../../assets/images/05.jpg" alt="">
+                <a routerLink="/product/course/{{topselling.Id}}">
+                  <img [src]="imagePath + topselling?.Image">
+                </a>
               </div>
               <div class="product_details">
                 <div class="product_name">
-                  <p>{{topselling.Name}}</p>
+                  <p>
+                    <ng-container *ngIf="checkLang== 'en'">{{topselling.Name}}</ng-container>
+                    <ng-container *ngIf="checkLang== 'ar'">{{topselling.NameLT}}</ng-container>
+                  </p>
                 </div>
                 <div class="product_rating text-center">
                   <bar-rating [rate]="topselling?.CourseRateValue" [readOnly]="true"></bar-rating>
@@ -23,24 +27,22 @@
                 </div>
 
               </div>
-            </a>
-            <div class="product-action">
+              <div class="product-action">
               <i class="fa fa-shopping-cart"></i>
-              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart" (click)="addToFav(topselling.Id)"></i>
               <a>
                 <i class="fa fa-eye d-block d-md-none"></i>
               </a>
-            </div>
-
+              </div>
           </div>
         </div>
       </div>
    
     </ngx-slick-carousel>
 
-    <div class="slider_button">
+    <!-- <div class="slider_button">
       <button class="btn-1 icon-forward view__more-btn"><span>view more</span></button>
-    </div>
+    </div> -->
   </div>
 
 </div>

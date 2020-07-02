@@ -27,7 +27,6 @@ export class VerfiyComponent implements OnInit {
     let Phone= localStorage.getItem('phoneNumber')
     let PhoneKey= localStorage.getItem('PhoneKey')
     let vcode= this.verifyform.value.code
-    console.log(Phone,PhoneKey,vcode)
     this.authService.verifyAccount(PhoneKey,Phone,vcode).subscribe(res => {
       this.router.navigate(['/login'])
       localStorage.clear()

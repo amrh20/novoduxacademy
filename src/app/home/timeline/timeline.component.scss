@@ -2,6 +2,14 @@
 @import "../../variables.scss";
 .timeline__wrapper {
 	background-color: #faf8f6;
+	p {
+		text-align: center;
+		width: fit-content;
+		margin: auto;
+		background: #fff;
+		padding: 10px;
+		font-size: 20px;
+	}
 }
 .timeline {
 	position: relative;

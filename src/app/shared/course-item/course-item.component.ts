@@ -12,10 +12,12 @@ export class CourseItemComponent implements OnInit {
   @Input() course : Course;
   errorMsg: string
   imagePath= "http://novoduxapi.native-tech.co/Images/CategoryImages/";
-
+  checkLang
   constructor(private productService:ProductService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
+    this.checkLang= localStorage.getItem('currentLanguage')
+
   }
   addToFav(CourseId) {
     this.productService.addFavourite(CourseId).subscribe( res => {
@@ -23,8 +25,6 @@ export class CourseItemComponent implements OnInit {
     }, err => {
       if (err.error.Message == "Authorization has been denied for this request.") {
        this.errorMsg= 'please login first'
-      //  setTimeout(function(){ this.errorMsg= " " }, 200);
-      // alert('please login first')
       }
       this.toastr.error('something error')
     })

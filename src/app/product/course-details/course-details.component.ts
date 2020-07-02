@@ -20,6 +20,7 @@ export class CourseDetailsComponent implements OnInit {
   replyLoading: boolean
   commentLoading: boolean
   reviewLoading: boolean
+  checkLang
   form = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
@@ -47,6 +48,7 @@ export class CourseDetailsComponent implements OnInit {
       })
       localStorage.setItem('courseId',parm.id)
     })
+    this.checkLang= localStorage.getItem('currentLanguage')
   }
   // comments
   get comment() {
@@ -141,6 +143,7 @@ addToFav() {
     arrows: true,
     dots: false,
     slidesToShow: 4,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,
   };
 }

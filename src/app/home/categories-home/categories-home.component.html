@@ -3,50 +3,40 @@
       <div class="courses__wrapper">
         <div class="left_side">
           <div class="title">
-            <h3>categories</h3>
+            <h3>{{'categories' | translate}}</h3>
             <span></span>
           </div>
           <div class="content">
-            <span>about categories</span>
+            <span>{{'about-categories' | translate}}</span>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aut necessitatibus at corrupti accusantium deleniti omnis adipisci dicta voluptate.
+              {{'loream' | translate}}
             </p>
           </div>    
           <a routerLink="/product/courses">
-            <button class="btn-1 icon-forward view__more-btn"><span>view all categories</span></button>
+            <button class="btn-1 icon-forward view__more-btn"><span>
+              {{'view-all' | translate}}
+            </span></button>
           </a>
           </div>
           <div class="right_side">
-            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
-            
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
               <div ngxSlickItem class="slide" *ngFor= "let category of categories">
                 <div class="slide_img">
-                  <img [src]="imagePath + category.Image" alt="">
+                  <img [src]="imagePath + category?.Image" alt="">
                   <div class="view_course">
-                    <a routerLink="/product/courses/{{category.Id}}">view details</a>
+                    <a routerLink="/product/courses/{{category.Id}}">{{'view-details' | translate}}</a>
                   </div>
                   <div class="overlay"></div>
                 </div>
                 <div class="course__details">
-                  <!-- <div class="price">
-                    <span class="original_price">1000 $</span>
-                    <span class="new_price"> 500 $</span>
-                  </div> -->
                   <div class="course__detials-name">
-                    <h3 >{{category.Name}}</h3>
+                    <h3>
+                      <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                      <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
+                    </h3>
                   </div>
-                  <!-- <div class="product_rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div> -->
                 </div>
-                
               </div>
-            
-              
             </ngx-slick-carousel>
           </div>
       </div>

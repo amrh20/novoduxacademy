@@ -143,7 +143,7 @@ button:focus {
 		-ms-flex-pack: center;
 		justify-content: center;
 		img {
-			max-height: 250px;
+			max-width: 100%;
 		}
 	}
 	.image {
@@ -508,12 +508,15 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 body {
-    font-family: 'Balsamiq Sans', cursive;
+	font-family: 'Cairo', sans-serif;
 	font-size: 16px;
 	overflow-x: hidden;
 	position: relative;
+	font-weight: 400;
 }
-
+.first {
+  direction: rtl;
+} 
 .cart_wrapper {
 	overflow: hidden;
 	position: relative;
@@ -1236,7 +1239,12 @@ body {
 				}
 			}
 		}
+		[dir =rtl] & {
+			padding-right: 0;
+			padding-left: 20px;
+		}
 	}
+	
 	.collection_img {
 		text-align: center;
 		background-color: #fff;

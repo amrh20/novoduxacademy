@@ -13,8 +13,8 @@ export class CollectionsComponent implements OnInit {
   constructor(private productService:ProductService) { }
   ngOnInit(): void {
    this.productService.getAllCourses().subscribe((res: any) => {
-    console.log(res.model)
     this.courses= res.model
+    console.log("this.courses", this.courses)
    })
   }
   widget() {

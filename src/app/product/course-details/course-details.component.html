@@ -4,30 +4,39 @@
       <div class="course__wrapper--details">
         <ng-container *ngIf="coursdetails?.IntroVideo; else default">
           {{coursdetails?.IntroVideo}}
+       
         </ng-container>
         <ng-template #default>
           <img src="../../../assets/images/default.jpg" alt="" style="width: 100%;">
         </ng-template>
         <div class="course__wrapper--details-txt">
-          <span>about the course</span>
+          <span>{{'about-the-course' | translate}}</span>
           <p>
-            {{coursdetails?.Description}}
+           
+            <ng-container *ngIf="checkLang== 'en'"> {{coursdetails?.Description}}</ng-container>
+            <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails?.DescriptionLT}}</ng-container>
           </p>
         </div>
       </div>
       <div class="course__wrapper--order">
         <div class="detail">
-          <p>name </p>
-          <p>{{coursdetails?.CategoryName}}</p>
+          <p>{{'Name' | translate}} </p>
+          <p>
+          <ng-container *ngIf="checkLang== 'en'">{{coursdetails?.CategoryName}}</ng-container>
+          <ng-container *ngIf="checkLang== 'ar'">{{coursdetails?.CategoryNameLT}}</ng-container>
+        </p>
         </div>
         <div class="detail">
-          <p>price </p>
+          <p>{{'price' | translate}} </p>
           <p class="new_price">{{coursdetails?.CurrentCost}}</p>
           <p class="original_price">{{coursdetails?.PreviousCost}}</p>
         </div>
         <div class="detail">
-          <p>instructor</p>
-          <p>{{coursdetails?.Teacher.Name}}</p>
+          <p>{{'instructor' | translate}}</p>
+          <p>
+          <ng-container *ngIf="checkLang== 'en'">{{coursdetails?.Teacher.Name}}</ng-container>
+          <ng-container *ngIf="checkLang== 'ar'">{{coursdetails?.Teacher.NameLT}}</ng-container>
+        </p>
         </div>
         <!-- <div class="detail">
                   <p>lectures</p>
@@ -39,7 +48,7 @@
               </div> -->
         <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
         <div class="enroll">
-          <button>enroll</button>
+          <button>{{'enroll' | translate}}</button>
           <i class="fa fa-heart" (click)="addToFav()"></i>
         </div>
       </div>
@@ -47,7 +56,7 @@
     <mat-tab-group>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span>Videos</span>
+          <span>{{'Videos' | translate}}</span>
           <img src="../../../assets/images/video-icon.png" alt="">
         </ng-template>
         <div class="videos-content">
@@ -56,21 +65,25 @@
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span>Reviews</span>
+          <span>{{'Reviews' | translate}}</span>
           <img src="../../../assets/images/review-icon.png" alt="">
         </ng-template>
         <div class="course__reviews content">
-          <h2 *ngIf="reviews?.length">reviews</h2>
+          <h2 *ngIf="reviews?.length">{{'Reviews' | translate}}</h2>
           <div class="row reviews__content" *ngIf="reviews?.length">
             <div class="col-12 col-md-4" *ngFor="let review of reviews">
               <div class="review_comment">
                 <div>
-                  <p>{{review?.StudentName}}</p>
+                  <p>
+                    {{review?.StudentName}}
+                  </p>
                   <p>{{review?.CreationDate}}
                   <p>
                 </div>
                 <p>
-                  {{review?.Comment}}
+                  
+                  <ng-container *ngIf="checkLang== 'en'">{{review?.Comment}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'">{{review?.CommentLT}}</ng-container>
                 </p>
                 <div class="product_rating">
                   <bar-rating [rate]="review?.CourseRateValue" [readOnly]="true"></bar-rating>
@@ -83,7 +96,8 @@
               <div *ngIf="errorReview" style="width: 600px; margin: 0 auto" class="alert alert-danger mb-3">
                 {{errorReview}}</div>
               <form [formGroup]="reviewform" (ngSubmit)="addReview()">
-                <h2>add review
+                <h2>
+                  {{'add-reviews' | translate}}
                   <i class="fa fa-spinner fa-spin ml-2" *ngIf="reviewLoading"></i>
                 </h2>
                 <div class="cs-row">
@@ -100,7 +114,8 @@
                     spellcheck="false"></textarea>
                 </div>
                 <div class="text-center mt-4">
-                  <button type="submit" class="temp_button" [disabled]="!reviewform.valid">add review</button>
+                  <button type="submit" class="temp_button"
+                    [disabled]="!reviewform.valid">{{'add-review' | translate}}</button>
                 </div>
               </form>
             </div>
@@ -110,11 +125,11 @@
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span>Comments</span>
+          <span>{{'Comments' | translate}}</span>
           <img src="../../../assets/images/comment-icon.png" alt="">
         </ng-template>
         <div class="course__comments content">
-          <h2 *ngIf="comments?.length">comments</h2>
+          <h2 *ngIf="comments?.length">{{'Comments' | translate}}</h2>
           <div class="row" *ngIf="comments?.length" class="comment-content">
             <div class="col-12 p-0" *ngFor="let comment of comments">
               <div class="review_comment">
@@ -139,7 +154,7 @@
               <form [formGroup]="form" (ngSubmit)="addcomment()">
                 <textarea placeholder="write your comment.." formControlName="comment"></textarea>
                 <button class="temp_button" type="submit" [disabled]="!form.valid">
-                  add comment
+                  {{'add-comment' | translate}}
                   <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i></button>
               </form>
             </div>
@@ -149,7 +164,7 @@
               <form [formGroup]="replyform" (ngSubmit)="addreply()">
                 <textarea placeholder="write your reply.." formControlName="reply"></textarea>
                 <button class="temp_button" type="submit" [disabled]="!replyform.valid">
-                  add reply
+                  {{'add-reply' | translate}}
                   <i class="fa fa-spinner fa-spin ml-2" *ngIf="replyLoading"></i>
                 </button>
               </form>

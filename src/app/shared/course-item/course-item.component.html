@@ -8,7 +8,10 @@
             <bar-rating [rate]="course.CourseRateValue" [readOnly]="true"></bar-rating>
           </div>
           <div class="product_name">
-                <h3>{{course.Name}}</h3>
+                <h3>
+                  <ng-container *ngIf="checkLang== 'en'">{{course.Name}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'">{{course?.NameLT}}</ng-container>
+                </h3>
           </div>
           <div  class="product_price">
               <span class="new_price">{{course.PreviousCost}}</span>

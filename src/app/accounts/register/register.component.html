@@ -1,16 +1,19 @@
 <!-- section start -->
 <section class="register">
     <ng-container *ngIf="loading">
-        <div class="lds-ripple"><div></div><div></div></div>
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
     </ng-container>
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <div class="register__wrapper">
-                    <h3>register</h3>
+                    <h3>{{'Register' | translate}}</h3>
                     <form class="register__content-form" [formGroup]="regform" (ngSubmit)="register()">
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Name*" formControlName="name">
+                            <input type="text" id="name" placeholder="{{'Name' | translate}}*" formControlName="name">
                         </div>
                         <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">
                             name is required
@@ -18,34 +21,34 @@
                         <div class="phone_content">
                             <div class="form-group" class="left_side">
                                 <select name="phoneKey" id="" formControlName="phoneKey">
-                                    <option value="">code</option>
+                                    <option value="">{{'code' | translate}}</option>
                                     <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
                                 </select>
                             </div>
                             <div class="form-group" class="right_side">
-                                <input type="text" id="phone" 
-                                placeholder="Phone Number*" 
-                                formControlName="Phone">
+                                <input type="text" id="phone" placeholder="{{'Phone-Number' | translate}}*"
+                                    formControlName="Phone">
                             </div>
                         </div>
                         <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
                             phone number is required
                         </div>
                         <div class="form-group">
-                            <input type="text" id="email" placeholder="Email" formControlName="email">
+                            <input type="text" id="email" placeholder="{{'Email' | translate}}" formControlName="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" placeholder="Password*" formControlName="password">
+                            <input type="password" id="password" placeholder="{{'Password' | translate}}*"
+                                formControlName="password">
                         </div>
                         <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
-                            Password is required
+                            {{'please-password' | translate}}
                         </div>
                         <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
-                            password must be a latest 6 charector
+                            {{'password-charector' | translate}}
                         </div>
                         <div class="form-group">
-                            <input type="password" id="ConfirmPassword" placeholder="Confirm Password*"
-                                formControlName="ConfirmPassword">
+                            <input type="password" id="ConfirmPassword"
+                                placeholder="{{'Confirm-Password' | translate}}*" formControlName="ConfirmPassword">
                         </div>
                         <div *ngIf="ConfirmPassword.touched && ConfirmPassword.value !== password.value"
                             class="alert alert-danger">
@@ -56,18 +59,19 @@
                             Confirm Password is required
                         </div> -->
                         <div class="form-group">
-                            <select name="category" id="category"
-                                class="category-select" formControlName="category">
-                                <option value="">select your category*</option>
+                            <select name="category" id="category" class="category-select" formControlName="category">
+                                <option value="">{{'select-category' | translate}}*</option>
                                 <option value="{{category.Id}}" *ngFor="let category of categories">
-                                    {{category.Name}}
+
+                                    <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                                    <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
                                 </option>
                             </select>
                         </div>
                         <div class="register__btn">
-                            <button class="" type="submit" 
-                            [disabled]="!regform.valid" (click)="saveData()">
-                            register</button>
+                            <button class="" type="submit" [disabled]="!regform.valid" (click)="saveData()">
+                                {{'Register' | translate}}
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -75,14 +79,13 @@
             <div class="col-6">
                 <div class="new__account">
                     <img src="../../../assets/images/register.jpeg" alt="">
-                    <p> Already have an Account</p>
+                    <p>{{'already-have-an-account' | translate}}</p>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatem doloremque ab in
-                        dignissimos, quis, eius sed minima non nobis officiis.
+                        {{'loream' | translate}}
                     </p>
                     <div class="create-account">
-                        <button class="w-100" (click)="loginNav()" >
-                            login
+                        <button class="w-100" (click)="loginNav()">
+                            {{'login' | translate}}
                         </button>
                     </div>
                 </div>

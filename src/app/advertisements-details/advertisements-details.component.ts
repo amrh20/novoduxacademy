@@ -20,7 +20,6 @@ export class AdvertisementsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getAdvertisementDetails().subscribe((res: any) => {
       this.details= res.model
-      console.log(this.details)
       localStorage.setItem('AdvertisementId',res.model.Id)
     })
   }

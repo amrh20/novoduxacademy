@@ -1,5 +1,18 @@
+@import "../../variables.scss";
 .cart_view {  
     width: 25%;
     flex-basis: 25%;
      margin-right: 20px;
+}
+.offers-title {
+    text-align: center;
+    margin-bottom: 40px;
+    p {
+        border-bottom: 2px solid $main-color;
+        padding-bottom: 5px;;
+        width: fit-content;
+        margin: auto;
+        font-weight: 600;
+        font-size: 25px;
+    }
 }

@@ -8,15 +8,17 @@ import { FooterComponent } from './footer/footer.component';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { FilterComponent } from './filter/filter.component';
+import { TranslateModule, TranslateLoader, TranslateCompiler, TranslateParser, MissingTranslationHandler } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HeaderComponent, NavbarComponent, FooterComponent, CourseItemComponent, FilterComponent],
   imports: [
     CommonModule,
     RouterModule,
-    BarRatingModule
-  ],
-  exports:[HeaderComponent,SlickCarouselModule,FooterComponent,CourseItemComponent,FilterComponent]
+    BarRatingModule,
+    TranslateModule
+    ],
+  exports:[HeaderComponent,SlickCarouselModule,FooterComponent,CourseItemComponent,FilterComponent,TranslateModule]
 })
 export class SharedModule { 
 

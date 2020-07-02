@@ -1,6 +1,9 @@
 @import "../../variables.scss";
 
 :host {
+    // img {
+    //     max-width: 100%;
+    // }
     ::ng-deep {
         .slick-prev:before, 
         .slick-next:before {
@@ -9,6 +12,16 @@
         }
         .slick-prev {
             left: -35px;
+            [dir= rtl] & {
+                left: auto;
+                right: -60px;
+            }
+        }
+        .slick-next {
+            [dir= rtl] & {
+                left: -50px;
+                right: auto;
+            }
         }
     }
     ::ng-deep {
@@ -25,6 +38,16 @@
         .br-default .br-selected:after {
             color: #EDB867 !important;
         }
+    }
+    h2 {
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+        border-bottom: 2px solid $main-color;
+        padding-bottom: 5px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 600;
     }
     .product_rating  {
         display: flex;

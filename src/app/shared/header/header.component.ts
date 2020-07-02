@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +9,27 @@ import { HomeService } from '../services/home.service';
 })
 export class HeaderComponent implements OnInit {
   logged: boolean
-  constructor(private homeService:HomeService) { }
+  currentLang: string;
 
-public featureConfig: any= {
+  constructor(private homeService:HomeService,public translate:TranslateService) {
+    this.currentLang= localStorage.getItem('currentLanguage') || 'en'
+    this.translate.use(this.currentLang)
+   }
+
+   changeLang(lang: string) {
+    location.reload();
+    this.translate.use(lang)
+    localStorage.setItem('currentLanguage',lang)
+   } 
+
+   public featureConfig: any= {
   autoplay: true,
   autoplaySpeed: 2000,
   arrows: false,
   dots: true,
   slidesToShow: 2,
   slidesToScroll: 1,
-}
-onclick() {
-}
+  }
   ngOnInit(): void {
     
   }

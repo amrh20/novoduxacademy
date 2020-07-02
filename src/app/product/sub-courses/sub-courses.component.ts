@@ -27,7 +27,6 @@ export class SubCoursesComponent implements OnInit {
   }
 
   // ngAfterViewInit() {
-  //   console.log(this.myInput?.nativeElement?.value);
   // }
   
 }

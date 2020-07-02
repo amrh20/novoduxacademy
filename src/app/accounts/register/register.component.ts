@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   categories: any
   overlay: boolean
   loading: boolean
+  checkLang
   regform = new FormGroup({
     name: new FormControl('', Validators.required),
     Phone: new FormControl('', Validators.required),
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
       this.metaDataService.getmetaData().subscribe((res: any)=> {
         this.categories= res.model.Categories
       })
- 
+      this.checkLang= localStorage.getItem('currentLanguage')
   }
  
  
@@ -63,7 +64,6 @@ export class RegisterComponent implements OnInit {
   }
   
   // selectOption(id: number) {
-  //   console.log(id)
   //  }
  register() {
   this.overlay= true

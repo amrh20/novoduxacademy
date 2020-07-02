@@ -7,8 +7,8 @@ import { HomeService } from 'src/app/shared/services/home.service';
   styleUrls: ['./categories-home.component.scss']
 })
 export class CategoriesHomeComponent implements OnInit {
-
-  categories: any;
+  checkLang
+  categories: any
   imagePath = "http://novoduxapi.native-tech.co/Images/CategoryImages/"
   constructor(private homeService:HomeService) { }
 
@@ -16,6 +16,7 @@ export class CategoriesHomeComponent implements OnInit {
     this.homeService.getHomeDate().subscribe((res: any) => {
       this.categories= res.model.Categories
     })
+    this.checkLang= localStorage.getItem('currentLanguage')
   }
   public sliderConfig: any = {
     autoplay: false,
@@ -25,7 +26,8 @@ export class CategoriesHomeComponent implements OnInit {
     slidesToShow: 3,
     slidesToScroll: 1,
     prevArrow:"<i class='fa fa-angle-left' aria-hidden='true'></i>",
-    nextArrow:"<i class='fa fa-angle-right' aria-hidden='true'></i>"
+    nextArrow:"<i class='fa fa-angle-right' aria-hidden='true'></i>",
+    rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,
   };
 
 }

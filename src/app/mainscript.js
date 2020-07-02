@@ -1,6 +1,5 @@
 "use strict";
 $(document).ready(function() {
-   console.log("test")
     $(".custom-select").each(function() {
         var classes = $(this).attr("class"),
             id      = $(this).attr("id"),

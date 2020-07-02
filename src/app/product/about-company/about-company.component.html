@@ -1,7 +1,10 @@
 <div class="about-company">
-    <h3>about us</h3>
+    <h3>{{'about-us' | translate}}</h3>
     <div class="container">
-        <p>{{aboutUs?.Description}} </p>
+        <p>       
+            <ng-container *ngIf="checkLang== 'en'">{{aboutUs?.Description}}</ng-container>
+            <ng-container *ngIf="checkLang== 'ar'">{{aboutUs?.DescriptionLT}}</ng-container>
+        </p>
     </div>
 </div>
 

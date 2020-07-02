@@ -5,7 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { accountsRoutingModule } from './accounts-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerfiyComponent } from './verfiy/verfiy.component';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, VerfiyComponent],
@@ -13,7 +13,8 @@ import { VerfiyComponent } from './verfiy/verfiy.component';
     CommonModule,
     accountsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AccountsModule { }

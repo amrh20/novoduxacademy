@@ -202,10 +202,17 @@
        .left_side {
         width: 25%;
         margin-right: 20px;
+        [dir= rtl] & {
+          margin-right: 0;
+          margin-left: 20px;
+        }
         select {
           border: 1.5px solid #8e8e8e;
           padding: 10px;
           width : fit-content;
+          [dir= rtl] & {
+            padding: 5px;
+          }
         }
        }
        .right_side {

@@ -8,12 +8,16 @@ import { HomeService } from 'src/app/shared/services/home.service';
 })
 export class AboutCompanyComponent implements OnInit {
   aboutUs: any;
+  checkLang
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
     this.homeService.getAboutus().subscribe((res: any) => {
       this.aboutUs= res.model
     })
+    this.checkLang= localStorage.getItem('currentLanguage')
+
   }
+
 
 }
