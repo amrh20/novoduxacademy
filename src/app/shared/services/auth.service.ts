@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -31,12 +31,27 @@ export class AuthService {
     return this.http.get(`${this.apiBaseURL}/Verify`, { params: params })
   }
   login(PhoneNumberWithKey,Password) {
-    // Initialize Params Object
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('PhoneNumberWithKey', PhoneNumberWithKey);
     params = params.append('Password', Password);
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/StudentLogin`, { params: params })
+  }
+  verify(PhoneNumber) {
+    let params = new HttpParams();
+    params = params.append('PhoneNumber', PhoneNumber);
+    return this.http.get(`${this.apiBaseURL}/ForgetPassword`, { params: params })
+  }
+
+  changePassword(CurrentPassword,NewPassword,ConfirmNewPassword) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('CurrentPassword', CurrentPassword);
+    params = params.append('NewPassword', NewPassword);
+    params = params.append('ConfirmNewPassword', ConfirmNewPassword);
+    return this.http.get(`${this.apiBaseURL}/ChangePassword`, { params: params ,  headers: reqHeader})
   }
 }

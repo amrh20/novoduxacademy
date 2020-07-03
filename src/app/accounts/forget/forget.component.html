@@ -1,0 +1,18 @@
+<div class="forget">
+    <div class="forget-container">
+        <h2>{{'forget-password' | translate}}?</h2>
+        <p>
+            {{'forget-txt' | translate}}
+        </p>
+        <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+        <form [formGroup]="forgetForm" (ngSubmit)="forget()">
+            <input type="text" 
+            placeholder="{{'entre-phone-number' | translate}}"
+            formControlName="phone">
+            <button [disabled]= '!forgetForm.valid'>{{'send' | translate}}
+                <i class="fa fa-spinner fa-spin ml-2" *ngIf="Loading"></i>
+            </button>
+        </form>
+    </div>
+
+</div>

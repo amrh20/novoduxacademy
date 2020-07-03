@@ -16,7 +16,7 @@ export class OffersComponent implements OnInit {
     this.homeService.getHomeDate().subscribe((res: any)=> {
       this.offers= res.model.Offers
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
 
   }
 

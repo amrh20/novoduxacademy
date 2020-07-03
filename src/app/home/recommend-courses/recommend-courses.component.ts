@@ -20,7 +20,7 @@ export class RecommendCoursesComponent implements OnInit {
     this.homeService.getHomeDate().subscribe((res: any)=> {
       this.topSellingCourese= res.model.TopSellingCourses
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   public sliderConfig: any = {
     autoplay: false,

@@ -18,7 +18,7 @@ export class FAQComponent implements OnInit {
       this.faqs= res.model
       this.loging= false
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
 
 }

@@ -12,12 +12,9 @@ export class ProductService {
   //  return this.http.get(`${this.apiBaseURL}/GetAllCoursesByCategoryId/${id}`)
   // }
   getTaxonsCourses(parameters) {
-    // Initialize Params Object
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('CategoryId', parameters);
     params = params.append('Page', '0');
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesByCategoryId`, { params: params })
   }
   getAllCourses() {

@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  constructor(){
-   let code= localStorage.getItem('currentLanguage')
-   if (code === 'ar') {
-    document.documentElement.dir = 'rtl';
-  } else {
-    document.documentElement.dir = 'ltr';
-  }
+  let code= localStorage.getItem('currentLanguage') || 'en'
+    if (code === 'ar') {
+     document.documentElement.dir = 'rtl';
+   } else {
+     document.documentElement.dir = 'ltr';
+   }
  }
 }

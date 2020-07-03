@@ -17,9 +17,9 @@ export class HeaderComponent implements OnInit {
    }
 
    changeLang(lang: string) {
-    location.reload();
     this.translate.use(lang)
     localStorage.setItem('currentLanguage',lang)
+    location.reload();
    } 
 
    public featureConfig: any= {
@@ -31,7 +31,9 @@ export class HeaderComponent implements OnInit {
   slidesToScroll: 1,
   }
   ngOnInit(): void {
-    
+    // localStorage.setItem('currentLanguage','en')
+    // this.changeLang
+  
   }
  loggedIn() {
    if(localStorage.getItem('authToken')) {

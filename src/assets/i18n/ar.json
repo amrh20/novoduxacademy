@@ -43,7 +43,7 @@
     "new-at-novodux":"جديد في نوفودكس",
     "create-new-account": "انشاء حساب جديد",
     "Register":"تسجيل دخول",
-    "passwords not match": "كلمات السر غير متشابهه", 
+    "passwords-not-match": "كلمات السر غير متشابهه", 
     "Name": "الاسم",
     "Email": "البريد الالكتروني",
     "Password": "كلمة المرور",
@@ -79,5 +79,12 @@
     "no-orders": "لا يوجد لديك طلبات",
     "Complaint-Suggestion": "شكوي او اقتراح",
     "Advertisements-orders": "طلبات الاعلانات",
-    "logout": "تسجيل خروج"
+    "logout": "تسجيل خروج",
+    "forget-password": "نسيت كلمة المرور",
+    "entre-phone-number": "ادخل رقم هاتفك",
+    "forget-txt": "من فضلك ادخل رقم الهاتق الذي استخدمته عند الإشتراك وسوف نرسل لك بعض التعليمات لأعادة تعيين كلمة المرور الخاصة بك",
+    "changepassword": "تغيير كلمة المرور",
+    "entre-old-password": "ادخل كلمه المرور القديمة",
+    "entre-new-password": "ادخل كلمة المرور الجديدة",
+    "confirm-password": "تاكيد كلمة المرور الجديدة"
 }

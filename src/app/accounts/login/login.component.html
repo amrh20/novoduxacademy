@@ -30,6 +30,9 @@
                         <div *ngIf="password.touched && password.errors?.minlength" class="alert alert-danger">
                             {{'password-charector' | translate}}
                         </div>
+                        <div class="forget">
+                            <a routerLink="/forget">{{'forget-password' | translate}}?</a>
+                        </div>
                         <!-- <div class="login__saved">
                             <p>remembe me</p>
                             <a>

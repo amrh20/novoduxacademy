@@ -16,7 +16,7 @@ export class CategoriesHomeComponent implements OnInit {
     this.homeService.getHomeDate().subscribe((res: any) => {
       this.categories= res.model.Categories
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   public sliderConfig: any = {
     autoplay: false,

@@ -31,6 +31,9 @@
                         <li *ngIf="!loggedIn()">
                            <a routerLink="login">{{'login' | translate}}</a>
                         </li>
+                        <li *ngIf="loggedIn()">
+                          <a routerLink="changePassword">{{'changepassword' | translate}}</a>
+                       </li>
                         <li>
                           <a *ngIf="loggedIn()" (click)="logout()" class="logout">
                           {{'logout' | translate}}

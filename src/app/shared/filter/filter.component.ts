@@ -15,7 +15,7 @@ export class FilterComponent implements OnInit {
     this.homeService.getcategoryandSub().subscribe((res:any) => {
       this.listOfCategory= res.model
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
 
   attributeChange(inputVal) {

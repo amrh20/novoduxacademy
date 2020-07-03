@@ -15,7 +15,7 @@ export class AboutCompanyComponent implements OnInit {
     this.homeService.getAboutus().subscribe((res: any) => {
       this.aboutUs= res.model
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
 
   }
 

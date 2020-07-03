@@ -52,7 +52,7 @@
                         </div>
                         <div *ngIf="ConfirmPassword.touched && ConfirmPassword.value !== password.value"
                             class="alert alert-danger">
-                            passwords not match
+                            {{'passwords-not-match' | translate}}
                         </div>
                         <!-- <div *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.minlength" 
                         class="alert alert-danger">

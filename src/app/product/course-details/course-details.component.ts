@@ -48,7 +48,7 @@ export class CourseDetailsComponent implements OnInit {
       })
       localStorage.setItem('courseId',parm.id)
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   // comments
   get comment() {

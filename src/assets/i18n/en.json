@@ -43,7 +43,7 @@
     "new-at-novodux":"New At Novodux",
     "create-new-account": "create new account",
     "Register":"Register",
-    "passwords not match": "passwords not match",
+    "passwords-not-match": "passwords not match",
     "Name": "Name",
      "Email": "Email",
      "Password": "Password",
@@ -79,5 +79,12 @@
      "no-orders": "There are not advertisement order yet",
      "Complaint-Suggestion": "Complaint or Suggestion",
      "Advertisements-orders": "Advertisements orders",
-     "logout": "logout"
+     "logout": "logout",
+     "forget-password": "forget password",
+     "entre-phone-number":"entre your phone number",
+     "forget-txt": "Enter the phone you used when you registered, and we'll send you instructions to reset your password",
+     "changepassword": "change password",
+     "entre-old-password": "entre old password",
+     "entre-new-password": "entre new password",
+     "confirm-password": "confirm password"
 }

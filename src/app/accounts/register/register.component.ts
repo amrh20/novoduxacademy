@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       this.metaDataService.getmetaData().subscribe((res: any)=> {
         this.categories= res.model.Categories
       })
-      this.checkLang= localStorage.getItem('currentLanguage')
+      this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
  
  

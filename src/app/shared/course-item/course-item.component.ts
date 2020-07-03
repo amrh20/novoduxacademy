@@ -16,7 +16,7 @@ export class CourseItemComponent implements OnInit {
   constructor(private productService:ProductService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   addToFav(CourseId) {
     this.productService.addFavourite(CourseId).subscribe( res => {

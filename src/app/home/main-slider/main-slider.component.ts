@@ -18,7 +18,7 @@ export class MainSliderComponent implements OnInit {
     this.productService.GetTaxons().subscribe((res: any) => {
       this.taxons= res.model
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   onChangeTaxons(e) {
     let id=e;

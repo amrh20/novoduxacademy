@@ -6,9 +6,11 @@ import { accountsRoutingModule } from './accounts-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerfiyComponent } from './verfiy/verfiy.component';
 import { SharedModule } from '../shared/shared.module';
+import { ForgetComponent } from './forget/forget.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, VerfiyComponent],
+  declarations: [LoginComponent, RegisterComponent, VerfiyComponent, ForgetComponent, ChangePasswordComponent],
   imports: [
     CommonModule,
     accountsRoutingModule,

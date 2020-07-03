@@ -20,7 +20,7 @@ export class WishlistComponent implements OnInit {
       this.myFavorites =res.model
       this.loaded =false
     })
-    this.checkLang= localStorage.getItem('currentLanguage')
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   deleteitem(CourseId,index) {
    this.overlayDelete= true

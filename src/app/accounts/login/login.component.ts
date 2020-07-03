@@ -56,7 +56,10 @@ export class LoginComponent implements OnInit {
       if(err.error.errors.message == 'Student Not Register Yet') {
         this.loginError= "please register first"
       }
-      this.loginForm.value.password= " "
+      if(err.error.errors.message == 'Incorrect Password') {
+       this.loginError= "Incorrect Password"
+      }
+      this.loginForm.value.password= ""
       this.loginForm.value.Phone= " "
     })
   }
