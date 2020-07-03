@@ -9,12 +9,15 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class SearchResultComponent implements OnInit {
   courses;
   imagePath= "http://novoduxapi.native-tech.co/Images/CategoryImages/";
+  loading: boolean
   constructor(private productService:ProductService) { }
 
   ngOnInit(): void {
+   this.loading= true
    let SubCategoryId = Number(localStorage.getItem('SubCategoryId'))
    this.productService.getSubTaxonsCourses(SubCategoryId).subscribe((res: any) => {
     this.courses= res.model
+    this.loading= false
    })
   }
  

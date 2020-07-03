@@ -10,11 +10,13 @@ export class CollectionsComponent implements OnInit {
   courses: any
   widget3: boolean= true
   widget4: boolean= false
+  loading= false
   constructor(private productService:ProductService) { }
   ngOnInit(): void {
+   this.loading= true
    this.productService.getAllCourses().subscribe((res: any) => {
     this.courses= res.model
-    console.log("this.courses", this.courses)
+    this.loading= false
    })
   }
   widget() {

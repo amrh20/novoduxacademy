@@ -1,5 +1,12 @@
 @import "../../variables.scss";
 :host {
+    ::ng-deep {
+         .slick-prev {
+            [dir=rtl] & {
+                right: -50px;
+            }
+        }
+    }
     input[type="radio"]:checked+label{ 
         color: yellow !important;
         > span {
@@ -111,8 +118,8 @@
           .reviews__content {
             padding-bottom: 20px;
             border-bottom: 1px solid #d0c9c9;
-            height: 160px;
-            overflow-y: scroll;
+            // height: 160px;
+            // overflow-y: scroll;
             padding: 0 50px;
             [dir= rtl] & {
                 text-align: right;
@@ -227,8 +234,7 @@
            
         }
         .recommend_slider {
-            margin-bottom: 50px;
-
+            margin-bottom: 100px;   
         }
     }
     ::ng-deep {
@@ -365,12 +371,12 @@
         width: fit-content;
         padding: 10px;
         input {
-            // opacity: 0;
-            // position: absolute;
-            // cursor: pointer;
-            // width: 0;
             width: fit-content;
             margin-right: 20px;
+            [dir= rtl] & {
+                margin-right: 0;
+                margin-left: 20px;
+            }
         }
         label {
             cursor: pointer;
@@ -380,6 +386,10 @@
             display: flex;
             min-width: 100px;
             align-items: center;
+            [dir= rtl] & {
+                margin-right: 0;
+                margin-left: 20px;
+            }
         }
         p {
             margin-top: 0 !important;
@@ -398,7 +408,21 @@
             margin-left: 5%;
             max-width: 45%;
             flex-basis: 45%;
+            [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 5%;
+            }
         }
+    }
+    h2 {
+        text-align: center;
+    font-size: 25px;
+    border-bottom: 2px solid;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 30px;
+    padding-bottom: 3px;
+    text-transform: capitalize;
     }
 }
 

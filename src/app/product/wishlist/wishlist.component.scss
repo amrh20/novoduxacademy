@@ -115,6 +115,10 @@ img {
     font-weight: 600;
     font-size: 18px;
     margin-right: 20px;
+    [dir= rtl] & {
+        margin-right: 0;
+        margin-left: 20px;
+    }
 }
 .original-price {
 text-decoration: line-through;

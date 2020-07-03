@@ -11,6 +11,8 @@ export class WishlistComponent implements OnInit {
   myFavorites: any;
   loaded: boolean
   overlayDelete: boolean
+  checkLang
+  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/";
   constructor(private productService:ProductService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -18,6 +20,7 @@ export class WishlistComponent implements OnInit {
       this.myFavorites =res.model
       this.loaded =false
     })
+    this.checkLang= localStorage.getItem('currentLanguage')
   }
   deleteitem(CourseId,index) {
    this.overlayDelete= true

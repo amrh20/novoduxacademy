@@ -1,37 +1,44 @@
 <div class="shop_Content">
-    <div class="container">
-        <div class="row">
-            <div class="filter_col">
-               <app-filter></app-filter>
-            </div>
-            <div class="products_col">
-                <div class="collection_box">
-                    <div class="collection_view">
-                        <div class="sort">
-                            <span>{{'sort-by' | translate}}: </span>
-                            <select name="" id="" class="sortby-select">
-                                <option value="select size">default</option>
-                                <option value="small">high to low</option>
-                                <option value="large">low to high</option>
-                            </select>
-                        </div>
-                       
-                        <div class="view_filter-mobile">
-                            <button>
-                                <i class="fas fa-filter"></i>
-                                <span>filter</span>
-                            </button>
-                        </div>
-                    </div>
+    <ng-container *ngIf="loading; else loaded">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </ng-container>
+    <ng-template #loaded>
+        <div class="container">
+            <div class="row">
+                <div class="filter_col">
+                   <app-filter></app-filter>
                 </div>
-                <div class="products_widget">
-                    <div class="row">
-                        <div class="col-4" *ngFor="let course of courses">
-                            <app-course-item [course]="course"></app-course-item>
+                <div class="products_col">
+                    <!-- <div class="collection_box">
+                        <div class="collection_view">
+                            <div class="sort">
+                                <span>{{'sort-by' | translate}}: </span>
+                                <select name="" id="" class="sortby-select">
+                                    <option value="select size">default</option>
+                                    <option value="small">high to low</option>
+                                    <option value="large">low to high</option>
+                                </select>
+                            </div>
+                           
+                            <div class="view_filter-mobile">
+                                <button>
+                                    <i class="fas fa-filter"></i>
+                                    <span>filter</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>  
+                    </div> -->
+                    <div class="products_widget">
+                        <div class="row">
+                            <div class="col-4" *ngFor="let course of courses">
+                                <app-course-item [course]="course"></app-course-item>
+                            </div>
+                        </div>  
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-template>
+   
+
 </div>

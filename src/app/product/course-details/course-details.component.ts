@@ -83,6 +83,7 @@ export class CourseDetailsComponent implements OnInit {
      this.toastr.success('your comment added successfully');
      this.replyform.reset()
      this.replyLoading =false
+     location.reload()
     //  this.productService.getComments().subscribe()
   },err => {
     this.toastr.error("something error")

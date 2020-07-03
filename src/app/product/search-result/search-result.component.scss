@@ -5,7 +5,9 @@
         justify-self: center;
         position: relative;
         top: 120px;
-        margin-bottom: 170px;
+        // margin-bottom: 170px;
+        // min-height: 300px;
+        height: 100vh;
         .products_widget {
             max-width: 25%;
             flex-basis: 25%;

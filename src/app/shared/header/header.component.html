@@ -23,17 +23,17 @@
                     <div class="dropdown_one-content">
                       <ul>
                         <li *ngIf="loggedIn()">
-                        <a routerLink="/contact-us">Complaint or Suggestion</a>
+                        <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
                         </li>
                         <li *ngIf="loggedIn()">
-                          <a  routerLink="/ad-order">Advertisements orders</a>
+                          <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
                         </li>
                         <li *ngIf="!loggedIn()">
                            <a routerLink="login">{{'login' | translate}}</a>
                         </li>
                         <li>
                           <a *ngIf="loggedIn()" (click)="logout()" class="logout">
-                            log out
+                          {{'logout' | translate}}
                           </a>
                         </li>
                        

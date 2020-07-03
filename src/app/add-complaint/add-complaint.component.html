@@ -1,23 +1,24 @@
 <div class="content">
     <div class="container">
         <form [formGroup]="contactForm" (ngSubmit)="submit()">
-            <input type="text" placeholder="Write your title">
+            <input type="text" placeholder="{{'write-your-title' | translate}}">
             <textarea name="comment" id="" cols="30" rows="10" 
-            placeholder="Write your complaint or suggestion.. "  formControlName="comment"></textarea>
+            placeholder="{{'write-suggestion' | translate}}"  formControlName="comment"></textarea>
             <div class="labels">
-                <span class="mr-3">Please choose :</span>
+                <span class="mr-3">{{'please-choose' | translate}}:</span>
                 <label for="complaint">
                     <input value="1" type="radio" id="complaint"
                      name="contact" (change)="commentType($event.target.value)" required>
-                    complaint
+                    {{'complaint' | translate}}
                   </label>
                   <label for="suggestion">
                     <input value="2" type="radio" id="suggestion" 
                     name="contact" (change)="commentType($event.target.value)" required>
-                    suggestion
+                    {{'suggestion' | translate}}
                   </label>
             </div>
-              <button [disabled]="!contactForm.valid">Send
+              <button [disabled]="!contactForm.valid">
+                {{'send' | translate}}
                 <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i>
               </button>
         </form>

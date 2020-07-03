@@ -1,4 +1,4 @@
-<ng-container *ngIf="orders.length; else noOredrs">
+<ng-container *ngIf="orders?.length; else noOrders">
     <div class="ad-order">
         <div class="container">
             <div class="ad-order-content" *ngFor="let order of orders; let i= index">
@@ -10,10 +10,12 @@
         </div>
     </div>
 </ng-container>
-<ng-template #noOredrs>
+<ng-template #noOrders>
 
     <div class="ad-order-empty">
-        <p>There are not advertisement order yet</p>
+        <p>
+            {{'no-orders' | translate}}
+        </p>
     </div>
  
 </ng-template>

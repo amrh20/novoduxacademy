@@ -11,12 +11,15 @@
                         <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories"></i>
                     </div>
                     <ng-container *ngIf="taxon?.SubCategories">
-                        <div *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
-                            <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
-                                <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
-                                <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
-                            </a>
-                        </div>
+                        <ul class="subtaxon">
+                            <li *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
+                                <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
+                                    <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
+                                    <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+                                </a>
+                            </li>
+                        </ul>
+
                     </ng-container>
                 </li>
 
