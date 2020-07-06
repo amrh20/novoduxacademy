@@ -63,6 +63,7 @@
     "add-comment": "اضافه تعليق",
     "Review-title": "عنوان التقييم",
     "write-your-comment": "أكتب تعليقك",
+    "reserve":"اطلب",
     "write-your-reply": "أكتب الرد",
     "related-courses": "كورسات ذات صلة",
     "image": "الصورة",
@@ -86,5 +87,8 @@
     "changepassword": "تغيير كلمة المرور",
     "entre-old-password": "ادخل كلمه المرور القديمة",
     "entre-new-password": "ادخل كلمة المرور الجديدة",
-    "confirm-password": "تاكيد كلمة المرور الجديدة"
+    "confirm-password": "تاكيد كلمة المرور الجديدة",
+    "notification-txt": "لا يوجد لديك اشعارات",
+    "myCourses": "كورساتي",
+    "courses-txt": "لا يوجد لديك كورسات"
 }

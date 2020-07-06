@@ -1,4 +1,31 @@
+
 <div class="content">
+  <div class="side__menu">
+    <ul>
+       <li>
+            <a routerLink="/profile">profile</a>
+        </li>
+       <li>
+        <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
+        </li>                
+        <li>
+        <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
+        </li>
+        <li>
+          <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
+        </li>
+       
+        <li>
+          <a routerLink="/changePassword">{{'changepassword' | translate}}</a>
+       </li>
+        <li>
+          <a (click)="logout()" class="logout">
+          {{'logout' | translate}}
+          </a>
+        </li>
+       
+      </ul>
+</div>
     <div class="container">
         <form [formGroup]="contactForm" (ngSubmit)="submit()">
             <input type="text" placeholder="{{'write-your-title' | translate}}">

@@ -1,0 +1,13 @@
+@import "../variables.scss";
+.profile {
+    min-height: 100vh;
+    position: relative;
+    p {
+        margin-left: 350px;
+    top: 170px;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    text-transform: capitalize;
+    }
+}

@@ -1,0 +1,22 @@
+<ng-container *ngIf="notifications?.length; else noNotification">
+    <div class="notification">
+        <div class="container">
+        <div class="notification-container" *ngFor="let notification of notifications">
+                -
+                <span>
+                    <ng-container *ngIf="checkLang== 'en'">{{notification.Message}}</ng-container>
+                    <ng-container *ngIf="checkLang== 'ar'">{{notification.MessageLT}}</ng-container>
+                </span>
+                <span>
+                    {{notification.CreationDate}}
+                </span>
+        </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #noNotification>
+    <div class="empty-notification">
+        <p>{{'notification-txt' | translate}}</p>
+    </div>
+</ng-template>

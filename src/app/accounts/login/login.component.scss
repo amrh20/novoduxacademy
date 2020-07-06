@@ -12,12 +12,11 @@
         align-items: center;
         select {
           border: 1.5px solid #8e8e8e;
-          padding: 10px;
+          padding: 5px 10px;
           margin-right: 20px;
           [dir= rtl] & {
             margin-right: 0;
             margin-left: 20px;
-            padding: 5px;
           }
         }
       }

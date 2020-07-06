@@ -5,6 +5,9 @@ import { AddComplaintComponent } from './add-complaint/add-complaint.component';
 import { AdvertisementsDetailsComponent } from './advertisements-details/advertisements-details.component';
 import { AdvertisementOrderComponent } from './advertisement-order/advertisement-order.component';
 import { FAQComponent } from './faq/faq.component';
+import { NotificationComponent } from './notification/notification.component';
+import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
   path: 'home',
@@ -28,6 +31,18 @@ const routes: Routes = [
  {
   path: 'ad-order',
   component: AdvertisementOrderComponent
+ },
+ {
+  path: 'notification',
+  component: NotificationComponent
+ },
+ {
+  path: 'myCourses',
+  component: StudentCoursesComponent
+ },
+ {
+   path: 'profile',
+   component: ProfileComponent
  },
  {
   path: 'product',

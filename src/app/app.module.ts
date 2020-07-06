@@ -17,14 +17,20 @@ import { AdvertisementsDetailsComponent } from './advertisements-details/adverti
 import { AdvertisementOrderComponent } from './advertisement-order/advertisement-order.component';
 import { FAQComponent } from './faq/faq.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader'
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { NotificationComponent } from './notification/notification.component';
+import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { ProfileComponent } from './profile/profile.component'
 @NgModule({
   declarations: [
     AppComponent,
     AddComplaintComponent,
     AdvertisementsDetailsComponent,
     AdvertisementOrderComponent,
-    FAQComponent
+    FAQComponent,
+    NotificationComponent,
+    StudentCoursesComponent,
+    ProfileComponent
   ],
   imports: [
     SharedModule,

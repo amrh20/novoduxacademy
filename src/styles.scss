@@ -1525,3 +1525,22 @@ body {
 	height: 40px;
 	cursor: pointer;
 }
+.side__menu {
+	position: fixed;
+	background: $main-color;
+	padding: 20px;
+	min-width: 300px;
+	height: 100%;
+	color: #fff;
+	font-size: 20px;
+	top: 70px;
+	a {
+		color: #fff;
+	}
+	ul {
+		li {
+			margin: 30px 0;
+			text-transform: capitalize;
+		}
+	}
+}

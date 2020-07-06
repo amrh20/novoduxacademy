@@ -86,5 +86,9 @@
      "changepassword": "change password",
      "entre-old-password": "entre old password",
      "entre-new-password": "entre new password",
-     "confirm-password": "confirm password"
+     "confirm-password": "confirm password",
+     "notification-txt": "there are not notifications yet",
+     "myCourses": "myCourses",
+     "courses-txt": "there are not courses yet",
+     "reserve": "reserve"
 }

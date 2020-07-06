@@ -15,5 +15,7 @@ export class AdvertisementOrderComponent implements OnInit {
       this.orders = res.model
     })
   }
-
+  logout() {
+    localStorage.removeItem('authToken')
+  }
 }

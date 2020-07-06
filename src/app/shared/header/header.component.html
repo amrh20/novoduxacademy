@@ -18,32 +18,18 @@
                   <a routerLink="/product/wishlist">
                     <img src="../../../assets/images/wishlist.png" alt="">
                   </a>
-                  <a class="drop">
+                  <a *ngIf="loggedIn()"  routerLink="profile">
+                    <img src="../../../assets/images/Profile.png" alt="">
+                  </a>
+                  <a class="drop" *ngIf="!loggedIn()">
                     <img src="../../../assets/images/Profile.png" alt="">
                     <div class="dropdown_one-content">
-                      <ul>
-                        <li *ngIf="loggedIn()">
-                        <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
-                        </li>
-                        <li *ngIf="loggedIn()">
-                          <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
-                        </li>
-                        <li *ngIf="!loggedIn()">
-                           <a routerLink="login">{{'login' | translate}}</a>
-                        </li>
-                        <li *ngIf="loggedIn()">
-                          <a routerLink="changePassword">{{'changepassword' | translate}}</a>
-                       </li>
-                        <li>
-                          <a *ngIf="loggedIn()" (click)="logout()" class="logout">
-                          {{'logout' | translate}}
-                          </a>
-                        </li>
-                       
-                      </ul>
+                      <li *ngIf="!loggedIn()">
+                        <a routerLink="login">{{'login' | translate}}</a>
+                     </li>
                     </div>
                   </a>
-                    <a>
+                    <a routerLink="notification">
                       <img src="../../../assets/images/reminders.png" alt="">
                     </a>
                     

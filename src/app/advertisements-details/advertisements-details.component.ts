@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AdvertisementsDetailsComponent implements OnInit {
   details: any;
   errorMsg: string;
+  checkLang;
   imagePath= "http://novoduxapi.native-tech.co/Images/advertisementimages/";
   reserveform= new FormGroup ( {
     comment: new FormControl('', Validators.required)
@@ -22,6 +23,7 @@ export class AdvertisementsDetailsComponent implements OnInit {
       this.details= res.model
       localStorage.setItem('AdvertisementId',res.model.Id)
     })
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
 
   get comment() {

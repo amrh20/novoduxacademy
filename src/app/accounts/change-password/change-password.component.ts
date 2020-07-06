@@ -47,6 +47,9 @@ export class ChangePasswordComponent implements OnInit {
        }
     })
   }
+  logout() {
+    localStorage.removeItem('authToken')
+  }
   ngOnInit(): void {
   }
 

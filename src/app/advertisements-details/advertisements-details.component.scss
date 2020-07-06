@@ -1,64 +1,57 @@
 @import "../variables.scss";
-.details {
-   padding-top: 120px;
-   padding-bottom: 120px;
-   .details_content {
-    position: relative;
-    p {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: $main-color;
-        padding: 20px;
-        color: #fff;
-        font-size: 20px;
-       }
-       span {
-        
-       position: absolute;
-       padding: 14px;
-       font-size: 18px;
-       left: -19px;
-       top: 20px;
-       color: #fff;
-       background: red;
-      transform: rotate(-33deg);
-       }
-   }
-   textarea {
-    display: block;
-    margin-top: 10px;
-    margin-left: 50px;
-    margin: 0 auto;
-    border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
-    border-image: none;
-    border-radius: 6px 6px 6px 6px;
-    border-style: none solid solid none;
-    border-width: medium 1px 1px medium;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-    color: #555555;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1em;
-    line-height: 1.4em;
-    padding: 10px;
-    transition: background-color 0.2s ease 0s;
-    resize: none;
-    width: 40%;
-    margin: 40px auto;
-    height: 150px;
-    &:focus {
-        background: none repeat scroll 0 0 #FFFFFF;
-       outline-width: 0;
-    }
-    
-   }
-   form {
-       text-align: center;
-   }
-   .error {
-       width: 40%;
-       margin: 0 auto;
-       margin-top: 20px;
-   }
+:host {
+    .details {
+        padding-top: 120px;
+        padding-bottom: 120px;
+        .details_content {
+         position: relative;
+         p {
+             margin: 20px 0;
+             color: $main-color;
+             font-size: 20px;
+             &:first-of-type {
+                 font-weight: bold;
+             }
+            }
+          
+        }
+        textarea {
+         display: block;
+         margin-top: 10px;
+         margin-left: 50px;
+         margin: 0 auto;
+         border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+         border-image: none;
+         border-radius: 6px 6px 6px 6px;
+         border-style: none solid solid none;
+         border-width: medium 1px 1px medium;
+         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+         color: #555555;
+         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+         font-size: 1em;
+         line-height: 1.4em;
+         padding: 10px;
+         transition: background-color 0.2s ease 0s;
+         resize: none;
+         width: 40%;
+         margin: 40px auto;
+         height: 150px;
+         &:focus {
+             background: none repeat scroll 0 0 #FFFFFF;
+            outline-width: 0;
+         }
+         
+        }
+        form {
+            text-align: center;
+        }
+        .error {
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        [dir= rtl] & {
+            text-align: right;
+        }
+     }
 }

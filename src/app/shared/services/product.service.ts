@@ -140,4 +140,16 @@ export class ProductService {
     params = params.append('CourseId', CourseId);
     return this.http.get(`${this.apiBaseURL}/DeleteCourseFromFavourite`,{params: params, headers: reqHeader })
   }
+
+  // get all student courses
+  studentCourses() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    return this.http.get(`${this.apiBaseURL}/GetMyCourses`,{params: params, headers: reqHeader })
+  }
 }

@@ -26,7 +26,9 @@ export class AddComplaintComponent implements OnInit {
   commentType(e) {
     localStorage.setItem('ComplaintOrSuggestionTypeId',e)
    }
-
+   logout() {
+    localStorage.removeItem('authToken')
+  }
   submit() {
   const Message= this.contactForm.value.comment
   const ComplaintOrSuggestionTypeId= localStorage.getItem('ComplaintOrSuggestionTypeId')

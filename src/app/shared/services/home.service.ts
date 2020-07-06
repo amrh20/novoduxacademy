@@ -54,4 +54,14 @@ export class HomeService {
   getFAQs() {
     return this.http.get(`${this.apiBaseURL}/GetFAQs`)
   }
+  notifcation() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${authToken}`
+  })
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    return this.http.get(`${this.apiBaseURL}/GetStudentNotifications`,{params: params,headers: reqHeader})
+  }
 }

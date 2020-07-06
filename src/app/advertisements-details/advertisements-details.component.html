@@ -2,14 +2,20 @@
     <div class="container">
         <div class="details_content">
             <img [src]="imagePath + details?.Image" alt="">
-            <p>{{details?.Description}}</p>
-            <span>{{details?.Title}}</span>
+            <p>
+                <ng-container *ngIf="checkLang== 'en'">{{details?.Title}}</ng-container>
+                <ng-container *ngIf="checkLang== 'ar'">{{details?.TitleLT}}</ng-container>
+            </p>
+            <p>
+                <ng-container *ngIf="checkLang== 'en'">{{details?.Description}}</ng-container>
+                <ng-container *ngIf="checkLang== 'ar'">{{details?.DescriptionLT}}</ng-container>
+            </p>
         </div>
         <div class="alert alert-danger error" *ngIf="errorMsg">{{errorMsg}}</div>
         <form [formGroup]="reserveform" (ngSubmit)="reserve()">
-            <textarea name="" id="" cols="30" rows="10" 
-            formControlName="comment"  name="comment" placeholder="Write your message.. "></textarea>
-            <button [disabled]="!reserveform.valid">reserve</button>
-        </form>  
+            <textarea name="" id="" cols="30" rows="10" formControlName="comment" name="comment"
+                placeholder="{{'write-your-comment' | translate}}"></textarea>
+            <button [disabled]="!reserveform.valid">{{'reserve' | translate}}</button>
+        </form>
     </div>
 </div>
