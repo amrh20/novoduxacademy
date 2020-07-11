@@ -1,0 +1,47 @@
+.edit-profile {
+    position: relative;
+    height: 100vh;
+    top: 150px;
+    text-align: center;
+    form {
+        width: 30%;
+        margin: 0 auto;
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            input {
+                padding-left: 30px;
+            }
+            img {
+                position: absolute;
+                height: 20px;
+            }
+            span {
+                margin-right: 20px;
+            }
+        }
+        select {
+            cursor: pointer;
+        }
+        .geneder {
+            label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 30px;
+                margin-bottom: 0;
+                cursor: pointer;
+            }
+            input {
+                height: 13px;
+                width: 13px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+        select {
+            padding: 5px 20px;
+        }
+    }
+}

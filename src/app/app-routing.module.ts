@@ -8,6 +8,8 @@ import { FAQComponent } from './faq/faq.component';
 import { NotificationComponent } from './notification/notification.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
 import { ProfileComponent } from './profile/profile.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 const routes: Routes = [
   {
   path: 'home',
@@ -44,6 +46,14 @@ const routes: Routes = [
    path: 'profile',
    component: ProfileComponent
  },
+ {
+  path: 'wallet',
+  component: WalletComponent
+},
+{
+ path: 'edit-profile',
+ component: EditProfileComponent
+},
  {
   path: 'product',
   children: [

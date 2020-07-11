@@ -72,7 +72,7 @@
      "whishList-empty": "Your WhishList Is Empty",
      "write-your-title": "write-your-title",
      "write-suggestion": "Write your complaint or suggestion..",
-     "Please-choose":"Please choose",
+     "please-choose":"Please choose",
      "complaint": "complaint",
      "suggestion": "suggestion",
      "send": "Send",
@@ -90,5 +90,12 @@
      "notification-txt": "there are not notifications yet",
      "myCourses": "myCourses",
      "courses-txt": "there are not courses yet",
-     "reserve": "reserve"
+     "reserve": "reserve",
+     "welcome": "welcome",
+     "change-password": "change password",
+     "edit-profile": "edit profile",
+     "profile": "profile",
+     "wallet": "wallet",
+     "no-wallet-yet": "No Wallet Yet",
+     "select-another-category": "select another category"
 }

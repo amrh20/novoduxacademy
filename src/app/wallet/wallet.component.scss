@@ -1,0 +1,18 @@
+:host {
+    .wallet {
+        height: 100vh;
+        position: relative;
+        top: 250px;
+        text-align: center;
+        margin-left: 300px;
+        font-size: 22px;
+        text-transform: capitalize;
+        [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 300px;
+        }
+    }
+    .wallet-content {
+        background: #e8ecf5;
+    }
+}

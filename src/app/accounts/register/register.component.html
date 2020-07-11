@@ -13,7 +13,8 @@
                     <h3>{{'Register' | translate}}</h3>
                     <form class="register__content-form" [formGroup]="regform" (ngSubmit)="register()">
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="{{'Name' | translate}}*" formControlName="name">
+                            <input type="text" id="name" placeholder="{{'Name' | translate}}*" 
+                            formControlName="name">
                         </div>
                         <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">
                             name is required
@@ -62,7 +63,6 @@
                             <select name="category" id="category" class="category-select" formControlName="category">
                                 <option value="">{{'select-category' | translate}}*</option>
                                 <option value="{{category.Id}}" *ngFor="let category of categories">
-
                                     <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
                                     <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
                                 </option>

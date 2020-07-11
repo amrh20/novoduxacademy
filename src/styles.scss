@@ -121,11 +121,11 @@ button:focus {
 // cart view
 
 .cart {
-	-webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	position: relative;
 	padding-bottom: 10px;
+	background-color: #fff;
 	.cart_img {
 		padding: 20px 20px 0;
 		text-align: center;
@@ -1525,17 +1525,28 @@ body {
 	height: 40px;
 	cursor: pointer;
 }
+
 .side__menu {
 	position: fixed;
-	background: $main-color;
+	background: #fff;
 	padding: 20px;
-	min-width: 300px;
+	width: 300px;
 	height: 100%;
-	color: #fff;
+	color: #000;
 	font-size: 20px;
 	top: 70px;
+	z-index: 2222;
+	margin: 20px;
+	border-radius: 10px;
+	[dir= rtl] & {
+		text-align: right;
+	}
 	a {
-		color: #fff;
+		color: #000;
+	}
+	.active-side {
+		color: $main-color;
+		font-weight: bold;
 	}
 	ul {
 		li {
@@ -1543,4 +1554,7 @@ body {
 			text-transform: capitalize;
 		}
 	}
+}
+li {
+	cursor: pointer;
 }

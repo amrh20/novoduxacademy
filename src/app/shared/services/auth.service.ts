@@ -9,14 +9,16 @@ export class AuthService {
   apiBaseURL= `${environment.baseUrl}`
 
   constructor(private http:HttpClient) { }
-  register(Name :string,PhoneKey:string,PhoneNumber,CategoryId:string,Password:string,ConfirmPassword:string) {
+  register(Name :string,PhoneKey:string,PhoneNumber,
+    CategoryId:string,Password:string,ConfirmPassword:string,Email: any) {
     return this.http.post(`${this.apiBaseURL}/Register`,{
       Name,
       PhoneKey,
       PhoneNumber,
       CategoryId,
       Password,
-      ConfirmPassword
+      ConfirmPassword,
+      Email
     })
   }
  
@@ -53,5 +55,33 @@ export class AuthService {
     params = params.append('NewPassword', NewPassword);
     params = params.append('ConfirmNewPassword', ConfirmNewPassword);
     return this.http.get(`${this.apiBaseURL}/ChangePassword`, { params: params ,  headers: reqHeader})
+  }
+  // EditProfile(Name,Email) {
+  //  return this.http.post(`${this.apiBaseURL}/Email`, {
+  //   Name,
+  //   Email
+  //  })    
+  // }
+  getStudentProfile() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    return this.http.get(`${this.apiBaseURL}/GetStudentProfile`, { headers: reqHeader})
+  }
+  // editProfile
+  editProfile(Name,CategoryId,Email,GenderId) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    return this.http.post(`${this.apiBaseURL}/EditProfile`, {
+      Name,
+      CategoryId,
+      Email,
+      GenderId
+    },{headers: reqHeader})
   }
 }

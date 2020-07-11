@@ -1,8 +1,12 @@
-<div class="side__menu">
+<div class="wallet-content">
+  <div class="side__menu">
     <ul>
        <li>
-            <a routerLink="/profile">profile</a>
+            <a routerLink="/profile">{{'profile' | translate}}</a>
         </li>
+        <li>
+          <a routerLink="/wallet" class="active-side">{{'wallet' | translate}}</a>
+      </li>
        <li>
         <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
         </li>                
@@ -12,15 +16,15 @@
         <li>
           <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
         </li>
-       
-        <li>
-          <a routerLink="/changePassword">{{'changepassword' | translate}}</a>
-       </li>
         <li>
           <a (click)="logout()" class="logout">
           {{'logout' | translate}}
           </a>
         </li>
-       
       </ul>
+  </div>
+  
+  <div class="wallet">
+      {{'no-wallet-yet' | translate}}
+  </div>
 </div>

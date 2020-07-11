@@ -1,0 +1,49 @@
+<div class="edit-profile">
+    <form 
+    [formGroup]="editform" 
+    (ngSubmit)="editProfile()" >
+
+        <div class="form-group">
+          <img src="../../assets/images/Profile.png" alt="profile">
+          <input type="text"
+          formControlName="name" name="name">
+        </div>
+        <ng-container *ngIf="profileDetails?.Email">
+            <div class="form-group">
+                <img src="../../assets/images/email.png" alt="">
+                <input type="email" value="{{profileDetails?.Email}}"
+                formControlName="email" name="email">
+            </div>
+        </ng-container>
+        
+        <div class="form-group">
+            <!-- <span>{{profileDetails?.Category.Name}}</span> -->
+            <select name="category" id="category" 
+                 class="category-select"
+                 (change)="selectCategory($event.target.value)"
+                 formControlName="category" name="category">
+                <option disabled selected>{{'select-another-category' | translate}}</option>
+                <option
+                        *ngFor="let category of categories">
+                    {{category.Name}}
+                    <!-- <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                    <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container> -->
+                </option>
+            </select>
+        </div>
+        <div class="form-group geneder">
+            <span>Geneder ( optional ):</span>
+            <div *ngFor="let gen of geneder">
+                <label for="{{gen.type}}">
+                    <input type="radio" value="{{gen.value}}"
+                    id="{{gen.type}}" name="geneder"
+                    (change)="selectGeneder($event.target.value)">
+                    {{gen.type}}
+                </label>
+            </div>
+        </div>
+        <button type="submit">Update profile
+            <i class="fa fa-spinner fa-spin ml-2" *ngIf="Loading"></i>
+        </button>
+    </form>
+</div>

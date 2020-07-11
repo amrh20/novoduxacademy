@@ -1,13 +1,159 @@
 @import "../variables.scss";
+
+:host {
 .profile {
     min-height: 100vh;
     position: relative;
-    p {
-        margin-left: 350px;
-    top: 170px;
+    background: #e8ecf5;
+    [dir= rtl] & {
+        text-align: right;
+    }
+    .profile-content {
+    margin-left: 350px;
+    top: 100px;
     position: relative;
     text-align: center;
-    font-size: 25px;
-    text-transform: capitalize;
+    .user-img {
+        img {
+            height: 140px;
+            border: 1px solid;
+            border-radius: 50%;
+            padding: 10px;
+        }
     }
+   .details-content {
+       display: flex;
+       margin-left: 400px;
+       align-items: center;
+       margin-top: 30px;
+       img {
+           height: 25px;
+           margin-right: 10px;
+           [dir= rtl] & {
+               margin-right: 0;
+               margin-left: 10px;
+           }
+       }
+       p {
+           font-size: 16px;
+       }
+   }
+    [dir= rtl] & {
+        margin-left: 0;
+        margin-right: 350px;
+    }
+    p {
+        font-size: 25px;
+        text-transform: capitalize;
+        span {
+            color: $main-color;
+        }
+     }
+    }
+    .lds-ripple {
+        left: calc(50% + 150px);
+        [dir =rtl] & {
+            left: auto;
+            right: 50%;
+        }
+    }
+    .btns {
+        margin-left: 350px;
+        position: relative;
+        top: 100px;
+        button {
+            margin-right: 20px;
+            background-color: #fff;
+            color: $main-color;
+        }
+        [dir= rtl] & {
+            margin-left: 0; 
+            margin-right: 350px;
+        }
+    }
+    .form {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 30px;
+        input {
+            text-align: center;
+        }
+        label {
+            font-size: 20px;
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: $main-color;
+        }
+        button {
+            margin-top: 30px;
+            width: 200px;
+        }
+    }
+    li {
+        cursor: pointer;
+    }
+    .change-password-popup {
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 200px);
+        transform: translate(-50%, -50%) scale(0);
+        background: #fff;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.17);
+        width: 500px;
+        padding: 30px;
+        transition: all .3s ease-in-out;
+        [dir =rtl] & {
+            left: auto;
+            right: 300px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            [dir= rtl] & {
+                right: auto;
+                left: 20px;
+            }
+            i {
+                border: 2px solid red;
+                height: 25px;
+                width: 25px;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                color: red;
+                cursor: pointer;
+            }
+        }
+    }
+    .show-pop-up {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+.change-password {
+    .change-password-container {
+        width: 90%;
+        margin: auto;
+        h2 {
+            text-transform: capitalize;
+            margin-bottom: 30px;
+            border-bottom: 2px solid;
+            padding-bottom: 3px;
+            width: fit-content;
+        }
+    }
+   form {
+       text-align: center;
+    input {
+      text-transform: capitalize;
+      margin-bottom: 30px;
+    }
+    button {
+        width: 200px;
+    }
+   }
+}
 }

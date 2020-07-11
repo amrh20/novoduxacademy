@@ -73,7 +73,7 @@
     "whishList-empty": "المفضلة لديك فارغه",
     "write-your-title": "أكتب عنوان الطلب",
     "write-suggestion": "اكتب شكوتك او مقترحك..",
-    "Please-choose":"من فضلك اختر",
+    "please-choose":"من فضلك اختار",
     "complaint": "شكوي",
     "suggestion": "مقترح",
     "send": "ارسال",
@@ -90,5 +90,12 @@
     "confirm-password": "تاكيد كلمة المرور الجديدة",
     "notification-txt": "لا يوجد لديك اشعارات",
     "myCourses": "كورساتي",
-    "courses-txt": "لا يوجد لديك كورسات"
+    "courses-txt": "لا يوجد لديك كورسات",
+    "welcome": "مرحبا",
+    "change-password": "تغيير كلمة المرور",
+    "edit-profile": "تعديل البيانات الشخصية",
+    "profile": "الصفحة الشخصية",
+    "wallet": "المحفضة",
+    "no-wallet-yet": "لا يوجد لديك بيانات في محفظتك",
+    "select-another-category": "اختر قسم اخر"
 }

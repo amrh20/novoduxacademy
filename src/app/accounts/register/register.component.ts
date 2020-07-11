@@ -62,7 +62,9 @@ export class RegisterComponent implements OnInit {
   get phoneKey() {
     return this.regform.get('category')
   }
-  
+  get email() {
+    return this.regform.get('email')
+  }
   // selectOption(id: number) {
   //  }
  register() {
@@ -74,7 +76,8 @@ export class RegisterComponent implements OnInit {
   const CategoryId= this.regform.value.category
   const Password= this.regform.value.password
   const ConfirmPassword= this.regform.value.ConfirmPassword
-   this.authService.register(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword).subscribe(res=> {  
+  const Email= this.regform.value.email
+   this.authService.register(Name,PhoneKey,PhoneNumber ,CategoryId,Password,ConfirmPassword,Email).subscribe(res=> {  
      this.regform.reset()
      this.router.navigate(['/verfiy'])
      this.overlay= false

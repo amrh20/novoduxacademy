@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../shared/services/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-advertisement-order',
@@ -8,14 +9,18 @@ import { HomeService } from '../shared/services/home.service';
 })
 export class AdvertisementOrderComponent implements OnInit {
   orders: any;
-  constructor(private homeSerive: HomeService) { }
+  IsLoading: boolean;
+  constructor(private homeSerive: HomeService,private router:Router) { }
 
   ngOnInit(): void {
+    this.IsLoading= true;
     this.homeSerive.getAdvertisementOrder().subscribe((res: any) => {
       this.orders = res.model
+      this.IsLoading= false;
     })
   }
   logout() {
     localStorage.removeItem('authToken')
+    this.router.navigate(['home'])
   }
 }

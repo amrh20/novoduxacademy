@@ -1,49 +1,63 @@
-<div class="oder-side">
-    <div class="side__menu">
-        <ul>
-           <li>
-                <a routerLink="/profile">profile</a>
-            </li>
-           <li>
-            <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
-            </li>                
-            <li>
-            <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
-            </li>
-            <li>
-              <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
-            </li>
-           
-            <li>
-              <a routerLink="changePassword">{{'changepassword' | translate}}</a>
-           </li>
-            <li>
-              <a (click)="logout()" class="logout">
-              {{'logout' | translate}}
-              </a>
-            </li>
-           
-          </ul>
+<div class="content">
+    <div class="oder-side">
+        <div class="side__menu">
+            <ul>
+               <li>
+                    <a routerLink="/profile">{{'profile' | translate}}</a>
+                </li>
+                <li>
+                  <a routerLink="/wallet">{{'wallet' | translate}}</a>
+              </li>
+               <li>
+                <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
+                </li>                
+                <li>
+                <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
+                </li>
+                <li>
+                  <a  routerLink="/ad-order" class="active-side">{{'Advertisements-orders' | translate}}</a>
+                </li>
+                <li>
+                  <a (click)="logout()" class="logout">
+                  {{'logout' | translate}}
+                  </a>
+                </li>
+              </ul>
+          </div>
     </div>
-</div>
-<ng-container *ngIf="orders?.length; else noOrders">
-    <div class="ad-order">
-        <div class="container">
-            <div class="ad-order-content" *ngFor="let order of orders; let i= index">
-                <span>{{i+1}}- </span>
-                <p class="order-status">{{order?.AdvertisementOrderStatusName}}</p>
-                <p>{{order?.Message}}</p>
-                <p>{{order?.CreationDate}}</p>
+    
+    <ng-container *ngIf="IsLoading; else loading">
+        <div class="loading-container">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
             </div>
         </div>
-    </div>
-</ng-container>
-<ng-template #noOrders>
-
-    <div class="ad-order-empty">
-        <p>
-            {{'no-orders' | translate}}
-        </p>
-    </div>
- 
-</ng-template>
+        
+    </ng-container>
+    
+    <ng-template #loading>
+        <ng-container *ngIf="orders?.length; else noOrders">
+            <div class="ad-order">
+                <div class="container">
+                    <div class="ad-order-content" *ngFor="let order of orders; let i= index">
+                        <span>{{i+1}}- </span>
+                        <p class="order-status">{{order?.AdvertisementOrderStatusName}}</p>
+                        <p>{{order?.Message}}</p>
+                        <p>{{order?.CreationDate}}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noOrders>
+            <div class="ad-order-empty">
+                <p>
+                    {{'no-orders' | translate}}
+                </p>
+            </div>
+         
+        </ng-template>
+    </ng-template>
+    
+    
+</div>

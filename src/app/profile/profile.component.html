@@ -1,30 +1,99 @@
 <div class="profile">
-      <p>welcome amr</p>
-      <div class="side__menu">
-            <ul>
-               <li>
-                    <a routerLink="/profile">profile</a>
-                </li>
-               <li>
-                <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
-                </li>                
-                <li>
-                <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
-                </li>
-                <li>
-                  <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
-                </li>
-               
-                <li>
-                  <a routerLink="/changePassword">{{'changepassword' | translate}}</a>
-               </li>
-                <li>
-                  <a (click)="logout()" class="logout">
-                  {{'logout' | translate}}
-                  </a>
-                </li>
-               
-              </ul>
+  <ng-container *ngIf="loading; else loaded">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
     </div>
-    
+  </ng-container>
+  <ng-template #loaded>
+    <div class="btns">
+      <button (click)="showPopUp()">{{'change-password' | translate}}</button>
+    </div>
+    <div class="profile-content">
+      <div class="user-img">
+        <img src="../../assets/images/Profileuser.png" alt="">
+      </div>
+      <p> <span>{{profile?.Name}}</span></p>
+      <div class="details-content" *ngIf="profile?.Email">
+        <img src="../../assets/images/email.png" alt="">
+        <p>{{profile?.Email}}</p>
+      </div>
+
+      <div class="details-content">
+        <img src="../../assets/images/phone-outline.png" alt="">
+        <p>{{profile?.PhoneNumber}}</p>
+      </div>
+      <div class="details-content">
+        <img src="../../assets/images/education.png" alt="">
+        <p>{{profile?.Category.Name}}</p>
+      </div>
+      <div class="details-content">.
+        <a routerLink="/edit-profile">
+          <button (click)="editProfile()">{{'edit-profile' | translate}}</button></a>
+      </div>
+      <div class="form">
+        <!-- <form  [formGroup]="editForm" 
+               (ngSubmit)="editProfileSubmit()">
+           <div class="form-group">
+            <label for="name">
+              {{'welcome' | translate}}
+            </label>
+            <input type="text" id= "name" name="name"
+            value="{{profile?.Name}}" 
+            formControlName="name"> 
+          </div>
+          <input type="email" value="{{profile?.Email}}"
+          formControlName="email" *ngIf="profile?.Email">
+          <button type="submit" *ngIf="!edit">save</button>
+        </form> -->
+      </div>
+    </div>
+
+  </ng-template>
+  <div class="side__menu">
+    <ul>
+      <li>
+        <a routerLink="/profile" class="active-side">{{'profile' | translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/wallet">{{'wallet' | translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
+      </li>
+      <li>
+        <a (click)="logout()" class="logout">
+          {{'logout' | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="change-password-popup" [ngClass]="{'show-pop-up' : showPopup}">
+    <div class="change-password">
+      <div class="change-password-container">
+        <div class="alert alert-danger" *ngIf="chageError">{{chageError}}</div>
+        <form [formGroup]="chageForm" (ngSubmit)="changePassword()">
+          <input type="password" placeholder="{{'entre-old-password' | translate}}" formControlName="oldPassword">
+          <input type="password" placeholder="{{'entre-new-password' | translate}}" formControlName="newPassword">
+          <input type="password" placeholder="{{'confirm-password' | translate}}" formControlName="confirmPassword">
+          <div *ngIf="confirmPassword.touched && confirmPassword.value !== newPassword.value"
+            class="alert alert-danger">
+            {{'passwords-not-match' | translate}}
+          </div>
+          <button [disabled]='!chageForm.valid'>{{'send' | translate}}
+            <!-- <i class="fa fa-spinner fa-spin ml-2" *ngIf="Loading"></i> -->
+          </button>
+        </form>
+        <div class="close-btn" (click)="showPopUp()">
+          <i class="fa fa-times"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

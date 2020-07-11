@@ -1,13 +1,41 @@
+@import "../variables.scss";
 :host {
+    .courses-content {
+        background: #e8ecf5;
+        height: 100vh;
+    }
     .lds-ripple {
         top: 30%;
-    }
+        left: calc(50% + 150px);
+        [dir =rtl] & {
+            left: auto;
+            right: 50%;
+        }
+    } 
     .student-courses {
         position: relative;
-        top: 150px;
-        min-height: calc(100vh - 150px);
+        top: 95px;
+        height: 100vh;
         margin-bottom: 150px;
         margin-left: 350px;
+        [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 300px;
+        }
+        .view-btn {
+            margin-bottom: 30px;
+            margin-right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px 30px;
+            p {
+                text-transform: capitalize;
+                font-size: 22px;
+                color: $main-color;
+            }
+        }
     }
     ::ng-deep {
         .br-units {
