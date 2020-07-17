@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CourseItemComponent implements OnInit {
   @Input() course : Course;
   errorMsg: string
-  imagePath= "http://novoduxapi.native-tech.co/api/Images/CategoryImages/";
+  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/";
   checkLang
   constructor(private productService:ProductService, private toastr:ToastrService) { }
 

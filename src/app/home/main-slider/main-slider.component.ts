@@ -15,20 +15,10 @@ export class MainSliderComponent implements OnInit {
   constructor(private homeService:HomeService, private productService: ProductService) { }
   ngOnInit(): void {
     $.getScript('mainscript.js');
-    this.productService.GetTaxons().subscribe((res: any) => {
-      this.taxons= res.model
-    })
+    
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
-  onChangeTaxons(e) {
-    let id=e;
-    this.productService.GetSubTaxons(id).subscribe((res: any)=> {
-      this.subTaxons= res.model
-    }) 
-  }
-  subCategories(e) {
-    localStorage.setItem('SubCategoryId',e)
-  }
+
   slides = [
     {img: "https://www.youstudy.com/gallery/blog/post/studying-medicine-in-the-uk.jpg"},
     {img: "https://static.arageek.com/wp-content/uploads/3-167.jpg"},

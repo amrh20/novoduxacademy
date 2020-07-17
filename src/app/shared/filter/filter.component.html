@@ -2,7 +2,7 @@
     <div class="collect_filter">
         <div class="filter_box">
             <ul class="filter_box-title">
-                <li *ngFor="let taxon of listOfCategory">
+                <li *ngFor="let taxon of listOfCategory; let i= index">
                     <div class="taxons-title">
                         <a>
                             <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>

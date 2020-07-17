@@ -1,4 +1,9 @@
 @import "../../variables.scss";
+
+
+::ng-deep.mat-tab-label.mat-tab-label-active {
+    opacity: 1;
+    }
 :host {
     ::ng-deep {
          .slick-prev {
@@ -126,8 +131,8 @@
             }
           }
           .comment-content {
-              height: 300px;
-              overflow-y: scroll;
+            //   height: 300px;
+            //   overflow-y: scroll;
           }
           .addReview {
                         
@@ -185,6 +190,8 @@
                 }
            .review_comment {
                margin-bottom: 30px;
+               background: #f3f2f2;
+               padding: 10px;
                [dir= rtl] & {
                    text-align: right;
                }
@@ -249,7 +256,7 @@
     }
     ::ng-deep {
         .br-unit {
-            font-size: 23px !important;
+            font-size: 18px !important;
         }
         .br-unit:after {
             content: "\2605" !important;
@@ -277,15 +284,15 @@
             font-size: 19px;
             img {
                 height: 15px;
-                margin-left: 10px;
+                margin-right: 10px;
                 [dir= rtl] & {
-                    margin-left: 0;
-                    margin-right: 10px;
+                    margin-right: 0;
+                    margin-left: 10px;
                 }
             } 
         }
         .mat-tab-group {
-            margin-bottom: 50px;
+            margin-bottom: 200px;
         }
         .mat-tab-header-pagination-after .mat-tab-header-pagination-chevron,
         .mat-tab-header-pagination-before .mat-tab-header-pagination-chevron {
@@ -297,6 +304,18 @@
         color: $main-color;
         font-weight: 800;
     }
+    .comment-container {
+        display: flex;
+        align-items: center;
+        img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        .review_comment-title {
+            background-color: #fff;
+        }
+    }
     .comment_date {
         font-size: 14px;
         margin-left: 100px
@@ -304,9 +323,12 @@
     .Replys {
  
             span {
-                color: #ff5b5b;
+                color: #000;
             }
         
+    }
+    .margin {
+        margin-left: 60px;
     }
     .add_comment {
         margin-top: 30px;

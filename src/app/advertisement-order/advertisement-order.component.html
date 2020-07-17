@@ -2,30 +2,44 @@
     <div class="oder-side">
         <div class="side__menu">
             <ul>
-               <li>
-                    <a routerLink="/profile">{{'profile' | translate}}</a>
+                <li>
+                    <a routerLink="/profile">
+                        <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+                        {{'profile' | translate}}
+                    </a>
                 </li>
                 <li>
-                  <a routerLink="/wallet">{{'wallet' | translate}}</a>
-              </li>
-               <li>
-                <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
-                </li>                
-                <li>
-                <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
+                    <a routerLink="/wallet">
+                        <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+                        {{'wallet' | translate}}</a>
                 </li>
                 <li>
-                  <a  routerLink="/ad-order" class="active-side">{{'Advertisements-orders' | translate}}</a>
+
+                    <a routerLink="/myCourses">
+                        <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+                        {{'myCourses' | translate}}</a>
                 </li>
                 <li>
-                  <a (click)="logout()" class="logout">
-                  {{'logout' | translate}}
-                  </a>
+
+                    <a routerLink="/contact-us">
+                        <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+                        {{'Complaint-Suggestion' | translate}}</a>
                 </li>
-              </ul>
-          </div>
+                <li>
+                    <a routerLink="/ad-order" class="active-side">
+                        <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+                        {{'Advertisements-orders' | translate}}</a>
+                </li>
+                <li>
+                    <a (click)="logout()" class="logout">
+                        <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
+                        {{'logout' | translate}}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    
+
     <ng-container *ngIf="IsLoading; else loading">
         <div class="loading-container">
             <div class="lds-ripple">
@@ -33,20 +47,38 @@
                 <div></div>
             </div>
         </div>
-        
+
     </ng-container>
-    
+
     <ng-template #loading>
+
         <ng-container *ngIf="orders?.length; else noOrders">
+            <div class="view-btn">
+                <p>
+                    {{'Advertisements-orders' | translate}}
+                </p>
+            </div>
             <div class="ad-order">
-                <div class="container">
-                    <div class="ad-order-content" *ngFor="let order of orders; let i= index">
-                        <span>{{i+1}}- </span>
-                        <p class="order-status">{{order?.AdvertisementOrderStatusName}}</p>
-                        <p>{{order?.Message}}</p>
-                        <p>{{order?.CreationDate}}</p>
-                    </div>
-                </div>
+                <table>
+                    <tr>
+                        <th>{{'Order-Id' | translate}}</th>
+                        <th>{{'Description' | translate}}</th>
+                        <th>{{'Status' | translate}}</th>
+                        <th>{{'Date' | translate}}</th>
+                    </tr>
+
+                    <tr *ngFor="let order of orders; let i= index">
+                        <td>{{order?.Id}}</td>
+                        <td>
+                            {{order?.Message}}
+                        </td>
+                        <td>
+                            <span class="status"
+                            [ngClass]="{'pendding': order?.AdvertisementOrderStatusName=='Pending'}">{{order?.AdvertisementOrderStatusName}}</span>
+                        </td>
+                        <td>{{order?.CreationDate}}</td>
+                    </tr>
+                </table>
             </div>
         </ng-container>
         <ng-template #noOrders>
@@ -55,9 +87,9 @@
                     {{'no-orders' | translate}}
                 </p>
             </div>
-         
+
         </ng-template>
     </ng-template>
-    
-    
+
+
 </div>

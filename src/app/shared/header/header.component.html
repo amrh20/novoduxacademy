@@ -17,16 +17,22 @@
                   <a routerLink="/product/wishlist">
                     <img src="../../../assets/images/wishlist.png" alt="">
                   </a>
-                  <a *ngIf="loggedIn()"  routerLink="profile">
-                    <img src="../../../assets/images/Profile.png" alt="">
-                  </a>
-                  <a class="drop" *ngIf="!loggedIn()" routerLink="login">
-                    <img src="../../../assets/images/Profile.png" alt="">                     
-                  </a>
+                 
                     <a routerLink="notification">
                       <img src="../../../assets/images/reminders.png" alt="">
                     </a>
-                    
+                    <a *ngIf="loggedIn()"  routerLink="profile">
+                      <!-- <img src="../../../assets/images/Profile.png" alt=""> -->
+                      <!-- <ng-container *ngIf="checkedlocal"> -->
+                        <img src="../../../assets/images/Profile.png" alt="">
+                      <!-- </ng-container> -->
+                      <!-- <ng-template #noProfile>
+                        <img [src]="pathImage + profileImg" alt="" class="logedimg">
+                      </ng-template> -->
+                    </a>
+                    <a class="drop" *ngIf="!loggedIn()" routerLink="login">
+                      <img src="../../../assets/images/Profile.png" alt="">                     
+                    </a>
                     <a class="drop">
                       <i class="fa fa-language" aria-hidden="true"></i>
                       <div class="dropdown_one-content">

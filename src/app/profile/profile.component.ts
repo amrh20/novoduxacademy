@@ -20,6 +20,11 @@ export class ProfileComponent implements OnInit {
   chageError: string;
   edit= true
   categories
+  checkLang
+  pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
+  imageSrc: string = '';
+  test
+  changeLoading: boolean
   chageForm= new FormGroup({
     oldPassword: new FormControl('', [Validators.required]),
     newPassword: new FormControl('', [Validators.required]),
@@ -37,7 +42,7 @@ export class ProfileComponent implements OnInit {
     },err => {
       this.loading= false
     })
-   
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   get oldPassword() {
     return this.chageForm.get('oldPassword');
@@ -82,7 +87,35 @@ export class ProfileComponent implements OnInit {
       return true
     }
   }
-
+  handleInputChange(e) {
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var pattern = /image-*/;
+    var reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.imageSrc = reader.result;
+    this.test= this.imageSrc.split(',')[1]
+    this.changeLoading= true
+    this.authService.ChangePhoto(this.test).subscribe(res => {
+      // this.tosaterService.success('your image change ')
+      this.authService.getStudentProfile().subscribe((res : any)=> {
+        this.profile= res.model
+        this.changeLoading= false
+        // localStorage.setItem('ProfileImage',res.model.ProfileImage)
+        // location.reload()
+      })
+    },err => {
+      console.log('something error')
+      this.changeLoading= false
+    })
+  }
   logout() {
     localStorage.removeItem('authToken')
     this.router.navigate(['home'])

@@ -56,8 +56,8 @@
     <mat-tab-group>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span>{{'Videos' | translate}}</span>
           <img src="../../../assets/images/video-icon.png" alt="">
+          <span>{{'Videos' | translate}}</span>
         </ng-template>
         <div class="videos-content">
           <span>Videos here</span>
@@ -65,8 +65,8 @@
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span>{{'Reviews' | translate}}</span>
           <img src="../../../assets/images/review-icon.png" alt="">
+          <span>{{'Reviews' | translate}}</span>
         </ng-template>
         <div class="course__reviews content">
           <h2 *ngIf="reviews?.length">{{'Reviews' | translate}}</h2>
@@ -123,24 +123,29 @@
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span>{{'Comments' | translate}}</span>
           <img src="../../../assets/images/comment-icon.png" alt="">
+          <span>{{'Comments' | translate}}</span>
         </ng-template>
         <div class="course__comments content">
           <h2 *ngIf="comments?.length">{{'Comments' | translate}}</h2>
           <div class="row" *ngIf="comments?.length" class="comment-content">
             <div class="col-12 p-0" *ngFor="let comment of comments">
               <div class="review_comment">
-                <div class="review_comment-title">
-                  <label for="{{comment?.Comment}}">
-                    <input id="{{comment?.Comment}}" [value]='comment.Id' type="radio" name="test"
-                      (change)="selectOption($event.target.value)" #fondovalor>
-                    <span>{{comment?.Comment}}</span>
-                  </label>
-                  <p class="comment"> ({{comment?.CreationDate}})</p>
+                <div class="comment-container">
+                  <img [src]=" pathImage + comment?.StudentImage" alt="" *ngIf="comment?.StudentImage">
+                  <div class="review_comment-title">
+                    <label for="{{comment?.Comment}}">
+                      <input id="{{comment?.Comment}}" [value]='comment.Id' type="radio" name="test"
+                        (change)="selectOption($event.target.value)" #fondovalor class="d-none">
+                      <span>{{comment?.Comment}}</span>
+                    </label>
+                    <p class="comment"> ({{comment?.CreationDate}})</p>
+                  </div>
                 </div>
+             
                 <div class="replys" *ngFor="let reply of comment.Replies">
-                  <p class="Replys"><span>- {{reply.ReplyText}}</span></p>
+                  <p class="Replys" [ngClass]="{'margin': comment?.StudentImage }"><span>
+                    - {{reply.ReplyText}}</span></p>
                 </div>
               </div>
             </div>
@@ -173,7 +178,7 @@
     </mat-tab-group>
 
 
-    <div class="recommend_slider">
+    <!-- <div class="recommend_slider">
       <h2>{{'related-courses' | translate}}</h2>
       <div class="container">
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
@@ -439,6 +444,6 @@
         </ngx-slick-carousel>
       </div>
 
-    </div>
+    </div> -->
   </div>
 </div>

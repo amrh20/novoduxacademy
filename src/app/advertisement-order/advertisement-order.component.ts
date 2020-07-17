@@ -17,6 +17,7 @@ export class AdvertisementOrderComponent implements OnInit {
     this.homeSerive.getAdvertisementOrder().subscribe((res: any) => {
       this.orders = res.model
       this.IsLoading= false;
+      console.log(this.orders)
     })
   }
   logout() {

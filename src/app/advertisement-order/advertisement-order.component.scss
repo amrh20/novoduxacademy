@@ -1,13 +1,69 @@
+@import "../variables.scss";
 :host {
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 15px;
+      }
+      .status {
+        color: #fff;
+        padding: 1px 15px;
+        font-size: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .pendding {
+          background-color: #daac20;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    .view-btn {
+        position: relative;
+        padding-top: 100px;
+        margin-bottom: 30px;
+        margin-right: 60px;
+        margin-left: 350px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px 30px;
+        border-radius: 10px;
+        [dir =rtl] & {
+            margin-left: 60px;
+            margin-right: 360px;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: $main-color;
+        }
+        button {
+            font-size: 14px;
+        }
+    }
     .content {
         background: #e8ecf5;
+        padding-top: 92px;
     }
     .ad-order {
         position: relative;
-        padding-top: 150px;
         height: 100vh;
-        width: fit-content;
-        margin: 0 auto;
+        margin-left: 350px;
+        margin-right: 60px;
+        [dir =rtl] & {
+            margin-right: 360px;
+            margin-left: 60px;
+        }
     }
     .lds-ripple {
         left: 60%;

@@ -7,45 +7,63 @@
   </ng-container>
   <ng-template #loaded>
     <div class="btns">
-      <button (click)="showPopUp()">{{'change-password' | translate}}</button>
+      <p>{{'profile' | translate}}</p>
+      <div>
+        <button (click)="showPopUp()">{{'change-password' | translate}}</button>
+      <a routerLink="/edit-profile">
+        <button (click)="editProfile()">{{'edit-profile' | translate}}</button>
+      </a>
+      </div>
     </div>
     <div class="profile-content">
-      <div class="user-img">
-        <img src="../../assets/images/Profileuser.png" alt="">
-      </div>
-      <p> <span>{{profile?.Name}}</span></p>
-      <div class="details-content" *ngIf="profile?.Email">
-        <img src="../../assets/images/email.png" alt="">
-        <p>{{profile?.Email}}</p>
-      </div>
+      <div class="top">
 
-      <div class="details-content">
-        <img src="../../assets/images/phone-outline.png" alt="">
-        <p>{{profile?.PhoneNumber}}</p>
       </div>
-      <div class="details-content">
-        <img src="../../assets/images/education.png" alt="">
-        <p>{{profile?.Category.Name}}</p>
+      <div class="bottom">
+      
+      
+        <div class="details-content" *ngIf="profile?.Email">
+          <img src="../../assets/images/email.png" alt="">
+          <p>{{profile?.Email}}</p>
+        </div>
+  
+        <div class="details-content">
+          <img src="../../assets/images/phone-outline.png" alt="">
+          <p>{{profile?.PhoneNumber}}</p>
+        </div>
+        <div class="details-content">
+          <img src="../../assets/images/graduation-cap.png" alt="">
+          <p>
+            <ng-container *ngIf="checkLang== 'en'">{{profile?.Category.Name}}</ng-container>
+            <ng-container *ngIf="checkLang== 'ar'">{{profile?.Category.NameLT}}</ng-container>
+          </p>
+        </div>
+
+        <!-- <div class="details-content" *ngIf="profile?.Email">
+          <img src="../../assets/images/country.png" alt="">
+          <p>{{profile?.Email}}</p>
+        </div> -->
       </div>
-      <div class="details-content">.
-        <a routerLink="/edit-profile">
-          <button (click)="editProfile()">{{'edit-profile' | translate}}</button></a>
-      </div>
-      <div class="form">
-        <!-- <form  [formGroup]="editForm" 
-               (ngSubmit)="editProfileSubmit()">
-           <div class="form-group">
-            <label for="name">
-              {{'welcome' | translate}}
-            </label>
-            <input type="text" id= "name" name="name"
-            value="{{profile?.Name}}" 
-            formControlName="name"> 
+      <div class="user-img">
+        <div class="user-img-container">
+          <label class="hoverable" for="fileInput">
+            <ng-container *ngIf="profile?.ProfileImage; else noProfile">
+              <img [src]="pathImage + profile?.ProfileImage">
+             </ng-container>
+             <ng-template #noProfile>
+                 <img src="../../assets/images/profileimg.png" alt="">
+             </ng-template>
+            <div class="hover-text"><i class="fa fa-camera"></i></div>
+          </label>
+          <input id="fileInput" type='file' (change)="handleInputChange($event)">
+          <p>
+             <span>{{profile?.Name}}</span></p>
+          <span class="bio">{{profile?.Bio}}</span>
+          <div class="changeLoading" *ngIf="changeLoading">
+            <div class="lds-ripple"><div></div><div></div></div>
           </div>
-          <input type="email" value="{{profile?.Email}}"
-          formControlName="email" *ngIf="profile?.Email">
-          <button type="submit" *ngIf="!edit">save</button>
-        </form> -->
+        </div>
+       
       </div>
     </div>
 
@@ -53,22 +71,36 @@
   <div class="side__menu">
     <ul>
       <li>
-        <a routerLink="/profile" class="active-side">{{'profile' | translate}}</a>
+        <a routerLink="/profile" class="active-side">
+          <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+          {{'profile' | translate}}
+        </a>
       </li>
       <li>
-        <a routerLink="/wallet">{{'wallet' | translate}}</a>
+        <a routerLink="/wallet">
+          <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+          {{'wallet' | translate}}</a>
       </li>
       <li>
-        <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
+     
+        <a routerLink="/myCourses">
+          <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+          {{'myCourses' | translate}}</a>
       </li>
       <li>
-        <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
+        
+        <a routerLink="/contact-us">
+          <img src="../../assets/images/Complaint.png" alt=""  class="side-menu-img">
+          {{'Complaint-Suggestion' | translate}}</a>
       </li>
       <li>
-        <a routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
+        <a routerLink="/ad-order">
+          <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+          {{'Advertisements-orders' | translate}}</a>
       </li>
       <li>
         <a (click)="logout()" class="logout">
+          <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
           {{'logout' | translate}}
         </a>
       </li>

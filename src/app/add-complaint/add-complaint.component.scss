@@ -1,7 +1,32 @@
+@import "../variables.scss";
 :host {
+    .view-btn {
+        margin-bottom: 30px;
+        margin-right: 60px;
+        margin-left: 350px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px 30px;
+        border-radius: 10px;
+        [dir= rtl] & {
+            margin-left: 60px;
+            margin-right: 350px;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: $main-color;
+        }
+        button {
+            font-size: 14px;
+        }
+    }
     .content {
         position: relative;
-        padding-top: 120px;
+        padding-top: 92px;
         height: 100vh;
         background: #e8ecf5;
         form {

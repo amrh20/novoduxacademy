@@ -24,5 +24,9 @@
         text-transform: capitalize;
         top: 200px;
         @extend .notification;
+
+        p {
+            text-align: center;
+        }
     }
 }

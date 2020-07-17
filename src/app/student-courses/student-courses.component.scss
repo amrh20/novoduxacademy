@@ -1,5 +1,8 @@
 @import "../variables.scss";
 :host {
+    .student-courses-cotent {
+     margin-right: 60px;
+    }
     .courses-content {
         background: #e8ecf5;
         height: 100vh;
@@ -29,11 +32,16 @@
             justify-content: space-between;
             align-items: center;
             background-color: #fff;
-            padding: 20px 30px;
+            padding: 10px 30px;
+            border-radius: 10px;
             p {
+                font-size: 18px;
+                font-weight: bold;
                 text-transform: capitalize;
-                font-size: 22px;
                 color: $main-color;
+            }
+            button {
+                font-size: 14px;
             }
         }
     }
@@ -56,9 +64,7 @@
             color: #EDB867 !important;
         }
     }
-    a{ 
-        color: inherit;
-    }
+    
     .empty-courses {
         @extend .student-courses;
         text-align: center;

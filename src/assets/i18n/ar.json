@@ -45,7 +45,7 @@
     "Register":"تسجيل دخول",
     "passwords-not-match": "كلمات السر غير متشابهه", 
     "Name": "الاسم",
-    "Email": "البريد الالكتروني",
+    "Email": "البريد الالكتروني (اختياري)",
     "Password": "كلمة المرور",
     "Confirm-Password": "تاكيد كلمة المرور",
     "already-have-an-account": "لديك حساب بالفعل",
@@ -97,5 +97,15 @@
     "profile": "الصفحة الشخصية",
     "wallet": "المحفضة",
     "no-wallet-yet": "لا يوجد لديك بيانات في محفظتك",
-    "select-another-category": "اختر قسم اخر"
+    "select-another-category": "اختر قسم اخر",
+    "Profile": "الصفحة الشخصية",
+    "view-all-courses": "رؤية جميع الكورسات",
+    "Order-Id":"رقم الطلب",
+    "Description": "التفاصيل",
+    "Status": "الحالة",
+    "Date": "التاريخ",
+    "there-are-not-result": "لا يوجد نتائج للبحث",
+    "select-img":"اختر صورة ملف شخصي",
+    "geneder-op":"النوع (اختياري)",
+    "bio":"عنك (اختياري)"
 }

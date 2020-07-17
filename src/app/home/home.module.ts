@@ -13,12 +13,13 @@ import { AdvertisementsComponent } from './advertisements/advertisements.compone
 import { OffersComponent } from './offers/offers.component';
 import { CategoriesHomeComponent } from './categories-home/categories-home.component';
 import { BarRatingModule } from 'ngx-bar-rating';
+import { SearchStepsComponent } from './search-steps/search-steps.component';
 
 @NgModule({
   declarations: [MainSliderComponent, 
                  HomeComponent, RecommendCoursesComponent, 
                  TimelineComponent, AboutUsComponent, AdvertisementsComponent, 
-                 OffersComponent, CategoriesHomeComponent],
+                 OffersComponent, CategoriesHomeComponent, SearchStepsComponent],
   imports: [
     CommonModule,
     SharedModule,

@@ -10,7 +10,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
   logged: boolean
   currentLang: string;
-
+  pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
+  profileImg
+  checkedlocal: boolean
   constructor(private homeService:HomeService,public translate:TranslateService) {
     this.currentLang= localStorage.getItem('currentLanguage') || 'en'
     this.translate.use(this.currentLang)
@@ -33,7 +35,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     // localStorage.setItem('currentLanguage','en')
     // this.changeLang
-  
+    // this.profileImg= localStorage?.getItem('ProfileImage')
+    // if (localStorage.getItem("ProfileImage") === null) {
+    //   this.checkedlocal= true
+    // }
   }
  loggedIn() {
    if(localStorage.getItem('authToken')) {
@@ -42,5 +47,6 @@ export class HeaderComponent implements OnInit {
  }
  logout() {
    localStorage.removeItem('authToken')
+   localStorage?.removeItem('ProfileImage')
  }
 }

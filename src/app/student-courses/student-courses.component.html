@@ -1,27 +1,41 @@
 <div class="courses-content">
     <div class="side__menu">
         <ul>
-           <li>
-                <a routerLink="/profile">{{'profile' | translate}}</a>
-            </li>
-            <li>
-              <a routerLink="/wallet">{{'wallet' | translate}}</a>
+          <li>
+            <a routerLink="/profile" >
+              <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+              {{'profile' | translate}}
+            </a>
           </li>
-           <li>
-            <a routerLink="/myCourses" class="active-side">{{'myCourses' | translate}}</a>
-            </li>                
-            <li>
-            <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
-            </li>
-            <li>
-              <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
-            </li>
-            <li>
-              <a (click)="logout()" class="logout">
+          <li>
+            <a routerLink="/wallet">
+              <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+              {{'wallet' | translate}}</a>
+          </li>
+          <li>
+         
+            <a routerLink="/myCourses" class="active-side">
+              <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+              {{'myCourses' | translate}}</a>
+          </li>
+          <li>
+            
+            <a routerLink="/contact-us">
+              <img src="../../assets/images/Complaint.png" alt=""  class="side-menu-img">
+              {{'Complaint-Suggestion' | translate}}</a>
+          </li>
+          <li>
+            <a routerLink="/ad-order">
+              <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+              {{'Advertisements-orders' | translate}}</a>
+          </li>
+          <li>
+            <a (click)="logout()" class="logout">
+                <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
               {{'logout' | translate}}
-              </a>
-            </li>
-          </ul>
+            </a>
+          </li>
+        </ul>
       </div>
     <ng-container *ngIf="loading; else loaded">
         <div class="load-container">
@@ -31,58 +45,58 @@
             </div>
         </div>
     </ng-container>
-    
+
     <ng-template #loaded>
         <ng-container *ngIf="courses?.length; else noCourses">
             <div class="student-courses">
                 <div class="view-btn">
                     <p>
-                        my courses
+                       {{'myCourses' | translate}}
                     </p>
                     <a router-link="/product/courses">
-                        <button>view all courses</button>
+                        <button>
+                            {{'view-all-courses' | translate}}
+                        </button>
                     </a>
                 </div>
-                <div class="container">
-                    <div class="student-courses-cotent">
-                        <div class="row">
-                            <div class="col-3" *ngFor="let course of courses">
-                                <div class="cart">
-                                    <a routerLink="/product/course/{{course.Id}}">
-                                        <div class="cart_img">
-                                            <img [src]="imagePath + course.Image" alt="">
+                <div class="student-courses-cotent">
+                    <div class="row">
+                        <div class="col-3" *ngFor="let course of courses">
+                            <div class="cart">
+                                <a routerLink="/product/course/{{course.Id}}">
+                                    <div class="cart_img">
+                                        <img [src]="imagePath + course.Image" alt="">
+                                    </div>
+                                    <div class="cart_deatils">
+                                        <div class="product_rating">
+                                            <bar-rating [rate]="course.CourseRateValue" [readOnly]="true"></bar-rating>
                                         </div>
-                                        <div class="cart_deatils">
-                                            <div class="product_rating">
-                                                <bar-rating [rate]="course.CourseRateValue" [readOnly]="true"></bar-rating>
-                                            </div>
-                                            <div class="product_name">
-                                                <h3>
-                                                    <ng-container *ngIf="checkLang== 'en'">{{course.Name}}</ng-container>
-                                                    <ng-container *ngIf="checkLang== 'ar'">{{course?.NameLT}}</ng-container>
-                                                </h3>
-                                            </div>
-                                            <div class="product_price">
-                                                <span class="new_price">{{course.PreviousCost}}</span>
-                                                <span class="original_price">{{course.CurrentCost}}</span>
-                                            </div>
+                                        <div class="product_name">
+                                            <h3>
+                                                <ng-container *ngIf="checkLang== 'en'">{{course.Name}}</ng-container>
+                                                <ng-container *ngIf="checkLang== 'ar'">{{course?.NameLT}}</ng-container>
+                                            </h3>
                                         </div>
-                                    </a>
-    
-    
-                                </div>
+                                        <div class="product_price">
+                                            <span class="new_price">{{course.PreviousCost}}</span>
+                                            <span class="original_price">{{course.CurrentCost}}</span>
+                                        </div>
+                                    </div>
+                                </a>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </ng-container>
-    
+
         <ng-template #noCourses>
-    
+
             <div class="empty-courses">
                 <p>{{'courses-txt' | translate}}</p>
-    
+
             </div>
         </ng-template>
     </ng-template>

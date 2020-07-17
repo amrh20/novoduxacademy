@@ -23,8 +23,7 @@
                  (change)="selectCategory($event.target.value)"
                  formControlName="category" name="category">
                 <option disabled selected>{{'select-another-category' | translate}}</option>
-                <option
-                        *ngFor="let category of categories">
+                <option *ngFor="let category of categories" [ngValue]="category.Id">
                     {{category.Name}}
                     <!-- <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
                     <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container> -->

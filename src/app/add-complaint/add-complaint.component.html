@@ -1,52 +1,71 @@
-
 <div class="content">
   <div class="side__menu">
     <ul>
-       <li>
-            <a routerLink="/profile">{{'profile' | translate}}</a>
-        </li>
-        <li>
-          <a routerLink="/wallet">{{'wallet' | translate}}</a>
+      <li>
+        <a routerLink="/profile">
+          <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+          {{'profile' | translate}}
+        </a>
       </li>
-       <li>
-        <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
-        </li>                
-        <li>
-        <a routerLink="/contact-us" class="active-side">{{'Complaint-Suggestion' | translate}}</a>
-        </li>
-        <li>
-          <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
-        </li>
-        <li>
-          <a (click)="logout()" class="logout">
+      <li>
+        <a routerLink="/wallet">
+          <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+          {{'wallet' | translate}}</a>
+      </li>
+      <li>
+
+        <a routerLink="/myCourses">
+          <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+          {{'myCourses' | translate}}</a>
+      </li>
+      <li>
+
+        <a routerLink="/contact-us" class="active-side">
+          <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+          {{'Complaint-Suggestion' | translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/ad-order">
+          <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+          {{'Advertisements-orders' | translate}}</a>
+      </li>
+      <li>
+        <a (click)="logout()" class="logout">
+          <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
           {{'logout' | translate}}
-          </a>
-        </li>
-      </ul>
+        </a>
+      </li>
+    </ul>
   </div>
-    <div class="container">
-        <form [formGroup]="contactForm" (ngSubmit)="submit()">
-            <input type="text" placeholder="{{'write-your-title' | translate}}">
-            <textarea name="comment" id="" cols="30" rows="10" 
-            placeholder="{{'write-suggestion' | translate}}"  formControlName="comment"></textarea>
-            <div class="labels">
-                <span class="mr-3">{{'please-choose' | translate}}:</span>
-                <label for="complaint">
-                    <input value="1" type="radio" id="complaint"
-                     name="contact" (change)="commentType($event.target.value)" required>
-                    {{'complaint' | translate}}
-                  </label>
-                  <label for="suggestion">
-                    <input value="2" type="radio" id="suggestion" 
-                    name="contact" (change)="commentType($event.target.value)" required>
-                    {{'suggestion' | translate}}
-                  </label>
-            </div>
-              <button [disabled]="!contactForm.valid">
-                {{'send' | translate}}
-                <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i>
-              </button>
-        </form>
-       
-    </div>
+  <div class="view-btn">
+    <p>
+      {{'Complaint-Suggestion' | translate}}
+    </p>
+
+  </div>
+  <div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="submit()">
+      <input type="text" placeholder="{{'write-your-title' | translate}}">
+      <textarea name="comment" id="" cols="30" rows="10" placeholder="{{'write-suggestion' | translate}}"
+        formControlName="comment"></textarea>
+      <div class="labels">
+        <span class="mr-3">{{'please-choose' | translate}}:</span>
+        <label for="complaint">
+          <input value="1" type="radio" id="complaint" name="contact" (change)="commentType($event.target.value)"
+            required>
+          {{'complaint' | translate}}
+        </label>
+        <label for="suggestion">
+          <input value="2" type="radio" id="suggestion" name="contact" (change)="commentType($event.target.value)"
+            required>
+          {{'suggestion' | translate}}
+        </label>
+      </div>
+      <button [disabled]="!contactForm.valid">
+        {{'send' | translate}}
+        <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i>
+      </button>
+    </form>
+
+  </div>
 </div>

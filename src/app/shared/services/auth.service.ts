@@ -10,7 +10,8 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
   register(Name :string,PhoneKey:string,PhoneNumber,
-    CategoryId:string,Password:string,ConfirmPassword:string,Email: any) {
+    CategoryId:string,Password:string,ConfirmPassword:string,Email: any,
+    ProfileImage: any,CountryId: any,GenderId,Bio) {
     return this.http.post(`${this.apiBaseURL}/Register`,{
       Name,
       PhoneKey,
@@ -18,18 +19,19 @@ export class AuthService {
       CategoryId,
       Password,
       ConfirmPassword,
-      Email
+      Email,
+      ProfileImage,
+      CountryId,
+      GenderId,
+      Bio
     })
   }
- 
+   
   verifyAccount(PhoneKey,Phone,vcode) {
-    // Initialize Params Object
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('PhoneKey', PhoneKey);
     params = params.append('Phone', Phone);
     params = params.append('vcode', vcode);
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/Verify`, { params: params })
   }
   login(PhoneNumberWithKey,Password) {
@@ -43,7 +45,9 @@ export class AuthService {
     params = params.append('PhoneNumber', PhoneNumber);
     return this.http.get(`${this.apiBaseURL}/ForgetPassword`, { params: params })
   }
-
+  getAllCountries() {
+    return this.http.get('https://restcountries.eu/')
+  }
   changePassword(CurrentPassword,NewPassword,ConfirmNewPassword) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({
@@ -83,5 +87,14 @@ export class AuthService {
       Email,
       GenderId
     },{headers: reqHeader})
+  }
+
+  ChangePhoto(code) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    return this.http.post(`${this.apiBaseURL}/ChangePhoto`, { ProfileImage: code },{headers: reqHeader})
   }
 }

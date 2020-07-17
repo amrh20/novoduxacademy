@@ -9,6 +9,7 @@ import { HomeService } from '../services/home.service';
 export class FilterComponent implements OnInit {
   listOfCategory;
   checkLang
+  viewSubTaxon: boolean
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
@@ -20,4 +21,8 @@ export class FilterComponent implements OnInit {
 
   attributeChange(inputVal) {
   }
+  // showSub(index) {
+  //   console.log(index)
+  //  this.viewSubTaxon=! this.viewSubTaxon
+  // }
 }

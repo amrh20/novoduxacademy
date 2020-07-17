@@ -22,7 +22,7 @@
                             {{'Phone-required' | translate}}
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" placeholder="Password*" formControlName="password">
+                            <input type="password" id="password" placeholder="{{'Password' | translate}}*" formControlName="password">
                         </div>
                         <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
                             {{'please-password' | translate}}

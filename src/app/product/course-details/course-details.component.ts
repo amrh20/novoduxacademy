@@ -21,6 +21,7 @@ export class CourseDetailsComponent implements OnInit {
   commentLoading: boolean
   reviewLoading: boolean
   checkLang
+  pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   form = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
@@ -58,10 +59,14 @@ export class CourseDetailsComponent implements OnInit {
    this.commentLoading =true
    let  CourseId= Number(localStorage.getItem('courseId'))
    let  Comment = this.form.value.comment;
+   let id= localStorage.getItem("courseId")
    this.productService.addComment(CourseId,Comment).subscribe((res: any) => {
      this.form.reset()
      this.toastr.success('your comment added successfully');
      this.commentLoading= false
+     this.productService.getComments(id).subscribe((res:any) => {
+      this.comments= res.model
+    })
    },err => {
     this.toastr.error("something error")
     this.commentLoading= false
@@ -79,11 +84,15 @@ export class CourseDetailsComponent implements OnInit {
   this.replyLoading= true
   let  CourseCommentId= Number(localStorage.getItem('CourseCommentId'))
   let  ReplyText = this.replyform.value.reply;
+  let id= localStorage.getItem("courseId")
   this.productService.addreply(CourseCommentId,ReplyText).subscribe(res => {
      this.toastr.success('your comment added successfully');
      this.replyform.reset()
      this.replyLoading =false
-     location.reload()
+    //  location.reload()
+    this.productService.getComments(id).subscribe((res:any) => {
+      this.comments= res.model
+    })
     //  this.productService.getComments().subscribe()
   },err => {
     this.toastr.error("something error")

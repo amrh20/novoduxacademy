@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     let PhoneNumberWithKey= this.loginForm.value.phoneKey + this.loginForm.value.Phone
     let Password = this.loginForm.value.password
     this.authService.login(PhoneNumberWithKey,Password).subscribe((res: any) => {
+    // localStorage.setItem('ProfileImage',res.model.ProfileImage)
     localStorage.setItem('authToken',res.model.Token[0].access_token)
     this.loginForm.reset()
     this.router.navigate(['/home'])
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.value.Phone= " "
     this.loading= false
     this.overlay= false
+    // location.reload()
     },err => {
       this.loading= false
       this.overlay =false

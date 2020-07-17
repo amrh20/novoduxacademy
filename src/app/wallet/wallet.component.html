@@ -1,27 +1,41 @@
 <div class="wallet-content">
   <div class="side__menu">
     <ul>
-       <li>
-            <a routerLink="/profile">{{'profile' | translate}}</a>
-        </li>
-        <li>
-          <a routerLink="/wallet" class="active-side">{{'wallet' | translate}}</a>
+      <li>
+        <a routerLink="/profile" >
+          <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+          {{'profile' | translate}}
+        </a>
       </li>
-       <li>
-        <a routerLink="/myCourses">{{'myCourses' | translate}}</a>
-        </li>                
-        <li>
-        <a routerLink="/contact-us">{{'Complaint-Suggestion' | translate}}</a>
-        </li>
-        <li>
-          <a  routerLink="/ad-order">{{'Advertisements-orders' | translate}}</a>
-        </li>
-        <li>
-          <a (click)="logout()" class="logout">
+      <li>
+        <a routerLink="/wallet" class="active-side">
+          <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+          {{'wallet' | translate}}</a>
+      </li>
+      <li>
+     
+        <a routerLink="/myCourses" >
+          <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+          {{'myCourses' | translate}}</a>
+      </li>
+      <li>
+        
+        <a routerLink="/contact-us">
+          <img src="../../assets/images/Complaint.png" alt=""  class="side-menu-img">
+          {{'Complaint-Suggestion' | translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/ad-order">
+          <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+          {{'Advertisements-orders' | translate}}</a>
+      </li>
+      <li>
+        <a (click)="logout()" class="logout">
+          <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
           {{'logout' | translate}}
-          </a>
-        </li>
-      </ul>
+        </a>
+      </li>
+    </ul>
   </div>
   
   <div class="wallet">

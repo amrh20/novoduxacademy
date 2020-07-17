@@ -27,15 +27,30 @@
                                 </select>
                             </div>
                             <div class="form-group" class="right_side">
-                                <input type="text" id="phone" placeholder="{{'Phone-Number' | translate}}*"
+                                <input type="text" id="phone" maxlength="12" minlength="7" placeholder="{{'Phone-Number' | translate}}*"
                                     formControlName="Phone">
                             </div>
                         </div>
                         <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
                             phone number is required
                         </div>
+                        <div *ngIf="Phone.touched && Phone.errors?.maxLength" class="alert alert-danger">
+                           maxnumber 11
+                        </div>
+                        <div class="form-group profile-img">
+                        <label for="img">{{'select-img' | translate}}:</label>
+                        <!-- <img [src]="imageSrc" style="max-width:300px;max-height:300px"/> -->
+                        <input name="imageUrl" type="file" accept="image/*" 
+                               (change)="handleInputChange($event)" />
+                         </div>                  
                         <div class="form-group">
-                            <input type="text" id="email" placeholder="{{'Email' | translate}}" formControlName="email">
+                            <input type="text" 
+                            id="email" 
+                            placeholder="{{'Email(optional)' | translate}}" 
+                            formControlName="email">
+                        </div>
+                        <div *ngIf="email.touched && email.errors?.pattern" class="alert alert-danger">
+                            write correct email
                         </div>
                         <div class="form-group">
                             <input type="password" id="password" placeholder="{{'Password' | translate}}*"
@@ -67,6 +82,32 @@
                                     <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
                                 </option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="country" id="country" 
+                                    class="category-select" formControlName="country">
+                                <option value="" disabled selected>select country</option>
+                                <option value="{{country.Id}}" *ngFor="let country of Countries">
+                                    <ng-container *ngIf="checkLang== 'en'">{{country.Name}}</ng-container>
+                                    <ng-container *ngIf="checkLang== 'ar'">{{country.NameLT}}</ng-container>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group geneder">
+                            <span>{{'geneder-op' | translate}}:</span>
+                            <div *ngFor="let gen of geneder">
+                                <label for="{{gen.type}}">
+                                    <input type="radio" value="{{gen.value}}"
+                                    id="{{gen.type}}" name="geneder"
+                                    formControlName="genederInput" name= "genederInput">
+                                    {{gen.type}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea 
+                            placeholder="{{'bio' | translate}}"formControlName="bio">
+                            </textarea>
                         </div>
                         <div class="register__btn">
                             <button class="" type="submit" [disabled]="!regform.valid" (click)="saveData()">

@@ -44,7 +44,8 @@ export class EditProfileComponent implements OnInit {
                     email: this.profileDetails?.Email,
                     category: this.profileDetails?.Category?.Id
                   })
-                 })
+               
+                })
               }
   ngOnInit(): void {
    this.metaDataService.getmetaData().subscribe((res: any)=> {
@@ -69,7 +70,7 @@ export class EditProfileComponent implements OnInit {
     const Email= this.editform.value.email
     const CategoryId= this.editform.value.category
     const GenderId= localStorage.getItem('GenderId') 
-    console.log(Name,CategoryId,Email,GenderId)
+    console.log(CategoryId)
     this.authService.editProfile(Name,CategoryId,Email,GenderId).subscribe(()=> {
       this.tosaterService.success('your profile updated successfully')
       this.Loading= false
