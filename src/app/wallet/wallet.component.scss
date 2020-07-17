@@ -1,9 +1,9 @@
+@import "../variables.scss";
 :host {
     .wallet {
         height: 100vh;
         position: relative;
-        top: 250px;
-        text-align: center;
+        top: 100px;
         margin-left: 300px;
         font-size: 22px;
         text-transform: capitalize;
@@ -14,5 +14,57 @@
     }
     .wallet-content {
         background: #e8ecf5;
+    }
+    .total-balance {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        background: #fff;
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        a {
+            font-size: 16px;
+            color: $main-color;
+            font-weight: bold;
+            cursor: pointer;
+        }
+       
+        h2 {
+            margin-bottom: 15px;
+            color: $main-color;
+        }
+        p {
+            font-size: 30px;
+        }
+    }
+    .orders {
+        margin-left: 60px;
+        h3 {
+           
+            width: fit-content;
+            margin: 0 auto;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            font-size: 18px;
+             margin-top: 40px;
+        }
+        .orders-content {
+            margin-top: 40px;
+            width: 90%;
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 30px;    
+            span {
+                background-color: $main-color;
+                padding: 10px;
+                color: #fff;
+                font-size: 16px;
+            }   
+            p {
+                display: inline-block;
+                margin-left: 50px;
+            } 
+        }
     }
 }
