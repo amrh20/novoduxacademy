@@ -1,0 +1,23 @@
+@import "../../variables.scss";
+.success {
+    height: 100vh;
+    top: 200px;
+    text-align: center;
+    position: relative;
+    i {
+        font-size: 60px;
+        color: $main-color;
+    }
+    p {
+        font-size: 25px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    a {
+        font-size: 20px;
+        color: #fff;
+        padding: 5px 15px;
+        background-color: $main-color;
+        border-radius: 5px;;
+    }
+}

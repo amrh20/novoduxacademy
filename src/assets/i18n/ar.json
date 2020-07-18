@@ -113,5 +113,6 @@
     "apply": "نفذ",
     "checkout": "شراء",
     "cart": "السلة",
-    "write-your-coupon": "اكتب كود الخصم"
+    "write-your-coupon": "اكتب كود الخصم",
+    "empty-cart": "سلة المشتريات لديك فارغة"
 }

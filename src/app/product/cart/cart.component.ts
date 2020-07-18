@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormControlName, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,9 @@ export class CartComponent implements OnInit {
   couponForm= new FormGroup({
     coupon: new FormControl('',Validators.required)
   })
-  constructor(private productService: ProductService,private toasterService: ToastrService) { }
+  constructor(private productService: ProductService,
+    private toasterService: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loading= true
@@ -53,7 +56,7 @@ export class CartComponent implements OnInit {
   applyCoupon() {
     const PromoCode= this.couponForm.value.coupon
     this.couponLoading= true
-    this.productService.applyPromoCode(PromoCode).subscribe(res=> {
+    this.productService.applyPromoCode(PromoCode).subscribe((res: any)=> {
       this.toasterService.success("your coupon applied successfully")
       this.productService.getMyCart().subscribe((res: any)=> {
         this.couponLoading= false
@@ -69,6 +72,11 @@ export class CartComponent implements OnInit {
         this.invalidConpou= "Invalide PromoCode"
       }
       this.toasterService.error('something error')
+    })
+  }
+  checkout() {
+    this.productService.checkout().subscribe(res=> {
+      this.router.navigate(['/success'])
     })
   }
 }

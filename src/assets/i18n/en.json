@@ -113,5 +113,6 @@
      "total": "total",
      "apply": "apply",
      "checkout": "checkout",
-     "write-your-coupon": "write your coupon"
+     "write-your-coupon": "write your coupon",
+     "empty-cart": "your cart is empty"
 }

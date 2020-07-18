@@ -100,7 +100,7 @@
                 </form>
               </div>
               <div class="mt-5">
-                <button class="temp_button w-100">
+                <button class="temp_button w-100" (click)="checkout()">
                   {{'checkout' | translate}}
                 </button>
               </div>
@@ -112,7 +112,7 @@
       </ng-container>
       <ng-template #emptyCart>
         <div class="emptyCart">
-          your cart is empty
+          {{'empty-cart' | translate}}
         </div>
       </ng-template>
 

@@ -179,8 +179,6 @@ export class ProductService {
     params = params.append('Page', '0');
     return this.http.get(`${this.apiBaseURL}/GetMyCourses`,{params: params, headers: reqHeader })
   }
-
-
   applyPromoCode(PromoCode) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({
@@ -190,5 +188,24 @@ export class ProductService {
     let params = new HttpParams();
     params = params.append('PromoCode', PromoCode);
     return this.http.get(`${this.apiBaseURL}/ApplyPromoCode`,{params: params, headers: reqHeader })
+  }
+
+  checkout() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    return this.http.get(`${this.apiBaseURL}/CheckOut`,{headers: reqHeader })
+  }
+  getAllStudentTransactions() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params= new HttpParams()
+    params = params.append('Page', '0');
+    return this.http.get(`${this.apiBaseURL}/CheckOut`,{params: params, headers: reqHeader })
   }
 }
