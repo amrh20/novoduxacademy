@@ -8,6 +8,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { SubCoursesComponent } from './sub-courses/sub-courses.component';
 import { AboutCompanyComponent } from './about-company/about-company.component';
+import { SuccessCourseComponent } from './success-course/success-course.component';
 
 const routes: Routes = [
   
@@ -42,6 +43,10 @@ const routes: Routes = [
    {
      path : 'about-us',
      component: AboutCompanyComponent
+   },
+   {
+     path: 'success',
+     component: SuccessCourseComponent
    }
 ];
 @NgModule({

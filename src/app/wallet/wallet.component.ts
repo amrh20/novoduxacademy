@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from '../shared/services/product.service';
 
 @Component({
   selector: 'app-wallet',
@@ -8,12 +9,16 @@ import { Router } from '@angular/router';
 })
 export class WalletComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private productService: ProductService) { }
 
   ngOnInit(): void {
+      this.productService.getAllStudentTransactions().subscribe(res => {
+        console.log(res)
+      })
   }
   logout() {
     localStorage.removeItem('authToken')
     this.router.navigate(['home'])
   }
+
 }

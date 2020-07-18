@@ -16,9 +16,10 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { CollectionsComponent } from './collections/collections.component';
 import { SubCoursesComponent } from './sub-courses/sub-courses.component';
 import { AboutCompanyComponent } from './about-company/about-company.component';
+import { SuccessCourseComponent } from './success-course/success-course.component';
 
 @NgModule({
-  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent],
+  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent],
   imports: [
     CommonModule,
     productRoutingModule,

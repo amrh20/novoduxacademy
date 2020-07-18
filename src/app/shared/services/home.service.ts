@@ -12,7 +12,7 @@ export class HomeService {
     
   }
   getHomeDate() {
-    return this.http.get(`${this.apiBaseURL}/GetHomeData`).pipe(share())
+    return this.http.get(`${this.apiBaseURL}/GetHomeData`)
   }
   getcategoryandSub() {
     return this.http.get(`${this.apiBaseURL}/GetCategoryWithSubCategories`)
