@@ -46,7 +46,8 @@
         border-bottom: 2px solid $main-color;
         padding-bottom: 5px;
         margin-bottom: 30px;
-        font-size: 20px;
+        font-size: 25px;
+        text-transform: capitalize;
         font-weight: 600;
     }
     .product_rating  {
@@ -66,16 +67,6 @@
     width: 100%;
     margin: 40px 0;
 }
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 340px) and (min-width: 200px) {
     .cart_view {
         max-width: 100%;

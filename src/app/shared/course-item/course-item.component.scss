@@ -55,3 +55,16 @@ a {
     height: 12px;
    }
 }
+.original_price {
+    margin-left: 20px;
+    [dir= rtl] & {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
+.bg-color {
+    background-color: #000;
+    i {
+        color: #fff;
+    }
+}

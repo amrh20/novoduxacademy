@@ -9,23 +9,47 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./course-item.component.scss']
 })
 export class CourseItemComponent implements OnInit {
-  @Input() course : Course;
+  @Input() course: Course;
   errorMsg: string
-  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/";
+  imagePath = "http://novoduxapi.native-tech.co/Images/CourseImages/";
   checkLang
-  constructor(private productService:ProductService, private toastr:ToastrService) { }
+  color: boolean
+  constructor(private productService: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
+    this.checkLang = localStorage.getItem('currentLanguage') || 'en'
   }
   addToFav(CourseId) {
-    this.productService.addFavourite(CourseId).subscribe( res => {
+    this.productService.addFavourite(CourseId).subscribe(res => {
       this.toastr.success('your course added successfully')
     }, err => {
       if (err.error.Message == "Authorization has been denied for this request.") {
-       this.errorMsg= 'please login first'
+        this.toastr.error('please login first')
       }
-      this.toastr.error('something error')
+      else {
+        this.toastr.error('something error')
+      }
     })
-   }
+  }
+  addToCart(CourseId) {
+    localStorage.setItem('color', JSON.stringify(true))
+    this.color = !!localStorage.getItem('color')
+
+    this.productService.AddToCart(CourseId).subscribe(res => {
+      this.toastr.success('your course added successfully')
+    }, err => {
+      console.log(err)
+      console.log(err.error.errors?.message === "This Course In your cart")
+      if (err.error?.Message === "Authorization has been denied for this request.") {
+        //  this.errorMsg= 'please login first'
+        this.toastr.error('please login first')
+      }
+      else if (err.error.errors?.message === "This Course In your cart") {
+        this.toastr.error('This Course In your cart')
+      }
+      else {
+        this.toastr.error('something error')
+      }
+    })
+  }
 }

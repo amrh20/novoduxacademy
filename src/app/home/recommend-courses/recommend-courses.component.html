@@ -2,7 +2,7 @@
   <h2>{{'top-selling-courses' | translate}}</h2>
   <div class="container">
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
-      <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+      <!-- <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div> -->
       <div ngxSlickItem class="slide" *ngFor="let topselling of topSellingCourese">
         <div class="cart_view2">
           <div class="cart_two">
@@ -28,7 +28,7 @@
 
               </div>
               <div class="product-action">
-              <!-- <i class="fa fa-shopping-cart"></i> -->
+              <i class="fa fa-shopping-cart" (click)="addToCart(topselling.Id)"></i>
               <i class="fa fa-heart" (click)="addToFav(topselling.Id)"></i>
               <a>
                 <i class="fa fa-eye d-block d-md-none"></i>

@@ -117,7 +117,34 @@ export class ProductService {
     params = params.append('CourseId', CourseId);
     return this.http.get(`${this.apiBaseURL}/AddCourseToFavourite`,{params: params, headers: reqHeader })
   }
-
+  AddToCart(CourseId) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('CourseId', CourseId);
+    return this.http.get(`${this.apiBaseURL}/AddToCart`,{params: params, headers: reqHeader })
+  }
+  getMyCart() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    return this.http.get(`${this.apiBaseURL}/GetMyCart`,{headers: reqHeader })
+  }
+  deleteFromCart (CourseId) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('CourseId', CourseId);
+    return this.http.get(`${this.apiBaseURL}/DeleteFromCart`,{params: params, headers: reqHeader })
+  }
   // get Favourite 
   getMyFavorites() {
     let authToken = localStorage.getItem("authToken")
@@ -151,5 +178,17 @@ export class ProductService {
     let params = new HttpParams();
     params = params.append('Page', '0');
     return this.http.get(`${this.apiBaseURL}/GetMyCourses`,{params: params, headers: reqHeader })
+  }
+
+
+  applyPromoCode(PromoCode) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
+    let params = new HttpParams();
+    params = params.append('PromoCode', PromoCode);
+    return this.http.get(`${this.apiBaseURL}/ApplyPromoCode`,{params: params, headers: reqHeader })
   }
 }
