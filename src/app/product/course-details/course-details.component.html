@@ -3,8 +3,19 @@
     <div class="course__wrapper">
       <div class="course__wrapper--details">
         <ng-container *ngIf="coursdetails?.IntroVideo; else default">
-          {{coursdetails?.IntroVideo}}
+          <!-- <iframe [src]="coursdetails?.IntroVideo" height="400" width="750"></iframe> -->
+          <!-- https://player.vimeo.com/video/438045537 -->
+          <!-- <iframe src="https://player.vimeo.com/video/438045537" height="200" frameborder="0"></iframe> -->
+          <!-- {{coursdetails?.IntroVideoUriForAngular}} -->
+          <iframe src="https://player.vimeo.com/video/438045537" 
+          width="750" height="360" 
+          frameborder="0" allow="autoplay; 
+          fullscreen" allowfullscreen></iframe> 
 
+          <!-- <iframe [src]="coursdetails?.IntroVideoUriForAngular" 
+          width="750" height="360" 
+          frameborder="0" allow="autoplay; 
+          fullscreen" allowfullscreen></iframe>    -->
         </ng-container>
         <ng-template #default>
           <img src="../../../assets/images/default.jpg" alt="" style="width: 100%;">

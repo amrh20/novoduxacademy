@@ -1,16 +1,35 @@
 <div class="advertisements" *ngIf="advertisements?.length">
+
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-4 ads"  *ngFor= "let ad of advertisements">
-                <a routerLink="/ad">
-                <img [src]="imagePath + ad.Image" alt="">
-                <div class="overlay_txt">
-                    <h3>{{ad?.Title}}</h3>
-                    <p>{{ad?.Description}}</p>
-                </div>
-            </a>
+        <div class="advertisements-content">
+            <div class="left">
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                   Molestiae quas natus quos. Dicta dolorem voluptatum aut.
+                Eos est natus ducimus repellat hic? Numquam voluptatem delectus reprehenderit aliquid.
             </div>
+            <div class="right">
+                <ng-container *ngIf="advertisements; else NoAd">
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
+                        <div ngxSlickItem class="slide" *ngFor= "let ad of advertisements">
+                          <div class="slide_img ads">
+                            <img [src]="imagePath + ad.Image" alt="">
+                            <div class="overlay_txt">
+                                <h3>{{ad?.Title}}</h3>
+                                <p>{{ad?.Description}}</p>
+                            </div>
+                             
+                            </div>
+                        </div>
+                      </ngx-slick-carousel>
+                </ng-container>
+                <ng-template #NoAd>
+                    <div class="empty">
+                        no ads yet
+                    </div>
+                </ng-template>
             </div>
+        </div>
+        
+       
     </div>
-    
 </div>

@@ -8,7 +8,7 @@
     </ng-container>
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="register__wrapper">
                     <h3>{{'Register' | translate}}</h3>
                     <form class="register__content-form" [formGroup]="regform" (ngSubmit)="register()">
@@ -19,17 +19,19 @@
                         <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">
                             name is required
                         </div>
-                        <div class="phone_content">
-                            <div class="form-group" class="left_side">
-                                <select name="phoneKey" id="" formControlName="phoneKey">
+                        <div class="phone_content" style="width:85%">
+                            <!-- <div class="form-group" class="left_side"> -->
+                                <select name="phoneKey" id="" formControlName="phoneKey" style="width:40% ; margin-left:35px">
                                     <option value="">{{'code' | translate}}</option>
                                     <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
                                 </select>
-                            </div>
-                            <div class="form-group" class="right_side">
+                            <!-- </div> -->
                                 <input type="text" id="phone" maxlength="12" minlength="7" placeholder="{{'Phone-Number' | translate}}*"
                                     formControlName="Phone">
-                            </div>
+                            <!-- <div class="form-group" class="right_side" style="width:100%">
+                                <input type="text" id="phone" maxlength="12" minlength="7" placeholder="{{'Phone-Number' | translate}}*"
+                                    formControlName="Phone">
+                            </div> -->
                         </div>
                         <div *ngIf="Phone.touched && Phone.errors?.required" class="alert alert-danger">
                             phone number is required
@@ -38,11 +40,12 @@
                            maxnumber 11
                         </div>
                         <div class="form-group profile-img">
-                        <label for="img">{{'select-img' | translate}}:</label>
-                        <!-- <img [src]="imageSrc" style="max-width:300px;max-height:300px"/> -->
-                        <input name="imageUrl" type="file" accept="image/*" 
-                               (change)="handleInputChange($event)" />
-                         </div>                  
+                            <!-- <label for="img">{{'select-img' | translate}}:</label> -->
+                            <!-- <img [src]="imageSrc" style="max-width:300px;max-height:300px"/> -->
+                            <input name="imageUrl" type="file" accept="image/*" 
+                                (change)="handleInputChange($event)" />
+                        </div>  
+                         
                         <div class="form-group">
                             <input type="text" 
                             id="email" 
@@ -54,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             <input type="password" id="password" placeholder="{{'Password' | translate}}*"
-                                formControlName="password">
+                            formControlName="password">
                         </div>
                         <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
                             {{'please-password' | translate}}
@@ -84,8 +87,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <select name="country" id="country" 
-                                    class="category-select" formControlName="country">
+                            <select name="country" id="country" class="category-select" formControlName="country">
                                 <option value="" disabled selected>select country</option>
                                 <option value="{{country.Id}}" *ngFor="let country of Countries">
                                     <ng-container *ngIf="checkLang== 'en'">{{country.Name}}</ng-container>
@@ -117,7 +119,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-6">
+            <!-- <div class="col-6">
                 <div class="new__account">
                     <img src="../../../assets/images/register.jpeg" alt="">
                     <p>{{'already-have-an-account' | translate}}</p>
@@ -130,8 +132,7 @@
                         </button>
                     </div>
                 </div>
-
-            </div>
+            </div> -->
         </div>
         <!-- <div class="socail_login">
             <p>

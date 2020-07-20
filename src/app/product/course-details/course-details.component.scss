@@ -12,6 +12,9 @@
             }
         }
     }
+    input {
+    
+     }
     input[type="radio"]:checked+label{ 
         color: yellow !important;
         > span {
@@ -140,7 +143,10 @@
                         .addReview-content {
                             width: 60%;
                             margin: 0 auto;
-                            
+                             textarea {
+                                 background-color: #f6f6f6 !important;
+                             }
+                           
                             .add_rating {
                                 i {
                                     cursor: pointer;
@@ -173,15 +179,16 @@
                                 }
                             }
                             input {
-                                min-width: 400px;
-                                -webkit-box-shadow: none;
-                                box-shadow: none;
-                                background: none;
-                                overflow: hidden;
-                                border-radius: 20px;
-                                border: 1px solid #d1d1d1;
-                                font-size: 14px;
-                                max-height: 44px;
+                                background-color: #f6f6f6;
+                                border: none;
+                                color: #0d0d0d;
+                                text-align: center;
+                                text-decoration: none;
+                                display: inline-block;
+                                font-size: 16px;
+                                transition: all 0.5s ease-in-out;
+                                border-radius: 5px 5px 5px 5px;
+                                width: 500px;
                             }
                         }   
                  }  
@@ -330,16 +337,25 @@
     .margin {
         margin-left: 60px;
     }
+    textarea {
+        height: 150px;
+        background-color: #f6f6f6;
+        border: 0 !important;
+    }
+    form {
+        box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.3);
+        background: #fff;
+        padding: 20px;
+    }
     .add_comment {
         margin-top: 30px;
         text-align: center;
         width: 100%;
-        textarea {
-            height: 150px;
-        }
+      
         button {
             margin-top: 30px;
         }
+       
     }
     .add_reply {
         width: 100%;

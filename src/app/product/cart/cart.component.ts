@@ -71,7 +71,6 @@ export class CartComponent implements OnInit {
       if(err.error.errors.message==="Result_Invalide_PromoCode") {
         this.invalidConpou= "Invalide PromoCode"
       }
-      this.toasterService.error('something error')
     })
   }
   checkout() {
