@@ -6,4 +6,5 @@ export interface Course {
     CurrentCost? : any,
     CourseRateValue?: any,
     Image?: any
+    IsFavorite?: any
 }

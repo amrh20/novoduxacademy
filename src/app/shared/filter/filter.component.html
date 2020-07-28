@@ -1,4 +1,7 @@
-<div class="filter">
+<div class="filter" [ngClass]="{'hide-filter' : hide}">
+    <div class="close" (click)="close()">
+        <i class="fa fa-times-circle"></i>
+    </div>
     <div class="collect_filter">
         <div class="filter_box">
             <ul class="filter_box-title">

@@ -20,35 +20,24 @@
     img {
         max-width: 100%;
     }
-    .overlay_txt {
-        position: absolute;
-        background: #ff5b5b;
-        width: 100%;
-        padding: 10px;
-        bottom: -8px;
-       h3 {    
+
+}
+.txt {
+    background: #fff;
+    padding: 10px;
     text-align: center;
-    color: #fff;
+   h3 {    
     font-size: 16px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid;
-    width: fit-content;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    font-weight: bold;
-       }
-       p {
-        font-size: 14px;
-        color: #fff;
-        text-align: center;
-       }
-    }
+    font-weight: 700;
+    margin-bottom: 5px;
+   }
 }
 .advertisements {
     background-color: #f5f5f5;
     margin: 60px 0;
     padding: 40px 0;
     // padding-bottom: 65px;
+    margin-bottom: 0;
 }
 
 .advertisements-content {

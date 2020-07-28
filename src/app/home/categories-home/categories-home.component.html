@@ -7,7 +7,6 @@
             <span></span>
           </div>
           <div class="content">
-            <span>{{'about-categories' | translate}}</span>
             <p>
               {{'loream' | translate}}
             </p>
@@ -21,21 +20,24 @@
           <div class="right_side">
             <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
               <div ngxSlickItem class="slide" *ngFor= "let category of categories">
-                <div class="slide_img">
-                  <img [src]="imagePath + category?.Image" alt="">
-                  <div class="view_course">
-                    <a routerLink="/product/courses/{{category.Id}}">{{'view-details' | translate}}</a>
+                <div class="category-content">
+                  <div class="slide_img">
+                    <img [src]="imagePath + category?.Image" alt="">
+                    <div class="view_course">
+                      <a routerLink="/product/courses/{{category.Id}}">{{'view-details' | translate}}</a>
+                    </div>
+                    <div class="overlay"></div>
                   </div>
-                  <div class="overlay"></div>
-                </div>
-                <div class="course__details">
-                  <div class="course__detials-name">
-                    <h3>
-                      <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
-                      <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
-                    </h3>
+                  <div class="course__details">
+                    <div class="course__detials-name">
+                      <h3>
+                        <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                        <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
+                      </h3>
+                    </div>
                   </div>
                 </div>
+              
               </div>
             </ngx-slick-carousel>
           </div>

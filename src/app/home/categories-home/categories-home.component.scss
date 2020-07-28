@@ -59,8 +59,7 @@
         }
         .slide_img {
           position: relative;
-          padding: 10px;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
           .view_course {
             position: absolute;
             top: 80%;
@@ -115,6 +114,9 @@
      height: fit-content;
    }
   }
+  .category-content {
+    background: #f5f5f5;
+  }
   ::ng-deep {
     .fa-angle-left,
     .fa-angle-right {
@@ -142,7 +144,10 @@
     }
 }
 .view__more-btn {
-  margin-top: 30px;
+  margin-top: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 .course__details {
   margin-right: 15px;

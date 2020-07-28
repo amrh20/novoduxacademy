@@ -11,17 +11,23 @@ import { ToastrService } from 'ngx-toastr';
 export class CourseItemComponent implements OnInit {
   @Input() course: Course;
   errorMsg: string
-  imagePath = "http://novoduxapi.native-tech.co/Images/CourseImages/";
+  imagePath = "http://novoduxadmin.native-tech.co/Images/CourseImages/";
   checkLang
   color: boolean
+  favs
   constructor(private productService: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.checkLang = localStorage.getItem('currentLanguage') || 'en'
+    this.productService.getAllCourses().subscribe((res: any) => {
+
+     })
+  
   }
   addToFav(CourseId) {
     this.productService.addFavourite(CourseId).subscribe(res => {
       this.toastr.success('your course added successfully')
+      location.reload()
     }, err => {
       if (err.error.Message == "Authorization has been denied for this request.") {
         this.toastr.error('please login first')
@@ -32,14 +38,11 @@ export class CourseItemComponent implements OnInit {
     })
   }
   addToCart(CourseId) {
-    localStorage.setItem('color', JSON.stringify(true))
-    this.color = !!localStorage.getItem('color')
-
+    // localStorage.setItem('color', JSON.stringify(true))
+    // this.color = !!localStorage.getItem('color')
     this.productService.AddToCart(CourseId).subscribe(res => {
       this.toastr.success('your course added successfully')
     }, err => {
-      console.log(err)
-      console.log(err.error.errors?.message === "This Course In your cart")
       if (err.error?.Message === "Authorization has been denied for this request.") {
         //  this.errorMsg= 'please login first'
         this.toastr.error('please login first')

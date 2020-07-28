@@ -13,10 +13,10 @@ export class NavbarComponent implements OnInit {
   constructor(private homeService:HomeService,public translate:TranslateService) { }
 
   ngOnInit(): void {
-    this.homeService.getcategoryandSub().subscribe((res:any) => {
+    this.homeService.getCategories().subscribe((res:any) => {
       this.listOfCategory= res.model
-      this.checkLang= localStorage.getItem('currentLanguage') || 'en'
     })
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   loggedIn() {
     if(localStorage.getItem('authToken')) {

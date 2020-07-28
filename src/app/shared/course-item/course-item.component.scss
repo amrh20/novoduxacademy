@@ -1,3 +1,4 @@
+@import "../../variables.scss";
 a {
     color: inherit;
 }
@@ -6,8 +7,14 @@ a {
         font-size: 23px !important;
     }
     .br-unit:after {
-        content: "\2605" !important;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-family: "FontAwesome" !important;
+        content: "\f005" !important;
         color: #231F20 !important;
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 900 !important;
     }
     .br {
         margin: 0 !important;
@@ -15,6 +22,10 @@ a {
     .br-default .br-selected:after {
         color: #EDB867 !important;
     }
+    .cart .cart_deatils .product_name h3 {
+        color: #000;
+    }
+   
 }
 .product_rating {
     text-align: center;
@@ -26,8 +37,11 @@ a {
     margin-bottom: 30px;
     .cart_deatils {
         margin: 0;
-        padding: 15px 0;
+        padding: 5px 0;
     }
+}
+.fa-heart {
+    color: $main-color;
 }
 .error-overlay {
     position: absolute;

@@ -33,4 +33,22 @@ export class WishlistComponent implements OnInit {
      this.overlayDelete= false
    })
   }
+  addToCart(CourseId) {
+    // localStorage.setItem('color', JSON.stringify(true))
+    // this.color = !!localStorage.getItem('color')
+    this.productService.AddToCart(CourseId).subscribe(res => {
+      this.toastr.success('your course added successfully')
+    }, err => {
+      if (err.error?.Message === "Authorization has been denied for this request.") {
+        //  this.errorMsg= 'please login first'
+        this.toastr.error('please login first')
+      }
+      else if (err.error.errors?.message === "This Course In your cart") {
+        this.toastr.error('This Course In your cart')
+      }
+      else {
+        this.toastr.error('something error')
+      }
+    })
+  }
 }

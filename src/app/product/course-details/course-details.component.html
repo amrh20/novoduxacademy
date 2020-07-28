@@ -7,11 +7,8 @@
           <!-- https://player.vimeo.com/video/438045537 -->
           <!-- <iframe src="https://player.vimeo.com/video/438045537" height="200" frameborder="0"></iframe> -->
           <!-- {{coursdetails?.IntroVideoUriForAngular}} -->
-          <iframe src="https://player.vimeo.com/video/438045537" 
-          width="750" height="360" 
-          frameborder="0" allow="autoplay; 
-          fullscreen" allowfullscreen></iframe> 
-
+          <iframe src="https://player.vimeo.com/video/438045537" frameborder="0" allow="autoplay; 
+          fullscreen" allowfullscreen></iframe>
           <!-- <iframe [src]="coursdetails?.IntroVideoUriForAngular" 
           width="750" height="360" 
           frameborder="0" allow="autoplay; 
@@ -44,10 +41,10 @@
         </div>
         <div class="detail">
           <p>{{'instructor' | translate}}</p>
-          <p>
+          <a routerLink="/Instructor/{{coursdetails.Teacher.Id}}">
             <ng-container *ngIf="checkLang== 'en'">{{coursdetails?.Teacher.Name}}</ng-container>
             <ng-container *ngIf="checkLang== 'ar'">{{coursdetails?.Teacher.NameLT}}</ng-container>
-          </p>
+          </a>
         </div>
         <!-- <div class="detail">
                   <p>lectures</p>
@@ -59,7 +56,7 @@
               </div> -->
         <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
         <div class="enroll">
-          <button>{{'enroll' | translate}}</button>
+          <button (click)="addToCart()">{{'enroll' | translate}}</button>
           <i class="fa fa-heart" (click)="addToFav()"></i>
         </div>
       </div>
@@ -86,13 +83,19 @@
               <div class="review_comment">
                 <div>
                   <p>
+                    <ng-container *ngIf="review?.StudentPhoto; else noimg">
+                      <img [src]="pathImage + review?.StudentPhoto" alt="" class="reviewImg">
+                    </ng-container>
+                    <ng-template #noimg>
+                      <img src="../../../assets/images/Profileuser.png" alt="" class="reviewImg">
+                    </ng-template>
                     {{review?.StudentName}}
                   </p>
                   <p>{{review?.CreationDate}}
                   <p>
                 </div>
                 <p>
-               {{review?.Comment}}
+                  {{review?.Comment}}
                 </p>
                 <div class="product_rating">
                   <bar-rating [rate]="review?.CourseRateValue" [readOnly]="true"></bar-rating>
@@ -140,23 +143,31 @@
         <div class="course__comments content">
           <h2 *ngIf="comments?.length">{{'Comments' | translate}}</h2>
           <div class="row" *ngIf="comments?.length" class="comment-content">
-            <div class="col-12 p-0" *ngFor="let comment of comments">
+            <div class="col-12 p-0" *ngFor="let comment of comments; let i =index">
               <div class="review_comment">
                 <div class="comment-container">
-                  <img [src]=" pathImage + comment?.StudentImage" alt="" *ngIf="comment?.StudentImage">
+                  <ng-container *ngIf="comment?.StudentImage; else noimg">
+                    <img [src]=" pathImage + comment?.StudentImage" alt="">
+                  </ng-container>
+                  <ng-template #noimg>
+                    <img src="Profileuser.png" alt="" class="reviewImg">
+                  </ng-template>
                   <div class="review_comment-title">
-                    <label for="{{comment?.Comment}}">
+                    <div class="mr-3 mb-2">
+                      {{comment?.StudentName}}
+                      <p class="comment">{{comment?.CreationDate}}</p>
+                    </div>
+                    <label for="{{comment?.Comment}}" class="comment-label">
                       <input id="{{comment?.Comment}}" [value]='comment.Id' type="radio" name="test"
                         (change)="selectOption($event.target.value)" #fondovalor class="d-none">
                       <span>{{comment?.Comment}}</span>
+                      <i class="fa fa-reply reply-icon" (click)="replayCommentInput()"></i>
                     </label>
-                    <p class="comment"> ({{comment?.CreationDate}})</p>
                   </div>
                 </div>
-             
                 <div class="replys" *ngFor="let reply of comment.Replies">
                   <p class="Replys" [ngClass]="{'margin': comment?.StudentImage }"><span>
-                    - {{reply.ReplyText}}</span></p>
+                      - {{reply.ReplyText}}</span></p>
                 </div>
               </div>
             </div>
@@ -176,7 +187,8 @@
               <div class="alert alert-danger mt-3" *ngIf="errorReply" style="width: 460px; margin: 0 auto">
                 {{errorReply}}</div>
               <form [formGroup]="replyform" (ngSubmit)="addreply()">
-                <textarea placeholder="{{'write-your-reply'| translate}}" formControlName="reply"></textarea>
+                <textarea placeholder="{{'write-your-reply'| translate}}" formControlName="reply"
+                  #replyInput></textarea>
                 <button class="temp_button" type="submit" [disabled]="!replyform.valid">
                   {{'add-reply' | translate}}
                   <i class="fa fa-spinner fa-spin ml-2" *ngIf="replyLoading"></i>
@@ -186,9 +198,29 @@
           </div>
         </div>
       </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="../../../assets/images/inst.png" alt="">
+          <span>{{'instructor' | translate}}</span>
+        </ng-template>
+        <div class="instructor">
+          <h2 class=""> about the author</h2>
+          <div class="d-flex align-items-center mt-3">
+            <a routerLink="/Instructor/{{coursdetails.Teacher.Id}}">
+
+              <div class="Teacher-img">
+                <img [src]="teachPath+ coursdetails.Teacher.ProfileImage" alt="">
+              </div>
+
+              <div class="Teacher-details">
+                {{coursdetails.Teacher.Name}}
+                <p>{{coursdetails.Teacher.Bio}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </mat-tab>
     </mat-tab-group>
-
-
     <!-- <div class="recommend_slider">
       <h2>{{'related-courses' | translate}}</h2>
       <div class="container">

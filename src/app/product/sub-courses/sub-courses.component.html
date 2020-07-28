@@ -1,35 +1,46 @@
 <div class="shop_Content">
     <div class="container">
         <div class="row">
-            <div class="filter_col">
-                <app-filter></app-filter>
-                <div class="close_filter">
-                    <button> <i class="fa fa-times"></i> </button>
-                </div>
-            </div>
-            <div class="products_col">
-                <!-- <div class="collection_box">
-                    <div class="collection_view">
-                        <div class="sort">
-                            <span>{{'sort-by' | translate}}: </span>
-                            <select name="" id="" class="sortby-select">
-                                <option value="select size">default</option>
-                                <option value="small">high to low</option>
-                                <option value="large">low to high</option>
-                            </select>
+            <button class="filter-btn" (click)="show()">show filter</button>
+                <div class="filter_col" [ngClass]="{'show-filter': showFilter}">
+                    <div class="filter">
+                        <div class="close" (click)="close()">
+                            <i class="fa fa-times-circle"></i>
                         </div>
-     
-                        <div class="view_filter-mobile">
-                            <button>
-                                <i class="fas fa-filter"></i>
-                                <span>filter</span>
-                            </button>
+                        <div class="collect_filter">
+                            <div class="filter_box">
+                                <ul class="filter_box-title">
+                                    <li *ngFor="let taxon of listOfCategory; let i= index">
+                                        <div class="taxons-title">
+                                            <a>
+                                                <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
+                                                <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
+                                            </a>
+                                            <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories"></i>
+                                        </div>
+                                        <ng-container *ngIf="taxon?.SubCategories">
+                                            <ul class="subtaxon">
+                                                <li *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
+                                                    <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
+                                                        <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
+                                                        <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                    
+                                        </ng-container>
+                                    </li>
+                    
+                                </ul>
+                    
+                            </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
+            <div class="products_col">
                 <div class="products_widget">
                     <div class="row w-100">
-                        <div class="col-4" *ngFor="let course of subCourses">
+                        <div class="course-col" *ngFor="let course of subCourses">
                             <app-course-item [course]="course"></app-course-item>
                         </div>
                     </div>  

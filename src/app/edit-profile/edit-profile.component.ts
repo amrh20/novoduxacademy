@@ -14,6 +14,7 @@ export class EditProfileComponent implements OnInit {
   profileDetails
   categories
   Loading
+  Countries
   geneder= [
     {
       type: "male",
@@ -29,7 +30,9 @@ export class EditProfileComponent implements OnInit {
   editform = new FormGroup({  
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    category: new FormControl('', Validators.required)
+    category: new FormControl('', Validators.required),
+    country: new FormControl('', Validators.required),
+    bio: new FormControl()
   });
   constructor(private authService: AuthService,
               private tosaterService: ToastrService,  
@@ -42,7 +45,9 @@ export class EditProfileComponent implements OnInit {
                   this.editform.patchValue({
                     name:  this.profileDetails?.Name,
                     email: this.profileDetails?.Email,
-                    category: this.profileDetails?.Category?.Id
+                    category: this.profileDetails?.Category?.Id,
+                    bio: this.profileDetails?.Bio,
+                    country: this.profileDetails?.CountryId
                   })
                
                 })
@@ -50,13 +55,17 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
    this.metaDataService.getmetaData().subscribe((res: any)=> {
     this.categories= res.model.Categories
+    this.Countries= res.model.Countries
   })
   }
   selectCategory(e) {
   localStorage.setItem('CategoryId',e)
   }
+  selectCountry(e) {
+    localStorage.setItem('CategoryId',e)
+  }
   selectGeneder(e) {
-    localStorage.setItem('GenderId',e)
+    localStorage.setItem('CountryId',e)
   }
   get name() {
     return this.editform.get('name')
@@ -64,14 +73,19 @@ export class EditProfileComponent implements OnInit {
   get email() {
     return this.editform.get('email')
   }
+  get bio() {
+    return this.editform.get('bio')
+  }
   editProfile() {
     this.Loading= true
     const Name= this.editform.value.name
     const Email= this.editform.value.email
+    const Bio= this.editform.value.bio
     const CategoryId= this.editform.value.category
     const GenderId= localStorage.getItem('GenderId') 
+    const CountryId= localStorage.getItem('CountryId')
     console.log(CategoryId)
-    this.authService.editProfile(Name,CategoryId,Email,GenderId).subscribe(()=> {
+    this.authService.editProfile(Name,CategoryId,Email,GenderId,Bio,CountryId).subscribe(()=> {
       this.tosaterService.success('your profile updated successfully')
       this.Loading= false
     }, err=> {

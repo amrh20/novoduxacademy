@@ -18,17 +18,19 @@ export class ProductService {
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesByCategoryId`, { params: params })
   }
   getAllCourses() {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
     let params = new HttpParams();
     params = params.append('Page', '0');
-    return this.http.get(`${this.apiBaseURL}/GetAllCourses`, { params: params })
+    return this.http.get(`${this.apiBaseURL}/GetAllCourses`, { params: params, headers: reqHeader })
   }
   getSubTaxonsCourses(parameters) {
-    // Initialize Params Object
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('SubCategoryId', parameters);
     params = params.append('Page', '0');
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`, { params: params })
   }
     
@@ -36,29 +38,21 @@ export class ProductService {
     return this.http.get(`${this.apiBaseURL}/GetCategories`)
   }
   GetSubTaxons(id) {
-    // Initialize Params Object
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('CategoryId', id);
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetSubCategories`, { params: params })
   }
 
   getCourseDetails(id) {
-    // Initialize Params Object
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('CourseId', id);
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetCourseDetails`, { params: params })
   }
 
   getReviews(id) {
     let params = new HttpParams();
-    // Begin assigning parameters
     params = params.append('CourseId', id);
     params = params.append('Page', '0');
-    // Make the API call using the new parameters.
     return this.http.get(`${this.apiBaseURL}/GetCourseReviews`, { params: params })
   }
 
@@ -207,5 +201,11 @@ export class ProductService {
     let params= new HttpParams()
     params = params.append('Page', '0');
     return this.http.get(`${this.apiBaseURL}/CheckOut`,{params: params, headers: reqHeader })
+  }
+
+  teacherProfileForStudent(TeacherId) {
+   let params= new HttpParams()
+   params= params.append('TeacherId',TeacherId)
+   return this.http.get(`${this.apiBaseURL}/GetTeacherProfileForStudent`,{params: params})
   }
 }

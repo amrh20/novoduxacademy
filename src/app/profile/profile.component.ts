@@ -118,6 +118,8 @@ export class ProfileComponent implements OnInit {
   }
   logout() {
     localStorage.removeItem('authToken')
+    localStorage.removeItem('CourseCommentId')
+    localStorage.removeItem('courseId')
     this.router.navigate(['home'])
   }
   showPopUp() {

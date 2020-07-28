@@ -17,9 +17,10 @@ import { CollectionsComponent } from './collections/collections.component';
 import { SubCoursesComponent } from './sub-courses/sub-courses.component';
 import { AboutCompanyComponent } from './about-company/about-company.component';
 import { SuccessCourseComponent } from './success-course/success-course.component';
+import { InstructorComponent } from './instructor/instructor.component';
 
 @NgModule({
-  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent],
+  declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent, SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent],
   imports: [
     CommonModule,
     productRoutingModule,

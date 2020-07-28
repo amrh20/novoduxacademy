@@ -10,6 +10,7 @@ export class FilterComponent implements OnInit {
   listOfCategory;
   checkLang
   viewSubTaxon: boolean
+  hide: boolean
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,9 @@ export class FilterComponent implements OnInit {
   }
 
   attributeChange(inputVal) {
+  }
+  close() {
+    this.hide= true
   }
   // showSub(index) {
   //   console.log(index)

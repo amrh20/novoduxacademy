@@ -15,7 +15,6 @@ export class NotificationComponent implements OnInit {
   ngOnInit(): void {
     this.loading= true
     this.homeService.notifcation().subscribe((res: any) => {
-      console.log(res.model)
       this.notifications= res.model
       this.loading= false
     })

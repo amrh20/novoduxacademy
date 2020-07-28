@@ -5,7 +5,7 @@
             <div class="left">
                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                    Molestiae quas natus quos. Dicta dolorem voluptatum aut.
-                Eos est natus ducimus repellat hic? Numquam voluptatem delectus reprehenderit aliquid.
+                   Eos est natus ducimus repellat hic? Numquam voluptatem delectus reprehenderit aliquid.
             </div>
             <div class="right">
                 <ng-container *ngIf="advertisements; else NoAd">
@@ -13,11 +13,12 @@
                         <div ngxSlickItem class="slide" *ngFor= "let ad of advertisements">
                           <div class="slide_img ads">
                             <img [src]="imagePath + ad.Image" alt="">
-                            <div class="overlay_txt">
+                            
+                             
+                            </div>
+                            <div class="txt">
                                 <h3>{{ad?.Title}}</h3>
                                 <p>{{ad?.Description}}</p>
-                            </div>
-                             
                             </div>
                         </div>
                       </ngx-slick-carousel>

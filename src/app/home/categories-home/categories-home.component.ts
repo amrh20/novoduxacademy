@@ -9,7 +9,7 @@ import { HomeService } from 'src/app/shared/services/home.service';
 export class CategoriesHomeComponent implements OnInit {
   checkLang
   categories: any
-  imagePath = "http://novoduxapi.native-tech.co/Images/CategoryImages/"
+  imagePath = "http://novoduxadmin.native-tech.co/Images/CategoryImages/"
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {

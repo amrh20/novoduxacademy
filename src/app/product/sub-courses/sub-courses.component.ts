@@ -11,6 +11,8 @@ import { HomeService } from 'src/app/shared/services/home.service';
 export class SubCoursesComponent implements OnInit {
   subCourses;
   listOfCategory;
+  checkLang
+  showFilter
   constructor(private productService:ProductService,
     private activeRoute:ActivatedRoute,private homeService:HomeService) { }
   // @ViewChild('myInput') myInput:ElementRef; 
@@ -24,9 +26,16 @@ export class SubCoursesComponent implements OnInit {
         this.subCourses= res.model
       })
     })
+
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
 
-  // ngAfterViewInit() {
+  show() {
+    this.showFilter = true
+  }
+  close() {
+    this.showFilter = false
+  }  // ngAfterViewInit() {
   // }
   
 }

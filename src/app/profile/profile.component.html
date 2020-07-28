@@ -38,7 +38,10 @@
             <ng-container *ngIf="checkLang== 'ar'">{{profile?.Category.NameLT}}</ng-container>
           </p>
         </div>
-
+        <div class="details-content" *ngIf="profile?.MyReferralCode">
+          <img src="../../assets/images/Referralcode.png" alt="">
+          <p>{{profile?.MyReferralCode}}</p>
+        </div>
         <!-- <div class="details-content" *ngIf="profile?.Email">
           <img src="../../assets/images/country.png" alt="">
           <p>{{profile?.Email}}</p>

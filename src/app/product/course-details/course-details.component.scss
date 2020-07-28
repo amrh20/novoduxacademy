@@ -12,9 +12,29 @@
             }
         }
     }
-    input {
-    
-     }
+    iframe {
+        width: 100%;
+        height: 400px;
+        @media (max-width: 768px) {
+            height: 300px;
+        }
+    }
+    .reply-icon {
+        margin-left: 20px;
+        [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+    }
+    .comment-label {
+        p {
+            margin-left: 15px;
+            [dir= rtl] & {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+    }
     input[type="radio"]:checked+label{ 
         color: yellow !important;
         > span {
@@ -31,12 +51,20 @@
                 max-width: 67%;
                 margin-right: 3%;
                 flex-basis: 67%;
+                @media (max-width:768px) {
+                    max-width: 100%;
+                    margin-right: 0;
+                    flex-basis: 100%;
+                }
                 [dir= rtl] & {
                     margin-right: 0;
                     margin-left: 3%;
                 }
                 &-txt {
                     margin: 30px 0;
+                    @media (max-width: 768px) {
+                        margin: 0 0 30px 0;
+                    }
                     span {
                         color:$main-color;
                         border-bottom: 2px solid #000;
@@ -62,6 +90,10 @@
                 height: fit-content;
                 width: 100%;
                 min-height: 200px;
+                @media (max-width:768px) {
+                    max-width: 100%;
+                    flex-basis: 100%;
+                }
                 .detail {
                     display: flex;
                     justify-content: space-between;
@@ -102,6 +134,9 @@
                         }
                     }
                 }
+            }
+            @media (max-width:768px) {
+                display: block;
             }
         }
         &__reviews,.content {
@@ -189,6 +224,9 @@
                                 transition: all 0.5s ease-in-out;
                                 border-radius: 5px 5px 5px 5px;
                                 width: 500px;
+                                @media (max-width: 768px) {
+                                    width: auto;
+                                }
                             }
                         }   
                  }  
@@ -204,6 +242,8 @@
                }
                     p {
                         margin-top: 10px;
+                        display: flex;
+                        align-items: flex-end;
                     }
                  .replys {
                     margin-left: 20px;
@@ -266,8 +306,14 @@
             font-size: 18px !important;
         }
         .br-unit:after {
-            content: "\2605" !important;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-family: "FontAwesome" !important;
+            content: "\f005" !important;
             color: #231F20 !important;
+            display: inline-block;
+            padding-right: 3px;
+            vertical-align: middle;
+            font-weight: 900 !important;
         }
         .br {
             margin: 0 !important;
@@ -301,15 +347,21 @@
         .mat-tab-group {
             margin-bottom: 200px;
         }
-        .mat-tab-header-pagination-after .mat-tab-header-pagination-chevron,
-        .mat-tab-header-pagination-before .mat-tab-header-pagination-chevron {
+        .mat-tab-header-pagination-after 
+        .mat-tab-header-pagination-chevron,
+        .mat-tab-header-pagination-before,
+        .mat-tab-header-pagination-chevron {
             display: none;
+            @media (max-width: 768px) {
+                display: block;
+            }
         }
 
     }
     .comment {
         color: $main-color;
         font-weight: 800;
+        font-size: 12px;
     }
     .comment-container {
         display: flex;
@@ -321,6 +373,8 @@
         }
         .review_comment-title {
             background-color: #fff;
+            max-width: 800px;
+            overflow: hidden;
         }
     }
     .comment_date {
@@ -346,6 +400,9 @@
         box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.3);
         background: #fff;
         padding: 20px;
+        @media (max-width: 768px) {
+            margin-left: 30px;
+        }
     }
     .add_comment {
         margin-top: 30px;
@@ -402,9 +459,9 @@
     .review_comment-title { 
         cursor: pointer;
         position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        // display: flex;
+        // align-items: center;
+        // justify-content: flex-start;
         background: #f5f5f5;
         width: fit-content;
         padding: 10px;
@@ -441,6 +498,11 @@
         .add_comment {
             max-width: 50%;
             flex-basis: 50%;
+            @media (max-width: 768px) {
+                max-width: 100%;
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
         }
         .add_reply {
             margin-left: 5%;
@@ -450,6 +512,16 @@
             margin-left: 0;
             margin-right: 5%;
             }
+            @media (max-width: 768px) {
+                max-width: 100%;
+                flex-basis: 100%;
+                margin: 0;
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            display: block;
+            padding: 0;
         }
     }
     h2 {
@@ -461,6 +533,48 @@
     margin-bottom: 30px;
     padding-bottom: 3px;
     text-transform: capitalize;
+    }
+    .instructor {
+        padding: 30px;
+        margin-bottom: 50px;
+        border: 1px solid #eee;
+        h2 {
+            color: $main-color;
+        }
+        a {
+            color: inherit;
+            display: flex;
+            align-items: center;
+            @media (max-width: 768px){
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+    .Teacher-img {
+        img {
+            height: 100px;
+        }
+      
+    }
+    .reviewImg {
+        max-height: 40px;
+        display: inline-block;
+    }
+    .Teacher-details {
+        margin-left: 30px;
+        a {
+            font-size: 16px;
+            color: $main-color !important;
+            font-weight: bold;
+        }
+        p {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            margin: 0;
+        }
     }
 }
 

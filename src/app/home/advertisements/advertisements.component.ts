@@ -8,7 +8,7 @@ import { HomeService } from 'src/app/shared/services/home.service';
 })
 export class AdvertisementsComponent implements OnInit {
   advertisements;
-  imagePath= "http://novoduxapi.native-tech.co/Images/advertisementimages/";
+  imagePath= "http://novoduxadmin.native-tech.co/Images/AdvertisementImages/";
   constructor(private homeService:HomeService) { }
   ngOnInit(): void {
     this.homeService.getHomeDate().subscribe((res: any) => {

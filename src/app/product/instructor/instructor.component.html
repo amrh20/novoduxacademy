@@ -1,0 +1,33 @@
+<div class="instructor">
+    <div class="container">
+        <div class="instructor-content">
+            <img [src]="imagePath+ instructor?.ProfileImage" alt="">
+            <h3>{{instructor?.Name}}</h3>
+            <p class="bio">{{instructor?.Bio}}</p>
+            <div class="instructor-detail">
+               <div>
+                   <strong>{{instructor?.CourseCount}}</strong>
+                   <p>courses</p>
+               </div>
+               <div>
+                <strong>{{instructor?.StudentCount}}</strong>
+                <p>students</p>
+                </div>
+                <div>
+                    <strong>{{instructor?.TotalReview}}</strong>
+                    <p>rate</p>
+                    </div>
+            </div>
+        </div>
+         <div class="courses">
+             <h4>Courses</h4>
+                <ngx-slick-carousel
+                 class="carousel" #slickModal="slick-carousel" 
+                 [config]="sliderConfig">
+                    <div ngxSlickItem class="slide" *ngFor="let course of courses">
+                        <app-course-item [course]="course"></app-course-item>
+                    </div>
+                </ngx-slick-carousel>
+         </div>
+    </div>
+</div>

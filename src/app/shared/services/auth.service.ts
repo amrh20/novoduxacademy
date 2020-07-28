@@ -75,7 +75,7 @@ export class AuthService {
     return this.http.get(`${this.apiBaseURL}/GetStudentProfile`, { headers: reqHeader})
   }
   // editProfile
-  editProfile(Name,CategoryId,Email,GenderId) {
+  editProfile(Name,CategoryId,Email,GenderId,Bio,CountryId) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -85,7 +85,9 @@ export class AuthService {
       Name,
       CategoryId,
       Email,
-      GenderId
+      GenderId,
+      Bio,
+      CountryId
     },{headers: reqHeader})
   }
 

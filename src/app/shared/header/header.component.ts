@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   currentLang: string;
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   profileImg
-  checkedlocal: boolean
+  checkedlocal
+  notifications
   constructor(private homeService:HomeService,public translate:TranslateService) {
     this.currentLang= localStorage.getItem('currentLanguage') || 'en'
     this.translate.use(this.currentLang)
@@ -39,6 +40,9 @@ export class HeaderComponent implements OnInit {
     // if (localStorage.getItem("ProfileImage") === null) {
     //   this.checkedlocal= true
     // }
+    this.homeService.notifcation().subscribe((res: any) => {
+      this.notifications= res.model
+    })
   }
  loggedIn() {
    if(localStorage.getItem('authToken')) {

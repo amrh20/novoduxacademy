@@ -29,8 +29,14 @@
             font-size: 23px !important;
         }
         .br-unit:after {
-            content: "\2605" !important;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-family: "FontAwesome" !important;
+            content: "\f005" !important;
             color: #231F20 !important;
+            display: inline-block;
+            padding-right: 3px;
+            vertical-align: middle;
+            font-weight: 900 !important;
         }
         .br {
             margin: 0 !important;
@@ -38,6 +44,10 @@
         .br-default .br-selected:after {
             color: #EDB867 !important;
         }
+        .cart .cart_deatils .product_name h3 {
+            color: #000;
+        }
+       
     }
     h2 {
       
@@ -59,7 +69,9 @@
         justify-content: center;
     }
 .recommend_slider {
-        margin: 80px 0;
+        padding: 50px 0;
+        background-color: #f5f5f5;
+        margin-bottom: 50px;
     }
 .product_name {
     color: $main-color;

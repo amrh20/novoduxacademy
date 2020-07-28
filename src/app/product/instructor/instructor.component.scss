@@ -1,0 +1,71 @@
+@import "../../variables.scss";
+:host {
+    .instructor {
+        position: relative;
+        top: 120px;
+        margin-bottom: 200px;
+        &-content {
+          text-align: center;
+          border-bottom: 1px solid #dddcdc;
+          margin-bottom: 50px;
+        }
+        img {
+            height: 150px;
+            width: 150px;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.17);
+            border-radius: 50%;
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: $main-color;
+        }
+        .bio {
+            border-bottom: 1px solid #dddcdc;
+            width: fit-content;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            margin-top: 10px;
+        }
+        &-detail {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            align-items: center;
+            &> div {
+                margin-right: 40px;
+            }
+            strong {
+                color: $main-color;
+                font-size: 22px;
+            }
+            p {
+                font-size: 20px;
+                text-transform: capitalize;
+                
+            }
+           
+        }
+        h4 {
+        border-bottom: 2px solid #000;
+        width: fit-content;
+        margin-bottom: 50px;
+        padding-bottom: 5px;
+        }
+    }
+    ::ng-deep {
+        .slick-slide {
+          padding: 0 10px;
+        }
+        .slick-prev:before, .slick-next:before {
+            font-size: 30px;
+            color: $main-color;
+        }
+        .cart {
+          box-shadow: 0px 10px 10px 0px rgba(50, 50, 50, 0.16);
+        }
+    }
+}

@@ -114,5 +114,6 @@
      "apply": "apply",
      "checkout": "checkout",
      "write-your-coupon": "write your coupon",
-     "empty-cart": "your cart is empty"
+     "empty-cart": "your cart is empty",
+     "back-to-website": "back to website"
 }

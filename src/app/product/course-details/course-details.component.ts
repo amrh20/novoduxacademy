@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -22,6 +22,8 @@ export class CourseDetailsComponent implements OnInit {
   reviewLoading: boolean
   checkLang
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
+  teachPath="http://novoduxapi.native-tech.co/Images/TeacherImages/" 
+  @ViewChild('replyInput') input:ElementRef; 
   form = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
@@ -81,6 +83,7 @@ export class CourseDetailsComponent implements OnInit {
  get reply() {
   return this.replyform.get('reply')
  }
+ 
  addreply() {
   this.replyLoading= true
   let  CourseCommentId= Number(localStorage.getItem('CourseCommentId'))
@@ -107,6 +110,10 @@ export class CourseDetailsComponent implements OnInit {
     this.replyform.reset()
   })
  }
+
+ replayCommentInput() {
+  this.input.nativeElement?.focus()
+ }
  //  reviews
  get reviewComment() {
   return this.form.get('reviewComment')
@@ -125,11 +132,19 @@ get rating() {
     window.location.reload();
     this.reviewLoading= false
   },err => {
-    this.toastr.error("something error")
+    console.log(err)
     this.reviewLoading= false
-    if (err.error.Message =="Authorization has been denied for this request.") {
+    if (err.error.errors.message === "Authorization has been denied for this request") {
       this.errorReview= "please log in first"
        this.reviewform.reset()
+     }
+     else if(err.error.errors.message === "Student not enrolled in this course") {
+      this.errorReview= "Student not enrolled in this course"
+      this.reviewform.reset()
+     }
+     else {
+      this.toastr.error("something error")
+
      }
   })
  }
@@ -145,6 +160,23 @@ addToFav() {
     this.toastr.error('something errorr')
     if (err.error.Message == "Authorization has been denied for this request.") {
       this.errorMsg = "please login first"
+    }
+  })
+}
+addToCart() {
+  let courseId= Number(localStorage.getItem('courseId')) 
+  this.productService.AddToCart(courseId).subscribe(res => {
+    this.toastr.success('your course added successfully')
+  }, err => {
+    if (err.error?.Message === "Authorization has been denied for this request.") {
+      //  this.errorMsg= 'please login first'
+      this.toastr.error('please login first')
+    }
+    else if (err.error.errors?.message === "This Course In your cart") {
+      this.toastr.error('This Course In your cart')
+    }
+    else {
+      this.toastr.error('something error')
     }
   })
 }

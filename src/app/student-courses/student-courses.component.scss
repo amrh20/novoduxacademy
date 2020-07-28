@@ -46,22 +46,32 @@
         }
     }
     ::ng-deep {
-        .br-units {
-            display: flex;
-            justify-content: center;
+        .original_price {
+           margin-right: 0;
+           margin-left: 20px;
+           color: #000;
         }
-        .br-unit {
-            font-size: 23px !important;
-        }
-        .br-unit:after {
-            content: "\2605" !important;
-            color: #231F20 !important;
-        }
-        .br {
-            margin: 0 !important;
-        }
-        .br-default .br-selected:after {
-            color: #EDB867 !important;
+        ::ng-deep {
+            .br-unit {
+                font-size: 23px !important;
+            }
+            .br-unit:after {
+                font: normal normal normal 14px/1 FontAwesome;
+                font-family: "FontAwesome" !important;
+                content: "\f005" !important;
+                color: #231F20 !important;
+                display: inline-block;
+                padding-right: 3px;
+                vertical-align: middle;
+                font-weight: 900 !important;
+            }
+            .br {
+                margin: 0 !important;
+            }
+            .br-default .br-selected:after {
+                color: #EDB867 !important;
+            }
+        
         }
     }
     

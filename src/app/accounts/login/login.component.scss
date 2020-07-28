@@ -1,14 +1,26 @@
 @import "../../variables.scss";
 :host {
-
     display: flex;          // by me
     align-items: center;    // by me
     flex-direction: column; // by me
     // margin-bottom: 500px;   // by me
     background-color: #F5F7F8;
+    .back {
+      margin-top: 30px;
+      text-align: left;
+      width: 100%;
+      margin-left: 150px;
+      text-transform: capitalize;
+      color: $main-color;
+      [dir= rtl] & {
+        margin-left: 0;
+        margin-right: 30px;
+        text-align: right;
+      }
+    }
     .login {
       position: relative;
-      top: 120px;
+      top: 30px;
       margin-bottom: 150px;
       [dir= rtl] & {
         text-align: right;
@@ -96,6 +108,9 @@
             color: $main-color;
             padding-left: 10px;
             padding-right: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            cursor: pointer;
           }
         }
 

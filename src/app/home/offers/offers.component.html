@@ -3,46 +3,18 @@
 </div>
 <div class="container d-flex mb-5">  
     <div class="cart_view" *ngFor="let offer of offers">
-          <div class="cart">
-            <div class="cart_img">
+          <div class="cart-offers">
+            <div class="cart-offers_img">
               <a routerLink="/product/course/{{offer.Id}}">
               <img [src]="imagePath + offer?.Image" alt="">
               </a>
             </div>
-            <div class="cart_deatils">
-              <!-- <div class="product_rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div> -->
-              <div class="product_name">
-                <p>
-                   
+              <div class="cart-offers_details">
+                <p>            
                     <ng-container *ngIf="checkLang== 'en'"> {{offer.Description}}</ng-container>
                     <ng-container *ngIf="checkLang== 'ar'"> {{offer.DescriptionLT}}</ng-container>
                 </p>
               </div>
-              <!-- <div class="product_price">
-                <span class="new_price">500.00 $ </span>
-                <span class="original_price">1000.00 $</span>
-              </div> -->
-            </div>
-            <!-- <div class="product-icons">
-              <div class="tooltipe" data-tooltip="add to cart">
-                <i class="fa fa-shopping-cart"></i>
-              </div>
-              <div class="wishlist_icon tooltipe" data-tooltip="add to wishlist">
-                <i class="fa fa-heart"></i>
-              </div>
-    
-              <div class="view_product-icon">
-                <a href="productdetails.html">
-                  <i class="fa fa-plus"></i>
-                </a>
-              </div>
-            </div> -->
             <div class="product-labels">
               <div class="discount">
                 {{'offer' | translate}}

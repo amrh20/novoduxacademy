@@ -17,6 +17,11 @@ export class HomeService {
   getcategoryandSub() {
     return this.http.get(`${this.apiBaseURL}/GetCategoryWithSubCategories`)
   }
+  getCategories() {
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    return this.http.get(`${this.apiBaseURL}/GetCategories`,{params: params})
+  }
   getAboutus() {
     return this.http.get(`${this.apiBaseURL}/GetAboutUs`)
   }
@@ -66,14 +71,10 @@ export class HomeService {
   }
 
   search(Word) {
-    let authToken = localStorage.getItem("authToken")
-    const reqHeader = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${authToken}`
-  })
+    
     let params = new HttpParams();
     params = params.append('Word', Word);
     params = params.append('Page', '0');
-    return this.http.get(`${this.apiBaseURL}/SearchInCourses`,{params: params,headers: reqHeader})
+    return this.http.get(`${this.apiBaseURL}/SearchInCourses`,{params: params})
   }
 }

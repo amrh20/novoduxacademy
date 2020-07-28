@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
- constructor(){
+ constructor(public router:Router){
   let code= localStorage.getItem('currentLanguage') || 'en'
     if (code === 'ar') {
      document.documentElement.dir = 'rtl';
