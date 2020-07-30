@@ -1,42 +1,43 @@
 <div class="courses-content">
     <div class="side__menu">
         <ul>
-          <li>
-            <a routerLink="/profile" >
-              <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
-              {{'profile' | translate}}
-            </a>
-          </li>
-          <li>
-            <a routerLink="/wallet">
-              <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
-              {{'wallet' | translate}}</a>
-          </li>
-          <li>
-         
-            <a routerLink="/myCourses" class="active-side">
-              <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
-              {{'myCourses' | translate}}</a>
-          </li>
-          <li>
-            
-            <a routerLink="/contact-us">
-              <img src="../../assets/images/Complaint.png" alt=""  class="side-menu-img">
-              {{'Complaint-Suggestion' | translate}}</a>
-          </li>
-          <li>
-            <a routerLink="/ad-order">
-              <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
-              {{'Advertisements-orders' | translate}}</a>
-          </li>
-          <li>
-            <a (click)="logout()" class="logout">
-                <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
-              {{'logout' | translate}}
-            </a>
-          </li>
+            <li>
+                <a routerLink="/profile">
+                    <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
+                    <span class="side-txt">{{'profile' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/wallet">
+                    <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
+                    <span class="side-txt">{{'wallet' | translate}}</span></a>
+            </li>
+            <li>
+
+                <a routerLink="/myCourses" class="active-side">
+                    <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
+                    <span class="side-txt">{{'myCourses' | translate}}</span></a>
+            </li>
+            <li>
+
+                <a routerLink="/contact-us">
+                    <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+                    <span class="side-txt">{{'Complaint-Suggestion' | translate}}</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/ad-order">
+                    <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
+                    <span class="side-txt">{{'Advertisements-orders' | translate}}</span></a>
+            </li>
+            <li>
+                <a (click)="logout()" class="logout">
+                    <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
+                    <span class="side-txt">{{'logout' | translate}}</span>
+                </a>
+            </li>
         </ul>
-      </div>
+    </div>
     <ng-container *ngIf="loading; else loaded">
         <div class="load-container">
             <div class="lds-ripple">
@@ -51,7 +52,7 @@
             <div class="student-courses">
                 <div class="view-btn">
                     <p>
-                       {{'myCourses' | translate}}
+                        {{'myCourses' | translate}}
                     </p>
                     <a router-link="/product/courses">
                         <button>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="student-courses-cotent">
                     <div class="row">
-                        <div class="col-3" *ngFor="let course of courses">
+                        <div class="col-12 col-md-3" *ngFor="let course of courses">
                             <div class="cart">
                                 <a routerLink="/product/course/{{course.Id}}">
                                     <div class="cart_img">

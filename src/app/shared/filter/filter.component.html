@@ -11,7 +11,7 @@
                             <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
                             <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
                         </a>
-                        <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories"></i>
+                        <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories.length"></i>
                     </div>
                     <ng-container *ngIf="taxon?.SubCategories">
                         <ul class="subtaxon">

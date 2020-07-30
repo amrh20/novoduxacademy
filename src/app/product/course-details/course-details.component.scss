@@ -260,12 +260,19 @@
                                 .cs-row {
                                     textarea {
                                         min-width: 280px;
+                                        @media (max-width: 768px) {
+                                            min-width: auto;
+                                        }
                                     }
                                     display: block;
                                 }
                                 input {
                                     min-width: 280px;
                                     max-height: 38px;
+                                    @media (max-width: 768px) {
+                                        min-width: auto;
+                                        width: 100%;
+                                    }
                                 }
                                 width: 100%;
                                 margin: unset;
@@ -299,6 +306,14 @@
         }
         .slick-prev {
             left: -35px;
+            @media (max-width: 420px) {
+                left: -8px;
+            }
+        }
+        .slick-next {
+            @media (max-width: 420px) {
+                right: 0;
+            }
         }
     }
     ::ng-deep {
@@ -335,6 +350,7 @@
         .mat-tab-label .mat-tab-label-content {
             color: #000;
             font-size: 19px;
+            font-family: "Cairo", "myFirstFont", sans-serif;
             img {
                 height: 15px;
                 margin-right: 10px;
@@ -390,6 +406,10 @@
     }
     .margin {
         margin-left: 60px;
+        [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 60px;
+        }
     }
     textarea {
         height: 150px;
@@ -400,6 +420,7 @@
         box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.3);
         background: #fff;
         padding: 20px;
+        font-family: "Cairo", "myFirstFont", sans-serif;
         @media (max-width: 768px) {
             margin-left: 30px;
         }
@@ -421,6 +442,7 @@
             height: 100px;
             margin-top: 30px;
             margin-bottom: 30px;
+            font-family: "Cairo", "myFirstFont", sans-serif;
         }
     }
     .videos-content {
@@ -538,6 +560,7 @@
         padding: 30px;
         margin-bottom: 50px;
         border: 1px solid #eee;
+        font-family: "Cairo", "myFirstFont", sans-serif;
         h2 {
             color: $main-color;
         }
@@ -563,6 +586,11 @@
     }
     .Teacher-details {
         margin-left: 30px;
+        [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 30px;
+            text-align: right;
+        }
         a {
             font-size: 16px;
             color: $main-color !important;

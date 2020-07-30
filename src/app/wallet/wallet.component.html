@@ -2,56 +2,58 @@
   <div class="side__menu">
     <ul>
       <li>
-        <a routerLink="/profile" >
+        <a routerLink="/profile">
           <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
-          {{'profile' | translate}}
+          <span class="side-txt">{{'profile' | translate}}</span>
         </a>
       </li>
       <li>
         <a routerLink="/wallet" class="active-side">
           <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
-          {{'wallet' | translate}}</a>
+          <span class="side-txt">{{'wallet' | translate}}</span>
+
+        </a>
       </li>
       <li>
-     
-        <a routerLink="/myCourses" >
+
+        <a routerLink="/myCourses">
           <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
-          {{'myCourses' | translate}}</a>
+          <span class="side-txt">{{'myCourses' | translate}}</span></a>
       </li>
       <li>
-        
+
         <a routerLink="/contact-us">
-          <img src="../../assets/images/Complaint.png" alt=""  class="side-menu-img">
-          {{'Complaint-Suggestion' | translate}}</a>
+          <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+          <span class="side-txt">{{'Complaint-Suggestion' | translate}}</span></a>
       </li>
       <li>
         <a routerLink="/ad-order">
           <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
-          {{'Advertisements-orders' | translate}}</a>
+          <span class="side-txt">{{'Advertisements-orders' | translate}}</span></a>
       </li>
       <li>
         <a (click)="logout()" class="logout">
           <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
-          {{'logout' | translate}}
+          <span class="side-txt">{{'logout' | translate}}</span>
         </a>
       </li>
     </ul>
   </div>
-  
+
   <div class="wallet">
-      <!-- {{'no-wallet-yet' | translate}} -->
-      <div class="total-balance">
-        <h2>total balance</h2>
-        <p>30.00 Egp </p>
-        <a>charge wallet</a>
+    <!-- {{'no-wallet-yet' | translate}} -->
+    <div class="total-balance">
+      <h2>total balance</h2>
+      <p>30.00 Egp </p>
+      <a>charge wallet</a>
+    </div>
+    <div class="orders">
+      <h3>your paied orders</h3>
+      <div class="orders-content">
+        <span>40 egp paied</span>
+        <p>order number : #7538574</p>
+        <p>Date: 20/10/2020</p>
       </div>
-      <div class="orders">
-        <h3>your paied orders</h3>
-        <div class="orders-content">
-          <span>40 egp paied</span>
-          <p>order number : #7538574</p>
-          <p>Date: 20/10/2020</p>
-        </div>
-      </div>
+    </div>
   </div>
-</div>
+</div>  

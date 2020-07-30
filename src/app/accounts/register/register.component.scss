@@ -14,7 +14,7 @@
     color: $main-color;
     [dir= rtl] & {
       margin-left: 0;
-      margin-right: 30px;
+      margin-right: 60px;
       text-align: right;
     }
   }
@@ -63,10 +63,9 @@
         text-align: right;
       }
       &__wrapper {
-        // border-right: 1px solid #cac9c9;  // by me        
         [dir= rtl] & {
           border-right: 0;
-          // border-left: 1px solid #cac9c9; // by me
+          text-align: center;
         }
         form {
           // width: 85%;                     // by me
@@ -252,6 +251,10 @@
           margin-bottom: 0;
           cursor: pointer;
           font-weight: 600;
+          [dir= rtl] & {
+            margin-left: 0;
+            margin-right: 30px;
+          }
       }
       input {
           // height: 13px;
@@ -278,6 +281,11 @@
     .phone_content {
        display: flex;
        margin-bottom: 10px;
+       [dir= rtl] & {
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+       }
        .left_side {
         width: 25%;
         margin-right: 20px;

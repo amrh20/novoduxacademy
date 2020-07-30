@@ -28,6 +28,9 @@
         margin: 0 auto;
         padding-bottom: 4px;
         margin-bottom: 40px;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
     }
     h4 {
         font-size: 18px;
@@ -38,8 +41,18 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 768px) {
+          display: block;
+          text-align: center;
+          li {
+            margin-bottom: 40px;
+          }
+        }
         img {
             max-height: 120px;
+            @media (max-width: 768px) {
+              max-height: 90px;
+            }
         }
     }
 }

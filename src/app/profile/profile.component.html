@@ -8,11 +8,11 @@
   <ng-template #loaded>
     <div class="btns">
       <p>{{'profile' | translate}}</p>
-      <div>
+      <div class="btns-content">
         <button (click)="showPopUp()">{{'change-password' | translate}}</button>
-      <a routerLink="/edit-profile">
-        <button (click)="editProfile()">{{'edit-profile' | translate}}</button>
-      </a>
+        <a routerLink="/edit-profile">
+          <button (click)="editProfile()">{{'edit-profile' | translate}}</button>
+        </a>
       </div>
     </div>
     <div class="profile-content">
@@ -20,13 +20,13 @@
 
       </div>
       <div class="bottom">
-      
-      
+
+
         <div class="details-content" *ngIf="profile?.Email">
           <img src="../../assets/images/email.png" alt="">
           <p>{{profile?.Email}}</p>
         </div>
-  
+
         <div class="details-content">
           <img src="../../assets/images/phone-outline.png" alt="">
           <p>{{profile?.PhoneNumber}}</p>
@@ -52,21 +52,24 @@
           <label class="hoverable" for="fileInput">
             <ng-container *ngIf="profile?.ProfileImage; else noProfile">
               <img [src]="pathImage + profile?.ProfileImage">
-             </ng-container>
-             <ng-template #noProfile>
-                 <img src="../../assets/images/profileimg.png" alt="">
-             </ng-template>
+            </ng-container>
+            <ng-template #noProfile>
+              <img src="../../assets/images/profileimg.png" alt="">
+            </ng-template>
             <div class="hover-text"><i class="fa fa-camera"></i></div>
           </label>
           <input id="fileInput" type='file' (change)="handleInputChange($event)">
           <p>
-             <span>{{profile?.Name}}</span></p>
+            <span>{{profile?.Name}}</span></p>
           <span class="bio">{{profile?.Bio}}</span>
           <div class="changeLoading" *ngIf="changeLoading">
-            <div class="lds-ripple"><div></div><div></div></div>
+            <div class="lds-ripple">
+              <div></div>
+              <div></div>
+            </div>
           </div>
         </div>
-       
+
       </div>
     </div>
 
@@ -76,35 +79,42 @@
       <li>
         <a routerLink="/profile" class="active-side">
           <img src="../../assets/images/profileimg.png" alt="" class="side-menu-img">
-          {{'profile' | translate}}
+          <span class="side-txt">{{'profile' | translate}}</span>
         </a>
       </li>
       <li>
         <a routerLink="/wallet">
           <img src="../../assets/images/Wallet.svg.png" alt="" class="side-menu-img">
-          {{'wallet' | translate}}</a>
+          <span class="side-txt">{{'wallet' | translate}}</span>
+
+        </a>
       </li>
       <li>
-     
+
         <a routerLink="/myCourses">
           <img src="../../assets/images/graduation-cap.png" alt="" class="side-menu-img">
-          {{'myCourses' | translate}}</a>
+          <span class="side-txt">{{'myCourses' | translate}}</span>
+        </a>
       </li>
       <li>
-        
+
         <a routerLink="/contact-us">
-          <img src="../../assets/images/Complaint.png" alt=""  class="side-menu-img">
-          {{'Complaint-Suggestion' | translate}}</a>
+          <img src="../../assets/images/Complaint.png" alt="" class="side-menu-img">
+          <span class="side-txt"> {{'Complaint-Suggestion' | translate}}</span>
+
+        </a>
       </li>
       <li>
         <a routerLink="/ad-order">
           <img src="../../assets/images/Advertisements orders.png" alt="" class="side-menu-img">
-          {{'Advertisements-orders' | translate}}</a>
+          <span class="side-txt">{{'Advertisements-orders' | translate}}</span>
+
+        </a>
       </li>
       <li>
         <a (click)="logout()" class="logout">
           <img src="../../assets/images/logout.png" alt="" class="side-menu-img">
-          {{'logout' | translate}}
+          <span class="side-txt">{{'logout' | translate}}</span>
         </a>
       </li>
     </ul>

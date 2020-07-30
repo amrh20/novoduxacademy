@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
   profileImg
   checkedlocal
   notifications
+  checkLang
+  listOfCategory
+  showDrop:boolean
+  showSide: boolean
   constructor(private homeService:HomeService,public translate:TranslateService) {
     this.currentLang= localStorage.getItem('currentLanguage') || 'en'
     this.translate.use(this.currentLang)
@@ -24,7 +28,12 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('currentLanguage',lang)
     location.reload();
    } 
-
+   showDropdown() {
+     this.showDrop =! this.showDrop
+   }
+   showMenu() {
+   this.showSide= !this.showSide
+   }
    public featureConfig: any= {
   autoplay: true,
   autoplaySpeed: 2000,
@@ -34,12 +43,16 @@ export class HeaderComponent implements OnInit {
   slidesToScroll: 1,
   }
   ngOnInit(): void {
+    this.homeService.getCategories().subscribe((res:any) => {
+      this.listOfCategory= res.model
+    })
     // localStorage.setItem('currentLanguage','en')
     // this.changeLang
     // this.profileImg= localStorage?.getItem('ProfileImage')
     // if (localStorage.getItem("ProfileImage") === null) {
     //   this.checkedlocal= true
     // }
+    this.checkLang= localStorage.getItem('currentLanguage') || 'en'
     this.homeService.notifcation().subscribe((res: any) => {
       this.notifications= res.model
     })

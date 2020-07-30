@@ -1,49 +1,61 @@
 @import "../../variables.scss";
-.cart_view {  
-    width: 25%;
-    flex-basis: 25%;
-     margin-right: 20px;
-}
-.offers-title {
-    margin-bottom: 40px;
-    text-transform: capitalize;
-
-    p {
-        border-bottom: 2px solid $main-color;
-        padding-bottom: 5px;;
-        width: fit-content;
-        font-weight: 600;
-        font-size: 25px;
-        margin-left: 120px;
-        [dir= rtl] & {
-            margin-left: 0;
-            margin-right: 120px;
-        }
+:host {
+    .cart_view {  
+        max-width: 25%;
+        flex-basis: 25%;
+         margin-right: 20px;
+         @media (max-width: 400px) {
+            max-width: 100%;
+            flex-basis: 100%;
+            margin-right: 10px;
+         }
+         @media (min-width: 400.1px) and (max-width: 768px){
+            max-width: 50%;
+            flex-basis: 50%;
+            margin-right: 10px;
+         }
     }
-}
-
-.cart-offers {
-    height: 280px;
-    box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
-    border-radius: 5px;
-    position: relative;
-    padding-bottom: 10px;
-    background-color: #fff;
-    border: 1px solid #ececec;
-    &_img {
-        height: 200px;
-        img {
-            height: 100%;
-            width: 100%;
-        }
-    }
-    &_details {
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .offers-title {
+        margin-bottom: 40px;
+        text-transform: capitalize;
+       
         p {
-            text-align: center;
+            border-bottom: 2px solid $main-color;
+            padding-bottom: 5px;;
+            width: fit-content;
+            font-weight: 600;
+            font-size: 25px;
+            margin-left: 120px;
+            [dir= rtl] & {
+                margin-left: 0;
+                margin-right: 120px;
+            }
+        }
+    }
+    
+    .cart-offers {
+        height: 280px;
+        box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
+        border-radius: 5px;
+        position: relative;
+        padding-bottom: 10px;
+        background-color: #fff;
+        border: 1px solid #ececec;
+        &_img {
+            height: 200px;
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        &_details {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+                text-align: center;
+            }
         }
     }
 }

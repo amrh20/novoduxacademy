@@ -30,7 +30,39 @@ export class RecommendCoursesComponent implements OnInit {
     slidesToShow: 4,
     slidesToScroll: 1,
     rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+      ,
+      {
+        breakpoint: 420,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
+
 
   addToFav(CourseId) {
     this.productService.addFavourite(CourseId).subscribe( res => {

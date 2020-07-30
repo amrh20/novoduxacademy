@@ -45,9 +45,22 @@
     .left {
         max-width: 25%;
         flex-basis: 25%;
+        @media (max-width: 768px) {
+            max-width: 100%;
+            flex-basis: 100%;
+            margin-bottom: 40px;
+        }
     }
     .right {
         max-width: 75%;
         flex-basis: 75%;
+        @media (max-width: 768px) {
+            max-width: 100%;
+            flex-basis: 100%;
+            margin-bottom: 40px;
+        }
+    }
+    @media (max-width: 768px) {
+        display: block;
     }
 }

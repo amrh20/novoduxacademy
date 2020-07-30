@@ -19,15 +19,46 @@ export class CategoriesHomeComponent implements OnInit {
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
   public sliderConfig: any = {
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     arrows: true,
     dots: false,
     slidesToShow: 3,
     slidesToScroll: 1,
-    prevArrow:"<i class='fa fa-angle-left' aria-hidden='true'></i>",
-    nextArrow:"<i class='fa fa-angle-right' aria-hidden='true'></i>",
+    // prevArrow:"<i class='fa fa-angle-left' aria-hidden='true'></i>",
+    // nextArrow:"<i class='fa fa-angle-right' aria-hidden='true'></i>",
     rtl : localStorage.getItem('currentLanguage') === "ar" ? true : false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+      ,
+      {
+        breakpoint: 420,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
 }

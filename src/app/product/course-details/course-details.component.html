@@ -204,7 +204,7 @@
           <span>{{'instructor' | translate}}</span>
         </ng-template>
         <div class="instructor">
-          <h2 class=""> about the author</h2>
+          <h2 class="">{{'about-the-author' | translate}}</h2>
           <div class="d-flex align-items-center mt-3">
             <a routerLink="/Instructor/{{coursdetails.Teacher.Id}}">
 
@@ -213,8 +213,16 @@
               </div>
 
               <div class="Teacher-details">
-                {{coursdetails.Teacher.Name}}
-                <p>{{coursdetails.Teacher.Bio}}</p>
+                <span>
+                 
+                  <ng-container *ngIf="checkLang== 'en'"> {{coursdetails.Teacher.Name}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails.Teacher.NameLT}}</ng-container>
+                </span>
+                <p>
+                
+                  <ng-container *ngIf="checkLang== 'en'">   {{coursdetails.Teacher.Bio}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'">   {{coursdetails.Teacher.BioLT}}</ng-container>
+                </p>
               </div>
             </a>
           </div>

@@ -16,11 +16,28 @@
                 left: auto;
                 right: -60px;
             }
+            @media (max-width: 768px) {
+                left: -8px;
+            }
         }
         .slick-next {
             [dir= rtl] & {
                 left: -50px;
                 right: auto;
+                @media (max-width: 420px) {
+                    left: -5px;
+                }
+            }
+            @media (max-width: 420px) {
+                right: 5px;
+            }
+        }
+        .slick-slide {
+            @media (max-width: 420px) {
+                padding: 0 30px;
+            }
+            @media (min-width: 420.1px) and (max-width: 768px) {
+                padding: 0 20px;
             }
         }
     }
@@ -62,6 +79,10 @@
         [dir= rtl] & {
             margin-left: 0;
             margin-right: 120px;
+        }
+        @media (max-width: 768px) {
+            margin: 0 auto;
+            margin-bottom: 40px;
         }
     }
     .product_rating  {

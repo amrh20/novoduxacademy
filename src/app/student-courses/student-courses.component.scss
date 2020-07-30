@@ -2,6 +2,9 @@
 :host {
     .student-courses-cotent {
      margin-right: 60px;
+     @media (max-width: 380px) {
+         margin-right: 10px;
+     }
     }
     .courses-content {
         background: #e8ecf5;
@@ -24,6 +27,12 @@
         [dir= rtl] & {
             margin-left: 0;
             margin-right: 300px;
+            @media (max-width: 768px) {
+                margin-right: 100px;
+            }
+        }
+        @media (max-width: 768px) {
+            margin-left: 100px;
         }
         .view-btn {
             margin-bottom: 30px;
@@ -34,11 +43,19 @@
             background-color: #fff;
             padding: 10px 30px;
             border-radius: 10px;
+            @media (max-width: 380px) {
+                display: block;
+                margin-right: 10px;
+                text-align: center;
+            }
             p {
                 font-size: 18px;
                 font-weight: bold;
                 text-transform: capitalize;
                 color: $main-color;
+                @media (max-width: 380px) {
+                    margin-bottom: 10px;
+                }
             }
             button {
                 font-size: 14px;

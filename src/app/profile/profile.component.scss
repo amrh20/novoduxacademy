@@ -23,6 +23,10 @@
     margin-right: 60px;
     height: 450px;
     border-radius: 10px;
+    @media (max-width: 768px) {
+        margin-left: 100px;
+        margin-right: 10px;
+    }
     .user-img {
         position: absolute;
         top: 40%;
@@ -147,16 +151,47 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        
+        @media (max-width: 380px) {
+            text-align: left;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            margin-left: 100px;
+            margin-right: 10px;
+        }
+        &-content {
+            text-align: center;
+           
+            @media (min-width: 380.1px) and (max-width: 768px) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+        }
         button {
             margin-right: 20px;
             font-size: 14px;
             color: #fff;
             background-color: $main-color;
+            @media (max-width: 768px) {
+                width: 122px;
+                font-size: 12px;
+                margin: 0;
+                // margin-bottom: px;
+                &:first-of-type {
+                    margin-bottom: 10px;
+                }
+            }
         }
         p {
             font-size: 18px;
             font-weight: bold;
             text-transform: capitalize;
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
         [dir= rtl] & {
             margin-left: 60px; 

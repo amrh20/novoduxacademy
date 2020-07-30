@@ -42,7 +42,7 @@
     "Phone-Number": "رقم الهاتف",
     "new-at-novodux":"جديد في نوفودكس",
     "create-new-account": "انشاء حساب جديد",
-    "Register":"تسجيل دخول",
+    "Register":"انشاء حساب",
     "passwords-not-match": "كلمات السر غير متشابهه", 
     "Name": "الاسم",
     "Email": "البريد الالكتروني (اختياري)",
@@ -71,6 +71,7 @@
     "add-to-Cart": "اضافه الي السلة",
     "delete": "مسح",
     "whishList-empty": "المفضلة لديك فارغه",
+    "whishList" : "المفضله",
     "write-your-title": "أكتب عنوان الطلب",
     "write-suggestion": "اكتب شكوتك او مقترحك..",
     "please-choose":"من فضلك اختار",
@@ -115,5 +116,6 @@
     "cart": "السلة",
     "write-your-coupon": "اكتب كود الخصم",
     "empty-cart": "سلة المشتريات لديك فارغة",
-    "back-to-website": "العودة للصفحة الرئيسية"
+    "back-to-website": "العودة للصفحة الرئيسية",
+    "about-the-author": "عن المدرب"
 }

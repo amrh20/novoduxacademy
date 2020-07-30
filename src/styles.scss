@@ -523,7 +523,7 @@ body {
 	.cart_content {
 		padding: 50px 0;
 		background-color: #f7f7f7;
-		margin-top: 70px;
+		margin-top: 60px;
 		.cart_content-details {
 			display: flex;
 			margin: 30px 0;
@@ -1210,7 +1210,7 @@ body {
 	border-top: 1px solid #d0cece;
 	padding: 40px 0;
 	position: relative;
-	top: 70px;
+	top: 60px;
 	.cart {
 		.cart_deatils {
 			background-color: #fff;
@@ -1418,17 +1418,15 @@ body {
 		}
 		.filter_col {
 			min-width: 270px;
-			// max-height: 100vh;
-			// overflow-x: hidden;
-			// overflow-y: scroll;
 			background: #fff;
 			z-index: 222222;
 			position: fixed;
-			top: 70px;
+			top: 60px;
 			left: -400px;
-			-webkit-transition: all 0.4s ease-in-out;
-			-o-transition: all 0.4s ease-in-out;
 			transition: all 0.4s ease-in-out;
+			border-top: 1px solid #000;
+			overflow: scroll;
+            height: 100vh;
 		}
 		.collection_view {
 			.columns {
@@ -1551,6 +1549,9 @@ body {
 	z-index: 2222;
 	margin: 20px;
 	border-radius: 10px;
+	@media (max-width: 768px) {
+		width: 70px;
+	}
 	[dir= rtl] & {
 		text-align: right;
 	}
@@ -1595,7 +1596,11 @@ li {
 }
 .side-menu-img {
 	height: 20px;
-    margin-right: 15px;
+	margin-right: 20px;
+	[dir= rtl] & {
+		margin-right: 0;
+		margin-left: 20px;
+	}
 }
 ::ng-deep {
     .br-unit {
@@ -1618,4 +1623,9 @@ li {
         color: #EDB867 !important;
     }
 
+}
+.side-txt {
+	@media (max-width: 768px) {
+		display: none;
+	}
 }

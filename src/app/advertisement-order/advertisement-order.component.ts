@@ -10,10 +10,13 @@ import { Router } from '@angular/router';
 export class AdvertisementOrderComponent implements OnInit {
   orders: any;
   IsLoading: boolean;
+  checkLang
   constructor(private homeSerive: HomeService,private router:Router) { }
 
   ngOnInit(): void {
     this.IsLoading= true;
+    this.checkLang = localStorage.getItem('currentLanguage') || 'en'
+
     this.homeSerive.getAdvertisementOrder().subscribe((res: any) => {
       this.orders = res.model
       this.IsLoading= false;

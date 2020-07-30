@@ -1,11 +1,14 @@
     <div class="header">
         <div class="container">
             <div class="header__wrapper">
-                <div class="header__logo">
+              <div class="menu_bar mobile" (click)="showMenu()">
+                <i class="fa fa-bars"></i>
+              </div>
+              <div class="header__logo">
                   <a [routerLink]="['/home']">
                     <img src="https://static.wixstatic.com/media/9dc788_d3a34bea2ea84b45b6645d56c9769a49~mv2.png/v1/fill/w_193,h_60,al_c,q_85,usm_0.66_1.00_0.01/Novologo.webp" alt="">
                   </a>
-                  </div>
+              </div>
               <div class="header__navbar">
                 <app-navbar></app-navbar>
               </div>
@@ -18,15 +21,9 @@
                     <img src="../../../assets/images/wishlist.png" alt="">
                   </a>
                     <a *ngIf="loggedIn()"  routerLink="profile">
-                      <!-- <img src="../../../assets/images/Profile.png" alt=""> -->
-                      <!-- <ng-container *ngIf="checkedlocal"> -->
                         <img src="../../../assets/images/Profile.png" alt="">
-                      <!-- </ng-container> -->
-                      <!-- <ng-template #noProfile>
-                        <img [src]="pathImage + profileImg" alt="" class="logedimg">
-                      </ng-template> -->
                     </a>
-                    <a  *ngIf="!loggedIn()">
+                    <a *ngIf="!loggedIn()" class="desktop">
                       <a  routerLink="/login" class="iconss">
                         {{'login' | translate}}
                         <i class="fa fa-sign-in"></i>
@@ -40,7 +37,10 @@
                       <img src="../../../assets/images/reminders.png" alt="">
                       <span>{{notifications?.length}}</span>
                     </a>
-                    <a class="drop desktop">
+                    <a class="mobile" routerLink="/login" *ngIf="!loggedIn()">
+                      <img src="../../../assets/images/Profile.png" alt="">
+                    </a>
+                    <a class="drop">
                       <i class="fa fa-language" aria-hidden="true"></i>
                       <div class="dropdown_one-content">
                         <ul>
@@ -54,18 +54,52 @@
                       </div>
                     </a>
                 </div>
-
-                <!-- <div class="mobile-icons">
-                  <div class="container"></div>
-                </div> -->
-                <!-- <div class="header__search">
-                    <input type="text" name="" id="" placeholder="search..">
-                    <i class="fa fa-search"></i>
-                </div>  -->
               </div>
-              
             </div>
-         
+        </div>
+        <div class="side_menu" [ngClass]="{'show-side':showSide}">
+          <ul>
+            <li (click)="showMenu()">
+             <a routerLink="/home">
+            {{'home' | translate}}</a>
+            </li>
+            <li>
+              <div class="category" (click)="showDropdown()">
+                <a routerLink="/product/courses">{{'courses' | translate}}</a>
+              <i class="fa fa-chevron-down" *ngIf="!showDrop"></i>
+              <i class="fa fa-chevron-up" *ngIf="showDrop"></i>
+              </div>
+               <ng-container>
+                  <div class="dropdown_one-content" [ngClass]="{'show': showDrop}">
+                    <ul>
+                      <li *ngFor="let taxon of listOfCategory">
+                        <a routerLink="product/courses/{{taxon.Id}}" (click)="showMenu()">
+                          <span *ngIf="checkLang== 'en'">{{taxon.Name}}</span>
+                          <span *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</span>
+                         </a>
+                      </li>
+                    </ul>
+                  </div>
+                </ng-container>        
+            </li>  
+            <li *ngIf="loggedIn()" (click)="showMenu()">
+              <a routerLink="product/cart">{{'my-cart' | translate}}</a>
+            </li>  
+            <li *ngIf="loggedIn()" (click)="showMenu()">
+              <a routerLink="/product/wishlist">{{'whishList' | translate}}</a>
+            </li>       
+            <li (click)="showMenu()">
+              <a routerLink="/about-us">{{'about-us' | translate}}</a>
+            </li>
+            <li (click)="showMenu()"> 
+              <a routerLink="/FAQ">
+                {{'faq' | translate}}
+              </a>
+            </li>
+          </ul>
+          <div class="close" (click)="showMenu()">
+            <i class="fa fa-times"></i>
+          </div>
         </div>
     </div>
 

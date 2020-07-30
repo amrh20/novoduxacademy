@@ -70,6 +70,7 @@
      "add-to-Cart": "Add To Cart",
      "delete": "Delete",
      "whishList-empty": "Your WhishList Is Empty",
+     "whishList" : "my whishList",
      "write-your-title": "write-your-title",
      "write-suggestion": "Write your complaint or suggestion..",
      "please-choose":"Please choose",
@@ -115,5 +116,6 @@
      "checkout": "checkout",
      "write-your-coupon": "write your coupon",
      "empty-cart": "your cart is empty",
-     "back-to-website": "back to website"
+     "back-to-website": "back to website",
+     "about-the-author": "about the author"
 }
