@@ -11,6 +11,15 @@
         .products_widget {
             max-width: 25%;
             flex-basis: 25%;
+            @media (max-width: 420px) {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+            @media (min-width: 420.1px) and (max-width: 768px) {
+                max-width: 50%;
+                flex-basis: 50%;
+            }
+          
         }
     }
     a {

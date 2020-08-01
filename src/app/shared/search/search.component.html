@@ -12,7 +12,10 @@
 </div>
 <div class="search-result">
     <ng-container *ngIf="seachRes?.length;">
-        <div class="course">
+        <div class="course" [ngClass]="{'hide': hideSearchres}">
+            <!-- <div class="close-search">
+                <i class="fa fa-times"  (click)="hideSearch()"></i>
+            </div> -->
             <div class="course-content" *ngFor="let search of seachRes">
                  <div>
                      <a routerLink="/product/course/{{search.Id}}">

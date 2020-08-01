@@ -10,15 +10,26 @@
         background-color: #fff;
         padding: 10px 30px;
         border-radius: 10px;
+        @media (max-width: 768px) {
+            margin-left: 80px;
+            margin-right: 10px;
+        }
         [dir= rtl] & {
             margin-left: 60px;
             margin-right: 350px;
+            @media (max-width: 768px) {
+                margin-right: 80px;
+                margin-left: 10px;
+            }
         }
         p {
             font-size: 18px;
             font-weight: bold;
             text-transform: capitalize;
             color: $main-color;
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
         }
         button {
             font-size: 14px;
@@ -29,6 +40,9 @@
         padding-top: 92px;
         height: 100vh;
         background: #e8ecf5;
+        @media (max-width: 768px) {
+            margin-bottom: 50px;
+        }
         form {
             margin-left: 450px;
             text-align: center;
@@ -41,9 +55,16 @@
             text-align: center;
             position: relative;
             margin-bottom: 150px;
+            @media (max-width: 768px) {
+                margin-left: 68px;
+            }
             [dir= rtl] & {
                 margin-left: 0;
                 margin-right: 350px;
+                @media (max-width: 768px) {
+                    margin-right: 80px;
+                    margin-left: 10px;
+                }
             }
         }
         textarea {
@@ -62,19 +83,39 @@
                 border-radius: 5px 5px 5px 5px;
                 width: 85%;
                 border: 0;
+                @media (max-width: 768px) {
+                    width: 90%;
+                    font-size: 14px;
+                }
         }
         .labels {
             label {
                 margin-right: 30px;
                 text-transform: capitalize;
                 cursor: pointer;
+                @media (max-width: 768px) {
+                    margin-top: 10px;
+                   }
             }
             input {
                 width: fit-content;
                 margin-right: 7px;
                 cursor: pointer;
+                @media (max-width: 768px) {
+                    margin: 0;
+                }
             }
-           
+            span {
+                margin-right: 10px;
+                @media (max-width: 768px) {
+                    display: block;
+                }
+               
+            }
+            @media (max-width: 768px) {
+                margin: 15px 0;
+               }
+          
         }
         button {
             width: 85%;
@@ -93,6 +134,10 @@
             border-radius: 5px 5px 5px 5px;
             margin-top: 30px;
             margin-bottom: 30px;
+            @media (max-width: 768px) {
+                width: 90%;
+                font-size: 14px;
+            }
         }
     }
 }

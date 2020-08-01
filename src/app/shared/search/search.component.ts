@@ -15,13 +15,13 @@ export class SearchComponent implements OnInit {
   nores= false
   imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
   checkLang
+  hideSearchres: boolean
   constructor(private homeService: HomeService, private productService:ProductService,
     private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
     if(this.searchForm.value.search== '') {
-     console.log("tetet")
     }
   }
   
@@ -35,8 +35,13 @@ export class SearchComponent implements OnInit {
   // change(s) {
   //   console.log(s)
   // }
+  hideSearch() {
+    this.hideSearchres= true
+    console.log("test")
+  }
   Search() {
     this.loading= true
+    // this.hideSearchres= false
     const Word= this.searchForm.value.search
     this.homeService.search(Word).subscribe((res: any) => {
       this.seachRes= res.model

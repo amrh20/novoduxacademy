@@ -8,7 +8,6 @@
     }
     .courses-content {
         background: #e8ecf5;
-        height: 100vh;
     }
     .lds-ripple {
         top: 30%;
@@ -21,18 +20,18 @@
     .student-courses {
         position: relative;
         top: 95px;
-        height: 100vh;
-        margin-bottom: 150px;
+        padding-bottom: 150px;
         margin-left: 350px;
         [dir= rtl] & {
-            margin-left: 0;
+            margin-left: 20px;
             margin-right: 300px;
             @media (max-width: 768px) {
-                margin-right: 100px;
+                margin-right: 80px;
+                margin-left: 10px;
             }
         }
         @media (max-width: 768px) {
-            margin-left: 100px;
+            margin-left: 80px;
         }
         .view-btn {
             margin-bottom: 30px;

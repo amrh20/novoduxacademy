@@ -20,6 +20,10 @@
       visibility: hidden;
       transition: all .3s ease-in-out;
       width: 220px;
+      [dir= rtl] & {
+        left: 0;
+        right: -100px;
+      }
       @media (max-width: 768px) {
         width: 120px;
       }
@@ -138,15 +142,20 @@
              cursor: pointer;
          }
           a {
-            margin-right: 15px;
+            margin-right: 20px;
             cursor: pointer;
             color: #000;
             text-transform: capitalize;
             [dir= rtl] & {
               text-align: right;
+              margin-right: 0;
+              margin-left: 20px;
             }
             &:last-of-type {
               margin-right: 0;
+              [dir= rtl] & {
+                margin-left: 0;
+              }
             }
           }
         }
@@ -256,6 +265,9 @@
       display: block;
       max-width: 100%;
       flex-basis: 100%;
+      [dir=rtl] & {
+        text-align: right;
+      }
       i {
         font-size: 20px;
         color: $main-color;
@@ -274,6 +286,11 @@
     margin-top: 10px;
     left: -300px;
     transition: all .3s ease-in-out;
+    [dir= rtl] & {
+      left: auto;
+      right: -300px;
+      text-align: right;
+    }
     ul {
       li {
         margin-bottom: 15px;
@@ -317,6 +334,10 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    [dir= rtl] & {
+      right: auto;
+      left: 14px;
+    }
     i {
       font-size: 14px;
     color: #fff;
@@ -325,6 +346,10 @@
   }
   .show-side {
    left: 0;
+   [dir= rtl] & {
+     left: auto;
+     right: 0;
+   }
   }
 }
 

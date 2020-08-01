@@ -26,7 +26,7 @@ export class MainSliderComponent implements OnInit {
   ]
  // Slick slider config
  public sliderConfig: any = {
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 2000,
   arrows: false,
   dots: true,

@@ -3,7 +3,7 @@
     "courses": "courses",
     "about-us": "about us",
     "faq": "faq",
-    "search-your-course": "Search Your Cours",
+    "search-your-course": "Search Your Course",
     "search": "search",
     "select-category": "select category",
     "select-sub-category": "select sub category",
@@ -117,5 +117,6 @@
      "write-your-coupon": "write your coupon",
      "empty-cart": "your cart is empty",
      "back-to-website": "back to website",
-     "about-the-author": "about the author"
+     "about-the-author": "about the author",
+     "show-filter": "show filter"
 }

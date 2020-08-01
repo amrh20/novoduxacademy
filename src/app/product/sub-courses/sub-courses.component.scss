@@ -235,6 +235,10 @@
     
     .show-filter {
         left: 0 !important;
+        [dir= rtl] & {
+            left: auto !important;
+            right: 0 !important;
+        }
     }
     .filter-btn {
         margin-bottom: 30px;
@@ -258,9 +262,7 @@
         padding: 0 5px;
        }
     }
-    .show-filter {
-        left: 0 !important;
-    }
+   
     .filter-btn {
         margin-bottom: 30px;
         display: none;

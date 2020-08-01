@@ -18,6 +18,11 @@
         position: relative;
         margin-bottom: 150px;
         padding: 20px;
+        @media (max-width: 768px) {
+            width: 90%;
+            margin: 0 auto;
+            bottom: 30px;
+        }
         .form-group {
             display: flex;
             align-items: center;
@@ -36,6 +41,7 @@
         }
         select {
             cursor: pointer;
+            width: 100%;
         }
         .geneder {
             label {

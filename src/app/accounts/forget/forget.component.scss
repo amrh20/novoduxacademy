@@ -19,6 +19,9 @@
                 border-bottom: 2px solid;
                 padding-bottom: 3px;
                 width: fit-content;
+                @media (max-width: 768px) {
+                    font-size: 20px;
+                }
             }
             p {
                 margin-bottom: 20px;

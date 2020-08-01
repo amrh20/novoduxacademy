@@ -7,9 +7,16 @@
         margin-left: 300px;
         font-size: 22px;
         text-transform: capitalize;
+        @media (max-width: 768px) {
+            margin-left: 80px;
+        }
         [dir= rtl] & {
             margin-left: 0;
             margin-right: 300px;
+            @media (max-width: 768px) {
+                margin-right: 80px;
+                margin-left: 10px;
+            }
         }
     }
     .wallet-content {
@@ -23,6 +30,9 @@
         padding: 20px;
         border-radius: 10px;
         text-align: center;
+        @media (max-width: 768px) {
+            width: 90%;
+        }
         a {
             font-size: 16px;
             color: $main-color;
@@ -33,13 +43,22 @@
         h2 {
             margin-bottom: 15px;
             color: $main-color;
+            @media (max-width: 768px) {
+                font-size: 20px;
+            }
         }
         p {
             font-size: 30px;
+            @media (max-width: 768px) {
+                font-size: 20px;
+            }
         }
     }
     .orders {
         margin-left: 60px;
+        @media (max-width: 768px) {
+            margin-left: 15px;
+        }
         h3 {
            
             width: fit-content;
@@ -54,7 +73,14 @@
             width: 90%;
             background: #fff;
             padding: 20px;
-            margin-bottom: 30px;    
+            margin-bottom: 30px;   
+            @media (max-width: 768px) {    
+             text-align: center;
+             [dir= rtl] & {
+                margin: 0 auto;
+                margin-top: 50px;
+             }
+            } 
             span {
                 background-color: $main-color;
                 padding: 10px;
@@ -64,6 +90,10 @@
             p {
                 display: inline-block;
                 margin-left: 50px;
+                @media (max-width: 768px) {
+                    margin: 15px 0;
+                    font-size: 20px;
+                }
             } 
         }
     }
