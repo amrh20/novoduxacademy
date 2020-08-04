@@ -89,6 +89,9 @@ export class RecommendCoursesComponent implements OnInit {
       else if (err.error.errors.message ==="This Course In your cart") {
         this.toastr.error('This Course In your cart')
       }
+      else if(err.error.errors?.message ==="This Course In your courses"){
+        this.toastr.error('This Course In your courses')
+      }
       else {
         this.toastr.error('something error')
       }

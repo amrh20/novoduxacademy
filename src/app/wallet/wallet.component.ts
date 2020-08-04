@@ -8,12 +8,13 @@ import { ProductService } from '../shared/services/product.service';
   styleUrls: ['./wallet.component.scss']
 })
 export class WalletComponent implements OnInit {
-
+  amounts;
   constructor(private router:Router,private productService: ProductService) { }
 
   ngOnInit(): void {
-      this.productService.getAllStudentTransactions().subscribe(res => {
-        console.log(res)
+      this.productService.getAllStudentTransactions().subscribe((res: any) => {
+        console.log("resssss",res)
+        this.amounts= res.model
       })
   }
   logout() {

@@ -17,10 +17,11 @@
                 <i class="fa fa-times"  (click)="hideSearch()"></i>
             </div> -->
             <div class="course-content" *ngFor="let search of seachRes">
+                <a routerLink="/product/course/{{search.Id}}" style="display: flex;color: inherit;">
                  <div>
-                     <a routerLink="/product/course/{{search.Id}}">
+                   
                      <img [src]="imagePath + search.Image" alt="">
-                    </a>
+                  
                  </div>
                  <div class="course-details">
                      <span>
@@ -45,6 +46,7 @@
                  <div class="fav">
                     <img src="../../../assets/images/wishlist.png" alt="" (click)="addToFav(search.Id)">
                 </div>
+                </a>
             </div>         
          </div>
     </ng-container>

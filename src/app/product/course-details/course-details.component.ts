@@ -21,9 +21,13 @@ export class CourseDetailsComponent implements OnInit {
   commentLoading: boolean
   reviewLoading: boolean
   checkLang
+  tester: boolean
+  textValue = 'initial value'
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   teachPath="http://novoduxapi.native-tech.co/Images/TeacherImages/" 
-  @ViewChild('replyInput') input:ElementRef; 
+  @ViewChild('replyInput') replyInput:ElementRef; 
+  
+  @ViewChild('fondovalor') fondovalor:ElementRef;
   form = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
@@ -38,11 +42,12 @@ export class CourseDetailsComponent implements OnInit {
               private productService : ProductService,
               private toastr: ToastrService) { }
   ngOnInit(): void {
+   
     this.activeRoute.params.subscribe(parm => {
       let id =parm.id
       this.productService.getCourseDetails(id).subscribe((res: any) => {
         this.coursdetails= res.model
-        console.log( this.coursdetails)
+        // console.log( this.coursdetails)
       })
       this.productService.getReviews(id).subscribe((res: any) => {
         this.reviews= res.model;
@@ -53,6 +58,9 @@ export class CourseDetailsComponent implements OnInit {
       localStorage.setItem('courseId',parm.id)
     })
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
+  }
+  testClick() {
+    // console.log('this.replyInput.nativeElement.value',this.fondovalor.nativeElement.value)
   }
   // comments
   get comment() {
@@ -112,7 +120,7 @@ export class CourseDetailsComponent implements OnInit {
  }
 
  replayCommentInput() {
-  this.input.nativeElement?.focus()
+  this.replyInput.nativeElement?.focus()
  }
  //  reviews
  get reviewComment() {

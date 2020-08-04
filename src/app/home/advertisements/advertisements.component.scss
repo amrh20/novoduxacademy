@@ -8,6 +8,17 @@
         }
     }
 }
+.title {
+    margin-top: 15px;
+    border-bottom: 2px solid #5E2266;
+    padding-bottom: 5px;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 25px;
+    color: #5E2266;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+}
 .empty {
     display: flex;
     align-items: center;

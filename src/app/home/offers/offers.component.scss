@@ -1,5 +1,10 @@
 @import "../../variables.scss";
 :host {
+    .offers {
+        border-top: 1px solid #e5e2e2;
+        border-bottom: 1px solid #e5e2e2;
+        padding: 20px ;
+    }
     .cart_view {  
         max-width: 25%;
         flex-basis: 25%;
@@ -21,11 +26,11 @@
        
         p {
             border-bottom: 2px solid $main-color;
-            padding-bottom: 5px;;
+            padding-bottom: 5px;
             width: fit-content;
             font-weight: 600;
             font-size: 25px;
-            margin-left: 120px;
+            color: $main-color;
             [dir= rtl] & {
                 margin-left: 0;
                 margin-right: 120px;

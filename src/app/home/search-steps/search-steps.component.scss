@@ -1,7 +1,18 @@
 @import "../../variables.scss";
 :host {
+    .steps-title {
+        h3 {
+            margin-top: 30px;
+            border-bottom: 2px solid #5E2266;
+            padding-bottom: 5px;
+            width: fit-content;
+            font-weight: 600;
+            font-size: 25px;
+            color: #5E2266;
+        }
+    }
     .steps {
-        margin-top: 150px;
+        margin-top: 50px;
        &__wrapper {
           box-shadow: rgba(0, 0, 0, 0.29) 0px 6px 18px 0px;
           background-color: #fff;

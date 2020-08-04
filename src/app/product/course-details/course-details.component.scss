@@ -234,11 +234,14 @@
                     margin-bottom: 10px;
                 }
            .review_comment {
-               margin-bottom: 30px;
-               background: #f3f2f2;
+               margin-bottom: 20px;
+               border-top: 1px solid #e5e2e2;
                padding: 10px;
                [dir= rtl] & {
                    text-align: right;
+               }
+               i {
+                   cursor: pointer;
                }
                     p {
                         margin-top: 10px;
@@ -362,6 +365,7 @@
         }
         .mat-tab-group {
             margin-bottom: 200px;
+            font-family: "Recursive", sans-serif;
         }
         .mat-tab-header-pagination-after 
         .mat-tab-header-pagination-chevron,
@@ -375,22 +379,28 @@
 
     }
     .comment {
-        color: $main-color;
-        font-weight: 800;
-        font-size: 12px;
+        color: #d2d2d2;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .replay {
+        text-transform: capitalize;
+        margin-left: 20px;
+        font-size: 15px;
     }
     .comment-container {
         display: flex;
-        align-items: center;
         img {
             height: 60px;
             width: 60px;
-            border-radius: 50%;
+            border: 1px solid #f5f5f5;
+            padding: 5px;
         }
         .review_comment-title {
             background-color: #fff;
-            max-width: 800px;
+            max-width: 95%;
             overflow: hidden;
+            width: 100%;
         }
     }
     .comment_date {
@@ -415,6 +425,7 @@
         height: 150px;
         background-color: #f6f6f6;
         border: 0 !important;
+
     }
     form {
         box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.3);
@@ -443,6 +454,10 @@
             margin-top: 30px;
             margin-bottom: 30px;
             font-family: "Cairo", "myFirstFont", sans-serif;
+        }
+        form {
+            padding: 0;
+            
         }
     }
     .videos-content {
@@ -481,12 +496,8 @@
     .review_comment-title { 
         cursor: pointer;
         position: relative;
-        // display: flex;
-        // align-items: center;
-        // justify-content: flex-start;
         background: #f5f5f5;
         width: fit-content;
-        padding: 10px;
         input {
             width: fit-content;
             margin-right: 20px;
@@ -503,6 +514,8 @@
             display: flex;
             min-width: 100px;
             align-items: center;
+            margin-bottom: 20px;
+            color: #a09e9e;
             [dir= rtl] & {
                 margin-right: 0;
                 margin-left: 20px;
@@ -512,11 +525,99 @@
             margin-top: 0 !important;
         }
     }
+    .reply-cooomm {
+        border-bottom: 0 !important;
+        p {
+            text-align: initial;
+            margin-left: 80px;
+        }
+        .product_rating {
+            display: block;
+            margin-left: 80px;
+        }
+    }
+    .Replys {
+        display: flex;
+        align-items: center !important;
+        margin-top: 10px;
+        &-desc {
+            margin-left: 20px;
+            .name {
+                color: $main-color
+            }
+            span {
+                display: block;
+            }
+        }
+        img {
+          height: 50px;
+          width: 50px;
+          border: 1px solid #f5f5f5;
+          padding: 5px;
+        }
+      }
+    .review-desc {
+        display: flex;
+        align-items: center;
+        span {
+            color: #d2d2d2;
+            font-size: 14px;
+        }
+        .desc-title {
+            margin-left: 20px;
+        }
+        img {
+            height: 60px;
+            width: 60px;
+            border: 1px solid #f5f5f5;
+            padding: 5px;
+        }
+        h5 {
+            font-size: 18px;
+            color: $main-color;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    }
+    .comment-desc {
+        height: 60px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+        h5 {
+            font-size: 18px;
+            color: $main-color;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    }
+    .add_comment {
+        form,.new-form {
+            display: flex;
+            align-items: center;
+            box-shadow: none;
+            textarea {
+                height: 50px;
+                box-shadow: none;
+                max-width: 83%;
+                flex-basis: 83%;
+                margin-right: 2%;
+                &:focus {
+                    background-color: #f6f6f6 !important;
+                }
+            }
+            button {
+                margin: 0;
+                max-width: 15%;
+                flex-basis: 15%;
+                height: 50px;
+                border-radius: 5px;
+            }
+        }
+    }
     .comment__reply {
         display: flex;
         align-items: center;
         width: 100%;
-        padding: 0 30px;
         .add_comment {
             max-width: 50%;
             flex-basis: 50%;
@@ -525,20 +626,44 @@
                 flex-basis: 100%;
                 margin-bottom: 30px;
             }
+          
         }
         .add_reply {
-            margin-left: 5%;
-            max-width: 45%;
-            flex-basis: 45%;
-            [dir= rtl] & {
-            margin-left: 0;
-            margin-right: 5%;
-            }
+            // margin-left: 5%;
+            // max-width: 45%;
+            // flex-basis: 45%;
+            // [dir= rtl] & {
+            // margin-left: 0;
+            // margin-right: 5%;
+            // }
             @media (max-width: 768px) {
                 max-width: 100%;
                 flex-basis: 100%;
                 margin: 0;
                 margin-bottom: 30px;
+            }
+            form {
+                display: flex;
+                align-items: center;
+                box-shadow: none;
+                width: 100%;
+                textarea {
+                    height: 50px;
+                    box-shadow: none;
+                    max-width: 83%;
+                    flex-basis: 83%;
+                    margin-right: 2%;
+                    &:focus {
+                        background-color: #f6f6f6 !important;
+                    }
+                }
+                button {                  
+                 margin: 0;
+                 max-width: 15%;
+                 flex-basis: 15%;
+                 height: 50px;
+                 border-radius: 5px;
+                }
             }
         }
         @media (max-width: 768px) {
@@ -581,7 +706,6 @@
       
     }
     .reviewImg {
-        max-height: 40px;
         display: inline-block;
     }
     .Teacher-details {

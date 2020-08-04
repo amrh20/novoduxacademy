@@ -21,6 +21,9 @@ export class CartComponent implements OnInit {
   couponForm= new FormGroup({
     coupon: new FormControl('',Validators.required)
   })
+  checkoutForm= new FormGroup({
+    payment: new FormControl('',Validators.required)
+  })
   constructor(private productService: ProductService,
     private toasterService: ToastrService,
     private router: Router) { }
@@ -73,9 +76,20 @@ export class CartComponent implements OnInit {
       }
     })
   }
+  get payment() {
+    return this.checkoutForm.value.payment
+   }
   checkout() {
-    this.productService.checkout().subscribe(res=> {
+    const FromWallet= this.checkoutForm.value.payment
+    this.productService.checkout(FromWallet).subscribe(res=> {
       this.router.navigate(['/success'])
+    },err =>{
+      if(err.error.errors.message==="Your money in Rewards not enough") {
+        this.toasterService.error('Your money in Rewards not enough')
+      }
+      else if (err.error.errors.message==="no money in wallet please charge your wallet") {
+        this.toasterService.error('no money in wallet please charge your wallet')
+      }
     })
   }
 }

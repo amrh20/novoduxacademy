@@ -99,10 +99,21 @@
                   </button>
                 </form>
               </div>
-              <div class="mt-5">
-                <button class="temp_button w-100" (click)="checkout()">
+              <div class="checkout-form">
+                <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+                  <p>payment methods :</p>
+                  <label for="wallet">
+                    <input type="radio" id="wallet" name="payment" value="true" formControlName="payment">
+                    from your wallet
+                  </label>
+                  <label for="balance">
+                    <input type="radio" id="balance" name="payment" value="false" formControlName="payment">
+                    from your Rewards
+                  </label>
+                <button class="temp_button w-100" type="submit" [disabled]="!checkoutForm.valid">
                   {{'checkout' | translate}}
-                </button>
+                 </button>
+                </form>
               </div>
   
             </div>

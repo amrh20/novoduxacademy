@@ -184,13 +184,15 @@ export class ProductService {
     return this.http.get(`${this.apiBaseURL}/ApplyPromoCode`,{params: params, headers: reqHeader })
   }
 
-  checkout() {
+  checkout(FromWallet) {
     let authToken = localStorage.getItem("authToken")
     const reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}`
     })
-    return this.http.get(`${this.apiBaseURL}/CheckOut`,{headers: reqHeader })
+    let params= new HttpParams()
+    params = params.append('FromWallet', FromWallet);
+    return this.http.get(`${this.apiBaseURL}/CheckOut`,{headers: reqHeader, params: params })
   }
   getAllStudentTransactions() {
     let authToken = localStorage.getItem("authToken")
@@ -200,7 +202,7 @@ export class ProductService {
     })
     let params= new HttpParams()
     params = params.append('Page', '0');
-    return this.http.get(`${this.apiBaseURL}/CheckOut`,{params: params, headers: reqHeader })
+    return this.http.get(`${this.apiBaseURL}/GetAllStudentTransactions`,{params: params, headers: reqHeader })
   }
 
   teacherProfileForStudent(TeacherId) {

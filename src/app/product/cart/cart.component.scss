@@ -1,4 +1,9 @@
 :host {
+    @media print {
+        html, body {
+           display: none !important;  /* hide whole page */
+        }
+    }
     .coupon {
         margin-top: 30px;
         form {
@@ -44,5 +49,25 @@
          z-index: 22;
         }
     }
-    
+    form {
+        label {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            cursor: pointer;
+            input {
+                width: auto;
+                margin-right: 10px;
+            }
+        }
+    }
+    .checkout-form {
+        margin-top: 30px;
+        p {
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+    }
 }
