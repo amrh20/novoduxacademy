@@ -9,6 +9,7 @@ import { ProductService } from '../shared/services/product.service';
 })
 export class WalletComponent implements OnInit {
   amounts;
+  checkLang
   constructor(private router:Router,private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -16,6 +17,8 @@ export class WalletComponent implements OnInit {
         console.log("resssss",res)
         this.amounts= res.model
       })
+      this.checkLang = localStorage.getItem('currentLanguage') || 'en'
+
   }
   logout() {
     localStorage.removeItem('authToken')

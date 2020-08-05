@@ -43,33 +43,38 @@
   <div class="wallet">
     <!-- {{'no-wallet-yet' | translate}} -->
     <div class="btns">
-      <p >{{'wallet' | translate}}</p>
+      <p>{{'wallet' | translate}}</p>
       <div class="btns-content">
-        <button >charge wallet</button>
-     </div>
+        <button>{{'charge-wallet' | translate}}</button>
+      </div>
     </div>
-   <div class="balance">
-    <div class="total-balance">
-      <h2>total balance</h2>
-      <p>{{amounts?.TotalAmount}}</p>
+    <div class="balance">
+      <div class="total-balance">
+        <h2>{{'total-balance' | translate}}</h2>
+        <p>{{amounts?.TotalAmount}}</p>
+      </div>
+      <div class="total-balance">
+        <h2>{{'total-rewards-balance' | translate}}</h2>
+        <p>{{amounts?.TotalRewardsAmount}}</p>
+      </div>
     </div>
-    <div class="total-balance">
-      <h2>Total Rewards balance</h2>
-      <p>{{amounts?.TotalRewardsAmount}}</p>
-    </div>
-   </div>
     <div class="orders">
-      <h3>your paied orders</h3>
+      <h3>{{'your-paied-orders' | translate}}</h3>
       <ng-container *ngIf="amounts?.StudentTransactions?.length; else noOrders">
         <div class="orders-content" *ngFor="let order of amounts?.StudentTransactions">
-          <span>{{order.Amount}} {{order.TransactionTypeName}}</span>
-          <p>order number : {{order.ReferenceNumber}}</p>
-          <p>Date: {{order.CreationDate}}</p>
+          <span>
+    
+            <ng-container *ngIf="checkLang== 'en'">{{order.Amount}} {{order.TransactionTypeName}}</ng-container>
+            <ng-container *ngIf="checkLang== 'ar'">{{order.Amount}} {{order.TransactionTypeNameLT}}</ng-container>
+          </span>
+          <p>{{'order-reference' | translate}} : {{order.ReferenceNumber}}</p>
+          <p>{{'Date' | translate}}: {{order.CreationDate}}</p>
         </div>
       </ng-container>
       <ng-template #noOrders>
-        <p style="min-height: 100px;text-align: center;margin-top: 20px;">there are not orders yet</p>
+        <p style="min-height: 100px;text-align: center;margin-top: 20px;">
+          {{'on-orders' | translate}}</p>
       </ng-template>
     </div>
   </div>
-</div>  
+</div>

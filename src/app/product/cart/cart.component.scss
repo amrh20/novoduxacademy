@@ -60,6 +60,10 @@
             input {
                 width: auto;
                 margin-right: 10px;
+                [dir= rtl] & {
+                    margin-right: 0;
+                    margin-left: 10px;
+                }
             }
         }
     }
@@ -68,6 +72,9 @@
         p {
             font-weight: 700;
             text-transform: capitalize;
+        }
+        [dir= rtl] & {
+            text-align: right;
         }
     }
 }

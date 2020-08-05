@@ -10,7 +10,8 @@
         </button>
     </form>
 </div>
-<div class="search-result">
+<div class="search-result" (clickOutside)="onClickedOutside($event)" 
+[exclude]="'.search-from'" [ngClass]="{'is-show': showSearch}" >
     <ng-container *ngIf="seachRes?.length;">
         <div class="course" [ngClass]="{'hide': hideSearchres}">
             <!-- <div class="close-search">
@@ -43,9 +44,9 @@
                         <ng-container *ngIf="checkLang== 'ar'">{{search.TeacherNameLT}}</ng-container>
                      </p>
                  </div>
-                 <div class="fav">
+                 <!-- <div class="fav">
                     <img src="../../../assets/images/wishlist.png" alt="" (click)="addToFav(search.Id)">
-                </div>
+                </div> -->
                 </a>
             </div>         
          </div>

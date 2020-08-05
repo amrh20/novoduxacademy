@@ -11,6 +11,7 @@ import { FilterComponent } from './filter/filter.component';
 import { TranslateModule, TranslateLoader, TranslateCompiler, TranslateParser, MissingTranslationHandler } from '@ngx-translate/core';
 import { SearchComponent } from './search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [HeaderComponent, NavbarComponent, FooterComponent, CourseItemComponent, FilterComponent, SearchComponent],
@@ -20,10 +21,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BarRatingModule,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClickOutsideModule
     ],
   exports:[HeaderComponent,SlickCarouselModule,FooterComponent,CourseItemComponent,
-    FilterComponent,TranslateModule,SearchComponent]
+    FilterComponent,TranslateModule,SearchComponent,ClickOutsideModule]
 })
 export class SharedModule { 
 

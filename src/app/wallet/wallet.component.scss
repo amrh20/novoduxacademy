@@ -112,7 +112,15 @@
                     margin: 15px 0;
                     font-size: 20px;
                 }
+                [dir= rtl] & {
+                    margin-left: 0;
+                    margin-right: 50px;
+                }
             } 
+            [dir= rtl] & {
+                margin: 40px auto;
+                text-align: right;
+            }
         }
     }
     .balance {
@@ -122,6 +130,10 @@
         .total-balance {
             &:nth-of-type(1) {
                 margin-right: 30px;
+                [dir= rtl] & {
+                    margin-right: 0;
+                    margin-left: 30px;
+                }
             }
         }
     }

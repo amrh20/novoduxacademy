@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   seachRes: any;
   loading: boolean
   nores= false
+  showSearch= true
   imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
   checkLang
   hideSearchres: boolean
@@ -42,6 +43,7 @@ export class SearchComponent implements OnInit {
   Search() {
     this.loading= true
     // this.hideSearchres= false
+    this.showSearch= true
     const Word= this.searchForm.value.search
     this.homeService.search(Word).subscribe((res: any) => {
       this.seachRes= res.model
@@ -51,6 +53,9 @@ export class SearchComponent implements OnInit {
       this.loading= false
     })
   }
+  onClickedOutside(e: Event) {
+    this.showSearch= false
+  } 
   addToFav(CourseId) {
     this.productService.addFavourite(CourseId).subscribe( res => {
       this.toastr.success('your course added successfully')

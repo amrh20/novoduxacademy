@@ -14,36 +14,37 @@
             </div>   
             <div class="form-group">
                 <textarea
-                formControlName="bio" name="bio" placeholder="about you.."></textarea>
+                formControlName="bio" name="bio" placeholder="{{'about-you' | translate}}.."></textarea>
               </div>
         <div class="form-group">
-            <span>Choose category:</span>
+            <span>{{'select-category' | translate}}:</span>
             <select name="category" id="category" 
                  class="category-select"
                  (change)="selectCategory($event.target.value)"
                  formControlName="category" name="category">
                 <option disabled selected>{{'select-another-category' | translate}}</option>
                 <option *ngFor="let category of categories" [ngValue]="category.Id">
-                    {{category.Name}}
-                    <!-- <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
-                    <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container> -->
+                    <ng-container *ngIf="checkLang== 'en'">{{category.Name}}</ng-container>
+                    <ng-container *ngIf="checkLang== 'ar'">{{category.NameLT}}</ng-container>
                 </option>
             </select>
         </div>
         <div class="form-group">
-            <span>Choose country:</span>
+            <span>{{'choose-country' | translate}}:</span>
             <select name="country" id="country" 
                  class="category-select"
                  (change)="selectCountry($event.target.value)"
                  formControlName="country" name="country">
                 <option disabled selected>{{'select-another-category' | translate}}</option>
                 <option *ngFor="let country of Countries" [ngValue]="country.Id">
-                    {{country.Name}}
+                
+                    <ng-container *ngIf="checkLang== 'en'">    {{country.Name}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'">    {{country.NameLT}}</ng-container>
                 </option>
-            </select>
+        </select>
         </div>
         <div class="form-group geneder">
-            <span>Geneder ( optional ):</span>
+            <span>{{'geneder-op' | translate}}:</span>
             <div *ngFor="let gen of geneder">
                 <label for="{{gen.type}}">
                     <input type="radio" value="{{gen.value}}"
@@ -53,7 +54,8 @@
                 </label>
             </div>
         </div>
-        <button type="submit">Update profile
+        <button type="submit">
+            {{'update-profile' | translate}}
             <i class="fa fa-spinner fa-spin ml-2" *ngIf="Loading"></i>
         </button>
     </form>

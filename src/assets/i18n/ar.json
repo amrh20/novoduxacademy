@@ -118,5 +118,19 @@
     "empty-cart": "سلة المشتريات لديك فارغة",
     "back-to-website": "العودة للصفحة الرئيسية",
     "about-the-author": "عن المدرب",
-    "show-filter": "اظهار التصنيف"
+    "show-filter": "اظهار التصنيف",
+    "advertisements": "الاعلانات",
+    "reply": "رد",
+    "charge-wallet": "شحن البطاقة",
+    "total-balance": "اجمالي رصيدك",
+    "total-rewards-balance":"اجمالي رصيد المكافاءت",
+    "your-Paied-Orders": "طلباتك المدفوعه",
+    "on-orders": "لا يوجد طلبات مدفوعه",
+    "order-reference": "مرجع الطلب",
+    "choose-country": "اختر الدولة",
+    "about-you": "عنك",
+    "update-profile": "تعديل",
+    "Payment-Methods": "طرق الدفع",
+    "From-Your-Wallet": "من محفظتك",
+    "From-Your-Rewards": "من المكافاءت الخاضة بك"
 }

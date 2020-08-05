@@ -22,6 +22,8 @@ export class CourseDetailsComponent implements OnInit {
   reviewLoading: boolean
   checkLang
   tester: boolean
+  showReplyInput: boolean= true
+  newarray: any[]= []
   textValue = 'initial value'
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   teachPath="http://novoduxapi.native-tech.co/Images/TeacherImages/" 
@@ -101,7 +103,6 @@ export class CourseDetailsComponent implements OnInit {
      this.toastr.success('your comment added successfully');
      this.replyform.reset()
      this.replyLoading =false
-    //  location.reload()
     this.productService.getComments(id).subscribe((res:any) => {
       this.comments= res.model
     })
@@ -119,8 +120,10 @@ export class CourseDetailsComponent implements OnInit {
   })
  }
 
- replayCommentInput() {
-  this.replyInput.nativeElement?.focus()
+ replayCommentInput(index) {
+  // this.replyInput.nativeElement?.focus()
+  console.log(index)
+  this.showReplyInput= !this.showReplyInput
  }
  //  reviews
  get reviewComment() {

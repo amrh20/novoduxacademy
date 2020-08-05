@@ -4,6 +4,7 @@
     "about-us": "about us",
     "faq": "faq",
     "search-your-course": "Search about your course",
+    "choose-country": "choose country",
     "search": "search",
     "select-category": "select category",
     "select-sub-category": "select sub category",
@@ -118,5 +119,18 @@
      "empty-cart": "your cart is empty",
      "back-to-website": "back to website",
      "about-the-author": "about the author",
-     "show-filter": "show filter"
+     "show-filter": "show filter",
+     "advertisements": "Advertisements",
+     "reply": "reply",
+     "charge-wallet": "charge wallet",
+     "total-balance": "Total Balance",
+     "total-rewards-balance":"Total Rewards Balance",
+     "your-Paied-Orders": "Your Paied Orders",
+     "There Are Not Orders Yet": "there are not orders yet",
+     "order-reference": "order-reference",
+     "about-you": "about you",
+     "update-profile": "Update profile",
+     "Payment-Methods": "Payment Methods",
+     "From-Your-Wallet": "From Your Wallet",
+     "From-Your-Rewards": "From Your Rewards"
 }

@@ -15,6 +15,7 @@ export class EditProfileComponent implements OnInit {
   categories
   Loading
   Countries
+  checkLang
   geneder= [
     {
       type: "male",
@@ -57,6 +58,8 @@ export class EditProfileComponent implements OnInit {
     this.categories= res.model.Categories
     this.Countries= res.model.Countries
   })
+  this.checkLang = localStorage.getItem('currentLanguage') || 'en'
+
   }
   selectCategory(e) {
   localStorage.setItem('CategoryId',e)

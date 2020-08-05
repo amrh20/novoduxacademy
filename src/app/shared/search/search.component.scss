@@ -37,6 +37,12 @@
             color: #EDB867 !important;
         }
     }
+    .search-result {
+        display: none;
+    }
+    .is-show {
+        display: block !important;
+    }
     .course-cost {
         [dir= rtl] & {
             text-align: right;
@@ -80,8 +86,9 @@
         @media (max-width: 768px) {
             top: -5px;
             height: 40px;
-            width: 70px;
+            width: 110px;
             right: 0;
+            font-size: 14px;
         }
         [dir= rtl] & {
             right: auto;

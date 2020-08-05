@@ -101,14 +101,14 @@
               </div>
               <div class="checkout-form">
                 <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
-                  <p>payment methods :</p>
+                  <p>{{'Payment-Methods' | translate}}:</p>
                   <label for="wallet">
                     <input type="radio" id="wallet" name="payment" value="true" formControlName="payment">
-                    from your wallet
+                    {{'From-Your-Wallet' | translate}}
                   </label>
                   <label for="balance">
                     <input type="radio" id="balance" name="payment" value="false" formControlName="payment">
-                    from your Rewards
+                    {{'From-Your-Rewards' | translate}}
                   </label>
                 <button class="temp_button w-100" type="submit" [disabled]="!checkoutForm.valid">
                   {{'checkout' | translate}}

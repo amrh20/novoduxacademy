@@ -1,40 +1,42 @@
-<div class="advertisements" *ngIf="advertisements?.length">
-
-    <div class="container">
-        <h3 class="title">advertisements</h3>
-        <div class="advertisements-content">
-            <div class="left">
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Molestiae quas natus quos. Dicta dolorem voluptatum aut.
-                   Eos est natus ducimus repellat hic? Numquam voluptatem delectus reprehenderit aliquid.
-            </div>
-            <div class="right">
-                <ng-container *ngIf="advertisements; else NoAd">
-                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
-                        <div ngxSlickItem class="slide" *ngFor= "let ad of advertisements">
-                          <div class="slide_img ads">
-                            <img [src]="imagePath + ad.Image" alt="">
+<ng-container *ngIf="advertisements?.length; esle noAds">
+    <div class="advertisements">
+        <div class="container">
+            <h3 class="title">{{'advertisements' | translate}}</h3>
+            <div class="advertisements-content">
+                <div class="left">
+                      {{'loream' | translate}}
+                </div>
+                <div class="right">
+                    <ng-container *ngIf="advertisements; else NoAd">
+                        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
+                            <div ngxSlickItem class="slide" *ngFor= "let ad of advertisements">
+                              <div class="slide_img ads">
+                                <img [src]="imagePath + ad.Image" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h3>
+                                        
+                                        <ng-container *ngIf="checkLang== 'en'">{{ad?.Title}}</ng-container>
+                                        <ng-container *ngIf="checkLang== 'ar'">{{ad?.TitleLT}}</ng-container>
+                                    </h3>
+                                    <p>
+                                        <ng-container *ngIf="checkLang== 'en'">{{ad?.Description}}</ng-container>
+                                        <ng-container *ngIf="checkLang== 'ar'">{{ad?.DescriptionLT}}</ng-container>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="txt">
-                                <h3>
-                                    
-                                    <ng-container *ngIf="checkLang== 'en'">{{ad?.Title}}</ng-container>
-                                    <ng-container *ngIf="checkLang== 'ar'">{{ad?.TitleLT}}</ng-container>
-                                </h3>
-                                <p>
-                                    <ng-container *ngIf="checkLang== 'en'">{{ad?.Description}}</ng-container>
-                                    <ng-container *ngIf="checkLang== 'ar'">{{ad?.DescriptionLT}}</ng-container>
-                                </p>
-                            </div>
+                          </ngx-slick-carousel>
+                    </ng-container>
+                    <ng-template #NoAd>
+                        <div class="empty">
+                            no ads yet
                         </div>
-                      </ngx-slick-carousel>
-                </ng-container>
-                <ng-template #NoAd>
-                    <div class="empty">
-                        no ads yet
-                    </div>
-                </ng-template>
-            </div>
-        </div>      
+                    </ng-template>
+                </div>
+            </div>      
+        </div>
     </div>
-</div>
+</ng-container>
+<ng-template #noAds>
+  <p class="text-center">no advertisements yet</p>
+</ng-template>
