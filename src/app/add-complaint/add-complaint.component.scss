@@ -58,12 +58,19 @@
             @media (max-width: 768px) {
                 margin-left: 68px;
             }
+            @media (min-width: 768.1px) and (max-width: 992px) {
+                margin-left: 310px;
+            }
             [dir= rtl] & {
                 margin-left: 0;
                 margin-right: 450px;
                 @media (max-width: 768px) {
                     margin-right: 80px;
                     margin-left: 10px;
+                }
+
+                @media (min-width: 768.1px) and (max-width: 992px) {
+                    margin-right: 310px;
                 }
             }
         }

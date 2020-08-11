@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../shared/services/home.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-advertisements-details',
@@ -16,12 +17,16 @@ export class AdvertisementsDetailsComponent implements OnInit {
   reserveform= new FormGroup ( {
     comment: new FormControl('', Validators.required)
   })
-  constructor(private homeService: HomeService,private toastr: ToastrService) { }
+  constructor(private homeService: HomeService,private toastr: ToastrService,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.homeService.getAdvertisementDetails().subscribe((res: any) => {
       this.details= res.model
-      localStorage.setItem('AdvertisementId',res.model.Id)
+      this.activeRoute.params.subscribe(params => {
+        localStorage.setItem('AdvertisementId',params.id)
+      })
+    
     })
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }

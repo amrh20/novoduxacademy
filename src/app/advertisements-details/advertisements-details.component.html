@@ -15,7 +15,7 @@
         <form [formGroup]="reserveform" (ngSubmit)="reserve()">
             <textarea name="" id="" cols="30" rows="10" formControlName="comment" name="comment"
                 placeholder="{{'write-your-comment' | translate}}"></textarea>
-            <button [disabled]="!reserveform.valid">{{'reserve' | translate}}</button>
+            <button [disabled]="!reserveform.valid">{{'order-now' | translate}}</button>
         </form>
     </div>
 </div>

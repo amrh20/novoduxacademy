@@ -16,24 +16,22 @@
                             <div class="filter_box">
                                 <ul class="filter_box-title">
                                     <li *ngFor="let taxon of listOfCategory; let i= index">
-                                        <div class="taxons-title">
+                                        <div class="taxons-title" (click)="hideme[i] = !hideme[i]">
                                             <a>
                                                 <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
                                                 <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
                                             </a>
-                                            <i class="fa fa-chevron-down" *ngIf="taxon?.SubCategories"></i>
+                                            <i class="fa fa-chevron-down" 
+                                            *ngIf="taxon?.SubCategories?.length"></i>
                                         </div>
-                                        <ng-container *ngIf="taxon?.SubCategories">
-                                            <ul class="subtaxon">
+                                            <ul class="subtaxon" [hidden]="!hideme[i]">
                                                 <li *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
                                                     <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
                                                         <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
                                                         <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
                                                     </a>
                                                 </li>
-                                            </ul>
-                    
-                                        </ng-container>
+                                            </ul>                    
                                     </li>
                     
                                 </ul>

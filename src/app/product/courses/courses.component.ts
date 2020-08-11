@@ -17,6 +17,7 @@ export class CoursesComponent implements OnInit {
   showFilter:boolean
   checkLang
   listOfCategory
+  hideme= []
   constructor(private activeRoute:ActivatedRoute,
     private productService:ProductService,
     private toastr: ToastrService,private homeService:HomeService) { 

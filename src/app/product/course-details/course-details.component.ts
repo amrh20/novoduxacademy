@@ -13,6 +13,7 @@ export class CourseDetailsComponent implements OnInit {
   coursdetails: any;
   reviews: any;
   comments:any;
+  hideme= []
   errorComment: string
   errorReview: string
   errorReply: string
@@ -44,7 +45,6 @@ export class CourseDetailsComponent implements OnInit {
               private productService : ProductService,
               private toastr: ToastrService) { }
   ngOnInit(): void {
-   
     this.activeRoute.params.subscribe(parm => {
       let id =parm.id
       this.productService.getCourseDetails(id).subscribe((res: any) => {
@@ -120,10 +120,12 @@ export class CourseDetailsComponent implements OnInit {
   })
  }
 
- replayCommentInput(index) {
+ replayCommentInput(index,id) {
   // this.replyInput.nativeElement?.focus()
-  console.log(index)
-  this.showReplyInput= !this.showReplyInput
+  console.log(index,id)
+  
+  // this.showReplyInput= !this.showReplyInput
+
  }
  //  reviews
  get reviewComment() {

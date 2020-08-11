@@ -1,8 +1,23 @@
 @import "../variables.scss";
 :host {
+    .col-course {
+        max-width: 25%;
+        flex-basis: 25%;
+        padding: 0 10px;
+        margin-bottom: 30px;
+        @media (max-width: 420px) {
+            max-width: 100%;
+        flex-basis: 100%;
+        }
+        @media (min-width: 420.1px) and (max-width: 992px) {
+            max-width: 50%;
+            flex-basis: 50%;
+        }
+     
+    }
     .student-courses-cotent {
      margin-right: 60px;
-     @media (max-width: 380px) {
+     @media (max-width: 768px) {
          margin-right: 10px;
      }
     }
@@ -42,7 +57,7 @@
             background-color: #fff;
             padding: 10px 30px;
             border-radius: 10px;
-            @media (max-width: 380px) {
+            @media (max-width: 768px) {
                 display: block;
                 margin-right: 10px;
                 text-align: center;

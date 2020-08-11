@@ -23,7 +23,7 @@ const routes: Routes = [
   component: AddComplaintComponent
  },
  {
-  path: 'ad',
+  path: 'ad/:id',
   component: AdvertisementsDetailsComponent
  },
  {

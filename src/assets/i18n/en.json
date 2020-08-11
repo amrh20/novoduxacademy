@@ -132,5 +132,9 @@
      "update-profile": "Update profile",
      "Payment-Methods": "Payment Methods",
      "From-Your-Wallet": "From Your Wallet",
-     "From-Your-Rewards": "From Your Rewards"
+     "From-Your-Rewards": "From Your Rewards",
+     "order-now": "order now",
+     "discount": "discount",
+    "subtotal": "subtotal",
+    "referral-code": "referral code"
 }

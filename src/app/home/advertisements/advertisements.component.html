@@ -1,6 +1,7 @@
 <ng-container *ngIf="advertisements?.length; esle noAds">
     <div class="advertisements">
         <div class="container">
+         
             <h3 class="title">{{'advertisements' | translate}}</h3>
             <div class="advertisements-content">
                 <div class="left">
@@ -10,12 +11,12 @@
                     <ng-container *ngIf="advertisements; else NoAd">
                         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">       
                             <div ngxSlickItem class="slide" *ngFor= "let ad of advertisements">
+                                <a routerLink="/ad/{{ad.Id}}">
                               <div class="slide_img ads">
                                 <img [src]="imagePath + ad.Image" alt="">
                                 </div>
                                 <div class="txt">
-                                    <h3>
-                                        
+                                    <h3>    
                                         <ng-container *ngIf="checkLang== 'en'">{{ad?.Title}}</ng-container>
                                         <ng-container *ngIf="checkLang== 'ar'">{{ad?.TitleLT}}</ng-container>
                                     </h3>
@@ -24,6 +25,7 @@
                                         <ng-container *ngIf="checkLang== 'ar'">{{ad?.DescriptionLT}}</ng-container>
                                     </p>
                                 </div>
+                                </a>
                             </div>
                           </ngx-slick-carousel>
                     </ng-container>

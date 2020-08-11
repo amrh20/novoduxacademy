@@ -15,6 +15,7 @@ export class CollectionsComponent implements OnInit {
   showFilter: boolean
   listOfCategory
   checkLang
+  hideme= []
   constructor(private productService:ProductService,private homeService : HomeService) { }
   ngOnInit(): void {
    this.loading= true

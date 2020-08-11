@@ -177,7 +177,9 @@
                     (change)="selectOption($event.target.value)" class="d-none">
                   <span>{{comment?.Comment}}
                   </span>
-                  <span (click)="replayCommentInput(i)" class="reply-label">{{'reply' | translate}}</span>
+                  <span (click)="hideme[i] = !hideme[i]" class="reply-label">{{'reply' | translate}}</span>
+               
+                  <!-- <div >The content will show/hide</div> -->
                 </label>
                 <div class="replys" *ngFor="let reply of comment.Replies">
                   <div class="Replys" [ngClass]="{'margin': comment?.StudentImage }">
@@ -188,6 +190,9 @@
                       <span class="name">
                         {{reply?.StudentName}}
                       </span>
+                      <span class="date">
+                        {{reply?.CreationDate}}
+                      </span>
                       <span>
                         {{reply.ReplyText}}
                       </span>
@@ -195,7 +200,7 @@
 
                   </div>
                 </div>
-                <div class="comment__reply" [ngClass]="{'show-input': showReplyInput}">
+                <div class="comment__reply" [hidden]="!hideme[i]">
                   <div class="add_reply">
                     <div class="alert alert-danger mt-3" *ngIf="errorReply" style="width: 460px; margin: 0 auto">
                       {{errorReply}}</div>

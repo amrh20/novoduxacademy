@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http:HttpClient) { }
   register(Name :string,PhoneKey:string,PhoneNumber,
     CategoryId:string,Password:string,ConfirmPassword:string,Email: any,
-    ProfileImage: any,CountryId: any,GenderId,Bio) {
+    ProfileImage: any,CountryId: any,GenderId,Bio,ReferralBy) {
     return this.http.post(`${this.apiBaseURL}/Register`,{
       Name,
       PhoneKey,
@@ -23,7 +23,8 @@ export class AuthService {
       ProfileImage,
       CountryId,
       GenderId,
-      Bio
+      Bio,
+      ReferralBy
     })
   }
    

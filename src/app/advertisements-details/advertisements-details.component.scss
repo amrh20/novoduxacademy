@@ -16,31 +16,13 @@
           
         }
         textarea {
-         display: block;
-         margin-top: 10px;
-         margin-left: 50px;
-         margin: 0 auto;
-         border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
-         border-image: none;
-         border-radius: 6px 6px 6px 6px;
-         border-style: none solid solid none;
-         border-width: medium 1px 1px medium;
-         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-         color: #555555;
-         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-         font-size: 1em;
-         line-height: 1.4em;
-         padding: 10px;
-         transition: background-color 0.2s ease 0s;
-         resize: none;
-         width: 40%;
-         margin: 40px auto;
-         height: 150px;
-         &:focus {
-             background: none repeat scroll 0 0 #FFFFFF;
-            outline-width: 0;
-         }
          
+         height: 150px;
+         background-color: #f6f6f6;
+         border: none;
+         border-radius: 5px 5px 5px 5px;
+         width: 100%;
+         padding: 5px;
         }
         form {
             text-align: center;
@@ -53,5 +35,14 @@
         [dir= rtl] & {
             text-align: right;
         }
+     }
+     form {
+        width: 40%;
+        margin: 0 auto;
+        background: #fff;
+        max-width: 450px;
+        box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+        position: relative;
+        padding: 20px;
      }
 }

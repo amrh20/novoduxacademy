@@ -28,10 +28,15 @@ export class ProductService {
     return this.http.get(`${this.apiBaseURL}/GetAllCourses`, { params: params, headers: reqHeader })
   }
   getSubTaxonsCourses(parameters) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
     let params = new HttpParams();
     params = params.append('SubCategoryId', parameters);
     params = params.append('Page', '0');
-    return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`, { params: params })
+    return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`, { params: params, headers: reqHeader })
   }
     
   GetTaxons() {

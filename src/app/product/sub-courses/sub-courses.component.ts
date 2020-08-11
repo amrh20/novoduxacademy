@@ -13,6 +13,7 @@ export class SubCoursesComponent implements OnInit {
   listOfCategory;
   checkLang
   showFilter
+  hideme= []
   constructor(private productService:ProductService,
     private activeRoute:ActivatedRoute,private homeService:HomeService) { }
   // @ViewChild('myInput') myInput:ElementRef; 
@@ -24,6 +25,7 @@ export class SubCoursesComponent implements OnInit {
       let id =parm.id
       this.productService.getSubTaxonsCourses(id).subscribe((res: any) => {
         this.subCourses= res.model
+        console.log("subCourses", this.subCourses)
       })
     })
 

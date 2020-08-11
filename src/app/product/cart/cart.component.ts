@@ -12,10 +12,12 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   Courses
   checkLang
+  couponValue
   imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
   totalPrice
   loading: boolean
   overlay: boolean
+  CoursesPrice
   invalidConpou: String= ''
   couponLoading: boolean
   couponForm= new FormGroup({
@@ -35,6 +37,9 @@ export class CartComponent implements OnInit {
       this.loading= false
       this.Courses= res.model.CartItems
       this.totalPrice= res.model.TotalPrice
+      this.couponValue= res?.model?.PromoCodeValue
+      this.CoursesPrice= res?.model.CoursesPrice
+      console.log(this.couponValue)
     })
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
@@ -66,6 +71,9 @@ export class CartComponent implements OnInit {
         this.loading= false
         this.Courses= res.model.CartItems
         this.totalPrice= res.model.TotalPrice
+        this.couponValue= res?.model?.PromoCodeValue
+        this.CoursesPrice= res?.model.CoursesPrice
+
         this.couponForm.reset()
         this.invalidConpou= ''
       })

@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   checkLang
   imageSrc: string = '';
   test: any
+  ReferralError: string= ''
   regform = new FormGroup({
     name: new FormControl('', Validators.required),
     Phone: new FormControl('', [Validators.required, Validators.maxLength(11), Validators.minLength(7)]),
@@ -28,7 +29,8 @@ export class RegisterComponent implements OnInit {
     image: new FormControl(),
     country: new FormControl(),
     genederInput: new FormControl(),
-    bio: new FormControl()
+    bio: new FormControl(),
+    ReferralBy: new FormControl()
   });
 
   phoneKeys = [
@@ -94,6 +96,9 @@ export class RegisterComponent implements OnInit {
   get bio() {
     return this.regform.get('bio')
   }
+  get ReferralBy() {
+    return this.regform.get('ReferralBy')
+  }
   // selectOption(id: number) {
   //  }
 
@@ -128,14 +133,17 @@ export class RegisterComponent implements OnInit {
   const ProfileImage= this.test
   const GenderId= this.regform.value.genederInput
   const Bio= this.regform.value.bio
+  const ReferralBy= this.regform.value.ReferralBy
    this.authService.register(Name,PhoneKey,PhoneNumber ,CategoryId,Password,
-    ConfirmPassword,Email,ProfileImage,CountryId,GenderId,Bio).subscribe(res=> {  
+    ConfirmPassword,Email,ProfileImage,CountryId,GenderId,Bio,ReferralBy).subscribe(res=> {  
      this.regform.reset()
      this.router.navigate(['/verfiy'])
      this.overlay= false
      this.loading= false
    },err => {
-    this.regform.reset()
+     if (err.error.errors.message= "Invalid Referral Code") {
+      this.ReferralError= "Invalid Referral Code"
+     }
     this.overlay= false
     this.loading= false
    }) 

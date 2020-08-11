@@ -43,7 +43,7 @@
                       </div>
     
                     </div>
-                    <div class="product_price d-flex align-items-center">
+                    <div class="product_price d-flex align-items-center ml-5">
                       <div class="original_price">
                         {{course?.Course?.PreviousCost}}
                       </div>
@@ -84,6 +84,14 @@
                   <h2>{{'order-summary' | translate}}</h2>
                 </div>
                 <div class="cart-checkout">
+                  <div class="cart-checkout-item total-item">
+                    <span>{{'subtotal' | translate}}</span>
+                    <span class="cart-total">{{CoursesPrice}}</span>
+                  </div>
+                  <div class="cart-checkout-item total-item">
+                    <span>{{'discount' | translate}}</span>
+                    <span class="cart-total">{{couponValue}}</span>
+                  </div>
                   <div class="cart-checkout-item total-item">
                     <span>{{'total' | translate}}</span>
                     <span class="cart-total">{{totalPrice}}</span>

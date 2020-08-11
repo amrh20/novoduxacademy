@@ -22,7 +22,8 @@
                         </div>
                         <div class="phone_content">
                             <!-- <div class="form-group" class="left_side"> -->
-                                <select name="phoneKey" id="" formControlName="phoneKey" style="width:40% ; margin-left:35px">
+                                <select name="phoneKey" id="" formControlName="phoneKey"
+                                  >
                                     <option value="">{{'code' | translate}}</option>
                                     <option value="{{key.num}}" *ngFor="let key of phoneKeys">{{key.num}}</option>
                                 </select>
@@ -55,6 +56,13 @@
                         </div>
                         <div *ngIf="email.touched && email.errors?.pattern" class="alert alert-danger">
                             write correct email
+                        </div>
+                        <div class="alert alert-danger mt-2 mb-2" *ngIf="ReferralError"> {{ReferralError}}</div>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="ReferralBy" 
+                            placeholder="{{'referral-code' | translate}}" 
+                            formControlName="ReferralBy">
                         </div>
                         <div class="form-group">
                             <input type="password" id="password" placeholder="{{'Password' | translate}}*"
@@ -97,7 +105,7 @@
                             </select>
                         </div>
                         <div class="form-group geneder">
-                            <span>{{'geneder-op' | translate}}:</span>
+                            <span>{{'geneder-op' | translate}}</span>
                             <div *ngFor="let gen of geneder">
                                 <label for="{{gen.type}}">
                                     <input type="radio" value="{{gen.value}}"
