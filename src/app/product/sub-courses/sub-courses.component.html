@@ -1,7 +1,7 @@
 <div class="shop_Content">
     <div class="container">
         <div class="row">
-            <button class="filter-btn" (click)="show()">show filter</button>
+            <button class="filter-btn" (click)="show()">{{'show-filter' | translate}}</button>
                 <div class="filter_col" [ngClass]="{'show-filter': showFilter}">
                     <div class="filter">
                         <div class="close" (click)="close()">

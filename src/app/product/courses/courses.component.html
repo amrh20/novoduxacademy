@@ -1,7 +1,7 @@
 <ng-container *ngIf="courses.length; else noSub">
     <div class="shop_Content">
         <div class="container">
-            <button class="filter-btn" (click)="show()">show filter</button>
+            <button class="filter-btn" (click)="show()">{{'show-filter' | translate}}</button>
             <div class="row">
                 <div class="filter_col" [ngClass]="{'show-filter': showFilter}">
                     <div class="filter">

@@ -5,11 +5,11 @@
         text-align: center;
       }
     }
-    display: flex;          // by me
-    align-items: center;    // by me
-    flex-direction: column; // by me
-    // margin-bottom: 500px;   // by me
-    background-color: #F5F7F8;
+    .login-container {
+      background-color: #F5F7F8;
+      height: 100vh;
+      padding-top: 30px;
+    }
     .back {
       margin-top: 30px;
       text-align: left;
@@ -17,6 +17,7 @@
       margin-left: 150px;
       text-transform: capitalize;
       color: $main-color;
+      display: block;
       [dir= rtl] & {
         margin-left: 0;
         margin-right: 60px;
@@ -37,6 +38,7 @@
           border: 1.5px solid #8e8e8e;
           padding: 5px 10px;
           margin-right: 20px;
+          height: 50px;
           [dir= rtl] & {
             margin-right: 0;
             margin-left: 20px;
@@ -44,7 +46,6 @@
         }
       }
      
-        -webkit-border-radius: 10px 10px 10px 10px;
         border-radius: 10px 10px 10px 10px;
         background: #fff;
         padding: 30px;
@@ -55,8 +56,8 @@
         -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
         box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
         text-align: center;
-
-      &__wrapper {
+        margin: 0 auto;
+        &__wrapper {
         [dir= rtl] & {
           text-align: center;
         }

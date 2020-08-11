@@ -148,6 +148,9 @@
                 }
                 @media (max-width: 768px) {
                     margin-right: 15px;
+                    [dir= rtl] & {
+                        margin-right: 15px;
+                    }
                 }
             }
         }

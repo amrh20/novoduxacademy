@@ -112,6 +112,7 @@
         // width: 100%;
         color: #8e8e8e;
         text-transform: capitalize;
+        height: 50px;
       }
       option {
         border: 0 !important;
@@ -290,6 +291,12 @@
       padding: 10px;
       text-transform: capitalize;
        width: 30%;
+       height: 50px;
+       @media (max-width: 380px) {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+      }
       [dir= rtl] & {
         margin-right: 0;
         margin-left: 35px;
@@ -316,6 +323,9 @@
     }
     input {
       width: 100%;
+    }
+    @media (max-width: 380px) {
+      display: block;
     }
  }
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

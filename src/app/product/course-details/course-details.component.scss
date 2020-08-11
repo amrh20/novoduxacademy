@@ -266,6 +266,15 @@
                                 }
                             }
                         }   
+                        @media (max-width: 380px) {
+                            width: 280px;
+                        }
+                        @media (min-width: 380.1px) and (max-width: 560px) {
+                            width: 350px;
+                        }
+                        // @media (min) {
+                            
+                        // }
                  }  
           .product_rating {
                     margin-bottom: 10px;
