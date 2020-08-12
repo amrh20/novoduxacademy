@@ -1,48 +1,66 @@
 @import "../variables.scss";
+
 :host {
-    .details {
-        padding-top: 120px;
-        padding-bottom: 120px;
-        .details_content {
-         position: relative;
-         p {
-             margin: 20px 0;
-             color: $main-color;
-             font-size: 20px;
-             &:first-of-type {
-                 font-weight: bold;
-             }
-            }
-          
+  .details {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    .details_content {
+      position: relative;
+
+      img {
+        max-width: 100%;
+      }
+
+      p {
+        margin: 20px 0;
+        color: $main-color;
+        font-size: 20px;
+
+        &:first-of-type {
+          font-weight: bold;
         }
-        textarea {
-         
-         height: 150px;
-         background-color: #f6f6f6;
-         border: none;
-         border-radius: 5px 5px 5px 5px;
-         width: 100%;
-         padding: 5px;
-        }
-        form {
-            text-align: center;
-        }
-        .error {
-            width: 40%;
-            margin: 0 auto;
-            margin-top: 20px;
-        }
-        [dir= rtl] & {
-            text-align: right;
-        }
-     }
-     form {
-        width: 40%;
-        margin: 0 auto;
-        background: #fff;
-        max-width: 450px;
-        box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-        position: relative;
-        padding: 20px;
-     }
+      }
+
+    }
+
+    textarea {
+
+      height: 150px;
+      background-color: #f6f6f6;
+      border: none;
+      border-radius: 5px 5px 5px 5px;
+      width: 100%;
+      padding: 5px;
+    }
+
+    form {
+      text-align: center;
+
+      @media (max-width: 768px) {
+        width: 95%;
+        margin-top: 50px;
+      }
+    }
+
+    .error {
+      width: 40%;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    [dir=rtl] & {
+      text-align: right;
+    }
+  }
+
+  form {
+    width: 40%;
+    margin: 0 auto;
+    background: #fff;
+    max-width: 450px;
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 20px;
+  }
 }
