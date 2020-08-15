@@ -67,7 +67,6 @@
        
     }
     h2 {
-      
         width: fit-content;
         border-bottom: 2px solid $main-color;
         padding-bottom: 5px;
@@ -75,11 +74,7 @@
         font-size: 25px;
         text-transform: capitalize;
         font-weight: 600;
-        margin-left: 120px;
-        [dir= rtl] & {
-            margin-left: 0;
-            margin-right: 120px;
-        }
+    
         @media (max-width: 768px) {
             margin: 0 auto;
             margin-bottom: 40px;

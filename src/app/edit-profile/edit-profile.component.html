@@ -12,12 +12,9 @@
                 <input type="email" value="{{profileDetails?.Email}}"
                 formControlName="email" name="email" placeholder="your email">
             </div>   
-            <div class="form-group">
-                <textarea
-                formControlName="bio" name="bio" placeholder="{{'about-you' | translate}}.."></textarea>
-              </div>
+         
         <div class="form-group">
-            <span>{{'select-category' | translate}}:</span>
+            <span>{{'select-category' | translate}}</span>
             <select name="category" id="category" 
                  class="category-select"
                  (change)="selectCategory($event.target.value)"
@@ -30,7 +27,7 @@
             </select>
         </div>
         <div class="form-group">
-            <span>{{'choose-country' | translate}}:</span>
+            <span>{{'choose-country' | translate}}</span>
             <select name="country" id="country" 
                  class="category-select"
                  (change)="selectCountry($event.target.value)"
@@ -38,13 +35,13 @@
                 <option disabled selected>{{'select-another-category' | translate}}</option>
                 <option *ngFor="let country of Countries" [ngValue]="country.Id">
                 
-                    <ng-container *ngIf="checkLang== 'en'">    {{country.Name}}</ng-container>
-                  <ng-container *ngIf="checkLang== 'ar'">    {{country.NameLT}}</ng-container>
+                    <ng-container *ngIf="checkLang== 'en'">  {{country.Name}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'">   {{country.NameLT}}</ng-container>
                 </option>
         </select>
         </div>
         <div class="form-group geneder">
-            <span>{{'geneder-op' | translate}}:</span>
+            <span>{{'geneder-op' | translate}}</span>
             <div *ngFor="let gen of geneder">
                 <label for="{{gen.type}}">
                     <input type="radio" value="{{gen.value}}"
@@ -54,6 +51,10 @@
                 </label>
             </div>
         </div>
+        <div class="form-group">
+            <textarea
+            formControlName="bio" name="bio" placeholder="{{'about-you' | translate}}.."></textarea>
+          </div>
         <button type="submit">
             {{'update-profile' | translate}}
             <i class="fa fa-spinner fa-spin ml-2" *ngIf="Loading"></i>

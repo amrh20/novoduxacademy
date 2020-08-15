@@ -1,6 +1,6 @@
 <div class="recommend_slider">
-  <h2>{{'top-selling-courses' | translate}}</h2>
   <div class="container">
+    <h2>{{'top-selling-courses' | translate}}</h2>
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
       <!-- <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div> -->
       <div ngxSlickItem class="slide" *ngFor="let topselling of topSellingCourese">

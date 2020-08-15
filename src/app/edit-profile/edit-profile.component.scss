@@ -7,7 +7,6 @@
         form {
             width: 40%;
             margin: 0 auto;
-            margin-left: 450px;
             text-align: center;
             border-radius: 10px 10px 10px 10px;
             background: #fff;
@@ -17,9 +16,9 @@
             box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
             text-align: center;
             position: relative;
-            margin-bottom: 150px;
+            margin-bottom: 200px;
             padding: 20px;
-            @media (max-width: 768px) {
+            @media (max-width: 992px) {
                 width: 90%;
                 margin: 0 auto;
                 bottom: 30px;
@@ -45,7 +44,11 @@
                     }
                 }
                 span {
-                    width: 40%;
+                    width: 60%;
+                    text-align: left;
+                    [dir= rtl] & {
+                        text-align: right;
+                    }
                 }
                 [dir= rtl] & {
                     text-align: right;
@@ -77,6 +80,7 @@
             }
             select {
                 padding: 5px 20px;
+                height: 40px;
             }
         }
         input,textarea,select {

@@ -3,16 +3,9 @@
     <div class="course__wrapper">
       <div class="course__wrapper--details">
         <ng-container *ngIf="coursdetails?.IntroVideo; else default">
-          <!-- <iframe [src]="coursdetails?.IntroVideo" height="400" width="750"></iframe> -->
-          <!-- https://player.vimeo.com/video/438045537 -->
-          <!-- <iframe src="https://player.vimeo.com/video/438045537" height="200" frameborder="0"></iframe> -->
-          <!-- {{coursdetails?.IntroVideoUriForAngular}} -->
-          <iframe src="https://player.vimeo.com/video/438045537" frameborder="0" allow="autoplay; 
-          fullscreen" allowfullscreen></iframe>
-          <!-- <iframe [src]="coursdetails?.IntroVideoUriForAngular" 
-          width="750" height="360" 
-          frameborder="0" allow="autoplay; 
-          fullscreen" allowfullscreen></iframe>    -->
+          <div class="vimeoFrame embed-responsive">
+          <iframe width="100%" height="100%" frameBorder="0" [src]="coursdetails?.IntroVideoUriForAngular | safe" ></iframe>
+        </div>
         </ng-container>
         <ng-template #default>
           <img src="../../../assets/images/default.jpg" alt="" style="width: 100%;">
@@ -20,7 +13,6 @@
         <div class="course__wrapper--details-txt">
           <span>{{'about-the-course' | translate}}</span>
           <p>
-
             <ng-container *ngIf="checkLang== 'en'"> {{coursdetails?.Description}}</ng-container>
             <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails?.DescriptionLT}}</ng-container>
           </p>
@@ -42,18 +34,10 @@
         <div class="detail">
           <p>{{'instructor' | translate}}</p>
           <a routerLink="/Instructor/{{coursdetails.Teacher.Id}}">
-            <ng-container *ngIf="checkLang== 'en'">{{coursdetails?.Teacher.Name}}</ng-container>
-            <ng-container *ngIf="checkLang== 'ar'">{{coursdetails?.Teacher.NameLT}}</ng-container>
+            <ng-container *ngIf="checkLang== 'en'">{{coursdetails?.Teacher?.Name}}</ng-container>
+            <ng-container *ngIf="checkLang== 'ar'">{{coursdetails?.Teacher?.NameLT}}</ng-container>
           </a>
         </div>
-        <!-- <div class="detail">
-                  <p>lectures</p>
-                  <p>22</p>
-              </div>
-              <div class="detail">
-                  <p>duration</p>
-                  <p>3 weeks</p>
-              </div> -->
         <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
         <div class="enroll">
           <button (click)="addToCart()">{{'enroll' | translate}}</button>
@@ -68,7 +52,23 @@
           <span>{{'Videos' | translate}}</span>
         </ng-template>
         <div class="videos-content">
-          <span>Videos here</span>
+          <ng-container *ngIf="videos?.length; else noVideos">
+            <div class="chapter" *ngFor="let video of videos">
+              <h5>{{video?.Name}}</h5>
+                <div class="row">
+                  <div *ngFor="let videoDetail of video.Contents" class="col-12 col-md-4 mt-5 video-detail">
+                        <ng-container *ngIf="videoDetail?.VideoUriForAngular?.length">
+                          <p>{{videoDetail.Name}}</p>
+                          <iframe width="200px" height="200px" frameBorder="0" [src]="videoDetail?.VideoUriForAngular | safe"></iframe>
+                        </ng-container>
+                  </div>
+               </div>
+              
+            </div>
+          </ng-container>
+          <ng-template #noVideos>
+            there no videos for this course
+       </ng-template>
         </div>
       </mat-tab>
       <mat-tab>
@@ -238,13 +238,13 @@
               <div class="Teacher-details">
                 <span>
 
-                  <ng-container *ngIf="checkLang== 'en'"> {{coursdetails?.Teacher.Name}}</ng-container>
-                  <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails?.Teacher.NameLT}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'en'"> {{coursdetails?.Teacher?.Name}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails?.Teacher?.NameLT}}</ng-container>
                 </span>
                 <p>
 
-                  <ng-container *ngIf="checkLang== 'en'"> {{coursdetails?.Teacher.Bio}}</ng-container>
-                  <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails?.Teacher.BioLT}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'en'"> {{coursdetails?.Teacher?.Bio}}</ng-container>
+                  <ng-container *ngIf="checkLang== 'ar'"> {{coursdetails?.Teacher?.BioLT}}</ng-container>
                 </p>
               </div>
             </a>

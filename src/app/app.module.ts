@@ -22,7 +22,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WalletComponent } from './wallet/wallet.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component'
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component'
     StudentCoursesComponent,
     ProfileComponent,
     WalletComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    
   ],
   imports: [
     SharedModule,

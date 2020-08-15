@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-details',
@@ -25,9 +26,12 @@ export class CourseDetailsComponent implements OnInit {
   tester: boolean
   showReplyInput: boolean= true
   newarray: any[]= []
+  videos
+  url
   textValue = 'initial value'
   pathImage="http://novoduxapi.native-tech.co/Images/StudentImages/"
   teachPath="http://novoduxapi.native-tech.co/Images/TeacherImages/" 
+  urlSafe: SafeResourceUrl;
   @ViewChild('replyInput') replyInput:ElementRef; 
   
   @ViewChild('fondovalor') fondovalor:ElementRef;
@@ -43,13 +47,15 @@ export class CourseDetailsComponent implements OnInit {
   });
   constructor(private activeRoute:ActivatedRoute,
               private productService : ProductService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,public sanitizer: DomSanitizer) {
+                
+               }
   ngOnInit(): void {
     this.activeRoute.params.subscribe(parm => {
       let id =parm.id
       this.productService.getCourseDetails(id).subscribe((res: any) => {
         this.coursdetails= res.model
-        // console.log( this.coursdetails)
+       
       })
       this.productService.getReviews(id).subscribe((res: any) => {
         this.reviews= res.model;
@@ -58,8 +64,14 @@ export class CourseDetailsComponent implements OnInit {
         this.comments= res.model
       })
       localStorage.setItem('courseId',parm.id)
+
+      this.productService.getCourseVideos(id).subscribe((res: any) => {
+        this.videos= res.model
+
+      })
     })
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
+   
   }
   testClick() {
     // console.log('this.replyInput.nativeElement.value',this.fondovalor.nativeElement.value)
@@ -188,8 +200,11 @@ addToCart() {
     else if (err.error.errors?.message === "This Course In your cart") {
       this.toastr.error('This Course In your cart')
     }
+    else if(err.error.errors?.message ==="This Course In your courses"){
+      this.toastr.error('This Course In your courses')
+    }
     else {
-      this.toastr.error('something error')
+      this.toastr.error('somthing error')
     }
   })
 }

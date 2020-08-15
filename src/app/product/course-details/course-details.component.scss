@@ -4,16 +4,81 @@
 ::ng-deep.mat-tab-label.mat-tab-label-active {
   opacity: 1;
 }
-
+::ng-deep {
+  .player .vp-sidedock {
+    display: none !important;
+  }
+}
+// * {
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+// *:before, *:after {
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+// .embed-responsive {
+//   position: relative;
+//   display: block;
+//   height: 0;
+//   padding: 0;
+//   padding-bottom: 56.25%;
+//   overflow: hidden;
+// }
+// iframe {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   height: 100%;
+//   width: 100%;
+//   border: 0;
+// }
+// .vimeoFrame {
+//   //width:638px;
+//   //height:358px;
+//   overflow:hidden;
+//   margin:0 auto;
+// }
+// .vimeoFrame .vimeoXtra {
+//   margin-top:-100px;
+// }
+/*
+.vimeoXtra {
+  display:block;
+  width:638px;
+  height:558px;
+  margin:0 auto;
+}
+*/
 :host {
+  
+  .player .vp-sidedock {
+    display: none !important;
+  }
   ::ng-deep {
     .slick-prev {
       [dir=rtl] & {
         right: -50px;
       }
     }
+    .player .vp-sidedock {
+      display: none !important;
+    }
   }
-
+  .video-detail {
+    p {
+      margin-bottom: 20px;
+     font-weight: 600;
+     text-align: center;
+    }
+    iframe {
+      width: 100%;
+    height: 200px;
+    }
+  }
   .reply-label {
     margin-left: 20px;
     cursor: pointer;
@@ -50,7 +115,7 @@
   iframe {
     width: 100%;
     height: 400px;
-
+     position: relative;
     @media (max-width: 768px) {
       height: 300px;
     }
@@ -97,9 +162,9 @@
       display: flex;
 
       &--details {
-        max-width: 67%;
+        max-width: 62%;
         margin-right: 3%;
-        flex-basis: 67%;
+        flex-basis: 62%;
 
         @media (max-width:768px) {
           max-width: 100%;
@@ -139,8 +204,8 @@
       }
 
       &--order {
-        max-width: 30%;
-        flex-basis: 30%;
+        max-width: 35%;
+        flex-basis: 35%;
         background: #fff;
         box-shadow: 0 0 20px rgba(51, 51, 51, .1);
         padding: 0 15px 20px 15px;
