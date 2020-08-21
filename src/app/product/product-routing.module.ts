@@ -12,6 +12,7 @@ import { SubCoursesComponent } from './sub-courses/sub-courses.component';
 import { AboutCompanyComponent } from './about-company/about-company.component';
 import { SuccessCourseComponent } from './success-course/success-course.component';
 import { InstructorComponent } from './instructor/instructor.component';
+import { ClassDetailsComponent } from './class-details/class-details.component';
 
 
 
@@ -52,6 +53,10 @@ const routes: Routes = [
    {
      path : 'product/classes',
      component: ClassesComponent 
+   },
+   {
+     path : 'product/classes-details',
+     component: ClassDetailsComponent 
    },
    {
      path: 'success',

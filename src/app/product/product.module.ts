@@ -20,11 +20,12 @@ import { SuccessCourseComponent } from './success-course/success-course.componen
 import { InstructorComponent } from './instructor/instructor.component';
 import { SafePipe } from '../safe.pipe';
 import { ClassesComponent } from './classes/classes.component';
+import { ClassDetailsComponent } from './class-details/class-details.component';
 
 
 @NgModule({
   declarations: [ProductComponent, CartComponent, WishlistComponent, CoursesComponent, CourseDetailsComponent,
-     SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent,SafePipe, ClassesComponent],
+     SearchResultComponent, CollectionsComponent, SubCoursesComponent, AboutCompanyComponent, SuccessCourseComponent, InstructorComponent,SafePipe, ClassesComponent, ClassDetailsComponent],
   imports: [
     CommonModule,
     productRoutingModule,
