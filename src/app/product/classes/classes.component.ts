@@ -1,22 +1,26 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HomeService } from 'src/app/shared/services/home.service';
 
 @Component({
-  selector: 'app-sub-courses',
-  templateUrl: './sub-courses.component.html',
-  styleUrls: ['./sub-courses.component.scss']
+  selector: 'app-classes',
+  templateUrl: './classes.component.html',
+  styleUrls: ['./classes.component.scss']
 })
-export class SubCoursesComponent implements OnInit {
+export class ClassesComponent implements OnInit {
   subCourses;
   listOfCategory;
-  checkLang
+  checkLang  
   showFilter
   hideme= []
-  constructor(private productService:ProductService,
-    private activeRoute:ActivatedRoute,private homeService:HomeService) { }
-  // @ViewChild('myInput') myInput:ElementRef; 
+
+  constructor(private activeRoute:ActivatedRoute,
+    private productService:ProductService,
+    private toastr: ToastrService,private homeService:HomeService) { 
+  }
+
   ngOnInit(): void {
     this.homeService.getcategoryandSub().subscribe((res:any) => {
       this.listOfCategory= res.model
@@ -38,7 +42,5 @@ export class SubCoursesComponent implements OnInit {
   close() {
     this.showFilter = false
   }  
-  // ngAfterViewInit() {
-  // }
-  
+
 }

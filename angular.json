@@ -132,6 +132,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "novoduxacademy"
+    }
+  },
+  "defaultProject": "novoduxacademy",
+  "cli": {
+    "analytics": "10eb267a-fb08-4a70-855a-e8a33b5a5032"
+  }
 }

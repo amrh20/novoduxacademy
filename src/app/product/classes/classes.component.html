@@ -1,0 +1,288 @@
+<div class="container">
+  <div class="classes-wrapper">
+    <div class="classes-categories-wrapper">
+      <div class="main-categories-holder">
+        <button class="filter-btn" (click)="show()">
+          {{ "show-filter" | translate }}
+        </button>
+        <div class="filter_col" [ngClass]="{ 'show-filter': showFilter }">
+          <div class="filter">
+            <div class="close" (click)="close()">
+              <i class="fa fa-times-circle"></i>
+            </div>
+            <div class="collect_filter">
+              <div class="filter_box">
+                <ul class="filter_box-title">
+                  <li *ngFor="let taxon of listOfCategory; let i = index">
+                    <div class="taxons-title" (click)="hideme[i] = !hideme[i]">
+                      <a>
+                        <ng-container *ngIf="checkLang == 'en'">
+                          {{ taxon.Name }}</ng-container
+                        >
+                        <ng-container *ngIf="checkLang == 'ar'">
+                          {{ taxon.NameLT }}</ng-container
+                        >
+                      </a>
+                      <i
+                        class="fa fa-chevron-down"
+                        *ngIf="taxon?.SubCategories?.length"
+                      ></i>
+                    </div>
+                    <ul class="subtaxon" [hidden]="!hideme[i]">
+                      <li
+                        *ngFor="let subtaxon of taxon?.SubCategories"
+                        class="subtaxon-title"
+                      >
+                        <a routerLink="/product/subcourses/{{ subtaxon.Id }}"
+                          >-
+                          <ng-container *ngIf="checkLang == 'en'">{{
+                            subtaxon.Name
+                          }}</ng-container>
+                          <ng-container *ngIf="checkLang == 'ar'">{{
+                            subtaxon.NameLT
+                          }}</ng-container>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products_col">
+          <div class="products_widget">
+            <div class="row w-100">
+              <div class="course-col" *ngFor="let course of subCourses">
+                <app-course-item [course]="course"></app-course-item>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-categories-holder">
+        <ul>
+          <li class="active">
+            <a href="">English</a>
+          </li>
+          <li>
+            <a href="">spain</a>
+          </li>
+          <li>
+            <a href="">russian</a>
+          </li>
+          <li>
+            <a href="">English</a>
+          </li>
+          <li>
+            <a href="">french</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- start classes list -->
+    <div class="classes-veiw-wrapper">
+        <!-- <div class="filter-holder">
+            <div class="drop">
+                <span>price</span>
+                <div class="dropdown_one-content">
+                  <ul>
+                    <li>less than 1000</li>
+                    <li>less more 1000</li>
+                    <li>within 1000</li>
+                  </ul>
+                </div>
+              </div>
+        </div> -->
+      <div class="classes-list-wrapper">
+        <div class="class-card">
+          <div class="class-auther-info">
+              <!-- about auther -->
+            <div class="about-auther">
+              <div class="auther-img">
+                <img
+                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                  alt=""
+                />
+              </div>
+              <div class="auther-info">
+                <h3>Omar</h3>
+                <p>English Teacher</p>
+              </div>
+            </div>
+              <!-- about class -->
+            <div class="about-class">
+              <div class="class-status">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <p>Online</p>
+              </div>
+              <div class="class-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <p>4.4 (1.4420 ratings)</p>
+              </div>
+            </div>
+          </div>
+          <div class="class-details">
+            <h2>$30 <span>per/h</span></h2>
+            <button>details</button>
+          </div>
+        </div>
+        <div class="class-card active">
+          <div class="class-auther-info">
+              <!-- about auther -->
+            <div class="about-auther">
+              <div class="auther-img">
+                <img
+                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                  alt=""
+                />
+              </div>
+              <div class="auther-info">
+                <h3>Omar</h3>
+                <p>English Teacher</p>
+              </div>
+            </div>
+              <!-- about class -->
+            <div class="about-class">
+              <div class="class-status">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <p>Online</p>
+              </div>
+              <div class="class-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <p>4.4 (1.4420 ratings)</p>
+              </div>
+            </div>
+          </div>
+          <div class="class-details">
+            <h2>$30 <span>per/h</span></h2>
+            <button>details</button>
+          </div>
+        </div>
+        <div class="class-card">
+          <div class="class-auther-info">
+              <!-- about auther -->
+            <div class="about-auther">
+              <div class="auther-img">
+                <img
+                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                  alt=""
+                />
+              </div>
+              <div class="auther-info">
+                <h3>Omar</h3>
+                <p>English Teacher</p>
+              </div>
+            </div>
+              <!-- about class -->
+            <div class="about-class">
+              <div class="class-status">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <p>Online</p>
+              </div>
+              <div class="class-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <p>4.4 (1.4420 ratings)</p>
+              </div>
+            </div>
+          </div>
+          <div class="class-details">
+            <h2>$30 <span>per/h</span></h2>
+            <button>details</button>
+          </div>
+        </div>
+        <div class="class-card">
+          <div class="class-auther-info">
+              <!-- about auther -->
+            <div class="about-auther">
+              <div class="auther-img">
+                <img
+                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                  alt=""
+                />
+              </div>
+              <div class="auther-info">
+                <h3>Omar</h3>
+                <p>English Teacher</p>
+              </div>
+            </div>
+              <!-- about class -->
+            <div class="about-class">
+              <div class="class-status">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <p>Online</p>
+              </div>
+              <div class="class-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <p>4.4 (1.4420 ratings)</p>
+              </div>
+            </div>
+          </div>
+          <div class="class-details">
+            <h2>$30 <span>per/h</span></h2>
+            <button>details</button>
+          </div>
+        </div>
+        <div class="class-card">
+          <div class="class-auther-info">
+              <!-- about auther -->
+            <div class="about-auther">
+              <div class="auther-img">
+                <img
+                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                  alt=""
+                />
+              </div>
+              <div class="auther-info">
+                <h3>Omar</h3>
+                <p>English Teacher</p>
+              </div>
+            </div>
+              <!-- about class -->
+            <div class="about-class">
+              <div class="class-status">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <p>Online</p>
+              </div>
+              <div class="class-rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <p>4.4 (1.4420 ratings)</p>
+              </div>
+            </div>
+          </div>
+          <div class="class-details">
+            <h2>$30 <span>per/h</span></h2>
+            <button>details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- start clasees detailes -->
+    <div class="classes-detailes-wrapper">
+        <div class="bluer-header"></div>
+        <div class="classes-detailes">
+            <div class="auther-img">
+                <img
+                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                  alt=""
+                />
+              </div>
+              <h2>Omar tmas7y</h2>
+              <p class="about-teacher">why english language learning is important</p>
+              <div class="time-holder">
+                  <div class="time--title">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                      <h3>Choose Time</h3>
+                    </div>
+                <div class="time-list-holder">
+                    <button>10:00AM</button>
+                    <button>12:00AM</button>
+                    <button>1:00AM</button>
+                    <button>4:30PM</button>
+                </div>
+              </div>
+        </div>
+        <button>book a trail lesson</button>
+    </div>
+  </div>
+</div>

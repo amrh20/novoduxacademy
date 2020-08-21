@@ -1,4 +1,6 @@
+
 import { NgModule, Component } from '@angular/core';
+import { ClassesComponent } from './classes/classes.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -11,6 +13,8 @@ import { AboutCompanyComponent } from './about-company/about-company.component';
 import { SuccessCourseComponent } from './success-course/success-course.component';
 import { InstructorComponent } from './instructor/instructor.component';
 
+
+
 const routes: Routes = [
   
   {
@@ -22,7 +26,7 @@ const routes: Routes = [
     component: WishlistComponent
   },
   {
-    path: 'product/courses/:id',
+    path: 'product/courses/:id', 
     component: CoursesComponent
   },
   {
@@ -44,6 +48,10 @@ const routes: Routes = [
    {
      path : 'about-us',
      component: AboutCompanyComponent
+   },
+   {
+     path : 'product/classes',
+     component: ClassesComponent 
    },
    {
      path: 'success',
