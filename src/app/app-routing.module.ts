@@ -10,10 +10,15 @@ import { StudentCoursesComponent } from './student-courses/student-courses.compo
 import { ProfileComponent } from './profile/profile.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { HomePageComponent } from './home-page/home-page.component';
 const routes: Routes = [
   {
   path: 'home',
   component: HomeComponent
+  },
+  {
+  path: 'homee',
+  component: HomePageComponent 
   },
   {
    path: '', redirectTo:'home', pathMatch: 'full'

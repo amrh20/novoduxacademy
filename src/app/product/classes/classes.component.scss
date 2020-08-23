@@ -500,7 +500,7 @@
             .time--title{
                 display: flex;
                 align-items: center;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
                 i{
                     margin-right: 10px;
                     font-size: 25px;
@@ -516,10 +516,25 @@
                     color: #000;
                 }
             }
+            .time-table{
+                display: flex;
+                flex-direction: column;
+                > .time-row{
+                    display: flex;
+                    margin-bottom: 20px;
+                }
+                .time--day{
+                    font-size: 18px;
+                    color : #000;
+                    font-weight: bold;
+                    margin-right: 15px;
+                }
+            }
             .time-list-holder{
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
                 gap: 10px; 
+                width: 100%;
                 button{
                     border: 1px solid #5E2266;
                     padding: 7px 15px;
