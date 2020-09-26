@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class SearchResultComponent implements OnInit {
   courses;
-  imagePath= "http://novoduxapi.native-tech.co/Images/CategoryImages/";
+  imagePath= "http://novoduxadmin.native-tech.co/Images/CategoryImages/";
   loading: boolean
   constructor(private productService:ProductService) { }
 

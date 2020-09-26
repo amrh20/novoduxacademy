@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   Courses
   checkLang
   couponValue
-  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
+  imagePath= "http://novoduxadmin.native-tech.co/Images/CourseImages/"
   totalPrice
   loading: boolean
   overlay: boolean

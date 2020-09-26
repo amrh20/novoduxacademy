@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class StudentCoursesComponent implements OnInit {
   courses;
   checkLang;
-  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/";
+  imagePath= "http://novoduxadmin.native-tech.co/Images/CourseImages/";
   loading: boolean
   constructor(private productService: ProductService, private router:Router) { }
   logout() {

@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   loading: boolean
   nores= false
   showSearch= true
-  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
+  imagePath= "http://novoduxadmin.native-tech.co/Images/CourseImages/"
   checkLang
   hideSearchres: boolean
   constructor(private homeService: HomeService, private productService:ProductService,

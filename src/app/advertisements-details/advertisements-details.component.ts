@@ -13,7 +13,7 @@ export class AdvertisementsDetailsComponent implements OnInit {
   details: any;
   errorMsg: string;
   checkLang;
-  imagePath= "http://novoduxapi.native-tech.co/Images/advertisementimages/";
+  imagePath= "http://novoduxadmin.native-tech.co/Images/advertisementimages/";
   reserveform= new FormGroup ( {
     comment: new FormControl('', Validators.required)
   })

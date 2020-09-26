@@ -12,7 +12,7 @@ export class RecommendCoursesComponent implements OnInit {
    topSellingCourese;
    checkLang
    errorMsg
-   imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/"
+   imagePath= "http://novoduxadmin.native-tech.co/Images/CourseImages/"
   constructor(private homeService:HomeService,
     private productService:ProductService, private toastr:ToastrService) { }
 

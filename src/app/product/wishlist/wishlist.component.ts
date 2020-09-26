@@ -12,7 +12,7 @@ export class WishlistComponent implements OnInit {
   loaded: boolean
   overlayDelete: boolean
   checkLang
-  imagePath= "http://novoduxapi.native-tech.co/Images/CourseImages/";
+  imagePath= "http://novoduxadmin.native-tech.co/Images/CourseImages/";
   constructor(private productService:ProductService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
