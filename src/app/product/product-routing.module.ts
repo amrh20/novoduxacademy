@@ -13,6 +13,8 @@ import { AboutCompanyComponent } from './about-company/about-company.component';
 import { SuccessCourseComponent } from './success-course/success-course.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { ClassDetailsComponent } from './class-details/class-details.component';
+import { CommentsComponent } from './comments/comments.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 
@@ -65,6 +67,14 @@ const routes: Routes = [
    {
      path: 'Instructor/:id', 
      component: InstructorComponent
+   },
+   {
+     path: 'comments', 
+     component: CommentsComponent
+   },
+   {
+     path: 'reviews', 
+     component: ReviewsComponent
    }
 ];
 @NgModule({

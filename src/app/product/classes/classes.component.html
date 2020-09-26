@@ -14,36 +14,19 @@
               <div class="filter_box">
                 <ul class="filter_box-title">
                   <li *ngFor="let taxon of listOfCategory; let i = index">
-                    <div class="taxons-title" (click)="hideme[i] = !hideme[i]">
-                      <a>
+                    <div class="taxons-title">
+                      <a class="d-flex">
                         <ng-container *ngIf="checkLang == 'en'">
-                          {{ taxon.Name }}</ng-container
-                        >
+                          <label for="{{taxon.Id}}">{{ taxon.Name }}</label>
+                          <input type="radio" id="{{taxon.Id}}" name="test" value="{{taxon.Id}}"
+                            (change)="selectCatgory($event.target.value)">
+                        </ng-container>
                         <ng-container *ngIf="checkLang == 'ar'">
-                          {{ taxon.NameLT }}</ng-container
-                        >
+                          <label for="{{taxon.Id}}">{{ taxon.NameLT }}</label>
+                          <input type="radio" id="{{taxon.Id}}" name="test" value="{{taxon.Id}}"
+                            (change)="selectCatgory($event.target.value)"></ng-container>
                       </a>
-                      <i
-                        class="fa fa-chevron-down"
-                        *ngIf="taxon?.SubCategories?.length"
-                      ></i>
                     </div>
-                    <ul class="subtaxon" [hidden]="!hideme[i]">
-                      <li
-                        *ngFor="let subtaxon of taxon?.SubCategories"
-                        class="subtaxon-title"
-                      >
-                        <a routerLink="/product/subcourses/{{ subtaxon.Id }}"
-                          >-
-                          <ng-container *ngIf="checkLang == 'en'">{{
-                            subtaxon.Name
-                          }}</ng-container>
-                          <ng-container *ngIf="checkLang == 'ar'">{{
-                            subtaxon.NameLT
-                          }}</ng-container>
-                        </a>
-                      </li>
-                    </ul>
                   </li>
                 </ul>
               </div>
@@ -53,36 +36,33 @@
         <div class="products_col">
           <div class="products_widget">
             <div class="row w-100">
-              <div class="course-col" *ngFor="let course of subCourses">
+              <!-- <div class="course-col" *ngFor="let course of subCourses">
                 <app-course-item [course]="course"></app-course-item>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
       </div>
       <div class="sub-categories-holder">
-        <ul>
-          <li class="active">
-            <a href="">English</a>
-          </li>
-          <li>
-            <a href="">spain</a>
-          </li>
-          <li>
-            <a href="">russian</a>
-          </li>
-          <li>
-            <a href="">English</a>
-          </li>
-          <li>
-            <a href="">french</a>
-          </li>
-        </ul>
+        <ng-container *ngIf="listOfSubCategory?.length; else NoCat">
+          <ul>
+            <li *ngFor="let subCatgories of listOfSubCategory">
+              <input type="radio" id="{{subCatgories.Name}}" name="test" value="{{subCatgories.Id}}"
+                (change)="selectSubCatgory($event.target.value)" class="subcategory">
+              <label for="{{subCatgories.Name}}">{{subCatgories.Name}}</label>
+            </li>
+          </ul>
+        </ng-container>
+        <ng-template #NoCat>
+          <p>please choose your class first</p>
+        </ng-template>
+
+
       </div>
     </div>
     <!-- start classes list -->
     <div class="classes-veiw-wrapper">
-        <!-- <div class="filter-holder">
+      <!-- <div class="filter-holder">
             <div class="drop">
                 <span>price</span>
                 <div class="dropdown_one-content">
@@ -94,191 +74,95 @@
                 </div>
               </div>
         </div> -->
-      <div class="classes-list-wrapper">
-        <div class="class-card">
-            <h2 class="class-name">Class Name</h2>
-            <div class="content">
-          <div class="class-auther-info">
-              <!-- about auther -->
-            <div class="about-auther">
-              <div class="auther-img">
-                <img
-                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                  alt=""
-                />
-              </div>
-              <div class="auther-info">
-                <h3>Omar</h3>
-                <p>English Teacher</p>
-              </div>
-            </div>
-              <!-- about class -->
-            <div class="about-class">
-              <div class="class-status">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <p>200 participant</p>
-              </div>
-              <div class="class-rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <p>4.4 (1.4420 ratings)</p>
-              </div>
-            </div>
-          </div>
-          <div class="class-details">
-            <h2>$30 <span>per/h</span></h2>
-            <button>details</button>
-          </div>
-          </div>
-        </div>
-        <div class="class-card">
-            <h2 class="class-name">Class Name</h2>
-            <div class="content">
-          <div class="class-auther-info">
-              <!-- about auther -->
-            <div class="about-auther">
-              <div class="auther-img">
-                <img
-                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                  alt=""
-                />
-              </div>
-              <div class="auther-info">
-                <h3>Omar</h3>
-                <p>English Teacher</p>
+      <div class="classes-list-wrapper w-100">
+        <ng-container *ngIf="showCourses; else NoCourses">
+              
+          <ng-container *ngIf="courses?.length; else noSubCourse">
+            <div class="class-card" *ngFor="let course of courses">
+              <h2 class="class-name">{{course.Name}}</h2>
+              <div class="content">
+                <div class="class-auther-info">
+                  <!-- about auther -->
+                  <div class="about-auther">
+                    <div class="auther-img">
+                      <img [src]="teachPath + course.TeacherProfileImage" alt=""/>
+                    </div>
+                    <div class="auther-info">
+                      <h3>{{course.TeacherName}}</h3>
+                      <p *ngIf="course.TeacherTitle">{{course.TeacherTitle}}</p>
+                    </div>
+                  </div>
+                  <!-- about class -->
+                  <div class="about-class">
+                    <div class="class-status">
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                      <p>{{course.StudentCount}} participant</p>
+                    </div>
+                    <div class="class-rating">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <p>{{course.CourseRateValue}} (ratings)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="class-details">
+                  <h2>{{course.CurrentCost}}<span>per/monthe</span></h2>
+                  <a routerLink="/product/classes-details/{{course.Id}}">more details</a>
+                </div>
               </div>
             </div>
-              <!-- about class -->
-            <div class="about-class">
-              <div class="class-status">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <p>200 participant</p>
-              </div>
-              <div class="class-rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <p>4.4 (1.4420 ratings)</p>
-              </div>
-            </div>
-          </div>
-          <div class="class-details">
-            <h2>$30 <span>per/h</span></h2>
-            <button>details</button>
-          </div>
-          </div>
-        </div>
-        <div class="class-card">
-            <h2 class="class-name">Class Name</h2>
-            <div class="content">
-          <div class="class-auther-info">
-              <!-- about auther -->
-            <div class="about-auther">
-              <div class="auther-img">
-                <img
-                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                  alt=""
-                />
-              </div>
-              <div class="auther-info">
-                <h3>Omar</h3>
-                <p>English Teacher</p>
-              </div>
-            </div>
-              <!-- about class -->
-            <div class="about-class">
-              <div class="class-status">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <p>200 participant</p>
-              </div>
-              <div class="class-rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <p>4.4 (1.4420 ratings)</p>
-              </div>
-            </div>
-          </div>
-          <div class="class-details">
-            <h2>$30 <span>per/h</span></h2>
-            <button>details</button>
-          </div>
-          </div>
-        </div>
-        <div class="class-card">
-            <h2 class="class-name">Class Name</h2>
-            <div class="content">
-          <div class="class-auther-info">
-              <!-- about auther -->
-            <div class="about-auther">
-              <div class="auther-img">
-                <img
-                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                  alt=""
-                />
-              </div>
-              <div class="auther-info">
-                <h3>Omar</h3>
-                <p>English Teacher</p>
-              </div>
-            </div>
-              <!-- about class -->
-            <div class="about-class">
-              <div class="class-status">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <p>200 participant</p>
-              </div>
-              <div class="class-rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <p>4.4 (1.4420 ratings)</p>
-              </div>
-            </div>
-          </div>
-          <div class="class-details">
-            <h2>$30 <span>per/h</span></h2>
-            <button>details</button>
-          </div>
-          </div>
-        </div>
+          </ng-container>
 
+          <ng-template #noSubCourse>
+              <p>there are not courses for this language</p>
+          </ng-template>
+         
+        </ng-container>
+        <ng-template #NoCourses>
+          <div class="no-Courses w-100">
+            <p>please choose your class and language first</p>
+
+          </div>
+        </ng-template>
       </div>
     </div>
     <!-- start clasees detailes -->
-    <div class="classes-detailes-wrapper">
-        <div class="bluer-header"></div>
-        <div class="classes-detailes">
-            <div class="auther-img">
-                <img
-                  src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                  alt=""
-                />
-              </div>
-              <h2>Omar tmas7y</h2>
-              <p class="about-teacher">why english language learning is important</p>
-              <div class="time-holder">
-                  <div class="time--title">
-                      <i class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h3>Choose Time</h3>
-                   </div>
-                   <div class="time-table">
-                       <div class="time-row">
-                           <div class="time--day">Sunday</div>
-                           <div class="time-list-holder">
-                               <button>10:00AM</button>
-                               <button>12:00AM</button>
-                               <button>1:00AM</button>
-                               <button>4:30PM</button>
-                            </div>
-                        </div>
-                       <div class="time-row">
-                           <div class="time--day">Monday</div>
-                           <div class="time-list-holder">
-                               <button>10:00AM</button>
-                               <button>12:00AM</button>
-                               <button>1:00AM</button>
-                               <button>4:30PM</button>
-                            </div>
-                        </div>
-                   </div>
-                
-              </div>
+    <div class="classes-detailes-wrapper" *ngIf="showCourses">
+      <div class="bluer-header"></div>
+      <div class="classes-detailes">
+        <div class="auther-img">
+          <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="" />
         </div>
-        <button>book a trail lesson</button>
+        <h2>Omar tmas7y</h2>
+        <p class="about-teacher">why english language learning is important</p>
+        <div class="time-holder">
+          <div class="time--title">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h3>Choose Time</h3>
+          </div>
+          <div class="time-table">
+            <div class="time-row">
+              <div class="time--day">Sunday</div>
+              <div class="time-list-holder">
+                <button>10:00AM</button>
+                <button>12:00AM</button>
+                <button>1:00AM</button>
+                <button>4:30PM</button>
+              </div>
+            </div>
+            <div class="time-row">
+              <div class="time--day">Monday</div>
+              <div class="time-list-holder">
+                <button>10:00AM</button>
+                <button>12:00AM</button>
+                <button>1:00AM</button>
+                <button>4:30PM</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button>book a trail lesson</button>
     </div>
   </div>
 </div>

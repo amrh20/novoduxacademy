@@ -1651,3 +1651,213 @@ li {
 		max-width: 1366px;
 	}
 }
+.class-details-wrapper {
+    top: 120px;
+    margin-bottom: 200px;
+    display: flex;
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.1);
+    .details-content {
+      width: 55%;
+      background-color: #f9f9fc;
+      padding: 20px;
+      height: 100vh;
+      margin-top: 20px;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+  .exams-tabs-link {
+    width: 20%;
+    background-color: #fff;
+    padding: 30px 0;
+    height: 100%;
+    .logo {
+      padding: 0 20px;
+    }
+    ul {
+      margin-top: 100px;
+    margin-left: 100px;
+    li {
+      margin-bottom: 40px;
+      text-transform: capitalize;
+      font-size: 20px;
+      position: relative;
+    
+    }
+    .active {
+       a {
+        font-weight: bold;
+       }
+      &:after {
+        position: absolute;
+        content: "";
+        height: 30px;
+        background-color: $main-color;
+        width: 4px;
+        right: 0;
+       }
+       &:before {
+         position: absolute;
+         left: -30px;
+         background-color: orange;
+         height: 12px;
+         width: 12px;
+         border-radius: 50%;
+         content: "";
+         top: 35%;
+       }
+    }
+    }
+  }
+  .student-list-holder {
+    width: 25%;
+    padding: 30px 20px;
+    > .title{
+          font-size: 20px;
+          font-weight: bold;
+          color: #000;
+          margin-bottom: 20px;
+    }
+    .student-card {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      position: relative;
+      //   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      .student-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: contain;
+        }
+      }
+      .student-info {
+        h3 {
+          font-size: 16px;
+          font-weight: bold;
+          color: #000;
+        }
+        p {
+          font-size: 13px;
+          color: #ddd;
+        }
+      }
+      &.active {
+        &::after {
+          content: "";
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: tomato;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 15px;
+        }
+      }
+    }
+  }
+  .exam-list {
+    .exam-card {
+        display: flex;
+        align-items: center;
+        // border: 1px solid transparent;
+        padding: 16px 24px;
+        border: solid 1px #f4f4f4;
+        border-radius: 10px;
+        transition: all ease-in 0.4s;
+        // margin-right: 20px;
+        margin-bottom: 20px;
+        &:hover{
+            border: 1px solid #5E2266;
+        }
+      .exam-content {
+        background-color: #F9FBFC;
+        border-radius: 10px;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // padding: 16px; 
+    
+        .exam-name{
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .exam-info{
+            display: flex;
+            align-items: center;
+            > div{
+                margin-right: 25px;
+                font-size: 14px;
+                font-weight: 500;
+                color: #2c363f;
+                display: flex;
+                align-items: center;
+                &:last-of-type{
+                    margin-right: 0;
+                }
+                p{
+                    font-size: 14px;
+                font-weight: 500;
+                color: #2c363f;
+                }
+                i{
+                    margin-right: 8px;
+                }
+            }
+        }
+      }
+      .start-exam-btn{
+        width: 125px;
+        height: 37px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        background-color: $main-color;
+        text-align: center;
+      }
+      .exam-result{
+        font-size: 18px;
+        color: #4f6170;
+        width: 125px;
+        height: 37px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: bold;
+        span{
+            color: $main-color;
+            font-weight: bold;
+        }
+      }
+      .exam-dimmed{
+        width: 125px;
+        height: 37px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        background-color: #acb3c5;
+        text-align: center;
+        pointer-events: none;
+      }
+    }
+  }

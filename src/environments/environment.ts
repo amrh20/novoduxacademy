@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl:"http://novoduxapi.native-tech.co/api",
+  baseUrl:"http://nativeacademyapi.native-tech.co/api",
   production: false
 };
 

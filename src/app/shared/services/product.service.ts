@@ -36,6 +36,7 @@ export class ProductService {
     let params = new HttpParams();
     params = params.append('SubCategoryId', parameters);
     params = params.append('Page', '0');
+    params= params.append('ClassificationId','2')
     return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`, { params: params, headers: reqHeader })
   }
     

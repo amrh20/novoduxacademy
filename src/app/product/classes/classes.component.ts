@@ -12,30 +12,39 @@ import { HomeService } from 'src/app/shared/services/home.service';
 export class ClassesComponent implements OnInit {
   subCourses;
   listOfCategory;
+  listOfSubCategory
   checkLang  
   showFilter
   hideme= []
-
+  courses: any
+  showCourses: boolean= false
+  teachPath="http://nativeacademydashboard.native-tech.co/Images/TeacherImages/" 
   constructor(private activeRoute:ActivatedRoute,
     private productService:ProductService,
     private toastr: ToastrService,private homeService:HomeService) { 
   }
 
   ngOnInit(): void {
-    this.homeService.getcategoryandSub().subscribe((res:any) => {
+    this.homeService.getCategories().subscribe((res:any) => {
       this.listOfCategory= res.model
-    })
-    this.activeRoute.params.subscribe(parm => {
-      let id =parm.id
-      this.productService.getSubTaxonsCourses(id).subscribe((res: any) => {
-        this.subCourses= res.model
-        console.log("subCourses", this.subCourses)
-      })
     })
 
     this.checkLang= localStorage.getItem('currentLanguage') || 'en'
   }
-
+ 
+  selectCatgory(e) {
+    this.homeService.getSubCategories(e).subscribe((res: any) => {  
+     this.listOfSubCategory= res.model
+    })
+  }
+  selectSubCatgory(e) {
+    console.log(e)
+    this.homeService.getAllCoursesBySubCategoryId(e).subscribe((res:any) => {
+      console.log("courses", res.model)
+      this.courses= res.model
+      this.showCourses= true
+    })
+  }
   show() {
     this.showFilter = true
   }

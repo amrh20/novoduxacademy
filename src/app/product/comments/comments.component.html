@@ -1,0 +1,146 @@
+
+
+  <div class="container">
+    <div class="class-details-wrapper">
+      <aside class="exams-tabs-link">
+        <div class="logo"><a routerLink="/home">
+            <img
+              src="https://static.wixstatic.com/media/9dc788_d3a34bea2ea84b45b6645d56c9769a49~mv2.png/v1/fill/w_193,h_60,al_c,q_85,usm_0.66_1.00_0.01/Novologo.webp"
+              alt="">
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a routerLink="/product/classes-details">videos</a>
+        </li>
+          <li class="active">
+            <a routerLink="/product/comments">comments</a>
+          </li>
+          <li>
+            <a routerLink="/product/reviews">reviews</a>
+          </li>
+        </ul>
+      </aside>
+      <div class="details-content">
+        <div class="course__comments content">
+            <div class="row" class="comment-content">
+              <div class="add_comment">
+                <div class="alert alert-danger mb-3" *ngIf="errorComment" style="width: 524px; margin: 0 auto">
+                  {{errorComment}}</div>
+                <form [formGroup]="form" (ngSubmit)="addcomment()">
+                  <textarea placeholder="{{'write-your-comment' | translate}}" formControlName="comment"></textarea>
+                  <button class="temp_button" type="submit" [disabled]="!form.valid">
+                    {{'add-comment' | translate}}
+                    <i class="fa fa-spinner fa-spin ml-2" *ngIf="commentLoading"></i></button>
+                </form>
+              </div>
+              <div class="col-12 p-0" *ngFor="let comment of comments; let i =index">
+                <div class="review_comment">
+                  <div class="comment-container">
+                    <ng-container *ngIf="comment?.StudentImage; else noimg">
+                      <img [src]=" pathImage + comment?.StudentImage" alt="">
+                    </ng-container>
+                    <ng-template #noimg>
+                      <img src="../../../assets/images/Profileuser.png" alt="" class="reviewImg">
+                    </ng-template>
+                    <div class="review_comment-title">
+                      <div class="comment-desc">
+                        <h5>{{comment?.StudentName}}</h5>
+                        <p class="comment">{{comment?.CreationDate}}
+                        </p>
+                      </div>
+        
+                    </div>
+                  </div>
+                  <label for="{{comment?.Comment}}" class="comment-label">
+                    <input id="{{comment?.Comment}}" [value]='comment.Id' type="radio" name="test"
+                      (change)="selectOption($event.target.value)" class="d-none">
+                    <span>{{comment?.Comment}}
+                    </span>
+                    <span (click)="hideme[i] = !hideme[i]" class="reply-label">{{'reply' | translate}}</span>
+                 
+                    <!-- <div >The content will show/hide</div> -->
+                  </label>
+                  <div class="replys" *ngFor="let reply of comment.Replies">
+                    <div class="Replys" [ngClass]="{'margin': comment?.StudentImage }">
+                      <div>
+                        <img [src]="pathImage + reply?.StudentImage" />
+                      </div>
+                      <div class="Replys-desc">
+                        <span class="name">
+                          {{reply?.StudentName}}
+                        </span>
+                        <span class="date">
+                          {{reply?.CreationDate}}
+                        </span>
+                        <span>
+                          {{reply.ReplyText}}
+                        </span>
+                      </div>
+        
+                    </div>
+                  </div>
+                  <div class="comment__reply" [hidden]="!hideme[i]">
+                    <div class="add_reply">
+                      <div class="alert alert-danger mt-3" *ngIf="errorReply" style="width: 460px; margin: 0 auto">
+                        {{errorReply}}</div>
+                      <form [formGroup]="replyform" (ngSubmit)="addreply()" class="new-form">
+                        <!-- <input type="text" [value]='comment.Id' (ch)> -->
+                        <textarea type="text" placeholder="{{'write-your-reply'| translate}}" formControlName="reply"
+                          #replyInput></textarea>
+                        <button class="temp_button" type="submit" [disabled]="!replyform.valid">
+                          {{'add-reply' | translate}}
+                          <i class="fa fa-spinner fa-spin ml-2" *ngIf="replyLoading"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+        
+      </div>
+      <aside class="student-list-holder">
+        <h3 class="title">Students List</h3>
+        <div class="student-card">
+          <div class="student-img">
+            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="student" />
+          </div>
+          <div class="student-info">
+            <h3>Omar</h3>
+            <p>Business</p>
+          </div>
+        </div>
+        <div class="student-card">
+          <div class="student-img">
+            <img src="https://i.pinimg.com/originals/7f/79/6d/7f796d57218d9cd81a92d9e6e8e51ce4.png" alt="student" />
+          </div>
+          <div class="student-info">
+            <h3>Ahmed</h3>
+            <p>Art</p>
+          </div>
+        </div>
+        <div class="student-card active">
+          <div class="student-img">
+            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="student" />
+          </div>
+          <div class="student-info">
+            <h3>Omar</h3>
+            <p>Business</p>
+          </div>
+        </div>
+        <div class="student-card">
+          <div class="student-img">
+            <img src="https://i.pinimg.com/originals/7f/79/6d/7f796d57218d9cd81a92d9e6e8e51ce4.png" alt="student" />
+          </div>
+          <div class="student-info">
+            <h3>Ahmed</h3>
+            <p>Art</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  

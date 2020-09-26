@@ -14,14 +14,42 @@ export class HomeService {
   getHomeDate() {
     return this.http.get(`${this.apiBaseURL}/GetHomeData`)
   }
+
   getcategoryandSub() {
-    return this.http.get(`${this.apiBaseURL}/GetCategoryWithSubCategories`)
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    params= params.append('ClassificationId','2')
+    return this.http.get(`${this.apiBaseURL}/GetCategoryWithSubCategories`,{params: params})
   }
+
   getCategories() {
     let params = new HttpParams();
     params = params.append('Page', '0');
+    params= params.append('ClassificationId','2')
     return this.http.get(`${this.apiBaseURL}/GetCategories`,{params: params})
   }
+
+  getSubCategories(CategoryId) {
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    params= params.append('CategoryId',CategoryId)
+    params= params.append('ClassificationId','2')
+    return this.http.get(`${this.apiBaseURL}/GetSubCategories`,{params: params})
+  }
+
+  getAllCoursesBySubCategoryId (SubCategoryId) {
+    let params = new HttpParams();
+    params = params.append('Page', '0');
+    params= params.append('SubCategoryId',SubCategoryId)
+    params= params.append('ClassificationId','2')
+    return this.http.get(`${this.apiBaseURL}/GetAllCoursesBySubCategoryId`,{params: params})
+  }
+
+ getCourseDetails (CourseId) {
+  let params = new HttpParams();
+  params= params.append('CourseId',CourseId)
+  return this.http.get(`${this.apiBaseURL}/GetCourseDetails`,{params: params})
+ }
   getAboutus() {
     return this.http.get(`${this.apiBaseURL}/GetAboutUs`)
   }
