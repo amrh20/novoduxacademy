@@ -40,8 +40,8 @@
         </div>
         <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
         <div class="enroll">
-          <button (click)="addToCart()">{{'enroll' | translate}}</button>
-          <i class="fa fa-heart" (click)="addToFav()"></i>
+          <button (click)="addToCart()" *ngIf="coursdetails?.IsPurchased !=1">{{'enroll' | translate}}</button>
+          <i class="fa fa-heart" (click)="addToFav()" *ngIf="coursdetails?.IsFavorite !=1"></i>
         </div>
       </div>
     </div>

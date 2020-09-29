@@ -55,7 +55,7 @@ export class CourseDetailsComponent implements OnInit {
       let id =parm.id
       this.productService.getCourseDetails(id).subscribe((res: any) => {
         this.coursdetails= res.model
-       
+        console.log(this.coursdetails)
       })
       this.productService.getReviews(id).subscribe((res: any) => {
         this.reviews= res.model;

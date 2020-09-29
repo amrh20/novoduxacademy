@@ -49,9 +49,14 @@ export class ProductService {
   }
 
   getCourseDetails(id) {
+    let authToken = localStorage.getItem("authToken")
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    })
     let params = new HttpParams();
     params = params.append('CourseId', id);
-    return this.http.get(`${this.apiBaseURL}/GetCourseDetails`, { params: params })
+    return this.http.get(`${this.apiBaseURL}/GetCourseDetails`, { params: params, headers: reqHeader })
   }
 
   getCourseVideos(id) {

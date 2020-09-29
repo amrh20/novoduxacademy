@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 .empty_whishlist {
-    min-height: 100vh;
+    min-height: calc(100vh - 200px);
     position: relative;
     .content {
         position: absolute;
