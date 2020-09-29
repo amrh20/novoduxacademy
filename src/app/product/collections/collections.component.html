@@ -17,18 +17,30 @@
                                 <ul class="filter_box-title">
                                     <li *ngFor="let taxon of listOfCategory; let i= index">
                                         <div class="taxons-title" (click)="hideme[i] = !hideme[i]">
-                                            <a>
+                                            <a (click)="Up()">
                                                 <ng-container *ngIf="checkLang== 'en'">{{taxon.Name}}</ng-container>
                                                 <ng-container *ngIf="checkLang== 'ar'">{{taxon.NameLT}}</ng-container>
                                             </a>
+                                            <!-- <ng-container *ngIf="taxon?.SubCategories?.length && up; else test">
+                                               
+                                            </ng-container> -->
                                             <i class="fa fa-chevron-down" 
                                             *ngIf="taxon?.SubCategories?.length"></i>
+                                            <!-- <ng-template #test>
+                                                <i class="fa fa-chevron-up" 
+                                                ></i>
+                                            </ng-template> -->
+                                            <!-- <i class="fa fa-chevron-up" 
+                                            ></i> -->
                                         </div>
                                             <ul class="subtaxon" [hidden]="!hideme[i]">
                                                 <li *ngFor="let subtaxon of taxon?.SubCategories" class="subtaxon-title">
-                                                    <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
+                                                    <a routerLink="/product/subcourses/{{subtaxon.Id}}">
+                                                        <input type="radio" name="sub" id="sub">
+                                                       <label for="sub">
                                                         <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
                                                         <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+                                                       </label>
                                                     </a>
                                                 </li>
                                             </ul>                    

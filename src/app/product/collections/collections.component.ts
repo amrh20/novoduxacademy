@@ -16,6 +16,7 @@ export class CollectionsComponent implements OnInit {
   listOfCategory
   checkLang
   hideme= []
+  up:boolean =true
   constructor(private productService:ProductService,private homeService : HomeService) { }
   ngOnInit(): void {
    this.loading= true
@@ -38,5 +39,9 @@ export class CollectionsComponent implements OnInit {
   widget() {
     this.widget4= !this.widget4
     this.widget3= !this.widget3
+  }
+
+  Up() {
+    this.up =! this.up
   }
 }

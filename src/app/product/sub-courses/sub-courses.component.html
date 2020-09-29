@@ -24,9 +24,12 @@
                                             <ul class="subtaxon" [hidden]="!hideme[i]">
                                                 <li *ngFor="let subtaxon of taxon?.SubCategories" 
                                                     class="subtaxon-title">
-                                                    <a routerLink="/product/subcourses/{{subtaxon.Id}}">-
+                                                    <a routerLink="/product/subcourses/{{subtaxon.Id}}">
+                                                        <input type="radio" name="sub" id="sub">
+                                                       <label for="sub">
                                                         <ng-container *ngIf="checkLang== 'en'">{{subtaxon.Name}}</ng-container>
                                                         <ng-container *ngIf="checkLang== 'ar'">{{subtaxon.NameLT}}</ng-container>
+                                                       </label>
                                                     </a>
                                                 </li>
                                             </ul>
