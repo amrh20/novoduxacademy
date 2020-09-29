@@ -20,8 +20,14 @@
             <div class="course-content" *ngFor="let search of seachRes">
                 <a routerLink="/product/course/{{search.Id}}" style="display: flex;color: inherit;">
                  <div>
-                   
-                     <img [src]="imagePath + search.Image" alt="">
+                     <ng-container *ngIf="search.Image != null; else noImg">
+                        <img [src]="imagePath + search.Image" alt="">
+
+                     </ng-container>
+                     <ng-template #noImg>
+                        <img src="../../../assets/images/defaultimg.png" alt="">
+                     </ng-template>
+
                   
                  </div>
                  <div class="course-details">

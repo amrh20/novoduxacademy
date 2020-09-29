@@ -1,7 +1,12 @@
     <div class="cart">
         <a routerLink="/product/course/{{course.Id}}">
         <div class="cart_img">
+         <ng-container *ngIf="course?.Image != null">
           <img [src]="imagePath + course.Image" alt="">
+         </ng-container>
+         <ng-container *ngIf="course?.Image == null">
+          tetet
+         </ng-container>
         </div>
         <div class="cart_deatils">
           <div class="product_rating">

@@ -48,6 +48,7 @@ export class SearchComponent implements OnInit {
     this.homeService.search(Word).subscribe((res: any) => {
       this.seachRes= res.model
       this.loading= false
+      console.log(this.seachRes)
      
     }, err => {
       this.loading= false

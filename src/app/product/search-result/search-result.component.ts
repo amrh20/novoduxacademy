@@ -18,6 +18,7 @@ export class SearchResultComponent implements OnInit {
    this.productService.getSubTaxonsCourses(SubCategoryId).subscribe((res: any) => {
     this.courses= res.model
     this.loading= false
+    console.log(this.courses)
    })
   }
  
