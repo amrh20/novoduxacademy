@@ -32,9 +32,8 @@
             }
             i {
                 font-size: 14px;
-                -webkit-transition: all 0.3s ease-in-out;
-                -o-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out;
+                color: #fff;
             }
             .rotate {
                 -webkit-transform: rotate(180deg);
@@ -139,10 +138,11 @@
         }
     }
     .filter {
-        padding: 20px 15px;
+     
         border: 1px solid #ddd;
         background-color: #fff;
         margin-bottom: 70px;
+        margin-top: 20px;
         @media (max-width: 992px) {
             border: 0;
         }
@@ -185,8 +185,13 @@
             margin-top: 15px;
             margin-bottom: 0px;
             li {
-                padding-bottom: 15px;
-                // border-bottom: 1px solid gray;
+                padding: 10px 20px;
+                background: $main-color;
+                color: #fff;
+                margin-bottom: 20px;
+                a {
+                    color: #fff;
+                }
             }
         }
       
