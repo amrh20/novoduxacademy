@@ -190,16 +190,24 @@
             margin-top: 15px;
             margin-bottom: 0px;
             li {
-                padding: 10px 20px;
-                background: $main-color;
-                color: #fff;
-                margin-bottom: 20px;
+           
+                margin-bottom: 5px;
                 a {
                     color: #fff;
                 }
             }
+            .taxons-title {
+                padding: 10px 20px;
+                background: $main-color;
+                color: #fff;
+            }
         }
       
+    }
+    .subtaxon-title {
+       a {
+        color: $main-color !important;
+       } 
     }
     .close{
         position: absolute;
